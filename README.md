@@ -1,15 +1,15 @@
-# ProteinArena website
+# ProteinArena
 
-A single self-contained `index.html` combines the recorded BCMA arena with the experimental verification benchmark. No backend, external assets, or computation service is required to view it. The active tab alone is decompressed and mounted to limit memory use.
+A single-file website combining the recorded BCMA design arena and the experimental verification benchmark.
 
-This fixed release includes 4 of 6 completed arena rounds, 135 verified prediction samples and 24 pending samples. Further simulation and validation continue separately. Pending results are not inferred or promoted to verified results. Arena designs have not been experimentally validated.
+This fixed release includes all 6 completed arena rounds and 315 verified prediction samples, with no predictions pending. All six decisions passed the independent campaign audit. Arena designs have not been experimentally validated.
 
-The benchmark retains its experimental binding labels, assays, measurements, units, score calculations, source citations, structures and provenance hashes. ProteinBase data are attributed to ProteinBase and the original contributors; source studies are linked in the dashboard. Bundled 3Dmol and third-party license notices are included under About & credits.
+The benchmark shows EGFR, HER2, ProteinBase EGFR and ProteinBase TREM2. C5, CD22 and FGFR1 are temporarily hidden, with their records retained. Scientific measurements and calculations are unchanged.
 
-Personal machine paths and signed profile-image URLs have been removed from the public export. Only the site and its release receipt belong on this branch. The private source branch and simulation campaign are separate.
+All heatmaps use light-to-green colors, with darker shades indicating higher confidence or more favorable values. Actual values is the default: ipSAE/ipTM have a fixed 0–1 scale, while lower interface energies and KD/EC50 values are darker. Relative ranks use the same palette with rank 1 darkest. Agreement also uses green with 1 darkest; its labels distinguish agreement from structural confidence. The row summary matches the selected Concordance/AUROC benchmark metric; Spearman remains in Ranks.
 
-`release.json` records the exact embedded payload hashes and checkpoint. Later releases should use a newly validated immutable arena snapshot, preserve the verified benchmark payload, rebuild this file and repeat browser/data-integrity checks before publication.
+The arena preserves distinct bright antigen (#ff4d4d) and binder (#00e5ff) mutation highlights, aligned complexes, camera controls and all per-model scores.
 
-Current presentation: antigen mutation sites use saturated coral (`#ff4d4d`) and minibinder mutation sites use electric cyan (`#00e5ff`), with explicit legends. The benchmark displays EGFR, HER2, ProteinBase EGFR and ProteinBase TREM2. C5, CD22 and ProteinBase FGFR1 are hidden; their source records and computed scores remain preserved. Overall scores summarize visible datasets only.
+`release.json` records the embedded payload hashes and checkpoint. Future releases should use a newly validated immutable arena snapshot, preserve the benchmark data, and pass browser and data-integrity checks before publication.
 
-Heatmap scale conventions: Actual values is the default. ipSAE and ipTM use a fixed 0–1 white-to-dark-green scale (higher confidence is darker). Energy and experimental-affinity rows state their favorable direction explicitly. Relative ranks use blue; agreement with experiment uses purple. The benchmark overview and raw-view agreement summary retain the same Concordance/AUROC values. Spearman remains in Ranks. No measurements, raw predictions or scientific evaluation calculations change.
+Experimental data retain their source citations, including ProteinBase and the original study authors. Molecular viewer licenses are included in the website’s About & credits panel. Only the static public site is published; computation sources and private run paths are excluded.
