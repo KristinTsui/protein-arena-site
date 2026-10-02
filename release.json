@@ -1,5 +1,5 @@
 {
-  "release": "mutation-contrast-20261002",
+  "release": "confidence-scales-20261002",
   "arena_checkpoint": {
     "rounds_complete": 4,
     "rounds_configured": 6,
@@ -24,15 +24,15 @@
       "gzip_bytes": 8973851
     },
     "benchmark": {
-      "sha256": "fce764ea385670306289c828ad732a0fa7d16d259ed384e403d66f64315be059",
-      "bytes": 79564272,
-      "gzip_bytes": 14122759
+      "sha256": "ab33da77f35f6aded1d9318b20aaaf186b7dd289df0a795bc428c11ec7745493",
+      "bytes": 79568953,
+      "gzip_bytes": 14123682
     }
   },
   "arena_handoff_manifest_sha256": "4319d3cb1732a65c7e1644ad1e081eb02e6e0f81b032120f35c9bcf1c51df0b7",
   "site": {
-    "sha256": "fb3b8a798dd3afa2ff2d9ce47073b308e8551539f5ae47cfd9781fda1fa6981b",
-    "bytes": 30809552,
+    "sha256": "4bc79038e0b763421b0701879b32aab4f3cb94cc501c2cc5b56838d2aa8a0894",
+    "bytes": 30810777,
     "entrypoint": "index.html"
   }
 }
