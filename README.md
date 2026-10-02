@@ -13,3 +13,5 @@ The arena preserves distinct bright antigen (#ff4d4d) and binder (#00e5ff) mutat
 `release.json` records the embedded payload hashes and checkpoint. Future releases should use a newly validated immutable arena snapshot, preserve the benchmark data, and pass browser and data-integrity checks before publication.
 
 Experimental data retain their source citations, including ProteinBase and the original study authors. Molecular viewer licenses are included in the website’s About & credits panel. Only the static public site is published; computation sources and private run paths are excluded.
+
+The arena includes plain-language amino-acid changes beneath each protein name. BCMA uses native residue numbers; binder variants list all changes from original B5, including inherited substitutions.

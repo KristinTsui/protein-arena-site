@@ -1,5 +1,5 @@
 {
-  "release": "green-six-rounds-20261002",
+  "release": "residue-descriptions-20261002",
   "arena_checkpoint": {
     "rounds_complete": 6,
     "rounds_configured": 6,
@@ -19,9 +19,9 @@
   ],
   "payloads": {
     "arena": {
-      "sha256": "8487704679ee39f41a3a6072940763cd5431179c221b0d3b1c01567df8a70318",
-      "bytes": 91540977,
-      "gzip_bytes": 20387524
+      "sha256": "96c9efd09f01889d26e792a426199dd61cf2d91d03f410f53c4533da1e83b876",
+      "bytes": 91542904,
+      "gzip_bytes": 20388086
     },
     "benchmark": {
       "sha256": "bf8be29f57d37ceebfff82f89213708c7e36248e176b3a3ab7153e6ba9b43567",
@@ -31,8 +31,24 @@
   },
   "arena_handoff_manifest_sha256": "81d36cf4957985bbae40e071df9cd8b724c5c5f170388ff79f4f31497b5ae798",
   "site": {
-    "sha256": "98badffe4bbe3bfe2737252d2dd1be8b0966e0fa025534b7b2d0cb1e1a9fa183",
-    "bytes": 46028924,
+    "sha256": "7543e7c6533644ae2247c428a3feac51eec8cef9ac175135495f72a896965d80",
+    "bytes": 46029680,
     "entrypoint": "index.html"
+  },
+  "presentation_update": {
+    "description": "Plain-language amino-acid substitutions beneath antigen and binder names",
+    "scientific_checkpoint_unchanged": true,
+    "scientific_payload_sha256": "4433a01c36d932d186ac47a62756664e7bbced5c5992e17f8b527216c7c553f0",
+    "base_public_arena_sha256": "8487704679ee39f41a3a6072940763cd5431179c221b0d3b1c01567df8a70318",
+    "updated_public_arena_sha256": "96c9efd09f01889d26e792a426199dd61cf2d91d03f410f53c4533da1e83b876",
+    "source_asset_sha256": {
+      "review.js": "d31e09b8b355d7bd617b66a7d736b081dab9b52ba358e611fa93b37c4d91f5a7",
+      "review.css": "354b039db321c6507872bfd5f21ae9b1c00d351b37c63c5a56289adb4b4d85c5",
+      "index.template.html": "5be9c7a7c0906098a22feb2b08b226f683a26ea7276803e6d7d764c9dfd255e1",
+      "REVIEW_CONTRACT.md": "4610416f57202f5fbffbe881b6606db5fcb40fa46bc74ae276cb7f34ae58c57e"
+    },
+    "validated_all_antigens": 21,
+    "validated_all_binders": 13,
+    "responsive_browser_checks_passed": true
   }
 }
