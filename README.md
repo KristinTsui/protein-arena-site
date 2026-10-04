@@ -15,3 +15,5 @@ The arena preserves distinct bright antigen (#ff4d4d) and binder (#00e5ff) mutat
 Experimental data retain their source citations, including ProteinBase and the original study authors. Molecular viewer licenses are included in the website’s About & credits panel. Only the static public site is published; computation sources and private run paths are excluded.
 
 The arena includes plain-language amino-acid changes beneath each protein name. BCMA uses native residue numbers; binder variants list all changes from original B5, including inherited substitutions.
+
+The arena score bar now shows three-seed medians and predicted energy contrasts against original WT BCMA–B5, B5 on the same antigen, and WT BCMA with the same binder. Expanded details retain sample SD, means, ranges and individual scores. Variant preference is model-based, not measured specificity. Historical structures are labeled BCMA8–43 fragment plus full59-residue B5; full-domain predictions are a separate planned dataset.
