@@ -1,0 +1,3622 @@
+{
+  "purpose": "Exploratory extension using recovered scores; not an exact AF2/BindCraft reproduction or deployed arena evaluator",
+  "threshold": null,
+  "fits": [
+    {
+      "model_id": "raw_0",
+      "train_n": 238,
+      "train_binders": 21,
+      "train_prevalence": 0.08823529411764706,
+      "features": [
+        "esmfold2_ipsae_antigen_fab_grouped"
+      ],
+      "direction": 1,
+      "evaluation_id": "within_egfr",
+      "fold": 1
+    },
+    {
+      "model_id": "raw_1",
+      "train_n": 238,
+      "train_binders": 21,
+      "train_prevalence": 0.08823529411764706,
+      "features": [
+        "esmfold2_iptm_global"
+      ],
+      "direction": 1,
+      "evaluation_id": "within_egfr",
+      "fold": 1
+    },
+    {
+      "model_id": "raw_2",
+      "train_n": 238,
+      "train_binders": 21,
+      "train_prevalence": 0.08823529411764706,
+      "features": [
+        "foldx_interface_energy"
+      ],
+      "direction": -1,
+      "evaluation_id": "within_egfr",
+      "fold": 1
+    },
+    {
+      "model_id": "raw_3",
+      "train_n": 238,
+      "train_binders": 21,
+      "train_prevalence": 0.08823529411764706,
+      "features": [
+        "rosetta_esmfold2_interface_energy"
+      ],
+      "direction": -1,
+      "evaluation_id": "within_egfr",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_0",
+      "train_n": 238,
+      "train_binders": 21,
+      "train_prevalence": 0.08823529411764706,
+      "features": [
+        "esmfold2_ipsae_antigen_fab_grouped"
+      ],
+      "mean": [
+        0.22584588685022547
+      ],
+      "scale": [
+        0.2965700918545825
+      ],
+      "coefficients_standardized": [
+        0.5575731065768825
+      ],
+      "intercept": -2.4705327088174327,
+      "iterations": 9,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_egfr",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_1",
+      "train_n": 238,
+      "train_binders": 21,
+      "train_prevalence": 0.08823529411764706,
+      "features": [
+        "esmfold2_iptm_global"
+      ],
+      "mean": [
+        0.4930028122763674
+      ],
+      "scale": [
+        0.28923094335843735
+      ],
+      "coefficients_standardized": [
+        0.4924137638353687
+      ],
+      "intercept": -2.4363223706193518,
+      "iterations": 9,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_egfr",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_2",
+      "train_n": 238,
+      "train_binders": 21,
+      "train_prevalence": 0.08823529411764706,
+      "features": [
+        "foldx_interface_energy"
+      ],
+      "mean": [
+        11.423733714285715
+      ],
+      "scale": [
+        20.044740693939644
+      ],
+      "coefficients_standardized": [
+        -0.17510247295302445
+      ],
+      "intercept": -2.347560811191191,
+      "iterations": 9,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_egfr",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_3",
+      "train_n": 238,
+      "train_binders": 21,
+      "train_prevalence": 0.08823529411764706,
+      "features": [
+        "rosetta_esmfold2_interface_energy"
+      ],
+      "mean": [
+        349.8659741846689
+      ],
+      "scale": [
+        384.92116056024884
+      ],
+      "coefficients_standardized": [
+        -0.4379526064510101
+      ],
+      "intercept": -2.4031634274164437,
+      "iterations": 9,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_egfr",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_all",
+      "train_n": 238,
+      "train_binders": 21,
+      "train_prevalence": 0.08823529411764706,
+      "features": [
+        "esmfold2_ipsae_antigen_fab_grouped",
+        "esmfold2_iptm_global",
+        "foldx_interface_energy",
+        "rosetta_esmfold2_interface_energy"
+      ],
+      "mean": [
+        0.22584588685022547,
+        0.4930028122763674,
+        11.42373371428571,
+        349.86597418466897
+      ],
+      "scale": [
+        0.29657009185458266,
+        0.28923094335843735,
+        20.044740693939648,
+        384.9211605602489
+      ],
+      "coefficients_standardized": [
+        0.742472190340155,
+        0.16442962800950228,
+        1.1782224843489013,
+        -0.901675412201905
+      ],
+      "intercept": -2.556038303261041,
+      "iterations": 18,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_egfr",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_length",
+      "train_n": 238,
+      "train_binders": 21,
+      "train_prevalence": 0.08823529411764706,
+      "features": [
+        "binder_length"
+      ],
+      "mean": [
+        117.97478991596638
+      ],
+      "scale": [
+        68.64786068200793
+      ],
+      "coefficients_standardized": [
+        0.8206936453880158
+      ],
+      "intercept": -2.6239593643177566,
+      "iterations": 9,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_egfr",
+      "fold": 1
+    },
+    {
+      "model_id": "prior",
+      "train_n": 238,
+      "train_binders": 21,
+      "train_prevalence": 0.08823529411764706,
+      "features": [],
+      "constant_probability": 0.08823529411764706,
+      "evaluation_id": "within_egfr",
+      "fold": 1
+    },
+    {
+      "model_id": "raw_0",
+      "train_n": 262,
+      "train_binders": 46,
+      "train_prevalence": 0.17557251908396945,
+      "features": [
+        "esmfold2_ipsae_antigen_fab_grouped"
+      ],
+      "direction": 1,
+      "evaluation_id": "within_egfr",
+      "fold": 2
+    },
+    {
+      "model_id": "raw_1",
+      "train_n": 262,
+      "train_binders": 46,
+      "train_prevalence": 0.17557251908396945,
+      "features": [
+        "esmfold2_iptm_global"
+      ],
+      "direction": 1,
+      "evaluation_id": "within_egfr",
+      "fold": 2
+    },
+    {
+      "model_id": "raw_2",
+      "train_n": 262,
+      "train_binders": 46,
+      "train_prevalence": 0.17557251908396945,
+      "features": [
+        "foldx_interface_energy"
+      ],
+      "direction": -1,
+      "evaluation_id": "within_egfr",
+      "fold": 2
+    },
+    {
+      "model_id": "raw_3",
+      "train_n": 262,
+      "train_binders": 46,
+      "train_prevalence": 0.17557251908396945,
+      "features": [
+        "rosetta_esmfold2_interface_energy"
+      ],
+      "direction": -1,
+      "evaluation_id": "within_egfr",
+      "fold": 2
+    },
+    {
+      "model_id": "lr_0",
+      "train_n": 262,
+      "train_binders": 46,
+      "train_prevalence": 0.17557251908396945,
+      "features": [
+        "esmfold2_ipsae_antigen_fab_grouped"
+      ],
+      "mean": [
+        0.4264299479964808
+      ],
+      "scale": [
+        0.33633908205293067
+      ],
+      "coefficients_standardized": [
+        0.5146251896025305
+      ],
+      "intercept": -1.6305065049001495,
+      "iterations": 9,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_egfr",
+      "fold": 2
+    },
+    {
+      "model_id": "lr_1",
+      "train_n": 262,
+      "train_binders": 46,
+      "train_prevalence": 0.17557251908396945,
+      "features": [
+        "esmfold2_iptm_global"
+      ],
+      "mean": [
+        0.652630811798891
+      ],
+      "scale": [
+        0.3008017747813653
+      ],
+      "coefficients_standardized": [
+        0.29089955549307284
+      ],
+      "intercept": -1.5736165070930261,
+      "iterations": 8,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_egfr",
+      "fold": 2
+    },
+    {
+      "model_id": "lr_2",
+      "train_n": 262,
+      "train_binders": 46,
+      "train_prevalence": 0.17557251908396945,
+      "features": [
+        "foldx_interface_energy"
+      ],
+      "mean": [
+        1.2840156904580153
+      ],
+      "scale": [
+        21.538160095977343
+      ],
+      "coefficients_standardized": [
+        -0.3652765315801434
+      ],
+      "intercept": -1.5876524759214272,
+      "iterations": 8,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_egfr",
+      "fold": 2
+    },
+    {
+      "model_id": "lr_3",
+      "train_n": 262,
+      "train_binders": 46,
+      "train_prevalence": 0.17557251908396945,
+      "features": [
+        "rosetta_esmfold2_interface_energy"
+      ],
+      "mean": [
+        213.13995209789027
+      ],
+      "scale": [
+        364.2029680487149
+      ],
+      "coefficients_standardized": [
+        -0.3200585517279554
+      ],
+      "intercept": -1.5773816400383698,
+      "iterations": 8,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_egfr",
+      "fold": 2
+    },
+    {
+      "model_id": "lr_all",
+      "train_n": 262,
+      "train_binders": 46,
+      "train_prevalence": 0.17557251908396945,
+      "features": [
+        "esmfold2_ipsae_antigen_fab_grouped",
+        "esmfold2_iptm_global",
+        "foldx_interface_energy",
+        "rosetta_esmfold2_interface_energy"
+      ],
+      "mean": [
+        0.42642994799648076,
+        0.652630811798891,
+        1.2840156904580156,
+        213.13995209789036
+      ],
+      "scale": [
+        0.3363390820529309,
+        0.3008017747813653,
+        21.538160095977343,
+        364.2029680487149
+      ],
+      "coefficients_standardized": [
+        1.477756694034248,
+        -1.1328873920417575,
+        0.006012826297447221,
+        -0.13271484129956404
+      ],
+      "intercept": -1.664064049805928,
+      "iterations": 21,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_egfr",
+      "fold": 2
+    },
+    {
+      "model_id": "lr_length",
+      "train_n": 262,
+      "train_binders": 46,
+      "train_prevalence": 0.17557251908396945,
+      "features": [
+        "binder_length"
+      ],
+      "mean": [
+        101.08015267175573
+      ],
+      "scale": [
+        67.10534377630047
+      ],
+      "coefficients_standardized": [
+        0.4463254907874031
+      ],
+      "intercept": -1.6114349953252076,
+      "iterations": 7,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_egfr",
+      "fold": 2
+    },
+    {
+      "model_id": "prior",
+      "train_n": 262,
+      "train_binders": 46,
+      "train_prevalence": 0.17557251908396945,
+      "features": [],
+      "constant_probability": 0.17557251908396945,
+      "evaluation_id": "within_egfr",
+      "fold": 2
+    },
+    {
+      "model_id": "raw_0",
+      "train_n": 256,
+      "train_binders": 39,
+      "train_prevalence": 0.15234375,
+      "features": [
+        "esmfold2_ipsae_antigen_fab_grouped"
+      ],
+      "direction": 1,
+      "evaluation_id": "within_egfr",
+      "fold": 3
+    },
+    {
+      "model_id": "raw_1",
+      "train_n": 256,
+      "train_binders": 39,
+      "train_prevalence": 0.15234375,
+      "features": [
+        "esmfold2_iptm_global"
+      ],
+      "direction": 1,
+      "evaluation_id": "within_egfr",
+      "fold": 3
+    },
+    {
+      "model_id": "raw_2",
+      "train_n": 256,
+      "train_binders": 39,
+      "train_prevalence": 0.15234375,
+      "features": [
+        "foldx_interface_energy"
+      ],
+      "direction": -1,
+      "evaluation_id": "within_egfr",
+      "fold": 3
+    },
+    {
+      "model_id": "raw_3",
+      "train_n": 256,
+      "train_binders": 39,
+      "train_prevalence": 0.15234375,
+      "features": [
+        "rosetta_esmfold2_interface_energy"
+      ],
+      "direction": -1,
+      "evaluation_id": "within_egfr",
+      "fold": 3
+    },
+    {
+      "model_id": "lr_0",
+      "train_n": 256,
+      "train_binders": 39,
+      "train_prevalence": 0.15234375,
+      "features": [
+        "esmfold2_ipsae_antigen_fab_grouped"
+      ],
+      "mean": [
+        0.46216645482380697
+      ],
+      "scale": [
+        0.31887885724845816
+      ],
+      "coefficients_standardized": [
+        1.1169854996120059
+      ],
+      "intercept": -2.088297490644264,
+      "iterations": 9,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_egfr",
+      "fold": 3
+    },
+    {
+      "model_id": "lr_1",
+      "train_n": 256,
+      "train_binders": 39,
+      "train_prevalence": 0.15234375,
+      "features": [
+        "esmfold2_iptm_global"
+      ],
+      "mean": [
+        0.6907128567981999
+      ],
+      "scale": [
+        0.2726580804524463
+      ],
+      "coefficients_standardized": [
+        0.7910272092595609
+      ],
+      "intercept": -1.9092269371727038,
+      "iterations": 9,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_egfr",
+      "fold": 3
+    },
+    {
+      "model_id": "lr_2",
+      "train_n": 256,
+      "train_binders": 39,
+      "train_prevalence": 0.15234375,
+      "features": [
+        "foldx_interface_energy"
+      ],
+      "mean": [
+        -1.374471926171875
+      ],
+      "scale": [
+        19.178567101653694
+      ],
+      "coefficients_standardized": [
+        -0.813959234043356
+      ],
+      "intercept": -1.9123383567407224,
+      "iterations": 9,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_egfr",
+      "fold": 3
+    },
+    {
+      "model_id": "lr_3",
+      "train_n": 256,
+      "train_binders": 39,
+      "train_prevalence": 0.15234375,
+      "features": [
+        "rosetta_esmfold2_interface_energy"
+      ],
+      "mean": [
+        200.68094763920237
+      ],
+      "scale": [
+        331.7792289026037
+      ],
+      "coefficients_standardized": [
+        -0.6352659287825172
+      ],
+      "intercept": -1.8316808532817341,
+      "iterations": 9,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_egfr",
+      "fold": 3
+    },
+    {
+      "model_id": "lr_all",
+      "train_n": 256,
+      "train_binders": 39,
+      "train_prevalence": 0.15234375,
+      "features": [
+        "esmfold2_ipsae_antigen_fab_grouped",
+        "esmfold2_iptm_global",
+        "foldx_interface_energy",
+        "rosetta_esmfold2_interface_energy"
+      ],
+      "mean": [
+        0.462166454823807,
+        0.6907128567981999,
+        -1.3744719261718743,
+        200.68094763920234
+      ],
+      "scale": [
+        0.31887885724845827,
+        0.27265808045244627,
+        19.17856710165369,
+        331.77922890260373
+      ],
+      "coefficients_standardized": [
+        1.3029768394386487,
+        -0.32924636474635455,
+        -0.15570500578874003,
+        0.09045426857481607
+      ],
+      "intercept": -2.071635638828904,
+      "iterations": 16,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_egfr",
+      "fold": 3
+    },
+    {
+      "model_id": "lr_length",
+      "train_n": 256,
+      "train_binders": 39,
+      "train_prevalence": 0.15234375,
+      "features": [
+        "binder_length"
+      ],
+      "mean": [
+        89.64453125
+      ],
+      "scale": [
+        61.65778325335556
+      ],
+      "coefficients_standardized": [
+        0.09563065451313911
+      ],
+      "intercept": -1.7195523437597877,
+      "iterations": 8,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_egfr",
+      "fold": 3
+    },
+    {
+      "model_id": "prior",
+      "train_n": 256,
+      "train_binders": 39,
+      "train_prevalence": 0.15234375,
+      "features": [],
+      "constant_probability": 0.15234375,
+      "evaluation_id": "within_egfr",
+      "fold": 3
+    },
+    {
+      "model_id": "raw_0",
+      "train_n": 58,
+      "train_binders": 24,
+      "train_prevalence": 0.41379310344827586,
+      "features": [
+        "esmfold2_ipsae_antigen_fab_grouped"
+      ],
+      "direction": 1,
+      "evaluation_id": "within_trem2",
+      "fold": 1
+    },
+    {
+      "model_id": "raw_1",
+      "train_n": 58,
+      "train_binders": 24,
+      "train_prevalence": 0.41379310344827586,
+      "features": [
+        "esmfold2_iptm_global"
+      ],
+      "direction": 1,
+      "evaluation_id": "within_trem2",
+      "fold": 1
+    },
+    {
+      "model_id": "raw_2",
+      "train_n": 58,
+      "train_binders": 24,
+      "train_prevalence": 0.41379310344827586,
+      "features": [
+        "foldx_interface_energy"
+      ],
+      "direction": -1,
+      "evaluation_id": "within_trem2",
+      "fold": 1
+    },
+    {
+      "model_id": "raw_3",
+      "train_n": 58,
+      "train_binders": 24,
+      "train_prevalence": 0.41379310344827586,
+      "features": [
+        "rosetta_esmfold2_interface_energy"
+      ],
+      "direction": -1,
+      "evaluation_id": "within_trem2",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_0",
+      "train_n": 58,
+      "train_binders": 24,
+      "train_prevalence": 0.41379310344827586,
+      "features": [
+        "esmfold2_ipsae_antigen_fab_grouped"
+      ],
+      "mean": [
+        0.5364611878119862
+      ],
+      "scale": [
+        0.30818768869896046
+      ],
+      "coefficients_standardized": [
+        1.5813808836302308
+      ],
+      "intercept": -0.6876125548987331,
+      "iterations": 8,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_trem2",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_1",
+      "train_n": 58,
+      "train_binders": 24,
+      "train_prevalence": 0.41379310344827586,
+      "features": [
+        "esmfold2_iptm_global"
+      ],
+      "mean": [
+        0.7129350727231338
+      ],
+      "scale": [
+        0.27700275599837004
+      ],
+      "coefficients_standardized": [
+        1.302983050238049
+      ],
+      "intercept": -0.6032797228649631,
+      "iterations": 8,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_trem2",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_2",
+      "train_n": 58,
+      "train_binders": 24,
+      "train_prevalence": 0.41379310344827586,
+      "features": [
+        "foldx_interface_energy"
+      ],
+      "mean": [
+        -10.817260482758622
+      ],
+      "scale": [
+        13.925276113863557
+      ],
+      "coefficients_standardized": [
+        -0.40892172890510187
+      ],
+      "intercept": -0.36874221314327854,
+      "iterations": 7,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_trem2",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_3",
+      "train_n": 58,
+      "train_binders": 24,
+      "train_prevalence": 0.41379310344827586,
+      "features": [
+        "rosetta_esmfold2_interface_energy"
+      ],
+      "mean": [
+        104.46841411481593
+      ],
+      "scale": [
+        207.7127428644122
+      ],
+      "coefficients_standardized": [
+        -0.22362364892102657
+      ],
+      "intercept": -0.3538575813268334,
+      "iterations": 4,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_trem2",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_all",
+      "train_n": 58,
+      "train_binders": 24,
+      "train_prevalence": 0.41379310344827586,
+      "features": [
+        "esmfold2_ipsae_antigen_fab_grouped",
+        "esmfold2_iptm_global",
+        "foldx_interface_energy",
+        "rosetta_esmfold2_interface_energy"
+      ],
+      "mean": [
+        0.536461187811986,
+        0.7129350727231338,
+        -10.81726048275862,
+        104.4684141148159
+      ],
+      "scale": [
+        0.30818768869896046,
+        0.2770027559983701,
+        13.925276113863557,
+        207.71274286441218
+      ],
+      "coefficients_standardized": [
+        1.9083771403842311,
+        0.39305177168833544,
+        0.6231464373338863,
+        0.44044549985304016
+      ],
+      "intercept": -0.6919450081658881,
+      "iterations": 16,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_trem2",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_length",
+      "train_n": 58,
+      "train_binders": 24,
+      "train_prevalence": 0.41379310344827586,
+      "features": [
+        "binder_length"
+      ],
+      "mean": [
+        88.6896551724138
+      ],
+      "scale": [
+        29.487114015863646
+      ],
+      "coefficients_standardized": [
+        0.5181341024651714
+      ],
+      "intercept": -0.3486920188732997,
+      "iterations": 6,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_trem2",
+      "fold": 1
+    },
+    {
+      "model_id": "prior",
+      "train_n": 58,
+      "train_binders": 24,
+      "train_prevalence": 0.41379310344827586,
+      "features": [],
+      "constant_probability": 0.41379310344827586,
+      "evaluation_id": "within_trem2",
+      "fold": 1
+    },
+    {
+      "model_id": "raw_0",
+      "train_n": 60,
+      "train_binders": 25,
+      "train_prevalence": 0.4166666666666667,
+      "features": [
+        "esmfold2_ipsae_antigen_fab_grouped"
+      ],
+      "direction": 1,
+      "evaluation_id": "within_trem2",
+      "fold": 2
+    },
+    {
+      "model_id": "raw_1",
+      "train_n": 60,
+      "train_binders": 25,
+      "train_prevalence": 0.4166666666666667,
+      "features": [
+        "esmfold2_iptm_global"
+      ],
+      "direction": 1,
+      "evaluation_id": "within_trem2",
+      "fold": 2
+    },
+    {
+      "model_id": "raw_2",
+      "train_n": 60,
+      "train_binders": 25,
+      "train_prevalence": 0.4166666666666667,
+      "features": [
+        "foldx_interface_energy"
+      ],
+      "direction": -1,
+      "evaluation_id": "within_trem2",
+      "fold": 2
+    },
+    {
+      "model_id": "raw_3",
+      "train_n": 60,
+      "train_binders": 25,
+      "train_prevalence": 0.4166666666666667,
+      "features": [
+        "rosetta_esmfold2_interface_energy"
+      ],
+      "direction": -1,
+      "evaluation_id": "within_trem2",
+      "fold": 2
+    },
+    {
+      "model_id": "lr_0",
+      "train_n": 60,
+      "train_binders": 25,
+      "train_prevalence": 0.4166666666666667,
+      "features": [
+        "esmfold2_ipsae_antigen_fab_grouped"
+      ],
+      "mean": [
+        0.6208051412323036
+      ],
+      "scale": [
+        0.2651650840565258
+      ],
+      "coefficients_standardized": [
+        1.204039780818444
+      ],
+      "intercept": -0.5438874501525085,
+      "iterations": 7,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_trem2",
+      "fold": 2
+    },
+    {
+      "model_id": "lr_1",
+      "train_n": 60,
+      "train_binders": 25,
+      "train_prevalence": 0.4166666666666667,
+      "features": [
+        "esmfold2_iptm_global"
+      ],
+      "mean": [
+        0.7847178296496471
+      ],
+      "scale": [
+        0.22340699736612776
+      ],
+      "coefficients_standardized": [
+        1.1640270149512821
+      ],
+      "intercept": -0.5389789945592188,
+      "iterations": 7,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_trem2",
+      "fold": 2
+    },
+    {
+      "model_id": "lr_2",
+      "train_n": 60,
+      "train_binders": 25,
+      "train_prevalence": 0.4166666666666667,
+      "features": [
+        "foldx_interface_energy"
+      ],
+      "mean": [
+        -14.981159950000002
+      ],
+      "scale": [
+        8.93094955490362
+      ],
+      "coefficients_standardized": [
+        -0.3079744584044241
+      ],
+      "intercept": -0.34620718243957543,
+      "iterations": 5,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_trem2",
+      "fold": 2
+    },
+    {
+      "model_id": "lr_3",
+      "train_n": 60,
+      "train_binders": 25,
+      "train_prevalence": 0.4166666666666667,
+      "features": [
+        "rosetta_esmfold2_interface_energy"
+      ],
+      "mean": [
+        44.61190881647278
+      ],
+      "scale": [
+        136.1846445925873
+      ],
+      "coefficients_standardized": [
+        -0.11768468453836886
+      ],
+      "intercept": -0.33782046052960607,
+      "iterations": 5,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_trem2",
+      "fold": 2
+    },
+    {
+      "model_id": "lr_all",
+      "train_n": 60,
+      "train_binders": 25,
+      "train_prevalence": 0.4166666666666667,
+      "features": [
+        "esmfold2_ipsae_antigen_fab_grouped",
+        "esmfold2_iptm_global",
+        "foldx_interface_energy",
+        "rosetta_esmfold2_interface_energy"
+      ],
+      "mean": [
+        0.6208051412323035,
+        0.7847178296496471,
+        -14.981159950000002,
+        44.6119088164728
+      ],
+      "scale": [
+        0.2651650840565258,
+        0.22340699736612776,
+        8.93094955490362,
+        136.18464459258726
+      ],
+      "coefficients_standardized": [
+        1.4000590772428323,
+        0.4454939317490397,
+        0.48473776050303613,
+        0.25188485763553964
+      ],
+      "intercept": -0.6005082827156523,
+      "iterations": 15,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_trem2",
+      "fold": 2
+    },
+    {
+      "model_id": "lr_length",
+      "train_n": 60,
+      "train_binders": 25,
+      "train_prevalence": 0.4166666666666667,
+      "features": [
+        "binder_length"
+      ],
+      "mean": [
+        87.45
+      ],
+      "scale": [
+        15.694399213307488
+      ],
+      "coefficients_standardized": [
+        0.007152800244867703
+      ],
+      "intercept": -0.33647648117179996,
+      "iterations": 5,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_trem2",
+      "fold": 2
+    },
+    {
+      "model_id": "prior",
+      "train_n": 60,
+      "train_binders": 25,
+      "train_prevalence": 0.4166666666666667,
+      "features": [],
+      "constant_probability": 0.4166666666666667,
+      "evaluation_id": "within_trem2",
+      "fold": 2
+    },
+    {
+      "model_id": "raw_0",
+      "train_n": 60,
+      "train_binders": 25,
+      "train_prevalence": 0.4166666666666667,
+      "features": [
+        "esmfold2_ipsae_antigen_fab_grouped"
+      ],
+      "direction": 1,
+      "evaluation_id": "within_trem2",
+      "fold": 3
+    },
+    {
+      "model_id": "raw_1",
+      "train_n": 60,
+      "train_binders": 25,
+      "train_prevalence": 0.4166666666666667,
+      "features": [
+        "esmfold2_iptm_global"
+      ],
+      "direction": 1,
+      "evaluation_id": "within_trem2",
+      "fold": 3
+    },
+    {
+      "model_id": "raw_2",
+      "train_n": 60,
+      "train_binders": 25,
+      "train_prevalence": 0.4166666666666667,
+      "features": [
+        "foldx_interface_energy"
+      ],
+      "direction": -1,
+      "evaluation_id": "within_trem2",
+      "fold": 3
+    },
+    {
+      "model_id": "raw_3",
+      "train_n": 60,
+      "train_binders": 25,
+      "train_prevalence": 0.4166666666666667,
+      "features": [
+        "rosetta_esmfold2_interface_energy"
+      ],
+      "direction": -1,
+      "evaluation_id": "within_trem2",
+      "fold": 3
+    },
+    {
+      "model_id": "lr_0",
+      "train_n": 60,
+      "train_binders": 25,
+      "train_prevalence": 0.4166666666666667,
+      "features": [
+        "esmfold2_ipsae_antigen_fab_grouped"
+      ],
+      "mean": [
+        0.525960719069772
+      ],
+      "scale": [
+        0.3218304472930049
+      ],
+      "coefficients_standardized": [
+        1.547177784704323
+      ],
+      "intercept": -0.6459516539929061,
+      "iterations": 8,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_trem2",
+      "fold": 3
+    },
+    {
+      "model_id": "lr_1",
+      "train_n": 60,
+      "train_binders": 25,
+      "train_prevalence": 0.4166666666666667,
+      "features": [
+        "esmfold2_iptm_global"
+      ],
+      "mean": [
+        0.7074566160639127
+      ],
+      "scale": [
+        0.2729878288596838
+      ],
+      "coefficients_standardized": [
+        1.404433256148587
+      ],
+      "intercept": -0.619481929542468,
+      "iterations": 8,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_trem2",
+      "fold": 3
+    },
+    {
+      "model_id": "lr_2",
+      "train_n": 60,
+      "train_binders": 25,
+      "train_prevalence": 0.4166666666666667,
+      "features": [
+        "foldx_interface_energy"
+      ],
+      "mean": [
+        -10.346260483333333
+      ],
+      "scale": [
+        14.10843855094479
+      ],
+      "coefficients_standardized": [
+        -0.5251165730475267
+      ],
+      "intercept": -0.3702793198510773,
+      "iterations": 7,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_trem2",
+      "fold": 3
+    },
+    {
+      "model_id": "lr_3",
+      "train_n": 60,
+      "train_binders": 25,
+      "train_prevalence": 0.4166666666666667,
+      "features": [
+        "rosetta_esmfold2_interface_energy"
+      ],
+      "mean": [
+        93.88898965867148
+      ],
+      "scale": [
+        196.647784582188
+      ],
+      "coefficients_standardized": [
+        -0.3612032484892564
+      ],
+      "intercept": -0.3525732157828625,
+      "iterations": 8,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_trem2",
+      "fold": 3
+    },
+    {
+      "model_id": "lr_all",
+      "train_n": 60,
+      "train_binders": 25,
+      "train_prevalence": 0.4166666666666667,
+      "features": [
+        "esmfold2_ipsae_antigen_fab_grouped",
+        "esmfold2_iptm_global",
+        "foldx_interface_energy",
+        "rosetta_esmfold2_interface_energy"
+      ],
+      "mean": [
+        0.5259607190697719,
+        0.7074566160639127,
+        -10.346260483333332,
+        93.88898965867143
+      ],
+      "scale": [
+        0.321830447293005,
+        0.27298782885968376,
+        14.108438550944792,
+        196.647784582188
+      ],
+      "coefficients_standardized": [
+        1.8556050949315726,
+        0.5795882722483915,
+        0.6018303916865371,
+        0.5180416865759501
+      ],
+      "intercept": -0.7146070343429511,
+      "iterations": 16,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_trem2",
+      "fold": 3
+    },
+    {
+      "model_id": "lr_length",
+      "train_n": 60,
+      "train_binders": 25,
+      "train_prevalence": 0.4166666666666667,
+      "features": [
+        "binder_length"
+      ],
+      "mean": [
+        89.68333333333334
+      ],
+      "scale": [
+        26.16581208795596
+      ],
+      "coefficients_standardized": [
+        0.4450946617582101
+      ],
+      "intercept": -0.3335275879440407,
+      "iterations": 6,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_trem2",
+      "fold": 3
+    },
+    {
+      "model_id": "prior",
+      "train_n": 60,
+      "train_binders": 25,
+      "train_prevalence": 0.4166666666666667,
+      "features": [],
+      "constant_probability": 0.4166666666666667,
+      "evaluation_id": "within_trem2",
+      "fold": 3
+    },
+    {
+      "model_id": "raw_0",
+      "train_n": 316,
+      "train_binders": 39,
+      "train_prevalence": 0.12341772151898735,
+      "features": [
+        "esmfold2_ipsae_antigen_fab_grouped"
+      ],
+      "direction": 1,
+      "evaluation_id": "egfr_to_trem2",
+      "fold": 1
+    },
+    {
+      "model_id": "raw_1",
+      "train_n": 316,
+      "train_binders": 39,
+      "train_prevalence": 0.12341772151898735,
+      "features": [
+        "esmfold2_iptm_global"
+      ],
+      "direction": 1,
+      "evaluation_id": "egfr_to_trem2",
+      "fold": 1
+    },
+    {
+      "model_id": "raw_2",
+      "train_n": 316,
+      "train_binders": 39,
+      "train_prevalence": 0.12341772151898735,
+      "features": [
+        "foldx_interface_energy"
+      ],
+      "direction": -1,
+      "evaluation_id": "egfr_to_trem2",
+      "fold": 1
+    },
+    {
+      "model_id": "raw_3",
+      "train_n": 316,
+      "train_binders": 39,
+      "train_prevalence": 0.12341772151898735,
+      "features": [
+        "rosetta_esmfold2_interface_energy"
+      ],
+      "direction": -1,
+      "evaluation_id": "egfr_to_trem2",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_0",
+      "train_n": 316,
+      "train_binders": 39,
+      "train_prevalence": 0.12341772151898735,
+      "features": [
+        "esmfold2_ipsae_antigen_fab_grouped"
+      ],
+      "mean": [
+        0.41584895704425867
+      ],
+      "scale": [
+        0.3285239079293661
+      ],
+      "coefficients_standardized": [
+        1.273535677992816
+      ],
+      "intercept": -2.478329223519118,
+      "iterations": 9,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "egfr_to_trem2",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_1",
+      "train_n": 316,
+      "train_binders": 39,
+      "train_prevalence": 0.12341772151898735,
+      "features": [
+        "esmfold2_iptm_global"
+      ],
+      "mean": [
+        0.6583984066508238
+      ],
+      "scale": [
+        0.28366271475087035
+      ],
+      "coefficients_standardized": [
+        0.929471403990926
+      ],
+      "intercept": -2.240849915173743,
+      "iterations": 10,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "egfr_to_trem2",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_2",
+      "train_n": 316,
+      "train_binders": 39,
+      "train_prevalence": 0.12341772151898735,
+      "features": [
+        "foldx_interface_energy"
+      ],
+      "mean": [
+        0.8775416705696203
+      ],
+      "scale": [
+        19.9542859478332
+      ],
+      "coefficients_standardized": [
+        -0.9735077730775178
+      ],
+      "intercept": -2.2508216423109126,
+      "iterations": 9,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "egfr_to_trem2",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_3",
+      "train_n": 316,
+      "train_binders": 39,
+      "train_prevalence": 0.12341772151898735,
+      "features": [
+        "rosetta_esmfold2_interface_energy"
+      ],
+      "mean": [
+        225.63116962618355
+      ],
+      "scale": [
+        344.60677686788534
+      ],
+      "coefficients_standardized": [
+        -0.7604573852312698
+      ],
+      "intercept": -2.12839694553088,
+      "iterations": 9,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "egfr_to_trem2",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_all",
+      "train_n": 316,
+      "train_binders": 39,
+      "train_prevalence": 0.12341772151898735,
+      "features": [
+        "esmfold2_ipsae_antigen_fab_grouped",
+        "esmfold2_iptm_global",
+        "foldx_interface_energy",
+        "rosetta_esmfold2_interface_energy"
+      ],
+      "mean": [
+        0.41584895704425884,
+        0.6583984066508238,
+        0.8775416705696223,
+        225.63116962618352
+      ],
+      "scale": [
+        0.32852390792936587,
+        0.2836627147508703,
+        19.954285947833196,
+        344.60677686788523
+      ],
+      "coefficients_standardized": [
+        1.489430227502756,
+        -0.39283794392076216,
+        -0.24156973974573448,
+        0.17739210089652704
+      ],
+      "intercept": -2.4525921099303427,
+      "iterations": 17,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "egfr_to_trem2",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_length",
+      "train_n": 316,
+      "train_binders": 39,
+      "train_prevalence": 0.12341772151898735,
+      "features": [
+        "binder_length"
+      ],
+      "mean": [
+        89.61075949367088
+      ],
+      "scale": [
+        60.38670539142505
+      ],
+      "coefficients_standardized": [
+        0.09483741825898791
+      ],
+      "intercept": -1.9639018065942557,
+      "iterations": 8,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "egfr_to_trem2",
+      "fold": 1
+    },
+    {
+      "model_id": "prior",
+      "train_n": 316,
+      "train_binders": 39,
+      "train_prevalence": 0.12341772151898735,
+      "features": [],
+      "constant_probability": 0.12341772151898735,
+      "evaluation_id": "egfr_to_trem2",
+      "fold": 1
+    },
+    {
+      "model_id": "raw_0",
+      "train_n": 85,
+      "train_binders": 36,
+      "train_prevalence": 0.4235294117647059,
+      "features": [
+        "esmfold2_ipsae_antigen_fab_grouped"
+      ],
+      "direction": 1,
+      "evaluation_id": "trem2_to_egfr",
+      "fold": 1
+    },
+    {
+      "model_id": "raw_1",
+      "train_n": 85,
+      "train_binders": 36,
+      "train_prevalence": 0.4235294117647059,
+      "features": [
+        "esmfold2_iptm_global"
+      ],
+      "direction": 1,
+      "evaluation_id": "trem2_to_egfr",
+      "fold": 1
+    },
+    {
+      "model_id": "raw_2",
+      "train_n": 85,
+      "train_binders": 36,
+      "train_prevalence": 0.4235294117647059,
+      "features": [
+        "foldx_interface_energy"
+      ],
+      "direction": -1,
+      "evaluation_id": "trem2_to_egfr",
+      "fold": 1
+    },
+    {
+      "model_id": "raw_3",
+      "train_n": 85,
+      "train_binders": 36,
+      "train_prevalence": 0.4235294117647059,
+      "features": [
+        "rosetta_esmfold2_interface_energy"
+      ],
+      "direction": -1,
+      "evaluation_id": "trem2_to_egfr",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_0",
+      "train_n": 85,
+      "train_binders": 36,
+      "train_prevalence": 0.4235294117647059,
+      "features": [
+        "esmfold2_ipsae_antigen_fab_grouped"
+      ],
+      "mean": [
+        0.5776171409211429
+      ],
+      "scale": [
+        0.28898153314585007
+      ],
+      "coefficients_standardized": [
+        1.4337851219440931
+      ],
+      "intercept": -0.5836156760955593,
+      "iterations": 8,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "trem2_to_egfr",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_1",
+      "train_n": 85,
+      "train_binders": 36,
+      "train_prevalence": 0.4235294117647059,
+      "features": [
+        "esmfold2_iptm_global"
+      ],
+      "mean": [
+        0.7527627071037012
+      ],
+      "scale": [
+        0.2446596118323537
+      ],
+      "coefficients_standardized": [
+        1.2719655575084248
+      ],
+      "intercept": -0.5422036860051197,
+      "iterations": 8,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "trem2_to_egfr",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_2",
+      "train_n": 85,
+      "train_binders": 36,
+      "train_prevalence": 0.4235294117647059,
+      "features": [
+        "foldx_interface_energy"
+      ],
+      "mean": [
+        -13.687218200000002
+      ],
+      "scale": [
+        9.900022099332302
+      ],
+      "coefficients_standardized": [
+        -0.2829004944428534
+      ],
+      "intercept": -0.3158913697183824,
+      "iterations": 5,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "trem2_to_egfr",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_3",
+      "train_n": 85,
+      "train_binders": 36,
+      "train_prevalence": 0.4235294117647059,
+      "features": [
+        "rosetta_esmfold2_interface_energy"
+      ],
+      "mean": [
+        66.30414903213246
+      ],
+      "scale": [
+        168.23243646807504
+      ],
+      "coefficients_standardized": [
+        -0.09385228162567605
+      ],
+      "intercept": -0.3091094615305597,
+      "iterations": 4,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "trem2_to_egfr",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_all",
+      "train_n": 85,
+      "train_binders": 36,
+      "train_prevalence": 0.4235294117647059,
+      "features": [
+        "esmfold2_ipsae_antigen_fab_grouped",
+        "esmfold2_iptm_global",
+        "foldx_interface_energy",
+        "rosetta_esmfold2_interface_energy"
+      ],
+      "mean": [
+        0.5776171409211429,
+        0.7527627071037012,
+        -13.687218200000002,
+        66.30414903213243
+      ],
+      "scale": [
+        0.28898153314585007,
+        0.2446596118323537,
+        9.900022099332304,
+        168.23243646807498
+      ],
+      "coefficients_standardized": [
+        2.021341895640787,
+        0.24369505942860425,
+        0.8119977711709716,
+        0.32491854262581127
+      ],
+      "intercept": -0.6071286359277517,
+      "iterations": 17,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "trem2_to_egfr",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_length",
+      "train_n": 85,
+      "train_binders": 36,
+      "train_prevalence": 0.4235294117647059,
+      "features": [
+        "binder_length"
+      ],
+      "mean": [
+        85.5764705882353
+      ],
+      "scale": [
+        16.992300312088233
+      ],
+      "coefficients_standardized": [
+        0.36915028763011104
+      ],
+      "intercept": -0.317699493846692,
+      "iterations": 7,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "trem2_to_egfr",
+      "fold": 1
+    },
+    {
+      "model_id": "prior",
+      "train_n": 85,
+      "train_binders": 36,
+      "train_prevalence": 0.4235294117647059,
+      "features": [],
+      "constant_probability": 0.4235294117647059,
+      "evaluation_id": "trem2_to_egfr",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_panel_plddt",
+      "train_n": 238,
+      "train_binders": 21,
+      "train_prevalence": 0.08823529411764706,
+      "features": [
+        "esm_binder_plddt_mean"
+      ],
+      "mean": [
+        68.18473116342793
+      ],
+      "scale": [
+        19.85189047246669
+      ],
+      "coefficients_standardized": [
+        1.1069011137652025
+      ],
+      "intercept": -2.700551791643438,
+      "iterations": 10,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_egfr",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_panel_pae",
+      "train_n": 238,
+      "train_binders": 21,
+      "train_prevalence": 0.08823529411764706,
+      "features": [
+        "esm_interchain_pae_mean_A"
+      ],
+      "mean": [
+        23.67004170314663
+      ],
+      "scale": [
+        4.802732572464854
+      ],
+      "coefficients_standardized": [
+        -0.2710228706883071
+      ],
+      "intercept": -2.366328400018519,
+      "iterations": 9,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_egfr",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_panel_sc",
+      "train_n": 238,
+      "train_binders": 21,
+      "train_prevalence": 0.08823529411764706,
+      "features": [
+        "rosetta_interface_sc"
+      ],
+      "mean": [
+        0.5403896419315779
+      ],
+      "scale": [
+        0.09991737337439018
+      ],
+      "coefficients_standardized": [
+        0.49974254349744074
+      ],
+      "intercept": -2.4380602626569488,
+      "iterations": 9,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_egfr",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_panel_hbonds",
+      "train_n": 238,
+      "train_binders": 21,
+      "train_prevalence": 0.08823529411764706,
+      "features": [
+        "rosetta_interface_hbonds"
+      ],
+      "mean": [
+        3.4831932773109244
+      ],
+      "scale": [
+        2.770972566201961
+      ],
+      "coefficients_standardized": [
+        0.4214399872557937
+      ],
+      "intercept": -2.412937562538082,
+      "iterations": 9,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_egfr",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_panel_lysine",
+      "train_n": 238,
+      "train_binders": 21,
+      "train_prevalence": 0.08823529411764706,
+      "features": [
+        "interface_K_count"
+      ],
+      "mean": [
+        1.1638655462184875
+      ],
+      "scale": [
+        1.4357518507319305
+      ],
+      "coefficients_standardized": [
+        -0.42539821562938007
+      ],
+      "intercept": -2.399012238556858,
+      "iterations": 9,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_egfr",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_panel_methionine",
+      "train_n": 238,
+      "train_binders": 21,
+      "train_prevalence": 0.08823529411764706,
+      "features": [
+        "interface_M_count"
+      ],
+      "mean": [
+        0.6134453781512605
+      ],
+      "scale": [
+        0.9536241679713988
+      ],
+      "coefficients_standardized": [
+        -0.3238300283114031
+      ],
+      "intercept": -2.3727744744580397,
+      "iterations": 9,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_egfr",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_panel7",
+      "train_n": 238,
+      "train_binders": 21,
+      "train_prevalence": 0.08823529411764706,
+      "features": [
+        "esm_binder_plddt_mean",
+        "esm_interchain_pae_mean_A",
+        "rosetta_interface_sc",
+        "rosetta_interface_hbonds",
+        "interface_K_count",
+        "interface_M_count",
+        "esmfold2_iptm_global"
+      ],
+      "mean": [
+        68.18473116342793,
+        23.670041703146637,
+        0.5403896419315779,
+        3.4831932773109244,
+        1.1638655462184875,
+        0.6134453781512605,
+        0.4930028122763674
+      ],
+      "scale": [
+        19.851890472466685,
+        4.802732572464855,
+        0.09991737337439013,
+        2.770972566201961,
+        1.4357518507319293,
+        0.9536241679713999,
+        0.28923094335843735
+      ],
+      "coefficients_standardized": [
+        0.9012558131354458,
+        0.9180003452998917,
+        0.2858363395165852,
+        0.27788970554201176,
+        -0.27876815146771544,
+        -0.3457503837779169,
+        0.5934951620922434
+      ],
+      "intercept": -2.8141250646080844,
+      "iterations": 21,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_egfr",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_extended10",
+      "train_n": 238,
+      "train_binders": 21,
+      "train_prevalence": 0.08823529411764706,
+      "features": [
+        "esmfold2_ipsae_antigen_fab_grouped",
+        "esmfold2_iptm_global",
+        "foldx_interface_energy",
+        "rosetta_esmfold2_interface_energy",
+        "esm_binder_plddt_mean",
+        "esm_interchain_pae_mean_A",
+        "rosetta_interface_sc",
+        "rosetta_interface_hbonds",
+        "interface_K_count",
+        "interface_M_count"
+      ],
+      "mean": [
+        0.22584588685022547,
+        0.4930028122763674,
+        11.42373371428571,
+        349.86597418466897,
+        68.18473116342793,
+        23.670041703146637,
+        0.5403896419315779,
+        3.4831932773109244,
+        1.1638655462184875,
+        0.6134453781512605
+      ],
+      "scale": [
+        0.29657009185458266,
+        0.28923094335843735,
+        20.044740693939648,
+        384.9211605602489,
+        19.851890472466685,
+        4.802732572464855,
+        0.09991737337439013,
+        2.770972566201961,
+        1.4357518507319293,
+        0.9536241679713999
+      ],
+      "coefficients_standardized": [
+        0.5578445720010776,
+        0.5161925520862835,
+        1.1084615847982842,
+        -0.6602782821925965,
+        0.8568253050391045,
+        0.8707809371594672,
+        0.348841524561748,
+        0.13705825529818244,
+        -0.2992589926697779,
+        -0.28347286083842976
+      ],
+      "intercept": -2.8952696494189887,
+      "iterations": 31,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_egfr",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_panel_plddt",
+      "train_n": 262,
+      "train_binders": 46,
+      "train_prevalence": 0.17557251908396945,
+      "features": [
+        "esm_binder_plddt_mean"
+      ],
+      "mean": [
+        75.66904683298226
+      ],
+      "scale": [
+        15.026336556955897
+      ],
+      "coefficients_standardized": [
+        0.6895808674844655
+      ],
+      "intercept": -1.6720605297614788,
+      "iterations": 9,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_egfr",
+      "fold": 2
+    },
+    {
+      "model_id": "lr_panel_pae",
+      "train_n": 262,
+      "train_binders": 46,
+      "train_prevalence": 0.17557251908396945,
+      "features": [
+        "esm_interchain_pae_mean_A"
+      ],
+      "mean": [
+        18.403803591032418
+      ],
+      "scale": [
+        7.769348957898425
+      ],
+      "coefficients_standardized": [
+        -0.3284162444728763
+      ],
+      "intercept": -1.5814137682436165,
+      "iterations": 7,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_egfr",
+      "fold": 2
+    },
+    {
+      "model_id": "lr_panel_sc",
+      "train_n": 262,
+      "train_binders": 46,
+      "train_prevalence": 0.17557251908396945,
+      "features": [
+        "rosetta_interface_sc"
+      ],
+      "mean": [
+        0.5999394348104492
+      ],
+      "scale": [
+        0.10984969704916063
+      ],
+      "coefficients_standardized": [
+        0.43686289386522703
+      ],
+      "intercept": -1.6067146438032982,
+      "iterations": 7,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_egfr",
+      "fold": 2
+    },
+    {
+      "model_id": "lr_panel_hbonds",
+      "train_n": 262,
+      "train_binders": 46,
+      "train_prevalence": 0.17557251908396945,
+      "features": [
+        "rosetta_interface_hbonds"
+      ],
+      "mean": [
+        6.183206106870229
+      ],
+      "scale": [
+        3.8893111042852957
+      ],
+      "coefficients_standardized": [
+        0.6511714152963441
+      ],
+      "intercept": -1.6798589954110963,
+      "iterations": 7,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_egfr",
+      "fold": 2
+    },
+    {
+      "model_id": "lr_panel_lysine",
+      "train_n": 262,
+      "train_binders": 46,
+      "train_prevalence": 0.17557251908396945,
+      "features": [
+        "interface_K_count"
+      ],
+      "mean": [
+        1.1946564885496183
+      ],
+      "scale": [
+        1.2186097056992082
+      ],
+      "coefficients_standardized": [
+        -0.04185941653005744
+      ],
+      "intercept": -1.54720331619212,
+      "iterations": 6,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_egfr",
+      "fold": 2
+    },
+    {
+      "model_id": "lr_panel_methionine",
+      "train_n": 262,
+      "train_binders": 46,
+      "train_prevalence": 0.17557251908396945,
+      "features": [
+        "interface_M_count"
+      ],
+      "mean": [
+        0.37786259541984735
+      ],
+      "scale": [
+        0.6756156453220654
+      ],
+      "coefficients_standardized": [
+        0.3723066179175392
+      ],
+      "intercept": -1.5911343163078961,
+      "iterations": 7,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_egfr",
+      "fold": 2
+    },
+    {
+      "model_id": "lr_panel7",
+      "train_n": 262,
+      "train_binders": 46,
+      "train_prevalence": 0.17557251908396945,
+      "features": [
+        "esm_binder_plddt_mean",
+        "esm_interchain_pae_mean_A",
+        "rosetta_interface_sc",
+        "rosetta_interface_hbonds",
+        "interface_K_count",
+        "interface_M_count",
+        "esmfold2_iptm_global"
+      ],
+      "mean": [
+        75.66904683298226,
+        18.403803591032435,
+        0.5999394348104492,
+        6.183206106870229,
+        1.1946564885496183,
+        0.37786259541984735,
+        0.652630811798891
+      ],
+      "scale": [
+        15.026336556955895,
+        7.769348957898426,
+        0.10984969704916064,
+        3.889311104285297,
+        1.2186097056992073,
+        0.6756156453220662,
+        0.3008017747813653
+      ],
+      "coefficients_standardized": [
+        0.8249210098864973,
+        0.2169446237083062,
+        0.5079096911631968,
+        0.9609455546281372,
+        -0.27139552712724185,
+        0.4124716020170969,
+        -0.9891798298504392
+      ],
+      "intercept": -1.8850052909061343,
+      "iterations": 24,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_egfr",
+      "fold": 2
+    },
+    {
+      "model_id": "lr_extended10",
+      "train_n": 262,
+      "train_binders": 46,
+      "train_prevalence": 0.17557251908396945,
+      "features": [
+        "esmfold2_ipsae_antigen_fab_grouped",
+        "esmfold2_iptm_global",
+        "foldx_interface_energy",
+        "rosetta_esmfold2_interface_energy",
+        "esm_binder_plddt_mean",
+        "esm_interchain_pae_mean_A",
+        "rosetta_interface_sc",
+        "rosetta_interface_hbonds",
+        "interface_K_count",
+        "interface_M_count"
+      ],
+      "mean": [
+        0.42642994799648076,
+        0.652630811798891,
+        1.2840156904580156,
+        213.13995209789036,
+        75.66904683298226,
+        18.403803591032435,
+        0.5999394348104492,
+        6.183206106870229,
+        1.1946564885496183,
+        0.37786259541984735
+      ],
+      "scale": [
+        0.3363390820529309,
+        0.3008017747813653,
+        21.538160095977343,
+        364.2029680487149,
+        15.026336556955895,
+        7.769348957898426,
+        0.10984969704916064,
+        3.889311104285297,
+        1.2186097056992073,
+        0.6756156453220662
+      ],
+      "coefficients_standardized": [
+        0.7256781370008502,
+        -1.401206349706015,
+        0.3295521192036605,
+        -0.19779198812329815,
+        0.740380063735918,
+        0.22573459621262484,
+        0.512021107832396,
+        0.8638367982840485,
+        -0.28222031053930036,
+        0.39727151467058697
+      ],
+      "intercept": -1.9024202712067315,
+      "iterations": 33,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_egfr",
+      "fold": 2
+    },
+    {
+      "model_id": "lr_panel_plddt",
+      "train_n": 256,
+      "train_binders": 39,
+      "train_prevalence": 0.15234375,
+      "features": [
+        "esm_binder_plddt_mean"
+      ],
+      "mean": [
+        73.56244034791035
+      ],
+      "scale": [
+        17.487897643150053
+      ],
+      "coefficients_standardized": [
+        1.0735502640727907
+      ],
+      "intercept": -2.006206111703399,
+      "iterations": 10,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_egfr",
+      "fold": 3
+    },
+    {
+      "model_id": "lr_panel_pae",
+      "train_n": 256,
+      "train_binders": 39,
+      "train_prevalence": 0.15234375,
+      "features": [
+        "esm_interchain_pae_mean_A"
+      ],
+      "mean": [
+        17.668450123309718
+      ],
+      "scale": [
+        7.379933463165087
+      ],
+      "coefficients_standardized": [
+        -0.70585548163413
+      ],
+      "intercept": -1.8825344455485908,
+      "iterations": 9,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_egfr",
+      "fold": 3
+    },
+    {
+      "model_id": "lr_panel_sc",
+      "train_n": 256,
+      "train_binders": 39,
+      "train_prevalence": 0.15234375,
+      "features": [
+        "rosetta_interface_sc"
+      ],
+      "mean": [
+        0.6176690626307391
+      ],
+      "scale": [
+        0.09834261284532385
+      ],
+      "coefficients_standardized": [
+        0.9891971644684848
+      ],
+      "intercept": -2.008626904811928,
+      "iterations": 9,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_egfr",
+      "fold": 3
+    },
+    {
+      "model_id": "lr_panel_hbonds",
+      "train_n": 256,
+      "train_binders": 39,
+      "train_prevalence": 0.15234375,
+      "features": [
+        "rosetta_interface_hbonds"
+      ],
+      "mean": [
+        6.35546875
+      ],
+      "scale": [
+        3.822554540850063
+      ],
+      "coefficients_standardized": [
+        0.9461163447707955
+      ],
+      "intercept": -2.0056665749882123,
+      "iterations": 9,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_egfr",
+      "fold": 3
+    },
+    {
+      "model_id": "lr_panel_lysine",
+      "train_n": 256,
+      "train_binders": 39,
+      "train_prevalence": 0.15234375,
+      "features": [
+        "interface_K_count"
+      ],
+      "mean": [
+        1.5234375
+      ],
+      "scale": [
+        1.465567529523546
+      ],
+      "coefficients_standardized": [
+        0.01168034640455071
+      ],
+      "intercept": -1.7163831721289866,
+      "iterations": 6,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_egfr",
+      "fold": 3
+    },
+    {
+      "model_id": "lr_panel_methionine",
+      "train_n": 256,
+      "train_binders": 39,
+      "train_prevalence": 0.15234375,
+      "features": [
+        "interface_M_count"
+      ],
+      "mean": [
+        0.60546875
+      ],
+      "scale": [
+        0.9336427811392521
+      ],
+      "coefficients_standardized": [
+        0.3497494704899978
+      ],
+      "intercept": -1.7591333767010642,
+      "iterations": 8,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_egfr",
+      "fold": 3
+    },
+    {
+      "model_id": "lr_panel7",
+      "train_n": 256,
+      "train_binders": 39,
+      "train_prevalence": 0.15234375,
+      "features": [
+        "esm_binder_plddt_mean",
+        "esm_interchain_pae_mean_A",
+        "rosetta_interface_sc",
+        "rosetta_interface_hbonds",
+        "interface_K_count",
+        "interface_M_count",
+        "esmfold2_iptm_global"
+      ],
+      "mean": [
+        73.56244034791038,
+        17.66845012330972,
+        0.6176690626307391,
+        6.35546875,
+        1.5234375,
+        0.60546875,
+        0.6907128567981999
+      ],
+      "scale": [
+        17.487897643150053,
+        7.379933463165088,
+        0.09834261284532382,
+        3.822554540850063,
+        1.465567529523546,
+        0.9336427811392521,
+        0.27265808045244627
+      ],
+      "coefficients_standardized": [
+        0.5608762387847132,
+        0.10425179588475952,
+        0.9347476670176218,
+        0.9155899427222072,
+        0.00393915084706421,
+        0.607351912166048,
+        -0.5276102189813346
+      ],
+      "intercept": -2.4097705652596546,
+      "iterations": 29,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_egfr",
+      "fold": 3
+    },
+    {
+      "model_id": "lr_extended10",
+      "train_n": 256,
+      "train_binders": 39,
+      "train_prevalence": 0.15234375,
+      "features": [
+        "esmfold2_ipsae_antigen_fab_grouped",
+        "esmfold2_iptm_global",
+        "foldx_interface_energy",
+        "rosetta_esmfold2_interface_energy",
+        "esm_binder_plddt_mean",
+        "esm_interchain_pae_mean_A",
+        "rosetta_interface_sc",
+        "rosetta_interface_hbonds",
+        "interface_K_count",
+        "interface_M_count"
+      ],
+      "mean": [
+        0.462166454823807,
+        0.6907128567981999,
+        -1.3744719261718743,
+        200.68094763920234,
+        73.56244034791038,
+        17.66845012330972,
+        0.6176690626307391,
+        6.35546875,
+        1.5234375,
+        0.60546875
+      ],
+      "scale": [
+        0.31887885724845827,
+        0.27265808045244627,
+        19.17856710165369,
+        331.77922890260373,
+        17.487897643150053,
+        7.379933463165088,
+        0.09834261284532382,
+        3.822554540850063,
+        1.465567529523546,
+        0.9336427811392521
+      ],
+      "coefficients_standardized": [
+        0.5728647614942829,
+        -0.6896905016502328,
+        0.3611920127527857,
+        -0.029545274958796393,
+        0.5135064665043365,
+        0.14278599766596356,
+        1.0335697246807312,
+        0.8584989014019325,
+        0.007830333801129089,
+        0.5636824480088364
+      ],
+      "intercept": -2.4683574065143916,
+      "iterations": 38,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_egfr",
+      "fold": 3
+    },
+    {
+      "model_id": "lr_panel_plddt",
+      "train_n": 58,
+      "train_binders": 24,
+      "train_prevalence": 0.41379310344827586,
+      "features": [
+        "esm_binder_plddt_mean"
+      ],
+      "mean": [
+        83.57812897461615
+      ],
+      "scale": [
+        10.227550992062582
+      ],
+      "coefficients_standardized": [
+        1.2282471662045042
+      ],
+      "intercept": -0.5583872528381042,
+      "iterations": 7,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_trem2",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_panel_pae",
+      "train_n": 58,
+      "train_binders": 24,
+      "train_prevalence": 0.41379310344827586,
+      "features": [
+        "esm_interchain_pae_mean_A"
+      ],
+      "mean": [
+        13.7828839801996
+      ],
+      "scale": [
+        5.27833559195378
+      ],
+      "coefficients_standardized": [
+        -1.4199821917680835
+      ],
+      "intercept": -0.6465185182638367,
+      "iterations": 9,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_trem2",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_panel_sc",
+      "train_n": 58,
+      "train_binders": 24,
+      "train_prevalence": 0.41379310344827586,
+      "features": [
+        "rosetta_interface_sc"
+      ],
+      "mean": [
+        0.6321794449769217
+      ],
+      "scale": [
+        0.07334381037814972
+      ],
+      "coefficients_standardized": [
+        0.30573248186250385
+      ],
+      "intercept": -0.3566006893762226,
+      "iterations": 5,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_trem2",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_panel_hbonds",
+      "train_n": 58,
+      "train_binders": 24,
+      "train_prevalence": 0.41379310344827586,
+      "features": [
+        "rosetta_interface_hbonds"
+      ],
+      "mean": [
+        3.586206896551724
+      ],
+      "scale": [
+        2.9538664478402836
+      ],
+      "coefficients_standardized": [
+        0.38555895903319454
+      ],
+      "intercept": -0.35550152216793107,
+      "iterations": 6,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_trem2",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_panel_lysine",
+      "train_n": 58,
+      "train_binders": 24,
+      "train_prevalence": 0.41379310344827586,
+      "features": [
+        "interface_K_count"
+      ],
+      "mean": [
+        0.6206896551724138
+      ],
+      "scale": [
+        0.9252695079309475
+      ],
+      "coefficients_standardized": [
+        -0.2152818272173094
+      ],
+      "intercept": -0.3532389318673462,
+      "iterations": 5,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_trem2",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_panel_methionine",
+      "train_n": 58,
+      "train_binders": 24,
+      "train_prevalence": 0.41379310344827586,
+      "features": [
+        "interface_M_count"
+      ],
+      "mean": [
+        0.5862068965517241
+      ],
+      "scale": [
+        0.8716706661906577
+      ],
+      "coefficients_standardized": [
+        0.22097860265718028
+      ],
+      "intercept": -0.35133551896878545,
+      "iterations": 5,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_trem2",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_panel7",
+      "train_n": 58,
+      "train_binders": 24,
+      "train_prevalence": 0.41379310344827586,
+      "features": [
+        "esm_binder_plddt_mean",
+        "esm_interchain_pae_mean_A",
+        "rosetta_interface_sc",
+        "rosetta_interface_hbonds",
+        "interface_K_count",
+        "interface_M_count",
+        "esmfold2_iptm_global"
+      ],
+      "mean": [
+        83.57812897461612,
+        13.78288398019959,
+        0.6321794449769217,
+        3.586206896551724,
+        0.6206896551724138,
+        0.5862068965517241,
+        0.7129350727231338
+      ],
+      "scale": [
+        10.227550992062586,
+        5.27833559195378,
+        0.0733438103781497,
+        2.9538664478402836,
+        0.9252695079309471,
+        0.8716706661906577,
+        0.2770027559983701
+      ],
+      "coefficients_standardized": [
+        0.670825139745736,
+        -0.7238633519182879,
+        -0.632802385627241,
+        0.08105465152757324,
+        -0.12322789819397591,
+        0.16000157514449329,
+        0.7842523889257417
+      ],
+      "intercept": -0.7800338520690672,
+      "iterations": 20,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_trem2",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_extended10",
+      "train_n": 58,
+      "train_binders": 24,
+      "train_prevalence": 0.41379310344827586,
+      "features": [
+        "esmfold2_ipsae_antigen_fab_grouped",
+        "esmfold2_iptm_global",
+        "foldx_interface_energy",
+        "rosetta_esmfold2_interface_energy",
+        "esm_binder_plddt_mean",
+        "esm_interchain_pae_mean_A",
+        "rosetta_interface_sc",
+        "rosetta_interface_hbonds",
+        "interface_K_count",
+        "interface_M_count"
+      ],
+      "mean": [
+        0.536461187811986,
+        0.7129350727231338,
+        -10.81726048275862,
+        104.4684141148159,
+        83.57812897461612,
+        13.78288398019959,
+        0.6321794449769217,
+        3.586206896551724,
+        0.6206896551724138,
+        0.5862068965517241
+      ],
+      "scale": [
+        0.30818768869896046,
+        0.2770027559983701,
+        13.925276113863557,
+        207.71274286441218,
+        10.227550992062586,
+        5.27833559195378,
+        0.0733438103781497,
+        2.9538664478402836,
+        0.9252695079309471,
+        0.8716706661906577
+      ],
+      "coefficients_standardized": [
+        1.788989056231059,
+        0.26658163008998614,
+        0.5294451482462531,
+        0.5214241717637693,
+        0.19619781403973288,
+        -0.5448354683850588,
+        -0.4706227354625503,
+        0.05754081305459182,
+        -0.24882365686239644,
+        0.13394704609706495
+      ],
+      "intercept": -0.7845094768215873,
+      "iterations": 26,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_trem2",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_panel_plddt",
+      "train_n": 60,
+      "train_binders": 25,
+      "train_prevalence": 0.4166666666666667,
+      "features": [
+        "esm_binder_plddt_mean"
+      ],
+      "mean": [
+        86.28847704334856
+      ],
+      "scale": [
+        9.702632232871476
+      ],
+      "coefficients_standardized": [
+        0.7629730203356031
+      ],
+      "intercept": -0.4204841093258691,
+      "iterations": 6,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_trem2",
+      "fold": 2
+    },
+    {
+      "model_id": "lr_panel_pae",
+      "train_n": 60,
+      "train_binders": 25,
+      "train_prevalence": 0.4166666666666667,
+      "features": [
+        "esm_interchain_pae_mean_A"
+      ],
+      "mean": [
+        12.294584256119833
+      ],
+      "scale": [
+        4.3076985502330345
+      ],
+      "coefficients_standardized": [
+        -1.1179240014866478
+      ],
+      "intercept": -0.5233366185214928,
+      "iterations": 8,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_trem2",
+      "fold": 2
+    },
+    {
+      "model_id": "lr_panel_sc",
+      "train_n": 60,
+      "train_binders": 25,
+      "train_prevalence": 0.4166666666666667,
+      "features": [
+        "rosetta_interface_sc"
+      ],
+      "mean": [
+        0.6604342778523763
+      ],
+      "scale": [
+        0.06876647431947186
+      ],
+      "coefficients_standardized": [
+        0.16084439104551052
+      ],
+      "intercept": -0.3387143292501822,
+      "iterations": 5,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_trem2",
+      "fold": 2
+    },
+    {
+      "model_id": "lr_panel_hbonds",
+      "train_n": 60,
+      "train_binders": 25,
+      "train_prevalence": 0.4166666666666667,
+      "features": [
+        "rosetta_interface_hbonds"
+      ],
+      "mean": [
+        3.933333333333333
+      ],
+      "scale": [
+        3.0976693747970514
+      ],
+      "coefficients_standardized": [
+        0.5340975593537216
+      ],
+      "intercept": -0.34543051692685206,
+      "iterations": 6,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_trem2",
+      "fold": 2
+    },
+    {
+      "model_id": "lr_panel_lysine",
+      "train_n": 60,
+      "train_binders": 25,
+      "train_prevalence": 0.4166666666666667,
+      "features": [
+        "interface_K_count"
+      ],
+      "mean": [
+        0.48333333333333334
+      ],
+      "scale": [
+        0.7851043808875917
+      ],
+      "coefficients_standardized": [
+        -0.266848545274091
+      ],
+      "intercept": -0.34443696473406243,
+      "iterations": 4,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_trem2",
+      "fold": 2
+    },
+    {
+      "model_id": "lr_panel_methionine",
+      "train_n": 60,
+      "train_binders": 25,
+      "train_prevalence": 0.4166666666666667,
+      "features": [
+        "interface_M_count"
+      ],
+      "mean": [
+        0.55
+      ],
+      "scale": [
+        0.9023118455759443
+      ],
+      "coefficients_standardized": [
+        -0.12703775033985343
+      ],
+      "intercept": -0.33804895423366144,
+      "iterations": 5,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_trem2",
+      "fold": 2
+    },
+    {
+      "model_id": "lr_panel7",
+      "train_n": 60,
+      "train_binders": 25,
+      "train_prevalence": 0.4166666666666667,
+      "features": [
+        "esm_binder_plddt_mean",
+        "esm_interchain_pae_mean_A",
+        "rosetta_interface_sc",
+        "rosetta_interface_hbonds",
+        "interface_K_count",
+        "interface_M_count",
+        "esmfold2_iptm_global"
+      ],
+      "mean": [
+        86.28847704334855,
+        12.294584256119835,
+        0.6604342778523763,
+        3.933333333333333,
+        0.48333333333333334,
+        0.55,
+        0.7847178296496471
+      ],
+      "scale": [
+        9.702632232871476,
+        4.307698550233035,
+        0.06876647431947186,
+        3.09766937479705,
+        0.7851043808875915,
+        0.9023118455759443,
+        0.22340699736612776
+      ],
+      "coefficients_standardized": [
+        0.01725863057320107,
+        -0.41181060071670006,
+        -0.29624553398216547,
+        0.2695335055660381,
+        -0.2319013324897504,
+        -0.22373567087354349,
+        0.9972598585021671
+      ],
+      "intercept": -0.6079374561815837,
+      "iterations": 19,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_trem2",
+      "fold": 2
+    },
+    {
+      "model_id": "lr_extended10",
+      "train_n": 60,
+      "train_binders": 25,
+      "train_prevalence": 0.4166666666666667,
+      "features": [
+        "esmfold2_ipsae_antigen_fab_grouped",
+        "esmfold2_iptm_global",
+        "foldx_interface_energy",
+        "rosetta_esmfold2_interface_energy",
+        "esm_binder_plddt_mean",
+        "esm_interchain_pae_mean_A",
+        "rosetta_interface_sc",
+        "rosetta_interface_hbonds",
+        "interface_K_count",
+        "interface_M_count"
+      ],
+      "mean": [
+        0.6208051412323035,
+        0.7847178296496471,
+        -14.981159950000002,
+        44.6119088164728,
+        86.28847704334855,
+        12.294584256119835,
+        0.6604342778523763,
+        3.933333333333333,
+        0.48333333333333334,
+        0.55
+      ],
+      "scale": [
+        0.2651650840565258,
+        0.22340699736612776,
+        8.93094955490362,
+        136.18464459258726,
+        9.702632232871476,
+        4.307698550233035,
+        0.06876647431947186,
+        3.09766937479705,
+        0.7851043808875915,
+        0.9023118455759443
+      ],
+      "coefficients_standardized": [
+        1.4276038141996807,
+        0.3955284979906856,
+        0.20269711358669565,
+        0.465129006695012,
+        -0.1735015709038633,
+        -0.14354559868933844,
+        -0.16754042147114118,
+        0.2896478330766831,
+        -0.3383397746079921,
+        -0.265335366104752
+      ],
+      "intercept": -0.6411663920983832,
+      "iterations": 27,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_trem2",
+      "fold": 2
+    },
+    {
+      "model_id": "lr_panel_plddt",
+      "train_n": 60,
+      "train_binders": 25,
+      "train_prevalence": 0.4166666666666667,
+      "features": [
+        "esm_binder_plddt_mean"
+      ],
+      "mean": [
+        83.9178791703762
+      ],
+      "scale": [
+        10.59765850642189
+      ],
+      "coefficients_standardized": [
+        1.1949142515777365
+      ],
+      "intercept": -0.5303601032226781,
+      "iterations": 7,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_trem2",
+      "fold": 3
+    },
+    {
+      "model_id": "lr_panel_pae",
+      "train_n": 60,
+      "train_binders": 25,
+      "train_prevalence": 0.4166666666666667,
+      "features": [
+        "esm_interchain_pae_mean_A"
+      ],
+      "mean": [
+        13.82551169533946
+      ],
+      "scale": [
+        5.213650178219785
+      ],
+      "coefficients_standardized": [
+        -1.5040130738930568
+      ],
+      "intercept": -0.6612990424822615,
+      "iterations": 9,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_trem2",
+      "fold": 3
+    },
+    {
+      "model_id": "lr_panel_sc",
+      "train_n": 60,
+      "train_binders": 25,
+      "train_prevalence": 0.4166666666666667,
+      "features": [
+        "rosetta_interface_sc"
+      ],
+      "mean": [
+        0.6402347452938557
+      ],
+      "scale": [
+        0.07660355863813872
+      ],
+      "coefficients_standardized": [
+        0.31632307711162405
+      ],
+      "intercept": -0.3453810061275149,
+      "iterations": 5,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_trem2",
+      "fold": 3
+    },
+    {
+      "model_id": "lr_panel_hbonds",
+      "train_n": 60,
+      "train_binders": 25,
+      "train_prevalence": 0.4166666666666667,
+      "features": [
+        "rosetta_interface_hbonds"
+      ],
+      "mean": [
+        3.2333333333333334
+      ],
+      "scale": [
+        2.641758673476608
+      ],
+      "coefficients_standardized": [
+        0.2219721302892857
+      ],
+      "intercept": -0.33947644862626575,
+      "iterations": 5,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_trem2",
+      "fold": 3
+    },
+    {
+      "model_id": "lr_panel_lysine",
+      "train_n": 60,
+      "train_binders": 25,
+      "train_prevalence": 0.4166666666666667,
+      "features": [
+        "interface_K_count"
+      ],
+      "mean": [
+        0.38333333333333336
+      ],
+      "scale": [
+        0.6853628398317363
+      ],
+      "coefficients_standardized": [
+        -0.05521875847593142
+      ],
+      "intercept": -0.33675290454999496,
+      "iterations": 4,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_trem2",
+      "fold": 3
+    },
+    {
+      "model_id": "lr_panel_methionine",
+      "train_n": 60,
+      "train_binders": 25,
+      "train_prevalence": 0.4166666666666667,
+      "features": [
+        "interface_M_count"
+      ],
+      "mean": [
+        0.4166666666666667
+      ],
+      "scale": [
+        0.759202798262025
+      ],
+      "coefficients_standardized": [
+        0.04903614433719018
+      ],
+      "intercept": -0.3366574952014001,
+      "iterations": 4,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_trem2",
+      "fold": 3
+    },
+    {
+      "model_id": "lr_panel7",
+      "train_n": 60,
+      "train_binders": 25,
+      "train_prevalence": 0.4166666666666667,
+      "features": [
+        "esm_binder_plddt_mean",
+        "esm_interchain_pae_mean_A",
+        "rosetta_interface_sc",
+        "rosetta_interface_hbonds",
+        "interface_K_count",
+        "interface_M_count",
+        "esmfold2_iptm_global"
+      ],
+      "mean": [
+        83.9178791703762,
+        13.825511695339454,
+        0.6402347452938557,
+        3.2333333333333334,
+        0.38333333333333336,
+        0.4166666666666667,
+        0.7074566160639127
+      ],
+      "scale": [
+        10.59765850642189,
+        5.213650178219785,
+        0.07660355863813872,
+        2.641758673476608,
+        0.6853628398317362,
+        0.759202798262025,
+        0.27298782885968376
+      ],
+      "coefficients_standardized": [
+        0.6747656063962969,
+        -0.9566751372652622,
+        -0.890322177650981,
+        -0.17164558083351236,
+        0.20223456426569797,
+        -0.024478237111017917,
+        1.0532404685034071
+      ],
+      "intercept": -0.8297016251670483,
+      "iterations": 20,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_trem2",
+      "fold": 3
+    },
+    {
+      "model_id": "lr_extended10",
+      "train_n": 60,
+      "train_binders": 25,
+      "train_prevalence": 0.4166666666666667,
+      "features": [
+        "esmfold2_ipsae_antigen_fab_grouped",
+        "esmfold2_iptm_global",
+        "foldx_interface_energy",
+        "rosetta_esmfold2_interface_energy",
+        "esm_binder_plddt_mean",
+        "esm_interchain_pae_mean_A",
+        "rosetta_interface_sc",
+        "rosetta_interface_hbonds",
+        "interface_K_count",
+        "interface_M_count"
+      ],
+      "mean": [
+        0.5259607190697719,
+        0.7074566160639127,
+        -10.346260483333332,
+        93.88898965867143,
+        83.9178791703762,
+        13.825511695339454,
+        0.6402347452938557,
+        3.2333333333333334,
+        0.38333333333333336,
+        0.4166666666666667
+      ],
+      "scale": [
+        0.321830447293005,
+        0.27298782885968376,
+        14.108438550944792,
+        196.647784582188,
+        10.59765850642189,
+        5.213650178219785,
+        0.07660355863813872,
+        2.641758673476608,
+        0.6853628398317362,
+        0.759202798262025
+      ],
+      "coefficients_standardized": [
+        1.8337520223751842,
+        0.3860536915116066,
+        0.38628130828839075,
+        0.4683285922012926,
+        0.3985095450022971,
+        -0.5568096122529405,
+        -0.7766512078271303,
+        -0.28385434545098115,
+        0.09440924145131555,
+        0.031003824670178978
+      ],
+      "intercept": -0.8010689272341306,
+      "iterations": 27,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "within_trem2",
+      "fold": 3
+    },
+    {
+      "model_id": "lr_panel_plddt",
+      "train_n": 316,
+      "train_binders": 39,
+      "train_prevalence": 0.12341772151898735,
+      "features": [
+        "esm_binder_plddt_mean"
+      ],
+      "mean": [
+        71.37418129930842
+      ],
+      "scale": [
+        18.977025522095126
+      ],
+      "coefficients_standardized": [
+        1.250679583130091
+      ],
+      "intercept": -2.3649395394955595,
+      "iterations": 11,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "egfr_to_trem2",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_panel_pae",
+      "train_n": 316,
+      "train_binders": 39,
+      "train_prevalence": 0.12341772151898735,
+      "features": [
+        "esm_interchain_pae_mean_A"
+      ],
+      "mean": [
+        18.66818942065351
+      ],
+      "scale": [
+        7.285488841305087
+      ],
+      "coefficients_standardized": [
+        -0.8542206747379495
+      ],
+      "intercept": -2.223947085096397,
+      "iterations": 9,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "egfr_to_trem2",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_panel_sc",
+      "train_n": 316,
+      "train_binders": 39,
+      "train_prevalence": 0.12341772151898735,
+      "features": [
+        "rosetta_interface_sc"
+      ],
+      "mean": [
+        0.6032996474753453
+      ],
+      "scale": [
+        0.10252137624097396
+      ],
+      "coefficients_standardized": [
+        1.1439751024745628
+      ],
+      "intercept": -2.3756853268296396,
+      "iterations": 10,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "egfr_to_trem2",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_panel_hbonds",
+      "train_n": 316,
+      "train_binders": 39,
+      "train_prevalence": 0.12341772151898735,
+      "features": [
+        "rosetta_interface_hbonds"
+      ],
+      "mean": [
+        5.813291139240507
+      ],
+      "scale": [
+        3.829426443988902
+      ],
+      "coefficients_standardized": [
+        1.0476169163569289
+      ],
+      "intercept": -2.3509771053376642,
+      "iterations": 9,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "egfr_to_trem2",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_panel_lysine",
+      "train_n": 316,
+      "train_binders": 39,
+      "train_prevalence": 0.12341772151898735,
+      "features": [
+        "interface_K_count"
+      ],
+      "mean": [
+        1.4841772151898733
+      ],
+      "scale": [
+        1.4197085701970595
+      ],
+      "coefficients_standardized": [
+        0.04158486748592696
+      ],
+      "intercept": -1.9611121709531028,
+      "iterations": 7,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "egfr_to_trem2",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_panel_methionine",
+      "train_n": 316,
+      "train_binders": 39,
+      "train_prevalence": 0.12341772151898735,
+      "features": [
+        "interface_M_count"
+      ],
+      "mean": [
+        0.620253164556962
+      ],
+      "scale": [
+        0.9147704625745446
+      ],
+      "coefficients_standardized": [
+        0.32757010111652224
+      ],
+      "intercept": -2.002918410779748,
+      "iterations": 8,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "egfr_to_trem2",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_panel7",
+      "train_n": 316,
+      "train_binders": 39,
+      "train_prevalence": 0.12341772151898735,
+      "features": [
+        "esm_binder_plddt_mean",
+        "esm_interchain_pae_mean_A",
+        "rosetta_interface_sc",
+        "rosetta_interface_hbonds",
+        "interface_K_count",
+        "interface_M_count",
+        "esmfold2_iptm_global"
+      ],
+      "mean": [
+        71.3741812993084,
+        18.668189420653512,
+        0.6032996474753453,
+        5.813291139240507,
+        1.4841772151898733,
+        0.620253164556962,
+        0.6583984066508238
+      ],
+      "scale": [
+        18.977025522095126,
+        7.285488841305089,
+        0.10252137624097396,
+        3.8294264439888974,
+        1.4197085701970626,
+        0.914770462574544,
+        0.2836627147508703
+      ],
+      "coefficients_standardized": [
+        0.5455465993759406,
+        -0.1206895186003503,
+        0.9554198647318046,
+        0.8976736905633278,
+        0.04627253169426084,
+        0.5693154534268218,
+        -0.648622509604145
+      ],
+      "intercept": -2.814478104340239,
+      "iterations": 23,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "egfr_to_trem2",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_extended10",
+      "train_n": 316,
+      "train_binders": 39,
+      "train_prevalence": 0.12341772151898735,
+      "features": [
+        "esmfold2_ipsae_antigen_fab_grouped",
+        "esmfold2_iptm_global",
+        "foldx_interface_energy",
+        "rosetta_esmfold2_interface_energy",
+        "esm_binder_plddt_mean",
+        "esm_interchain_pae_mean_A",
+        "rosetta_interface_sc",
+        "rosetta_interface_hbonds",
+        "interface_K_count",
+        "interface_M_count"
+      ],
+      "mean": [
+        0.41584895704425884,
+        0.6583984066508238,
+        0.8775416705696223,
+        225.63116962618352,
+        71.3741812993084,
+        18.668189420653512,
+        0.6032996474753453,
+        5.813291139240507,
+        1.4841772151898733,
+        0.620253164556962
+      ],
+      "scale": [
+        0.32852390792936587,
+        0.2836627147508703,
+        19.954285947833196,
+        344.60677686788523,
+        18.977025522095126,
+        7.285488841305089,
+        0.10252137624097396,
+        3.8294264439888974,
+        1.4197085701970626,
+        0.914770462574544
+      ],
+      "coefficients_standardized": [
+        0.7410455683314029,
+        -0.8709741183992693,
+        0.3869521506817983,
+        0.030578857983131952,
+        0.48900845464685055,
+        -0.05161028185442782,
+        1.0660551896800945,
+        0.8296759877038943,
+        0.02897918123212993,
+        0.5241354440284173
+      ],
+      "intercept": -2.897849891692323,
+      "iterations": 37,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "egfr_to_trem2",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_panel_plddt",
+      "train_n": 85,
+      "train_binders": 36,
+      "train_prevalence": 0.4235294117647059,
+      "features": [
+        "esm_binder_plddt_mean"
+      ],
+      "mean": [
+        84.61660332255632
+      ],
+      "scale": [
+        10.433922853355993
+      ],
+      "coefficients_standardized": [
+        1.0419946882246678
+      ],
+      "intercept": -0.457601273978084,
+      "iterations": 7,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "trem2_to_egfr",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_panel_pae",
+      "train_n": 85,
+      "train_binders": 36,
+      "train_prevalence": 0.4235294117647059,
+      "features": [
+        "esm_interchain_pae_mean_A"
+      ],
+      "mean": [
+        12.948821876477666
+      ],
+      "scale": [
+        4.661385855951903
+      ],
+      "coefficients_standardized": [
+        -1.361595363892248
+      ],
+      "intercept": -0.5718917532199443,
+      "iterations": 8,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "trem2_to_egfr",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_panel_sc",
+      "train_n": 85,
+      "train_binders": 36,
+      "train_prevalence": 0.4235294117647059,
+      "features": [
+        "rosetta_interface_sc"
+      ],
+      "mean": [
+        0.6487982751692043
+      ],
+      "scale": [
+        0.07239537588357765
+      ],
+      "coefficients_standardized": [
+        0.24147981976263275
+      ],
+      "intercept": -0.31307959656845996,
+      "iterations": 5,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "trem2_to_egfr",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_panel_hbonds",
+      "train_n": 85,
+      "train_binders": 36,
+      "train_prevalence": 0.4235294117647059,
+      "features": [
+        "rosetta_interface_hbonds"
+      ],
+      "mean": [
+        3.588235294117647
+      ],
+      "scale": [
+        2.9437635680598873
+      ],
+      "coefficients_standardized": [
+        0.4482651502452823
+      ],
+      "intercept": -0.3145769728010893,
+      "iterations": 6,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "trem2_to_egfr",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_panel_lysine",
+      "train_n": 85,
+      "train_binders": 36,
+      "train_prevalence": 0.4235294117647059,
+      "features": [
+        "interface_K_count"
+      ],
+      "mean": [
+        0.49411764705882355
+      ],
+      "scale": [
+        0.8206672953691899
+      ],
+      "coefficients_standardized": [
+        -0.16084162657823664
+      ],
+      "intercept": -0.3107850724533294,
+      "iterations": 4,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "trem2_to_egfr",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_panel_methionine",
+      "train_n": 85,
+      "train_binders": 36,
+      "train_prevalence": 0.4235294117647059,
+      "features": [
+        "interface_M_count"
+      ],
+      "mean": [
+        0.5294117647058824
+      ],
+      "scale": [
+        0.8621209863793535
+      ],
+      "coefficients_standardized": [
+        0.04995240304055962
+      ],
+      "intercept": -0.30847743253442234,
+      "iterations": 4,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "trem2_to_egfr",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_panel7",
+      "train_n": 85,
+      "train_binders": 36,
+      "train_prevalence": 0.4235294117647059,
+      "features": [
+        "esm_binder_plddt_mean",
+        "esm_interchain_pae_mean_A",
+        "rosetta_interface_sc",
+        "rosetta_interface_hbonds",
+        "interface_K_count",
+        "interface_M_count",
+        "esmfold2_iptm_global"
+      ],
+      "mean": [
+        84.61660332255634,
+        12.94882187647766,
+        0.6487982751692043,
+        3.588235294117647,
+        0.49411764705882355,
+        0.5294117647058824,
+        0.7527627071037012
+      ],
+      "scale": [
+        10.433922853355991,
+        4.661385855951904,
+        0.07239537588357765,
+        2.943763568059887,
+        0.82066729536919,
+        0.8621209863793535,
+        0.2446596118323537
+      ],
+      "coefficients_standardized": [
+        0.4602072331159434,
+        -0.6453901712137594,
+        -0.618040428464733,
+        0.03195095931628617,
+        -0.07196575259740487,
+        -0.028044041951325104,
+        0.9496511965894106
+      ],
+      "intercept": -0.672703727530563,
+      "iterations": 23,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "trem2_to_egfr",
+      "fold": 1
+    },
+    {
+      "model_id": "lr_extended10",
+      "train_n": 85,
+      "train_binders": 36,
+      "train_prevalence": 0.4235294117647059,
+      "features": [
+        "esmfold2_ipsae_antigen_fab_grouped",
+        "esmfold2_iptm_global",
+        "foldx_interface_energy",
+        "rosetta_esmfold2_interface_energy",
+        "esm_binder_plddt_mean",
+        "esm_interchain_pae_mean_A",
+        "rosetta_interface_sc",
+        "rosetta_interface_hbonds",
+        "interface_K_count",
+        "interface_M_count"
+      ],
+      "mean": [
+        0.5776171409211429,
+        0.7527627071037012,
+        -13.687218200000002,
+        66.30414903213243,
+        84.61660332255634,
+        12.94882187647766,
+        0.6487982751692043,
+        3.588235294117647,
+        0.49411764705882355,
+        0.5294117647058824
+      ],
+      "scale": [
+        0.28898153314585007,
+        0.2446596118323537,
+        9.900022099332304,
+        168.23243646807498,
+        10.433922853355991,
+        4.661385855951904,
+        0.07239537588357765,
+        2.943763568059887,
+        0.82066729536919,
+        0.8621209863793535
+      ],
+      "coefficients_standardized": [
+        1.984910586227172,
+        0.16502343974900457,
+        0.6075743600796222,
+        0.3942536337176081,
+        0.10441864453898843,
+        -0.3052535017961746,
+        -0.3754518016158105,
+        0.029443036222855132,
+        -0.19290641218242888,
+        -0.02133818561405178
+      ],
+      "intercept": -0.6739813202323377,
+      "iterations": 32,
+      "formula": "sigmoid(intercept + sum(coefficients_standardized * ((raw_features - mean) / scale)))",
+      "evaluation_id": "trem2_to_egfr",
+      "fold": 1
+    }
+  ]
+}

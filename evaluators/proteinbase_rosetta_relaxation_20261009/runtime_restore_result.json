@@ -1,0 +1,10 @@
+{
+  "schema": "proteinbase.rosetta_runtime_restore.v1",
+  "status": "complete",
+  "scientific_scoring_executed": false,
+  "started_utc": "2026-10-10T04:37:33.281486+00:00",
+  "finished_utc": "2026-10-10T04:49:54.047089+00:00",
+  "elapsed_seconds": 740.7970300380111,
+  "publication_note": "Public summary of an operational receipt. Host identities, environment-restoration commands, and operational output are omitted; full local receipt remains preserved.",
+  "source_sha256": "97d79aff35a247fb3d5fede64d1343a25e231a8f8780fa5a5710bc6cec5045f7"
+}

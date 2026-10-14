@@ -1,0 +1,605 @@
+{
+  "note": "Screening-rule diagnostics on all available labeled rows; no thresholds fitted. Analogue cutoffs are not validated portable thresholds. Missing criteria are NOT passes. Strict and inclusive variants were specified from paper/code, not optimized on outcomes.",
+  "panels": [
+    {
+      "antigen": "egfr",
+      "inequality": "source_code_inclusive",
+      "rules": [
+        {
+          "id": "plddt",
+          "label": "Binder mean pLDDT",
+          "features": [
+            "esm_binder_plddt_mean"
+          ],
+          "threshold": 80,
+          "operator": ">=",
+          "unit": "0\u2013100; source normalized threshold 0.8",
+          "n": 378,
+          "passed": 177,
+          "tp": 33,
+          "fp": 144,
+          "tn": 181,
+          "fn": 20,
+          "sensitivity": 0.6226415094339622,
+          "specificity": 0.556923076923077,
+          "precision": 0.1864406779661017,
+          "balanced_accuracy": 0.5897822931785196
+        },
+        {
+          "id": "iptm",
+          "label": "Global ipTM",
+          "features": [
+            "esmfold2_iptm_global"
+          ],
+          "threshold": 0.5,
+          "operator": ">=",
+          "unit": "dimensionless",
+          "n": 378,
+          "passed": 229,
+          "tp": 43,
+          "fp": 186,
+          "tn": 139,
+          "fn": 10,
+          "sensitivity": 0.8113207547169812,
+          "specificity": 0.4276923076923077,
+          "precision": 0.18777292576419213,
+          "balanced_accuracy": 0.6195065312046444
+        },
+        {
+          "id": "pae",
+          "label": "Interchain mean PAE",
+          "features": [
+            "esm_interchain_pae_mean_A"
+          ],
+          "threshold": 10.85,
+          "operator": "<=",
+          "unit": "\u00c5; source normalized PAE threshold \u00d731",
+          "n": 378,
+          "passed": 85,
+          "tp": 23,
+          "fp": 62,
+          "tn": 263,
+          "fn": 30,
+          "sensitivity": 0.4339622641509434,
+          "specificity": 0.8092307692307692,
+          "precision": 0.27058823529411763,
+          "balanced_accuracy": 0.6215965166908564
+        },
+        {
+          "id": "sc",
+          "label": "Shape complementarity",
+          "features": [
+            "rosetta_interface_sc"
+          ],
+          "threshold": 0.6,
+          "operator": ">=",
+          "unit": "dimensionless; source average-model threshold",
+          "n": 378,
+          "passed": 189,
+          "tp": 39,
+          "fp": 150,
+          "tn": 175,
+          "fn": 14,
+          "sensitivity": 0.7358490566037735,
+          "specificity": 0.5384615384615384,
+          "precision": 0.20634920634920634,
+          "balanced_accuracy": 0.637155297532656
+        },
+        {
+          "id": "hbonds",
+          "label": "Interface H bonds",
+          "features": [
+            "rosetta_interface_hbonds"
+          ],
+          "threshold": 3,
+          "operator": ">=",
+          "unit": "count",
+          "n": 378,
+          "passed": 269,
+          "tp": 47,
+          "fp": 222,
+          "tn": 103,
+          "fn": 6,
+          "sensitivity": 0.8867924528301887,
+          "specificity": 0.3169230769230769,
+          "precision": 0.17472118959107807,
+          "balanced_accuracy": 0.6018577648766328
+        },
+        {
+          "id": "km",
+          "label": "Interface K and M limits (separate counts)",
+          "features": [
+            "interface_K_count",
+            "interface_M_count"
+          ],
+          "threshold": 3,
+          "operator": "<=",
+          "unit": "count, each separately",
+          "n": 378,
+          "passed": 353,
+          "tp": 50,
+          "fp": 303,
+          "tn": 22,
+          "fn": 3,
+          "sensitivity": 0.9433962264150944,
+          "specificity": 0.06769230769230769,
+          "precision": 0.141643059490085,
+          "balanced_accuracy": 0.505544267053701
+        },
+        {
+          "id": "partial_conjunction",
+          "label": "All six available criteria pass (incomplete panel)",
+          "features": [
+            "esm_binder_plddt_mean",
+            "esm_interchain_pae_mean_A",
+            "rosetta_interface_sc",
+            "rosetta_interface_hbonds",
+            "interface_K_count",
+            "interface_M_count",
+            "esmfold2_iptm_global"
+          ],
+          "n": 378,
+          "passed": 79,
+          "tp": 22,
+          "fp": 57,
+          "tn": 268,
+          "fn": 31,
+          "sensitivity": 0.41509433962264153,
+          "specificity": 0.8246153846153846,
+          "precision": 0.27848101265822783,
+          "balanced_accuracy": 0.6198548621190131
+        }
+      ]
+    },
+    {
+      "antigen": "egfr",
+      "inequality": "paper_strict",
+      "rules": [
+        {
+          "id": "plddt",
+          "label": "Binder mean pLDDT",
+          "features": [
+            "esm_binder_plddt_mean"
+          ],
+          "threshold": 80,
+          "operator": ">",
+          "unit": "0\u2013100; source normalized threshold 0.8",
+          "n": 378,
+          "passed": 177,
+          "tp": 33,
+          "fp": 144,
+          "tn": 181,
+          "fn": 20,
+          "sensitivity": 0.6226415094339622,
+          "specificity": 0.556923076923077,
+          "precision": 0.1864406779661017,
+          "balanced_accuracy": 0.5897822931785196
+        },
+        {
+          "id": "iptm",
+          "label": "Global ipTM",
+          "features": [
+            "esmfold2_iptm_global"
+          ],
+          "threshold": 0.5,
+          "operator": ">",
+          "unit": "dimensionless",
+          "n": 378,
+          "passed": 229,
+          "tp": 43,
+          "fp": 186,
+          "tn": 139,
+          "fn": 10,
+          "sensitivity": 0.8113207547169812,
+          "specificity": 0.4276923076923077,
+          "precision": 0.18777292576419213,
+          "balanced_accuracy": 0.6195065312046444
+        },
+        {
+          "id": "pae",
+          "label": "Interchain mean PAE",
+          "features": [
+            "esm_interchain_pae_mean_A"
+          ],
+          "threshold": 10.85,
+          "operator": "<",
+          "unit": "\u00c5; source normalized PAE threshold \u00d731",
+          "n": 378,
+          "passed": 85,
+          "tp": 23,
+          "fp": 62,
+          "tn": 263,
+          "fn": 30,
+          "sensitivity": 0.4339622641509434,
+          "specificity": 0.8092307692307692,
+          "precision": 0.27058823529411763,
+          "balanced_accuracy": 0.6215965166908564
+        },
+        {
+          "id": "sc",
+          "label": "Shape complementarity",
+          "features": [
+            "rosetta_interface_sc"
+          ],
+          "threshold": 0.6,
+          "operator": ">",
+          "unit": "dimensionless; source average-model threshold",
+          "n": 378,
+          "passed": 189,
+          "tp": 39,
+          "fp": 150,
+          "tn": 175,
+          "fn": 14,
+          "sensitivity": 0.7358490566037735,
+          "specificity": 0.5384615384615384,
+          "precision": 0.20634920634920634,
+          "balanced_accuracy": 0.637155297532656
+        },
+        {
+          "id": "hbonds",
+          "label": "Interface H bonds",
+          "features": [
+            "rosetta_interface_hbonds"
+          ],
+          "threshold": 3,
+          "operator": ">",
+          "unit": "count",
+          "n": 378,
+          "passed": 231,
+          "tp": 46,
+          "fp": 185,
+          "tn": 140,
+          "fn": 7,
+          "sensitivity": 0.8679245283018868,
+          "specificity": 0.4307692307692308,
+          "precision": 0.19913419913419914,
+          "balanced_accuracy": 0.6493468795355588
+        },
+        {
+          "id": "km",
+          "label": "Interface K and M limits (separate counts)",
+          "features": [
+            "interface_K_count",
+            "interface_M_count"
+          ],
+          "threshold": 3,
+          "operator": "<",
+          "unit": "count, each separately",
+          "n": 378,
+          "passed": 303,
+          "tp": 44,
+          "fp": 259,
+          "tn": 66,
+          "fn": 9,
+          "sensitivity": 0.8301886792452831,
+          "specificity": 0.20307692307692307,
+          "precision": 0.14521452145214522,
+          "balanced_accuracy": 0.5166328011611031
+        },
+        {
+          "id": "partial_conjunction",
+          "label": "All six available criteria pass (incomplete panel)",
+          "features": [
+            "esm_binder_plddt_mean",
+            "esm_interchain_pae_mean_A",
+            "rosetta_interface_sc",
+            "rosetta_interface_hbonds",
+            "interface_K_count",
+            "interface_M_count",
+            "esmfold2_iptm_global"
+          ],
+          "n": 378,
+          "passed": 65,
+          "tp": 22,
+          "fp": 43,
+          "tn": 282,
+          "fn": 31,
+          "sensitivity": 0.41509433962264153,
+          "specificity": 0.8676923076923077,
+          "precision": 0.3384615384615385,
+          "balanced_accuracy": 0.6413933236574746
+        }
+      ]
+    },
+    {
+      "antigen": "trem2",
+      "inequality": "source_code_inclusive",
+      "rules": [
+        {
+          "id": "plddt",
+          "label": "Binder mean pLDDT",
+          "features": [
+            "esm_binder_plddt_mean"
+          ],
+          "threshold": 80,
+          "operator": ">=",
+          "unit": "0\u2013100; source normalized threshold 0.8",
+          "n": 89,
+          "passed": 72,
+          "tp": 36,
+          "fp": 36,
+          "tn": 16,
+          "fn": 1,
+          "sensitivity": 0.972972972972973,
+          "specificity": 0.3076923076923077,
+          "precision": 0.5,
+          "balanced_accuracy": 0.6403326403326404
+        },
+        {
+          "id": "iptm",
+          "label": "Global ipTM",
+          "features": [
+            "esmfold2_iptm_global"
+          ],
+          "threshold": 0.5,
+          "operator": ">=",
+          "unit": "dimensionless",
+          "n": 89,
+          "passed": 72,
+          "tp": 36,
+          "fp": 36,
+          "tn": 16,
+          "fn": 1,
+          "sensitivity": 0.972972972972973,
+          "specificity": 0.3076923076923077,
+          "precision": 0.5,
+          "balanced_accuracy": 0.6403326403326404
+        },
+        {
+          "id": "pae",
+          "label": "Interchain mean PAE",
+          "features": [
+            "esm_interchain_pae_mean_A"
+          ],
+          "threshold": 10.85,
+          "operator": "<=",
+          "unit": "\u00c5; source normalized PAE threshold \u00d731",
+          "n": 89,
+          "passed": 41,
+          "tp": 23,
+          "fp": 18,
+          "tn": 34,
+          "fn": 14,
+          "sensitivity": 0.6216216216216216,
+          "specificity": 0.6538461538461539,
+          "precision": 0.5609756097560976,
+          "balanced_accuracy": 0.6377338877338877
+        },
+        {
+          "id": "sc",
+          "label": "Shape complementarity",
+          "features": [
+            "rosetta_interface_sc"
+          ],
+          "threshold": 0.6,
+          "operator": ">=",
+          "unit": "dimensionless; source average-model threshold",
+          "n": 89,
+          "passed": 65,
+          "tp": 31,
+          "fp": 34,
+          "tn": 18,
+          "fn": 6,
+          "sensitivity": 0.8378378378378378,
+          "specificity": 0.34615384615384615,
+          "precision": 0.47692307692307695,
+          "balanced_accuracy": 0.591995841995842
+        },
+        {
+          "id": "hbonds",
+          "label": "Interface H bonds",
+          "features": [
+            "rosetta_interface_hbonds"
+          ],
+          "threshold": 3,
+          "operator": ">=",
+          "unit": "count",
+          "n": 89,
+          "passed": 47,
+          "tp": 24,
+          "fp": 23,
+          "tn": 29,
+          "fn": 13,
+          "sensitivity": 0.6486486486486487,
+          "specificity": 0.5576923076923077,
+          "precision": 0.5106382978723404,
+          "balanced_accuracy": 0.6031704781704782
+        },
+        {
+          "id": "km",
+          "label": "Interface K and M limits (separate counts)",
+          "features": [
+            "interface_K_count",
+            "interface_M_count"
+          ],
+          "threshold": 3,
+          "operator": "<=",
+          "unit": "count, each separately",
+          "n": 89,
+          "passed": 89,
+          "tp": 37,
+          "fp": 52,
+          "tn": 0,
+          "fn": 0,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "precision": 0.4157303370786517,
+          "balanced_accuracy": 0.5
+        },
+        {
+          "id": "partial_conjunction",
+          "label": "All six available criteria pass (incomplete panel)",
+          "features": [
+            "esm_binder_plddt_mean",
+            "esm_interchain_pae_mean_A",
+            "rosetta_interface_sc",
+            "rosetta_interface_hbonds",
+            "interface_K_count",
+            "interface_M_count",
+            "esmfold2_iptm_global"
+          ],
+          "n": 89,
+          "passed": 28,
+          "tp": 17,
+          "fp": 11,
+          "tn": 41,
+          "fn": 20,
+          "sensitivity": 0.4594594594594595,
+          "specificity": 0.7884615384615384,
+          "precision": 0.6071428571428571,
+          "balanced_accuracy": 0.623960498960499
+        }
+      ]
+    },
+    {
+      "antigen": "trem2",
+      "inequality": "paper_strict",
+      "rules": [
+        {
+          "id": "plddt",
+          "label": "Binder mean pLDDT",
+          "features": [
+            "esm_binder_plddt_mean"
+          ],
+          "threshold": 80,
+          "operator": ">",
+          "unit": "0\u2013100; source normalized threshold 0.8",
+          "n": 89,
+          "passed": 72,
+          "tp": 36,
+          "fp": 36,
+          "tn": 16,
+          "fn": 1,
+          "sensitivity": 0.972972972972973,
+          "specificity": 0.3076923076923077,
+          "precision": 0.5,
+          "balanced_accuracy": 0.6403326403326404
+        },
+        {
+          "id": "iptm",
+          "label": "Global ipTM",
+          "features": [
+            "esmfold2_iptm_global"
+          ],
+          "threshold": 0.5,
+          "operator": ">",
+          "unit": "dimensionless",
+          "n": 89,
+          "passed": 72,
+          "tp": 36,
+          "fp": 36,
+          "tn": 16,
+          "fn": 1,
+          "sensitivity": 0.972972972972973,
+          "specificity": 0.3076923076923077,
+          "precision": 0.5,
+          "balanced_accuracy": 0.6403326403326404
+        },
+        {
+          "id": "pae",
+          "label": "Interchain mean PAE",
+          "features": [
+            "esm_interchain_pae_mean_A"
+          ],
+          "threshold": 10.85,
+          "operator": "<",
+          "unit": "\u00c5; source normalized PAE threshold \u00d731",
+          "n": 89,
+          "passed": 41,
+          "tp": 23,
+          "fp": 18,
+          "tn": 34,
+          "fn": 14,
+          "sensitivity": 0.6216216216216216,
+          "specificity": 0.6538461538461539,
+          "precision": 0.5609756097560976,
+          "balanced_accuracy": 0.6377338877338877
+        },
+        {
+          "id": "sc",
+          "label": "Shape complementarity",
+          "features": [
+            "rosetta_interface_sc"
+          ],
+          "threshold": 0.6,
+          "operator": ">",
+          "unit": "dimensionless; source average-model threshold",
+          "n": 89,
+          "passed": 65,
+          "tp": 31,
+          "fp": 34,
+          "tn": 18,
+          "fn": 6,
+          "sensitivity": 0.8378378378378378,
+          "specificity": 0.34615384615384615,
+          "precision": 0.47692307692307695,
+          "balanced_accuracy": 0.591995841995842
+        },
+        {
+          "id": "hbonds",
+          "label": "Interface H bonds",
+          "features": [
+            "rosetta_interface_hbonds"
+          ],
+          "threshold": 3,
+          "operator": ">",
+          "unit": "count",
+          "n": 89,
+          "passed": 41,
+          "tp": 22,
+          "fp": 19,
+          "tn": 33,
+          "fn": 15,
+          "sensitivity": 0.5945945945945946,
+          "specificity": 0.6346153846153846,
+          "precision": 0.5365853658536586,
+          "balanced_accuracy": 0.6146049896049897
+        },
+        {
+          "id": "km",
+          "label": "Interface K and M limits (separate counts)",
+          "features": [
+            "interface_K_count",
+            "interface_M_count"
+          ],
+          "threshold": 3,
+          "operator": "<",
+          "unit": "count, each separately",
+          "n": 89,
+          "passed": 81,
+          "tp": 33,
+          "fp": 48,
+          "tn": 4,
+          "fn": 4,
+          "sensitivity": 0.8918918918918919,
+          "specificity": 0.07692307692307693,
+          "precision": 0.4074074074074074,
+          "balanced_accuracy": 0.4844074844074844
+        },
+        {
+          "id": "partial_conjunction",
+          "label": "All six available criteria pass (incomplete panel)",
+          "features": [
+            "esm_binder_plddt_mean",
+            "esm_interchain_pae_mean_A",
+            "rosetta_interface_sc",
+            "rosetta_interface_hbonds",
+            "interface_K_count",
+            "interface_M_count",
+            "esmfold2_iptm_global"
+          ],
+          "n": 89,
+          "passed": 22,
+          "tp": 14,
+          "fp": 8,
+          "tn": 44,
+          "fn": 23,
+          "sensitivity": 0.3783783783783784,
+          "specificity": 0.8461538461538461,
+          "precision": 0.6363636363636364,
+          "balanced_accuracy": 0.6122661122661123
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+ProteinBase recall-first evaluator — 13 October 2026
+
+Purpose
+Select more binders with an empirical minimum precision of 50% on inner
+family-separated validation. The user delegated the numerical choice. This
+is a development constraint, not a guarantee on held-out proteins.
+
+Scope
+467 existing designs: 378 EGFR and 89 TREM2. No new structures, relaxations,
+GPU predictions, experimental labels, families or outer splits were created.
+Original physical descriptors and the independent per-descriptor medians of
+three saved relaxed structures are compared. Original confidence features
+remain associated with the original ESMFold2-Fast predictions.
+
+Protocol
+Read protocol.json and execution_manifest.json. Five feature sets A–E are
+prespecified for each preparation stage. Historical four-score, raw energy,
+length-only and area-only controls are kept separate. All learned models are
+fixed L2 logistic regressions with training-only StandardScaler.
+Thresholds use the exact two saved inner family-grouped folds. Entire tied
+score blocks are selected at score >= cutoff. Maximize recall subject to
+precision >= 0.5; ties prefer fewer selected designs. Model ties then prefer
+fewer features and declared A–E order. Test labels never choose thresholds
+or a preferred model. Infeasible policies remain unavailable.
+
+Files
+inputs.json — descriptors, sequences/hashes, original labels and families
+outer_splits.json — exact original outer train/test IDs and exclusions
+inner_split_feasibility.json — exact frozen inner IDs and sparse-family caveat
+historical_outer.json — unchanged saved outer predictions and fitted models
+evaluate_recall.py — fitting, selection, held-out metrics and provenance
+test_recall.py — 19 edge-case and orchestration checks; fit mocks only
+results.json — complete predictions, fits, thresholds, curves and summaries
+findings.json — descriptive outcomes of training-selected candidate policies
+completion.json / execution_status.json — execution receipts
+build_recall_report.py / recall_report.js / recall_report.css — presentation
+
+Reproduce
+Use the preexisting local runtime recorded in protocol.json:
+  /LOCAL_HOME/miniconda3/bin/python3
+Python 3.14.6, numpy 2.5.3, scipy 1.18.1, scikit-learn 1.9.1.
+No installation was performed. From this directory:
+  python -m unittest -v test_recall
+  OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 \
+    NUMEXPR_NUM_THREADS=1 python evaluate_recall.py --root .
+  python build_recall_report.py
+The worker validates the frozen source hashes before fitting. Reproduction
+overwrites this study's results.json/completion.json; copy the directory first
+when comparing software versions. It does not modify any original report data.
+
+Execution environment
+Fresh CoreHPC access initially succeeded, but SSH later closed before scratch
+staging. No Slurm job was submitted. Because this is a small regression-only
+study, it completed locally in the exact original evaluator runtime. The
+unused CPU proposal, wheels and prelaunch manifest remain under the historical
+prelaunch snapshot / runtime_wheels. They are not the executed protocol.
+No shared or local runtime was replaced. There is no claimed remote archive.
+
+Interpretation
+ROC/AP measure ranking; changing a threshold cannot improve these metrics.
+Compare the selected cutoff with p>=0.5 on identical predictions. Raw -REU
+has a train-selected cutoff but no arbitrary zero-energy binding cutoff.
+Within-target AUROC/AP are test-size-weighted fold summaries; confusion counts
+pool frozen fold decisions. Partial policy coverage is never shown as a full
+cohort result. Family support and individual folds matter: within-EGFR outer
+training fold 2 contains only two binder-containing families.
+This exploratory study does not calibrate a universal BCMA arena judge or
+validate red-team antigen escape. Cross-antigen precision failures are retained.

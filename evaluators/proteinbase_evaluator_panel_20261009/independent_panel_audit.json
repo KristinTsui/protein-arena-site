@@ -1,0 +1,67 @@
+{
+  "status": "passed",
+  "audit_date": "2026-10-09",
+  "auditor": "independent methods agent",
+  "checks_passed": 11850,
+  "source_files_hashed": 2356,
+  "confidence_artifacts_recomputed": 467,
+  "structure_contact_counts_recomputed": 467,
+  "new_logistic_fit_count": 64,
+  "new_predictions_replayed": 7472,
+  "maximum_prediction_replay_error": 0,
+  "new_curve_arrays_verified": 128,
+  "unchanged_baseline_model_records": 88,
+  "feature_ranges": {
+    "esmfold2_ipsae_antigen_fab_grouped": {
+      "min": 0.0,
+      "max": 0.8677180141776071
+    },
+    "esmfold2_iptm_global": {
+      "min": 0.08363863080739975,
+      "max": 0.9579936861991882
+    },
+    "foldx_interface_energy": {
+      "min": -31.4493,
+      "max": 88.3539
+    },
+    "rosetta_esmfold2_interface_energy": {
+      "min": -79.07475845499005,
+      "max": 1927.1309721739874
+    },
+    "esm_binder_plddt_mean": {
+      "min": 19.25070817406113,
+      "max": 95.3455551749184
+    },
+    "esm_interchain_pae_mean_A": {
+      "min": 7.467034928022697,
+      "max": 30.50737419028774
+    },
+    "rosetta_interface_sc": {
+      "min": 0.3416689932346344,
+      "max": 0.7716454565525055
+    },
+    "rosetta_interface_hbonds": {
+      "min": 0.0,
+      "max": 17.0
+    },
+    "interface_K_count": {
+      "min": 0.0,
+      "max": 7.0
+    },
+    "interface_M_count": {
+      "min": 0.0,
+      "max": 6.0
+    }
+  },
+  "runtime_seconds": 8.461284290999174,
+  "findings": [
+    "Existing467-condition cohort and all family/test partitions reused verbatim. Original four features, fitted records and evaluation result objects preserved.",
+    "Recovered confidence data and Rosetta values verified against source-file SHA256s; pLDDT binder mask and symmetric full cross-chain PAE recomputed independently.",
+    "K/M and all contact-residue IDs recomputed using standalone PDB parsing and4\u00c5 nearest-atom distances. Saved scoring PDBs contain no hydrogens, correctly documented as input difference from relaxed BindCraft.",
+    "New scalers use training rows only. All64 newly fitted logistic models replay correctly; no threshold or hyperparameter selection.",
+    "Paper-strict and code-inclusive analogue filters are separate, predetermined diagnostics. Missing three criteria are excluded and conjunction explicitly labeled incomplete.",
+    "These are ESMFold2-Fast/unrelaxed analogues, not AF2 or complete BindCraft pipeline reproduction.",
+    "Pooled ROC/PR plots should use pooled metrics; headline primary remains weighted within-fold metrics.",
+    "Prior observed heldout results informed the follow-up panel choice; this is exploratory, not an untouched confirmatory test."
+  ]
+}

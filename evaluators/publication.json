@@ -1,0 +1,456 @@
+{
+  "title": "ProteinBase evaluator: original versus relaxed structures, fixed filters and learned weights",
+  "cohort_n": 467,
+  "antigens": [
+    "EGFR",
+    "TREM2"
+  ],
+  "report_url": "https://kristintsui.github.io/protein-arena-site/evaluators/",
+  "publication_note": "Only linked report artifacts are included. Local sources are unchanged. Machine identifiers are generalized and operational receipts summarized; scientific numbers, labels, splits, coefficients, and provenance hashes are preserved. No runtime archives or logs are published.",
+  "files": [
+    {
+      "path": "proteinbase_evaluator_20261009/cohort.json",
+      "source_sha256": "58190604612607099f7c2b8ee453bafeff7ea2dc3b975161cb93990b8f99be79",
+      "published_sha256": "58190604612607099f7c2b8ee453bafeff7ea2dc3b975161cb93990b8f99be79",
+      "bytes": 480463
+    },
+    {
+      "path": "proteinbase_evaluator_20261009/family_groups.json",
+      "source_sha256": "dc70e4f183119d4030c3678a84e2344fc82ee87e0ac469ed0614ecb49aab0ae5",
+      "published_sha256": "dc70e4f183119d4030c3678a84e2344fc82ee87e0ac469ed0614ecb49aab0ae5",
+      "bytes": 705912
+    },
+    {
+      "path": "proteinbase_evaluator_20261009/index.html",
+      "source_sha256": "16d3eade273ab0c17fb8cabbc3909cdb574b463e5d437f1a489ec7676dd6fccb",
+      "published_sha256": "d808cd714d9bc94e7fe4d5d5153c7a53726c714e29affdba0153363cd0283800",
+      "bytes": 578145
+    },
+    {
+      "path": "proteinbase_evaluator_20261009/models.json",
+      "source_sha256": "37b3b00babfd3f1351fdee44f34fca69f5269275f864ca06d9b094d2c44b160c",
+      "published_sha256": "37b3b00babfd3f1351fdee44f34fca69f5269275f864ca06d9b094d2c44b160c",
+      "bytes": 43110
+    },
+    {
+      "path": "proteinbase_evaluator_20261009/performance_overview.png",
+      "source_sha256": "e87febd17714e98a5c5e63abd42908f934ffb374bd7192fc765b84636319b45d",
+      "published_sha256": "e87febd17714e98a5c5e63abd42908f934ffb374bd7192fc765b84636319b45d",
+      "bytes": 318414
+    },
+    {
+      "path": "proteinbase_evaluator_20261009/protocol.json",
+      "source_sha256": "cacb1139e28a72bbb672de503be0e0ee3e71566126c472607c22faad53e17dd0",
+      "published_sha256": "cacb1139e28a72bbb672de503be0e0ee3e71566126c472607c22faad53e17dd0",
+      "bytes": 5860
+    },
+    {
+      "path": "proteinbase_evaluator_20261009/results.json",
+      "source_sha256": "02e4a9adf8afce93647aff2b2e0fc74598319dac73983c6057ea4659c62a47e5",
+      "published_sha256": "02e4a9adf8afce93647aff2b2e0fc74598319dac73983c6057ea4659c62a47e5",
+      "bytes": 5111198
+    },
+    {
+      "path": "proteinbase_evaluator_panel_20261009/cohort.json",
+      "source_sha256": "5438de5276482658c47e509e0c5c5061086b465d8b45abc99267e050a5c7cf30",
+      "published_sha256": "5438de5276482658c47e509e0c5c5061086b465d8b45abc99267e050a5c7cf30",
+      "bytes": 601893
+    },
+    {
+      "path": "proteinbase_evaluator_panel_20261009/expanded_panel_performance.png",
+      "source_sha256": "a6d4300a1a0524120eaa961bdbe9ee6ff9092f273893f65f21a00aa3d78d2627",
+      "published_sha256": "a6d4300a1a0524120eaa961bdbe9ee6ff9092f273893f65f21a00aa3d78d2627",
+      "bytes": 335186
+    },
+    {
+      "path": "proteinbase_evaluator_panel_20261009/independent_panel_audit.json",
+      "source_sha256": "36575fe9ff66496ff896c4a8ca98d8dc713f139b7c6819206eb9c9f203fcf8b9",
+      "published_sha256": "36575fe9ff66496ff896c4a8ca98d8dc713f139b7c6819206eb9c9f203fcf8b9",
+      "bytes": 2655
+    },
+    {
+      "path": "proteinbase_evaluator_panel_20261009/index.html",
+      "source_sha256": "b2eaae6b7ec8178844e4b0a11ed0c6b0fbd19c046f583b5d41d9eadacf5cc725",
+      "published_sha256": "fb01cd4faf1a717c71ab64926fc8bc004292d2e9ab508bdc7325cf1fefa9f894",
+      "bytes": 713493
+    },
+    {
+      "path": "proteinbase_evaluator_panel_20261009/models.json",
+      "source_sha256": "67f8978f9475d7b2b6f5dc745d1dca3bb7f84b8f6e372526439bf8114a117cfb",
+      "published_sha256": "67f8978f9475d7b2b6f5dc745d1dca3bb7f84b8f6e372526439bf8114a117cfb",
+      "bytes": 95833
+    },
+    {
+      "path": "proteinbase_evaluator_panel_20261009/protocol.json",
+      "source_sha256": "06e8a4d9758067b4c47b0d260e657a0322580e84b9380a8f0428d0ad5cbbf9b5",
+      "published_sha256": "06e8a4d9758067b4c47b0d260e657a0322580e84b9380a8f0428d0ad5cbbf9b5",
+      "bytes": 9879
+    },
+    {
+      "path": "proteinbase_evaluator_panel_20261009/recovered_features.json",
+      "source_sha256": "e3d4654dc103b7d58ca213959df50f7d6e566ab66047a028fc581eb0d68933e5",
+      "published_sha256": "35105ba7b201626744ceccc0a9fb62b6e84be394d0533fb1b2666c8472d22ec9",
+      "bytes": 3634222
+    },
+    {
+      "path": "proteinbase_evaluator_panel_20261009/results.json",
+      "source_sha256": "dbf254ca49eef7ae4fbe358eb0154f232b34869872e4b2a77f111065cc61b3a9",
+      "published_sha256": "dbf254ca49eef7ae4fbe358eb0154f232b34869872e4b2a77f111065cc61b3a9",
+      "bytes": 8665113
+    },
+    {
+      "path": "proteinbase_evaluator_panel_20261009/threshold_results.json",
+      "source_sha256": "20c2d75069a14e50d1c49b71143297c7103c0dc9d426dfaf9804f2e32b487d93",
+      "published_sha256": "20c2d75069a14e50d1c49b71143297c7103c0dc9d426dfaf9804f2e32b487d93",
+      "bytes": 17476
+    },
+    {
+      "path": "proteinbase_evaluator_recall_20261013/RUNBOOK.txt",
+      "source_sha256": "9e14d1aab83f35cecff845f3545c7a2f15d56274a6a1ea57db41835d69b40514",
+      "published_sha256": "7cf63f46f67e3e1e96b533cbd97784d317a59bb180885111fe0fa5e04b80b4db",
+      "bytes": 3899
+    },
+    {
+      "path": "proteinbase_evaluator_recall_20261013/audit_recall_results.json",
+      "source_sha256": "5675cc29d28a2d796414f138ea69cd790c4bce7736afc770a7393f6d59b3ab1f",
+      "published_sha256": "5675cc29d28a2d796414f138ea69cd790c4bce7736afc770a7393f6d59b3ab1f",
+      "bytes": 4906
+    },
+    {
+      "path": "proteinbase_evaluator_recall_20261013/egfr_diagnosis/analyze.py",
+      "source_sha256": "622608375043f99720fed151aa8b80bf5c5053f4509a3bb3c3cee165fe5526ec",
+      "published_sha256": "622608375043f99720fed151aa8b80bf5c5053f4509a3bb3c3cee165fe5526ec",
+      "bytes": 13914
+    },
+    {
+      "path": "proteinbase_evaluator_recall_20261013/egfr_diagnosis/build_report.py",
+      "source_sha256": "17273777d96f98bcc933b882a435daf9b46ee6ec7d99c7508be4f28f4789d74c",
+      "published_sha256": "119ba067d9af5d78fd4773c9bfaa0cc00ded597660f20ecc77f18d40f15a0729",
+      "bytes": 16833
+    },
+    {
+      "path": "proteinbase_evaluator_recall_20261013/egfr_diagnosis/diagnostics.json",
+      "source_sha256": "5c25bf62d898549ab9fce9e97155e1d7aeda2c089be09bb997993e45ebde3008",
+      "published_sha256": "5c25bf62d898549ab9fce9e97155e1d7aeda2c089be09bb997993e45ebde3008",
+      "bytes": 2674117
+    },
+    {
+      "path": "proteinbase_evaluator_recall_20261013/egfr_diagnosis/family_support.svg",
+      "source_sha256": "25bc86dc0b4260f334119ff8b87e1d31aa7226a99bded858d49bb30b8b6af745",
+      "published_sha256": "25bc86dc0b4260f334119ff8b87e1d31aa7226a99bded858d49bb30b8b6af745",
+      "bytes": 23152
+    },
+    {
+      "path": "proteinbase_evaluator_recall_20261013/egfr_diagnosis/feature_overlap.svg",
+      "source_sha256": "512156e9a80de543d46cca02382b7712af54c3140d266937ae0856330518ea15",
+      "published_sha256": "512156e9a80de543d46cca02382b7712af54c3140d266937ae0856330518ea15",
+      "bytes": 163013
+    },
+    {
+      "path": "proteinbase_evaluator_recall_20261013/egfr_diagnosis/independent_audit.json",
+      "source_sha256": "60b8a3fb41a769ba0983f779a5c0b5ec15069c70918b774332bbf9a66b9fb4d3",
+      "published_sha256": "60b8a3fb41a769ba0983f779a5c0b5ec15069c70918b774332bbf9a66b9fb4d3",
+      "bytes": 3706
+    },
+    {
+      "path": "proteinbase_evaluator_recall_20261013/egfr_diagnosis/index.html",
+      "source_sha256": "2c08e8063c1fcdf43e3cd869f7e2799aca29d7006fac44fc7234bfb983d46299",
+      "published_sha256": "0686d0153b92d950506f497671d25a8979455cc05832178c5f17e70707ef2f46",
+      "bytes": 27962
+    },
+    {
+      "path": "proteinbase_evaluator_recall_20261013/egfr_diagnosis/matched_prediction_diagnostics.svg",
+      "source_sha256": "66040a8e8c9910c0544106333ec6e43cf089cd922ae8252bd39a6ae2577e4ad9",
+      "published_sha256": "66040a8e8c9910c0544106333ec6e43cf089cd922ae8252bd39a6ae2577e4ad9",
+      "bytes": 165956
+    },
+    {
+      "path": "proteinbase_evaluator_recall_20261013/execution_status.json",
+      "source_sha256": "cfd50cb9d5fde537534e2b54ab78cad7a8457f4059c1f3028a07cb8281e44c4f",
+      "published_sha256": "a25bb0bc4073d3fa5f2010242daa0a6bea5a909844086703aece0a099a2b6f5c",
+      "bytes": 945
+    },
+    {
+      "path": "proteinbase_evaluator_recall_20261013/filter_results.json",
+      "source_sha256": "0cc3abe21f0511bd690fc6b1076dcdd2185b79b4b2b0977124d0cc076ea1f8f5",
+      "published_sha256": "14d1f9b2b325136939cc69b603011b507eb1c9c400a540891d8ec943478fcba0",
+      "bytes": 2118526
+    },
+    {
+      "path": "proteinbase_evaluator_recall_20261013/findings.json",
+      "source_sha256": "9d1c51e9f88af57b9df860c0d8cf1cad74cce0623e8ac6f47e7fedddf397993e",
+      "published_sha256": "9d1c51e9f88af57b9df860c0d8cf1cad74cce0623e8ac6f47e7fedddf397993e",
+      "bytes": 6730
+    },
+    {
+      "path": "proteinbase_evaluator_recall_20261013/fixed_filters_20261013/independent_filter_audit.json",
+      "source_sha256": "99ada8a359db11f35119459bfb3c0a8ed73c1a0822e13f5e84668daa81e90380",
+      "published_sha256": "7f6b1fc2125cab8a37881cba4a9b30b7c599f02d252b1ab9c88804e17f0c27c7",
+      "bytes": 7102
+    },
+    {
+      "path": "proteinbase_evaluator_recall_20261013/fixed_filters_20261013/protocol.json",
+      "source_sha256": "463e9de9f9e503f1e464eb14bc7bb26b9a5b8b7185cc1d00070e4bfd4c59111e",
+      "published_sha256": "e951338175383b524aee569f62159b379aef279fbc922848c689152527de7beb",
+      "bytes": 6823
+    },
+    {
+      "path": "proteinbase_evaluator_recall_20261013/index.html",
+      "source_sha256": "1d142c25428ffcce12892e9fdd1c4bde7fe69ac1a5e70f9e5e48390acdca24c1",
+      "published_sha256": "fc0ab3f1cddf342824b11a135c40aa149b34de48802f8f9f76af291b84a3ada0",
+      "bytes": 8115912
+    },
+    {
+      "path": "proteinbase_evaluator_recall_20261013/inputs.json",
+      "source_sha256": "1e2aefcfdde4be09b35bf8969a88e7c1869eefac315f4772fa4d33cb41d29c0d",
+      "published_sha256": "44c1de95a3da379627f79353f8742074de9beb63404cf0c64f45304a0bafb4f0",
+      "bytes": 3012859
+    },
+    {
+      "path": "proteinbase_evaluator_recall_20261013/outer_splits.json",
+      "source_sha256": "138f346a60b0bcfc8d65567372f0e8eb55bf93585972fc7cbfced92ab22e649c",
+      "published_sha256": "d77cc523658b0b62b61c48b410c404607328bd200c8d6a94fc0472f43f658140",
+      "bytes": 121690
+    },
+    {
+      "path": "proteinbase_evaluator_recall_20261013/protocol.json",
+      "source_sha256": "3bd05ab864e00e641158ccf28093d3f35c63149da33b63d1ec26fbf7b0f93cba",
+      "published_sha256": "a466b481bc78a79d04aca6ce31454101475078b4fed0ccbd1cb6708ce6ad9782",
+      "bytes": 8286
+    },
+    {
+      "path": "proteinbase_evaluator_recall_20261013/results.json",
+      "source_sha256": "f05d0491099f853e8d07668bb8ac75d47519cc4e78f05ce552fd4b1b3f8dc9b6",
+      "published_sha256": "104ddfa45993c48e2cceedfc3ca5effe63572b4c89c41009a9d7acbdf4062a8e",
+      "bytes": 40456712
+    },
+    {
+      "path": "proteinbase_rosetta_relaxation_20261009/RUNBOOK.txt",
+      "source_sha256": "5be89b9e042076e5e2f80b12ab339055ba930883364689772c259c254978e769",
+      "published_sha256": "a96b41f84d03945f99110d8c723ecafbe154807a71790198ccd801fc48a13203",
+      "bytes": 10900
+    },
+    {
+      "path": "proteinbase_rosetta_relaxation_20261009/accounting.json",
+      "source_sha256": "7acd5e980b5c5a797464a8df403003e843f242610e18330b3ce6aa2f4f1cae14",
+      "published_sha256": "48547534cf1a12db4f6a240f3754132d31bc5037cf1c4d482408eb2151b108c5",
+      "bytes": 14392
+    },
+    {
+      "path": "proteinbase_rosetta_relaxation_20261009/evaluation/comparison.json",
+      "source_sha256": "fd58c9ca8b32a5cfabc6e7e05130c52f82b0386352ca76bb7d7ad895dd92c95f",
+      "published_sha256": "fd58c9ca8b32a5cfabc6e7e05130c52f82b0386352ca76bb7d7ad895dd92c95f",
+      "bytes": 407833
+    },
+    {
+      "path": "proteinbase_rosetta_relaxation_20261009/evaluation/replicate_coverage.json",
+      "source_sha256": "f1708c2c06d3299a3aba6a8cd1bc1fcdea2319be5f1744833b20dd790b7c6b3a",
+      "published_sha256": "ae059a5b88ad0d1c600b370b915d802e8467192539378f698eba9d582e95ab32",
+      "bytes": 3058573
+    },
+    {
+      "path": "proteinbase_rosetta_relaxation_20261009/evaluation_code_checks.json",
+      "source_sha256": "ae8862c4f65d52e2b5f4684d28f2d770e767c992c756eb084b865ff73089325b",
+      "published_sha256": "01b32266064049ad2b4a744adb3ba109a2fd5967740419013757549c16385d13",
+      "bytes": 3851
+    },
+    {
+      "path": "proteinbase_rosetta_relaxation_20261009/execution_status.json",
+      "source_sha256": "1e460eded4f0c098822b3d0635635334c0e09e185d9a0a66d1b74eddfb4501bb",
+      "published_sha256": "2282e06b6279c98970de008550c48348fd5540bc6dd23105a197fe18cbd87b67",
+      "bytes": 6163
+    },
+    {
+      "path": "proteinbase_rosetta_relaxation_20261009/figures/egfr_to_trem2_fold1_curves.png",
+      "source_sha256": "79af0139db640af5fd63afd36b6c858e4566da08c64ae2372c48e76f30d42038",
+      "published_sha256": "79af0139db640af5fd63afd36b6c858e4566da08c64ae2372c48e76f30d42038",
+      "bytes": 143303
+    },
+    {
+      "path": "proteinbase_rosetta_relaxation_20261009/figures/egfr_to_trem2_fold1_curves.svg",
+      "source_sha256": "76f3999bc67595394bffb9ebfbcf2e446a5f5b8b7faf5f98522452cafdc2032d",
+      "published_sha256": "76f3999bc67595394bffb9ebfbcf2e446a5f5b8b7faf5f98522452cafdc2032d",
+      "bytes": 42501
+    },
+    {
+      "path": "proteinbase_rosetta_relaxation_20261009/figures/geometry_diagnostics.png",
+      "source_sha256": "85742c477daccfd2a2ace3c9d615341b4b66c0456ab640ede67e5e6c72dc3f7c",
+      "published_sha256": "85742c477daccfd2a2ace3c9d615341b4b66c0456ab640ede67e5e6c72dc3f7c",
+      "bytes": 184058
+    },
+    {
+      "path": "proteinbase_rosetta_relaxation_20261009/figures/geometry_diagnostics.svg",
+      "source_sha256": "ed678cb0ebdc05268393f0f5e9a8f3203546c42ad45aff1b8643be2702a21206",
+      "published_sha256": "ed678cb0ebdc05268393f0f5e9a8f3203546c42ad45aff1b8643be2702a21206",
+      "bytes": 131936
+    },
+    {
+      "path": "proteinbase_rosetta_relaxation_20261009/figures/paired_energy_distributions.png",
+      "source_sha256": "127190659b232d7b739716c7e70f1323d89ccc7158cf11b1b2843140b19b3c16",
+      "published_sha256": "127190659b232d7b739716c7e70f1323d89ccc7158cf11b1b2843140b19b3c16",
+      "bytes": 213188
+    },
+    {
+      "path": "proteinbase_rosetta_relaxation_20261009/figures/paired_energy_distributions.svg",
+      "source_sha256": "eb0b1633a1a4f14632ab99c88f6b743d130218063ef8da1a81445082588a2916",
+      "published_sha256": "eb0b1633a1a4f14632ab99c88f6b743d130218063ef8da1a81445082588a2916",
+      "bytes": 126200
+    },
+    {
+      "path": "proteinbase_rosetta_relaxation_20261009/figures/paired_performance_summary.png",
+      "source_sha256": "1c3293f1bffdb16061d079ad4a2a6324db13995bdebd0d8979cefc6c3f9d44fa",
+      "published_sha256": "1c3293f1bffdb16061d079ad4a2a6324db13995bdebd0d8979cefc6c3f9d44fa",
+      "bytes": 234587
+    },
+    {
+      "path": "proteinbase_rosetta_relaxation_20261009/figures/paired_performance_summary.svg",
+      "source_sha256": "a75adb6b4c7a8805d554a36e6d4cfeebbf6de5453d41bacbb0f49e325a19e4a6",
+      "published_sha256": "a75adb6b4c7a8805d554a36e6d4cfeebbf6de5453d41bacbb0f49e325a19e4a6",
+      "bytes": 74856
+    },
+    {
+      "path": "proteinbase_rosetta_relaxation_20261009/figures/replicate_variability.png",
+      "source_sha256": "24f788af34581e8ea04e9f902c4d5914d5fd15b11a561d17b90049119394b647",
+      "published_sha256": "24f788af34581e8ea04e9f902c4d5914d5fd15b11a561d17b90049119394b647",
+      "bytes": 51394
+    },
+    {
+      "path": "proteinbase_rosetta_relaxation_20261009/figures/replicate_variability.svg",
+      "source_sha256": "5f2521a8427dbac3cfd405a1952b78db342c259e03d7b75c1f2300f6de1e775f",
+      "published_sha256": "5f2521a8427dbac3cfd405a1952b78db342c259e03d7b75c1f2300f6de1e775f",
+      "bytes": 28063
+    },
+    {
+      "path": "proteinbase_rosetta_relaxation_20261009/figures/trem2_to_egfr_fold1_curves.png",
+      "source_sha256": "e09481d6c6c7e2a42703eadaec7ac6a7045465d4c43f4a6ddf0a8ef494713876",
+      "published_sha256": "e09481d6c6c7e2a42703eadaec7ac6a7045465d4c43f4a6ddf0a8ef494713876",
+      "bytes": 157237
+    },
+    {
+      "path": "proteinbase_rosetta_relaxation_20261009/figures/trem2_to_egfr_fold1_curves.svg",
+      "source_sha256": "c17ac31936e1d2c53310b6832adcfcf157a3f5c5b36ce6e76416ee0fe788caa8",
+      "published_sha256": "c17ac31936e1d2c53310b6832adcfcf157a3f5c5b36ce6e76416ee0fe788caa8",
+      "bytes": 57049
+    },
+    {
+      "path": "proteinbase_rosetta_relaxation_20261009/figures/within_egfr_fold1_curves.png",
+      "source_sha256": "c4fb769955d75eb9ffb568fd051c22af5ca291c83e17eb1a4c47a96f72eb47dd",
+      "published_sha256": "c4fb769955d75eb9ffb568fd051c22af5ca291c83e17eb1a4c47a96f72eb47dd",
+      "bytes": 146002
+    },
+    {
+      "path": "proteinbase_rosetta_relaxation_20261009/figures/within_egfr_fold1_curves.svg",
+      "source_sha256": "713a64af1165cf886c7cfd30f1597f0fd11abe3b4387b2cf24719b4b26c1ae16",
+      "published_sha256": "713a64af1165cf886c7cfd30f1597f0fd11abe3b4387b2cf24719b4b26c1ae16",
+      "bytes": 41997
+    },
+    {
+      "path": "proteinbase_rosetta_relaxation_20261009/figures/within_egfr_fold2_curves.png",
+      "source_sha256": "d4b39052e690e6839cacfdd503ca20fcb59bd277701d5355b47ff8e977023e39",
+      "published_sha256": "d4b39052e690e6839cacfdd503ca20fcb59bd277701d5355b47ff8e977023e39",
+      "bytes": 134403
+    },
+    {
+      "path": "proteinbase_rosetta_relaxation_20261009/figures/within_egfr_fold2_curves.svg",
+      "source_sha256": "f1d2e52b3d27f08718b15c2374b8d567951e17904ad439525e82451466eab6ba",
+      "published_sha256": "f1d2e52b3d27f08718b15c2374b8d567951e17904ad439525e82451466eab6ba",
+      "bytes": 27769
+    },
+    {
+      "path": "proteinbase_rosetta_relaxation_20261009/figures/within_egfr_fold3_curves.png",
+      "source_sha256": "2c20a11e84d963d0abb5081697441e37cd407f32c933938713e41c7449d11ce3",
+      "published_sha256": "2c20a11e84d963d0abb5081697441e37cd407f32c933938713e41c7449d11ce3",
+      "bytes": 135651
+    },
+    {
+      "path": "proteinbase_rosetta_relaxation_20261009/figures/within_egfr_fold3_curves.svg",
+      "source_sha256": "c65d2c1d3cf0ba11bf80e3606fc2238c9a9468766a0174d68911f1ff0be4638a",
+      "published_sha256": "c65d2c1d3cf0ba11bf80e3606fc2238c9a9468766a0174d68911f1ff0be4638a",
+      "bytes": 32642
+    },
+    {
+      "path": "proteinbase_rosetta_relaxation_20261009/figures/within_trem2_fold1_curves.png",
+      "source_sha256": "1831e32c7ec0a5522fe953a0e69a6541dbc278b58c529171562be98983c86aba",
+      "published_sha256": "1831e32c7ec0a5522fe953a0e69a6541dbc278b58c529171562be98983c86aba",
+      "bytes": 133949
+    },
+    {
+      "path": "proteinbase_rosetta_relaxation_20261009/figures/within_trem2_fold1_curves.svg",
+      "source_sha256": "e0f4a0646f50dc2a72e8a74e64857f0cda37a7e329c93d458716ca1ebbaed0ff",
+      "published_sha256": "e0f4a0646f50dc2a72e8a74e64857f0cda37a7e329c93d458716ca1ebbaed0ff",
+      "bytes": 33719
+    },
+    {
+      "path": "proteinbase_rosetta_relaxation_20261009/figures/within_trem2_fold2_curves.png",
+      "source_sha256": "c8b3c9118ce1f24b963a490c0d040ad07a2c752e9f9c7e9384e06567e79dd902",
+      "published_sha256": "c8b3c9118ce1f24b963a490c0d040ad07a2c752e9f9c7e9384e06567e79dd902",
+      "bytes": 128600
+    },
+    {
+      "path": "proteinbase_rosetta_relaxation_20261009/figures/within_trem2_fold2_curves.svg",
+      "source_sha256": "14e9c5b170f078e31a56350958f29823985ea940281c0a57e368d0168a812a8a",
+      "published_sha256": "14e9c5b170f078e31a56350958f29823985ea940281c0a57e368d0168a812a8a",
+      "bytes": 32631
+    },
+    {
+      "path": "proteinbase_rosetta_relaxation_20261009/figures/within_trem2_fold3_curves.png",
+      "source_sha256": "ee78b54ea4f5e9076f44b8e2bea16a5a1f70f1b2901d001e8b33a7168fffa940",
+      "published_sha256": "ee78b54ea4f5e9076f44b8e2bea16a5a1f70f1b2901d001e8b33a7168fffa940",
+      "bytes": 135435
+    },
+    {
+      "path": "proteinbase_rosetta_relaxation_20261009/figures/within_trem2_fold3_curves.svg",
+      "source_sha256": "b385a8b4a84c8032df97e2418800be1733915b500c9733e1f30dc4893992556a",
+      "published_sha256": "b385a8b4a84c8032df97e2418800be1733915b500c9733e1f30dc4893992556a",
+      "bytes": 33225
+    },
+    {
+      "path": "proteinbase_rosetta_relaxation_20261009/independent_first_pilot_audit.json",
+      "source_sha256": "06f74a12d9482beb305a6f48cdf4fff171535274cd9793644bc32c6656372a44",
+      "published_sha256": "0035f4125bd7966a1a8bc944f39b4b98e4a3553a66b027dc1fb45e2b3099e2c8",
+      "bytes": 9476
+    },
+    {
+      "path": "proteinbase_rosetta_relaxation_20261009/index.html",
+      "source_sha256": "d81d9ddc90189a834190d14482d3cf3a92a5f002cb99c9dca1eca72f17f184c0",
+      "published_sha256": "fad62621c32739357de72bbd928666dcc254034205692e63addb080406919b66",
+      "bytes": 762601
+    },
+    {
+      "path": "proteinbase_rosetta_relaxation_20261009/input_audit.json",
+      "source_sha256": "c1a7f11977d6174d2b08f6cf7cb8a7c31fc473427c9f1e07fcf23e9826e0d937",
+      "published_sha256": "2c86fe5b36c4d272f176966728954e9664c091640028ca58defd0de23af3a92d",
+      "bytes": 1015200
+    },
+    {
+      "path": "proteinbase_rosetta_relaxation_20261009/manifest.json",
+      "source_sha256": "dc041f1ba895a857a1b4803483f265989dd31333d72ab0b95e538cfb74f33f3a",
+      "published_sha256": "d33a316bf27acabd7541fa0039cae0d651cd6ab0580631077ff07cc7d0b1300e",
+      "bytes": 1570088
+    },
+    {
+      "path": "proteinbase_rosetta_relaxation_20261009/protocol.json",
+      "source_sha256": "10a5e64411976a50fbc6ed1df4c35b1e58b3c9e12d05565b937b785515aaf9dd",
+      "published_sha256": "00be6c63fe281eae9876e0cb8bfc0735557cae098e95a04ef0ce723228b9eb11",
+      "bytes": 7570
+    },
+    {
+      "path": "proteinbase_rosetta_relaxation_20261009/relax_protocol.json",
+      "source_sha256": "10db6139f5e5fc3aca558cf5523ab223c7d6703091ac0f319b5f5e9058c191c1",
+      "published_sha256": "67496ded4d7dbf632e002da2ffb89a1e40f56689a30de9c7ffa881b51a9d05e4",
+      "bytes": 4363
+    },
+    {
+      "path": "proteinbase_rosetta_relaxation_20261009/runtime_restore_result.json",
+      "source_sha256": "97d79aff35a247fb3d5fede64d1343a25e231a8f8780fa5a5710bc6cec5045f7",
+      "published_sha256": "b16ba7209a2c4648b7532ea1e93c8179ac1a9eb7d325905eeb0b57a3dac79857",
+      "bytes": 547
+    },
+    {
+      "path": "proteinbase_rosetta_relaxation_20261009/worker_static_audit.json",
+      "source_sha256": "ba36ef1cc63c319230753437d1f7a4cd22164d29c4f554fa100a5cc1f1873307",
+      "published_sha256": "4b75aea08e2b181a6fae160c30b7826a0e2846f407a32af4b5f6247b108385ac",
+      "bytes": 3132
+    }
+  ]
+}

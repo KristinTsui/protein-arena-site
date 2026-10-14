@@ -1,0 +1,182 @@
+Rosetta relaxation comparison — reproducible CPU execution
+
+Current state (2026-10-10 UTC / 2026-10-09 Pacific): CoreHPC access is restored.
+The exact archived runtime was restored and verified by completed job 2181693.
+All 467 original input PDBs were restored and hash-verified by completed job
+2181705. The technical pilot is active: first case 2181695_0, with remaining
+indices 1-5 in array 2181738. Scientific protocol and input structures are unchanged.
+Full-pilot completion, technical gate, measured resource estimates and scientific
+conclusions remain pending. Do not resubmit those active pilot cases.
+
+The prior runbook is preserved as RUNBOOK.before_runtime_restoration_20261010.txt.
+See execution_status.json for the latest collected state; this text is a dated
+operational guide, not a live queue monitor.
+
+1. Verified environment and continued access checks
+
+Read the project hpc/corehpc/SITE_RULES.md and OPERATIONS_NOTES.md before execution.
+The SSH alias is HPC_LOGIN_ALIAS; user HPC_USER. Fresh checks confirmed account
+HPC_ACCOUNT, partition cpu (UP), and default association QOS HPC_ACCOUNT. Current pilot
+jobs use account HPC_ACCOUNT, partition cpu and QOS HPC_ACCOUNT. Before another launch,
+recheck with hostname, squeue,
+sacctmgr show assoc where user=HPC_USER, sinfo, and scontrol show partition cpu.
+Inspect current QOS restrictions, CPU/memory limits and job/array limits.
+
+Restored exact runtime (do not replace/install):
+/SCRATCH_WORKSPACE/proto-arena/ff5ba88c8c1c/envs/pyrosetta/bin/python
+
+runtime_restore_result.json records the archive, 37,936 verified files, exact
+PyRosetta 2026.39 runtime identity and successful guarded import/version probe.
+This is environment validation; completion of relaxation is a separate check.
+All actual relaxation/scoring runs go through Slurm, never the login node.
+Use scratch for active work. No GPU is requested and no predictor is rerun.
+
+Active execution bundle:
+  /SCRATCH_WORKSPACE/proteinbase-relaxation-20261009-v1
+
+Required restored-runtime cache guard:
+  export ARENA_PYCACHE_GUARD=/SCRATCH_WORKSPACE/proteinbase-relaxation-20261009-v1/runtime_bytecode_cache
+
+The guard must remain an absolute canonical non-symlink directory owned by the
+current user, exact mode 0500 and empty. Every restored-runtime Python process
+must start with -B -X pycache_prefix="$ARENA_PYCACHE_GUARD". The guarded launchers
+also set PYTHONDONTWRITEBYTECODE=1 and PYTHONPYCACHEPREFIX. These environment
+variables alone do not replace the interpreter flags. Do not relax the guard or
+run bare Python from the restored environment: archived bytecode is retained
+as evidence, not trusted for execution. Launchers check the guard before/after
+the driver and every worker, preserving the same device/inode identity.
+
+2. Frozen staged bundle and restoration receipts
+
+protocol.json and relax_protocol.json specify the science. Worker manifests carry
+exact sequence/hash checks. worker_inputs.json excludes experimental labels.
+The active bundle already contains:
+  protocol.json, relax_protocol.json, worker_inputs.json, relax_worker.py,
+  baseline_adapter.py, run_case.py, run_array.sh, pilot_ids.txt, cohort_ids.txt.
+The six pilot inputs and 461 remaining inputs were restored from audited local
+bytes; all 467 are available in the bundle. Workers check frozen input hashes;
+no original structures are overwritten. Do not substitute or regenerate inputs.
+Receipts in this directory:
+  execution_staging_receipt.json       staged protocol/code/input archive hashes
+  input_staging_receipt.json           exact six-case pilot input archive
+  remaining_input_staging_receipt.json exact remaining 461 input archive
+  runtime_restore_result.json          archive verification and runtime probe
+  launcher_cache_transition.json       guarded-launcher transition and old hashes
+  launcher_before_pycache_guard_20261010/snapshot_receipt.json
+                                       preserved previous launcher version
+Keep these operational receipts alongside unchanged protocol.json and
+relax_protocol.json. Scientific worker, adapter, seeds and scoring are unchanged.
+
+3. Technical pilot
+
+Six IDs in pilot_ids.txt × seeds 101/102/103 = 18 replicates. Each Slurm array
+case runs its three independent processes serially. Current pilot requests use
+one CPU/task, 8 GiB and four hours/task; these are requests, not measured costs.
+Array 2181695 contains the first case (index 0). Array 2181738 contains indices
+1-5 with initial throttle %1, so their combined concurrency is at most two.
+After the first case finishes, the remaining array may be raised to throttle 2;
+do not raise it while the first case is active if that would exceed two cases.
+Inspect the current queue/accounting before any throttle change. Keep existing
+jobs; do not create another copy of the pilot or overwrite failed attempts.
+
+Future submission form ONLY after the technical gate and measured sizing;
+this is not an instruction to resubmit the current pilot:
+  sbatch --parsable --account=VERIFIED_ACCOUNT --partition=VERIFIED_CPU_PARTITION \
+    --cpus-per-task=1 --mem=MEASURED_SIZED_MEMORY --time=MEASURED_SIZED_TIME \
+    --array=EXPLICIT_REMAINING_INDICES_AND_THROTTLE \
+    --job-name=pb-relax-cohort --output=BUNDLE/logs/cohort_%A_%a.out \
+    --error=BUNDLE/logs/cohort_%A_%a.err BUNDLE/run_array.sh \
+    PYROSETTA_PYTHON BUNDLE BUNDLE/remaining_ids.txt BUNDLE/runs
+
+Export the required ARENA_PYCACHE_GUARD before submission and propagate it to the
+job. Use the verified QOS/association and create logs/ before submission. Save
+job IDs and exact commands in execution_status.json and immutable launch receipts.
+
+Inspect sacct for State,ExitCode,Elapsed,AllocCPUS,TotalCPU,MaxRSS,ReqMem and
+allocated CPU time; an empty squeue does not imply failure. Do not repeatedly
+resubmit a running or completed job. Collect the immutable logs, result.json,
+input and relaxed PDBs and Slurm accounting. Successful worker results are
+reused only when protocol/worker/input/output hashes still match. Do not treat
+an active log or incomplete result directory as a finished replicate.
+
+Distinguish worker compute from allocation cost. One CPU/task was requested and
+the worker's threading is restricted to one; Slurm may allocate more CPUs under
+node/resource policy. Report actual AllocCPUS and elapsed allocation time, not
+just requested CPUs. Allocated CPU-hours = elapsed seconds × actual AllocCPUS /
+3600 for each allocation (avoid double-counting job and .batch/.extern rows).
+Worker process CPU seconds and TotalCPU are separate utilization measures.
+Include runtime/input restoration overhead separately from relaxation. A
+single-worker timing estimate does not establish whole-job allocation cost.
+
+4. Technical gate, then full cohort
+
+Sync pilot outputs to this bundle's runs/ without deleting originals. Run locally:
+  python plan_cohort.py
+
+This checks all18 results, sequences, atom mapping, constraints, fixed jumps,
+scoring settings, pinned runtime, and raw baseline dG reproduction (1e-4 REU).
+Review diagnostic-only warnings (aligned backbone RMSD >2 A, increased close
+contacts). Do not choose settings using labels, held-out metrics or favorable
+energy shifts. Runtime/API errors may be repaired transparently; any scientific
+protocol change must be versioned and affected results regenerated consistently.
+Keep original failed attempts. Do not choose the best seed.
+
+pilot_report.json supplies measured worker-time/memory estimates and
+remaining_ids.txt excludes completed cases. Reconcile those estimates with
+actual Slurm AllocCPUS and accounting before projecting allocation cost.
+Select conservative full-batch concurrency within live limits using measured
+cost. The currently observed CPU QOS includes a maximum of eight nodes/user;
+recheck this and other running allocations when planning the full cohort.
+Submit the remaining ID list with the same protocol and results root. Reuse
+successful pilot results. No new user
+approval is needed for this already-authorized CPU cohort, but resource/access
+limitations must be resolved. No speculative total runtime is recorded.
+
+Optional CPU pool (prepared, not submitted; resources/concurrency not chosen):
+  pool_driver.py
+  run_cpu_pool.template.sh
+  pool_operational_audit.json
+
+This can pack several independent cases into one CPU-node allocation. The
+template requires explicit runtime, bundle, IDs file, disjoint index file,
+output root and concurrency arguments. Actual allocation must be one node and
+one task with explicit CPUs; the pool verifies scontrol and rejects concurrency
+above allocated CPUs. It calls unchanged run_case.py with explicit --index and
+the same cache guard; each case still runs its three seeds serially. It preserves
+unique logs, locks and immutable launch receipts. Size memory and walltime from
+the pilot; CPU bounds alone do not establish sufficient memory. Do not run the
+same case through another launcher concurrently. Seven local stub-worker tests
+pass; this is operational validation, not evidence of a live pool run.
+
+5. Evaluate and generate the separate report
+
+Local Python has numpy/scipy/scikit-learn/matplotlib; no local Rosetta needed.
+Preserve original evaluator and panel directories. From this bundle run:
+  python evaluate_relaxation.py
+  python plot_relaxation.py
+  python build_report.py
+
+Evaluation requires all3 valid replicates for a complex's primary median. It
+checks every retained output/hash. It uses exact saved train/test IDs and family
+exclusions. Missing cases are removed from both methods identically, never
+imputed. Incomplete folds suppress the aggregate rather than quietly selecting
+favorable folds. Original ipSAE/ipTM/FoldX and original confidence values remain
+unchanged. Logistic p>=0.5 is a fixed diagnostic, not a tuned arena policy.
+
+Update execution_status.json from actual Slurm accounting, retaining prior
+receipts. Jobs have now been submitted; absent/null accounting means usage is
+not yet collected, never zero cost or completion. Older blocked/no-job receipts
+remain historical records rather than the current execution state.
+All ROC/PR curves are individual-fold curves. The table's within-antigen headline
+is the test-size-weighted mean of all saved folds. No fake or synthetic scientific
+results should be placed in runs/. Software fixture tests use temporary directories.
+
+6. Interpret and report
+
+Compare raw ranking, one-feature logistic and four-feature logistic with only
+Rosetta replaced. Report AUROC/AP and probability metrics, confusion counts,
+replicate variability, coverage/failures, structure changes, per-fold and
+per-family consistency and actual compute usage. Lower energy is not evidence
+of improved binding prediction. Preserve/report null or negative results.
+Transfer directions also change assay and design distribution; this is an
+exploratory preparation ablation, not prospective universal validation.

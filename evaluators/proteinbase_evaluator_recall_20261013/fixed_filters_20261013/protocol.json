@@ -1,0 +1,103 @@
+{
+  "schema": "proteinbase.fixed_filters.protocol.v1",
+  "created_utc": "2026-10-13T21:53:06.681394+00:00",
+  "status": "frozen before evaluation in this script",
+  "scope": "Exploratory adaptation of six available criteria from the user-provided nine-item screenshot. Not full BindCraft validation. No trained parameters.",
+  "criteria": [
+    {
+      "id": "plddt",
+      "label": "Complex pLDDT",
+      "operator": ">",
+      "threshold": 0.8,
+      "unit": "0\u20131",
+      "source_note": "Whole-complex ESMFold2-Fast mean /100, following screenshot wording. Source-code binder-mean alternative is reported separately; neither is AF2."
+    },
+    {
+      "id": "iptm",
+      "label": "Global ipTM",
+      "operator": ">",
+      "threshold": 0.5,
+      "unit": "0\u20131",
+      "source_note": "Original ESMFold2-Fast global ipTM; unchanged after Rosetta."
+    },
+    {
+      "id": "pae",
+      "label": "Normalized interchain PAE",
+      "operator": "<",
+      "threshold": 0.35,
+      "unit": "mean PAE /31 \u00c5",
+      "source_note": "Arithmetic mean over both full interchain blocks, divided by31; equivalent to mean PAE<10.85\u00c5. Not ipSAE."
+    },
+    {
+      "id": "sc",
+      "label": "Interface shape complementarity",
+      "operator": ">",
+      "threshold": 0.6,
+      "unit": "dimensionless",
+      "source_note": "Saved Rosetta InterfaceAnalyzer value; original or median over relaxed seeds101/102/103."
+    },
+    {
+      "id": "hbonds",
+      "label": "Interface hydrogen bonds",
+      "operator": ">",
+      "threshold": 3,
+      "unit": "count",
+      "source_note": "Saved Rosetta InterfaceAnalyzer count; original or independent median over relaxed seeds101/102/103."
+    },
+    {
+      "id": "km",
+      "label": "Interface Lys / Met limits",
+      "operator": "<",
+      "threshold": 3,
+      "unit": "count, each separately",
+      "source_note": "K<3 AND M<3. Distinct binder residues contacting antigen at\u22644\u00c5; heavy atoms only in both states. Median K and M counts over relaxed seeds independently."
+    }
+  ],
+  "missing_criteria": [
+    {
+      "id": "unsats",
+      "label": "Buried unsatisfied hydrogen bonds <4",
+      "reason": "Source-defined buried unsatisfied polar-atom measurement is not available/qualified for this cohort; no zero imputation."
+    },
+    {
+      "id": "hydrophobicity",
+      "label": "Binder surface hydrophobicity <35%",
+      "reason": "Source-defined surface-residue calculation is missing; sequence hydrophobicity is not substituted."
+    },
+    {
+      "id": "free_rmsd",
+      "label": "Bound-versus-free binder RMSD <3.5\u00c5",
+      "reason": "Independent free-binder predictions are unavailable; extracting the bound chain is not a free prediction."
+    }
+  ],
+  "rule": "Predicted B iff all six measured criteria pass. Any failed measured criterion predicts NB (screening rejection). Any missing measured criterion without a known failure is indeterminate. The omitted three criteria are outside this explicitly partial classifier, not assumed passed.",
+  "full_nine_rule": "Unavailable; no full-nine predicted B/NB performance is claimed. ESMFold2-Fast confidence also differs from source AF2.",
+  "operators": "Strict screenshot > and <; do not round input values before thresholding. Separate K and M caps, not K+M.",
+  "structure_policy": "Keep original and relaxed arms separate. Independent descriptor medians across seeds101/102/103 follow the existing evaluator; these can combine descriptors from different replicates.",
+  "confidence_policy": "Original ESMFold2-Fast pLDDT, ipTM, PAE unchanged in both coordinate arms. No AF2 equivalence claimed.",
+  "plddt_scope": "Whole-complex mean is the screenshot-literal primary; binder-only mean is a labeled source-implementation sensitivity, not a test-selected replacement.",
+  "contact_scope": "Heavy-atom 4\u00c5 inclusive contacts in both coordinate states. Excluding H/D prevents added relaxed hydrogens changing the atom inventory.",
+  "scoring_scope": "Uses existing REF2015 InterfaceAnalyzer settings, pack_input=false, pack_separated=false. This differs from BindCraft preparation/scoring and model ensembles; not an exact source-workflow replication.",
+  "evaluation": "Exact existing saved test IDs and family assignments. No train or validation data used to fit or tune filters. Fixed predictions do not change with the source training antigen.",
+  "metrics": "Confusion counts, recall, precision, specificity, balanced accuracy, F1, MCC and coverage. AUROC/AP/probability metrics N/A for this fixed operating-point classifier; binary decisions are not calibrated probabilities.",
+  "label_definition": "Binder and weak binder = B; explicit nonbinder = NB; failed expression and missing experimental measurements stay excluded per original cohort.",
+  "source_sha256": {
+    "/LOCAL_HOME/.codex/visualizations/2026/09/25/01a0dacb-3fae-7653-825a-a16074167874/proteinbase_evaluator_recall_20261013/inputs.json": "1e2aefcfdde4be09b35bf8969a88e7c1869eefac315f4772fa4d33cb41d29c0d",
+    "/LOCAL_HOME/.codex/visualizations/2026/09/25/01a0dacb-3fae-7653-825a-a16074167874/proteinbase_evaluator_recall_20261013/results.json": "f05d0491099f853e8d07668bb8ac75d47519cc4e78f05ce552fd4b1b3f8dc9b6",
+    "/LOCAL_HOME/.codex/visualizations/2026/09/25/01a0dacb-3fae-7653-825a-a16074167874/proteinbase_evaluator_recall_20261013/protocol.json": "3bd05ab864e00e641158ccf28093d3f35c63149da33b63d1ec26fbf7b0f93cba",
+    "/LOCAL_HOME/.codex/visualizations/2026/09/25/01a0dacb-3fae-7653-825a-a16074167874/proteinbase_evaluator_recall_20261013/outer_splits.json": "138f346a60b0bcfc8d65567372f0e8eb55bf93585972fc7cbfced92ab22e649c",
+    "/LOCAL_HOME/.codex/visualizations/2026/09/25/01a0dacb-3fae-7653-825a-a16074167874/proteinbase_evaluator_recall_20261013/findings.json": "9d1c51e9f88af57b9df860c0d8cf1cad74cce0623e8ac6f47e7fedddf397993e",
+    "/LOCAL_HOME/.codex/visualizations/2026/09/25/01a0dacb-3fae-7653-825a-a16074167874/proteinbase_evaluator_panel_20261009/recovered_features.json": "e3d4654dc103b7d58ca213959df50f7d6e566ab66047a028fc581eb0d68933e5",
+    "/LOCAL_HOME/.codex/visualizations/2026/09/25/01a0dacb-3fae-7653-825a-a16074167874/proteinbase_evaluator_panel_20261009/metric_definitions_audit.json": "070f6d138dff124be2a6ceb5abb6e4964be9ae0415e0c6678656a541a8ec7508"
+  },
+  "expected_n": 467,
+  "model_fits": 0,
+  "gpu_jobs": 0,
+  "new_relaxations": 0,
+  "retrospective": true,
+  "sources": [
+    "https://github.com/martinpacesa/BindCraft/blob/7713aa0d0d351e4117a8befeb8541f3a8ebd3368/functions/colabdesign_utils.py",
+    "https://github.com/martinpacesa/BindCraft/blob/7713aa0d0d351e4117a8befeb8541f3a8ebd3368/functions/pyrosetta_utils.py",
+    "https://github.com/martinpacesa/BindCraft/blob/7713aa0d0d351e4117a8befeb8541f3a8ebd3368/settings_filters/default_filters.json"
+  ]
+}

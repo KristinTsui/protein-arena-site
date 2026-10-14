@@ -1,0 +1,222 @@
+{
+  "precision_floor": 0.5,
+  "selection": "training-only",
+  "preferred_policies": [
+    {
+      "evaluation_id": "within_egfr",
+      "label": "Within EGFR",
+      "stage": "original",
+      "model_ids": [
+        "original_A",
+        "original_C",
+        "original_C"
+      ],
+      "feasible_folds": 3,
+      "total_folds": 3,
+      "coverage_complete": true,
+      "heldout_pooled": {
+        "n": 378,
+        "binders": 53,
+        "selected": 6,
+        "tp": 2,
+        "tn": 321,
+        "fp": 4,
+        "fn": 51,
+        "precision": 0.3333333333333333,
+        "recall": 0.03773584905660377,
+        "specificity": 0.9876923076923076,
+        "accuracy": 0.8544973544973545,
+        "balanced_accuracy": 0.5127140783744557,
+        "mcc": 0.07063946478897959,
+        "f1": 0.06779661016949153,
+        "precision_floor_met": false
+      },
+      "aggregation": "sum of fold-specific training-selected model decisions; NOT a single globally test-selected model"
+    },
+    {
+      "evaluation_id": "within_egfr",
+      "label": "Within EGFR",
+      "stage": "relaxed",
+      "model_ids": [
+        null,
+        null,
+        null
+      ],
+      "feasible_folds": 0,
+      "total_folds": 3,
+      "coverage_complete": false,
+      "heldout_pooled": null,
+      "aggregation": "sum of fold-specific training-selected model decisions; NOT a single globally test-selected model"
+    },
+    {
+      "evaluation_id": "within_trem2",
+      "label": "Within TREM2",
+      "stage": "original",
+      "model_ids": [
+        "original_E",
+        "original_E",
+        "original_E"
+      ],
+      "feasible_folds": 3,
+      "total_folds": 3,
+      "coverage_complete": true,
+      "heldout_pooled": {
+        "n": 89,
+        "binders": 37,
+        "selected": 64,
+        "tp": 36,
+        "tn": 24,
+        "fp": 28,
+        "fn": 1,
+        "precision": 0.5625,
+        "recall": 0.972972972972973,
+        "specificity": 0.46153846153846156,
+        "accuracy": 0.6741573033707865,
+        "balanced_accuracy": 0.7172557172557172,
+        "mcc": 0.4764789864539931,
+        "f1": 0.7128712871287128,
+        "precision_floor_met": true
+      },
+      "aggregation": "sum of fold-specific training-selected model decisions; NOT a single globally test-selected model"
+    },
+    {
+      "evaluation_id": "within_trem2",
+      "label": "Within TREM2",
+      "stage": "relaxed",
+      "model_ids": [
+        "relaxed_E",
+        "relaxed_E",
+        "relaxed_D"
+      ],
+      "feasible_folds": 3,
+      "total_folds": 3,
+      "coverage_complete": true,
+      "heldout_pooled": {
+        "n": 89,
+        "binders": 37,
+        "selected": 62,
+        "tp": 36,
+        "tn": 26,
+        "fp": 26,
+        "fn": 1,
+        "precision": 0.5806451612903226,
+        "recall": 0.972972972972973,
+        "specificity": 0.5,
+        "accuracy": 0.6966292134831461,
+        "balanced_accuracy": 0.7364864864864865,
+        "mcc": 0.5070620777186338,
+        "f1": 0.7272727272727273,
+        "precision_floor_met": true
+      },
+      "aggregation": "sum of fold-specific training-selected model decisions; NOT a single globally test-selected model"
+    },
+    {
+      "evaluation_id": "egfr_to_trem2",
+      "label": "EGFR \u2192 TREM2",
+      "stage": "original",
+      "model_ids": [
+        "original_B"
+      ],
+      "feasible_folds": 1,
+      "total_folds": 1,
+      "coverage_complete": true,
+      "heldout_pooled": {
+        "n": 89,
+        "binders": 37,
+        "selected": 10,
+        "tp": 5,
+        "tn": 47,
+        "fp": 5,
+        "fn": 32,
+        "precision": 0.5,
+        "recall": 0.13513513513513514,
+        "specificity": 0.9038461538461539,
+        "accuracy": 0.5842696629213483,
+        "balanced_accuracy": 0.5194906444906445,
+        "mcc": 0.060833833374478084,
+        "f1": 0.2127659574468085,
+        "precision_floor_met": true
+      },
+      "aggregation": "sum of fold-specific training-selected model decisions; NOT a single globally test-selected model"
+    },
+    {
+      "evaluation_id": "egfr_to_trem2",
+      "label": "EGFR \u2192 TREM2",
+      "stage": "relaxed",
+      "model_ids": [
+        null
+      ],
+      "feasible_folds": 0,
+      "total_folds": 1,
+      "coverage_complete": false,
+      "heldout_pooled": null,
+      "aggregation": "sum of fold-specific training-selected model decisions; NOT a single globally test-selected model"
+    },
+    {
+      "evaluation_id": "trem2_to_egfr",
+      "label": "TREM2 \u2192 EGFR",
+      "stage": "original",
+      "model_ids": [
+        "original_E"
+      ],
+      "feasible_folds": 1,
+      "total_folds": 1,
+      "coverage_complete": true,
+      "heldout_pooled": {
+        "n": 378,
+        "binders": 53,
+        "selected": 275,
+        "tp": 46,
+        "tn": 96,
+        "fp": 229,
+        "fn": 7,
+        "precision": 0.16727272727272727,
+        "recall": 0.8679245283018868,
+        "specificity": 0.2953846153846154,
+        "accuracy": 0.37566137566137564,
+        "balanced_accuracy": 0.5816545718432511,
+        "mcc": 0.1273518205013191,
+        "f1": 0.2804878048780488,
+        "precision_floor_met": false
+      },
+      "aggregation": "sum of fold-specific training-selected model decisions; NOT a single globally test-selected model"
+    },
+    {
+      "evaluation_id": "trem2_to_egfr",
+      "label": "TREM2 \u2192 EGFR",
+      "stage": "relaxed",
+      "model_ids": [
+        "relaxed_E"
+      ],
+      "feasible_folds": 1,
+      "total_folds": 1,
+      "coverage_complete": true,
+      "heldout_pooled": {
+        "n": 378,
+        "binders": 53,
+        "selected": 181,
+        "tp": 38,
+        "tn": 182,
+        "fp": 143,
+        "fn": 15,
+        "precision": 0.20994475138121546,
+        "recall": 0.7169811320754716,
+        "specificity": 0.56,
+        "accuracy": 0.582010582010582,
+        "balanced_accuracy": 0.6384905660377358,
+        "mcc": 0.1925118204072064,
+        "f1": 0.3247863247863248,
+        "precision_floor_met": false
+      },
+      "aggregation": "sum of fold-specific training-selected model decisions; NOT a single globally test-selected model"
+    }
+  ],
+  "limitations": [
+    "Within-EGFR relaxed candidate policies infeasible in all 3 outer training sets at 50% precision.",
+    "Within-TREM2 pooled recall improves at the selected cutoff, but original-coordinate fold3 misses the precision floor.",
+    "TREM2-to-EGFR precision is below the floor despite high recall; no universal evaluator is established.",
+    "Retrospective family-separated exploratory study; existing EGFR/TREM2 labels previously inspected.",
+    "Exact modeled sequence provenance is preserved; assay construct equivalence remains unresolved."
+  ],
+  "no_new_predictions_or_relaxations": true
+}

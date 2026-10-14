@@ -1,0 +1,80 @@
+{
+  "protocol_id": "proteinbase_ref2015_constrained_relax_v1",
+  "schema": "arena.rosetta.constrained_relax_protocol.v1",
+  "relaxation_seeds": [
+    101,
+    102,
+    103
+  ],
+  "scoring_seed": 101,
+  "score_function": "ref2015",
+  "repeats": 5,
+  "max_iter": 200,
+  "minimizer": "lbfgs_armijo_nonmonotone",
+  "coordinate_mode": "torsion",
+  "coordinate_constraint_weight": 1.0,
+  "coordinate_constraint_SD_A": 0.5,
+  "coordinate_constraint_mean_A": 0.0,
+  "coordinate_constraint_form": "HarmonicFunc",
+  "backbone_atoms": [
+    "N",
+    "CA",
+    "C",
+    "O"
+  ],
+  "backbone_movable": true,
+  "chi_movable": true,
+  "jumps_movable": false,
+  "sequence_design": false,
+  "packing_task": [
+    "RestrictToRepacking",
+    "IncludeCurrent"
+  ],
+  "automatic_relax_constraints": false,
+  "coordinate_constraint_anchor": "One appended virtual root, all jumps fixed; removed before scoring",
+  "persistent_constraints": "Explicit weight:coordinate_constraint 1.0 before each ramp stage; ramp_down_constraints(False); no script command lowers constraints",
+  "preparation_constraints_removed_before_scoring": true,
+  "primary_InterfaceAnalyzer": {
+    "pack_input": false,
+    "pack_separated": false,
+    "compute_packstat": true,
+    "compute_interface_energy": true,
+    "calc_dSASA": true,
+    "calc_hbond_sasaE": true,
+    "compute_interface_sc": true,
+    "score_function": "fresh ref2015 with all restraint score terms zero"
+  },
+  "primary_replicate_reduction": "Median interface_dG (REU), requiring all three complete, valid replicates; no best-seed selection or imputation",
+  "close_contact_definition": "Antigen/binder physical heavy-atom pairs with distance strictly below 2 angstrom; not a van der Waals clash metric",
+  "rmsd_definition": "Least-squares Kabsch-aligned matching N,CA,C,O coordinates, reflections excluded; complex and separate partners reported",
+  "input_chemistry_policy": "Original strict adapter; allows OXT additions and qualified PRO virtual atoms plus hydrogens from PDB loader; rejects missing physical heavy atoms, altered original coordinates or residue mapping",
+  "baseline_adapter_sha256": "310787dc05e72b1bdceb39f448d828058c71d4746fdc40faaae660a026da086a",
+  "baseline_adapter_source": "/LOCAL_HOME/Cheung_lab/binder_design_lab/campaign_arena/scoring_qualification/results/rosetta_rank_20260925/results/proteinbase_gpu_20260930/egfr_expanded/completion_20260930/cav_qualification/pyrosetta_score.py",
+  "relax_script_sha256": "e620fb5e041eb9b17b99a349a56ab99da2242cba112a04178deef0d763251d03",
+  "relax_script": "repeat 5\nweight:coordinate_constraint 1.0\nscale:fa_rep 0.040\nrepack\nscale:fa_rep 0.051\nmin 0.01\nweight:coordinate_constraint 1.0\nscale:fa_rep 0.265\nrepack\nscale:fa_rep 0.280\nmin 0.01\nweight:coordinate_constraint 1.0\nscale:fa_rep 0.559\nrepack\nscale:fa_rep 0.581\nmin 0.01\nweight:coordinate_constraint 1.0\nscale:fa_rep 1.0\nrepack\nmin 0.00001\naccept_to_best\nendrepeat\n",
+  "source_references": [
+    {
+      "url": "https://docs.rosettacommons.org/docs/latest/application_documentation/structure_prediction/relax",
+      "purpose": "Documented FastRelax ramp and constraint semantics"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/RosettaCommons/rosetta/main/source/src/protocols/relax/RelaxProtocolBase.cc",
+      "purpose": "Native automatic constraints add virtual root and set its jump movable, therefore manual anchor used"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/RosettaCommons/rosetta/main/source/src/protocols/relax/FastRelax.cc",
+      "purpose": "FastRelax script constructor and constraint-ramping behavior"
+    }
+  ],
+  "source_audit_limit": "Documentation/source reviewed on 2026-10-09; public main is not claimed identical to installed PyRosetta binary. Exact runtime version is pinned to each baseline case. Real runtime API validation and pilot remain required.",
+  "movement_warning_threshold_A": 2.0,
+  "movement_warning_components": [
+    "complex",
+    "antigen",
+    "binder"
+  ],
+  "movement_warning_comparison": "strictly greater than",
+  "close_contact_increase_warning": "after > before",
+  "diagnostic_warnings_affect_eligibility": false,
+  "diagnostic_warning_policy": "Prespecified warning only; inspect but do not remove cases, select seeds, impute, or change the three-valid-replicate median. Failed runs remain failures."
+}

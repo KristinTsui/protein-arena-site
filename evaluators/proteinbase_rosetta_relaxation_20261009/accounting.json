@@ -1,0 +1,480 @@
+{
+  "schema": "proteinbase.slurm_resource_accounting.v1",
+  "status": "complete",
+  "allocation_rows": [
+    {
+      "job_id": "2181693",
+      "job_id_raw": "2181693",
+      "state": "COMPLETED",
+      "elapsed_seconds": 741.0,
+      "allocated_cpus": 2,
+      "allocated_cpu_hours": 0.4116666666666667,
+      "actual_total_cpu_seconds": 95.137,
+      "actual_total_cpu_hours": 0.026426944444444444,
+      "max_rss_bytes": 12874657792.0,
+      "max_rss_GiB": 11.990459442138672,
+      "max_rss_source": "2181693.batch",
+      "raw_allocation": {
+        "JobID": "2181693",
+        "JobIDRaw": "2181693",
+        "State": "COMPLETED",
+        "ExitCode": "0:0",
+        "ElapsedRaw": "741",
+        "AllocCPUS": "2",
+        "TotalCPU": "01:35.137",
+        "MaxRSS": "",
+        "ReqMem": "12G"
+      }
+    },
+    {
+      "job_id": "2181695_0",
+      "job_id_raw": "2181695",
+      "state": "COMPLETED",
+      "elapsed_seconds": 1683.0,
+      "allocated_cpus": 2,
+      "allocated_cpu_hours": 0.935,
+      "actual_total_cpu_seconds": 1672.056,
+      "actual_total_cpu_hours": 0.46446,
+      "max_rss_bytes": 928788480.0,
+      "max_rss_GiB": 0.8650016784667969,
+      "max_rss_source": "2181695_0.batch",
+      "raw_allocation": {
+        "JobID": "2181695_0",
+        "JobIDRaw": "2181695",
+        "State": "COMPLETED",
+        "ExitCode": "0:0",
+        "ElapsedRaw": "1683",
+        "AllocCPUS": "2",
+        "TotalCPU": "27:52.056",
+        "MaxRSS": "",
+        "ReqMem": "8G"
+      }
+    },
+    {
+      "job_id": "2181705",
+      "job_id_raw": "2181705",
+      "state": "COMPLETED",
+      "elapsed_seconds": 4.0,
+      "allocated_cpus": 2,
+      "allocated_cpu_hours": 0.0022222222222222222,
+      "actual_total_cpu_seconds": 1.249,
+      "actual_total_cpu_hours": 0.0003469444444444445,
+      "max_rss_bytes": 250105856.0,
+      "max_rss_GiB": 0.23292922973632812,
+      "max_rss_source": "2181705.batch",
+      "raw_allocation": {
+        "JobID": "2181705",
+        "JobIDRaw": "2181705",
+        "State": "COMPLETED",
+        "ExitCode": "0:0",
+        "ElapsedRaw": "4",
+        "AllocCPUS": "2",
+        "TotalCPU": "00:01.249",
+        "MaxRSS": "",
+        "ReqMem": "1G"
+      }
+    },
+    {
+      "job_id": "2181738_1",
+      "job_id_raw": "2181739",
+      "state": "COMPLETED",
+      "elapsed_seconds": 2152.0,
+      "allocated_cpus": 2,
+      "allocated_cpu_hours": 1.1955555555555555,
+      "actual_total_cpu_seconds": 2136.761,
+      "actual_total_cpu_hours": 0.5935447222222222,
+      "max_rss_bytes": 953774080.0,
+      "max_rss_GiB": 0.8882713317871094,
+      "max_rss_source": "2181738_1.batch",
+      "raw_allocation": {
+        "JobID": "2181738_1",
+        "JobIDRaw": "2181739",
+        "State": "COMPLETED",
+        "ExitCode": "0:0",
+        "ElapsedRaw": "2152",
+        "AllocCPUS": "2",
+        "TotalCPU": "35:36.761",
+        "MaxRSS": "",
+        "ReqMem": "8G"
+      }
+    },
+    {
+      "job_id": "2181738_2",
+      "job_id_raw": "2181765",
+      "state": "COMPLETED",
+      "elapsed_seconds": 2452.0,
+      "allocated_cpus": 2,
+      "allocated_cpu_hours": 1.3622222222222222,
+      "actual_total_cpu_seconds": 2436.528,
+      "actual_total_cpu_hours": 0.6768133333333333,
+      "max_rss_bytes": 1102405632.0,
+      "max_rss_GiB": 1.0266952514648438,
+      "max_rss_source": "2181738_2.batch",
+      "raw_allocation": {
+        "JobID": "2181738_2",
+        "JobIDRaw": "2181765",
+        "State": "COMPLETED",
+        "ExitCode": "0:0",
+        "ElapsedRaw": "2452",
+        "AllocCPUS": "2",
+        "TotalCPU": "40:36.528",
+        "MaxRSS": "",
+        "ReqMem": "8G"
+      }
+    },
+    {
+      "job_id": "2181738_3",
+      "job_id_raw": "2181794",
+      "state": "COMPLETED",
+      "elapsed_seconds": 269.0,
+      "allocated_cpus": 2,
+      "allocated_cpu_hours": 0.14944444444444444,
+      "actual_total_cpu_seconds": 259.028,
+      "actual_total_cpu_hours": 0.07195222222222222,
+      "max_rss_bytes": 876183552.0,
+      "max_rss_GiB": 0.816009521484375,
+      "max_rss_source": "2181738_3.batch",
+      "raw_allocation": {
+        "JobID": "2181738_3",
+        "JobIDRaw": "2181794",
+        "State": "COMPLETED",
+        "ExitCode": "0:0",
+        "ElapsedRaw": "269",
+        "AllocCPUS": "2",
+        "TotalCPU": "04:19.028",
+        "MaxRSS": "",
+        "ReqMem": "8G"
+      }
+    },
+    {
+      "job_id": "2181738_4",
+      "job_id_raw": "2181795",
+      "state": "COMPLETED",
+      "elapsed_seconds": 454.0,
+      "allocated_cpus": 2,
+      "allocated_cpu_hours": 0.25222222222222224,
+      "actual_total_cpu_seconds": 442.689,
+      "actual_total_cpu_hours": 0.12296916666666667,
+      "max_rss_bytes": 952803328.0,
+      "max_rss_GiB": 0.8873672485351562,
+      "max_rss_source": "2181738_4.batch",
+      "raw_allocation": {
+        "JobID": "2181738_4",
+        "JobIDRaw": "2181795",
+        "State": "COMPLETED",
+        "ExitCode": "0:0",
+        "ElapsedRaw": "454",
+        "AllocCPUS": "2",
+        "TotalCPU": "07:22.689",
+        "MaxRSS": "",
+        "ReqMem": "8G"
+      }
+    },
+    {
+      "job_id": "2181738_5",
+      "job_id_raw": "2181738",
+      "state": "COMPLETED",
+      "elapsed_seconds": 1156.0,
+      "allocated_cpus": 2,
+      "allocated_cpu_hours": 0.6422222222222222,
+      "actual_total_cpu_seconds": 1144.605,
+      "actual_total_cpu_hours": 0.3179458333333333,
+      "max_rss_bytes": 774602752.0,
+      "max_rss_GiB": 0.721405029296875,
+      "max_rss_source": "2181738_5.batch",
+      "raw_allocation": {
+        "JobID": "2181738_5",
+        "JobIDRaw": "2181738",
+        "State": "COMPLETED",
+        "ExitCode": "0:0",
+        "ElapsedRaw": "1156",
+        "AllocCPUS": "2",
+        "TotalCPU": "19:04.605",
+        "MaxRSS": "",
+        "ReqMem": "8G"
+      }
+    },
+    {
+      "job_id": "2181754",
+      "job_id_raw": "2181754",
+      "state": "COMPLETED",
+      "elapsed_seconds": 2.0,
+      "allocated_cpus": 2,
+      "allocated_cpu_hours": 0.0011111111111111111,
+      "actual_total_cpu_seconds": 0.687,
+      "actual_total_cpu_hours": 0.00019083333333333336,
+      "max_rss_bytes": 52957184.0,
+      "max_rss_GiB": 0.049320220947265625,
+      "max_rss_source": "2181754.batch",
+      "raw_allocation": {
+        "JobID": "2181754",
+        "JobIDRaw": "2181754",
+        "State": "COMPLETED",
+        "ExitCode": "0:0",
+        "ElapsedRaw": "2",
+        "AllocCPUS": "2",
+        "TotalCPU": "00:00.687",
+        "MaxRSS": "",
+        "ReqMem": "2G"
+      }
+    },
+    {
+      "job_id": "2182132",
+      "job_id_raw": "2182132",
+      "state": "COMPLETED",
+      "elapsed_seconds": 13630.0,
+      "allocated_cpus": 32,
+      "allocated_cpu_hours": 121.15555555555555,
+      "actual_total_cpu_seconds": 215831.0,
+      "actual_total_cpu_hours": 59.95305555555556,
+      "max_rss_bytes": 17598287872.0,
+      "max_rss_GiB": 16.38968276977539,
+      "max_rss_source": "2182132.batch",
+      "raw_allocation": {
+        "JobID": "2182132",
+        "JobIDRaw": "2182132",
+        "State": "COMPLETED",
+        "ExitCode": "0:0",
+        "ElapsedRaw": "13630",
+        "AllocCPUS": "32",
+        "TotalCPU": "2-11:57:11",
+        "MaxRSS": "",
+        "ReqMem": "68G"
+      }
+    },
+    {
+      "job_id": "2182133",
+      "job_id_raw": "2182133",
+      "state": "COMPLETED",
+      "elapsed_seconds": 13798.0,
+      "allocated_cpus": 32,
+      "allocated_cpu_hours": 122.64888888888889,
+      "actual_total_cpu_seconds": 217121.0,
+      "actual_total_cpu_hours": 60.31138888888889,
+      "max_rss_bytes": 17374490624.0,
+      "max_rss_GiB": 16.181255340576172,
+      "max_rss_source": "2182133.batch",
+      "raw_allocation": {
+        "JobID": "2182133",
+        "JobIDRaw": "2182133",
+        "State": "COMPLETED",
+        "ExitCode": "0:0",
+        "ElapsedRaw": "13798",
+        "AllocCPUS": "32",
+        "TotalCPU": "2-12:18:41",
+        "MaxRSS": "",
+        "ReqMem": "68G"
+      }
+    },
+    {
+      "job_id": "2182134",
+      "job_id_raw": "2182134",
+      "state": "COMPLETED",
+      "elapsed_seconds": 13618.0,
+      "allocated_cpus": 32,
+      "allocated_cpu_hours": 121.04888888888888,
+      "actual_total_cpu_seconds": 214966.0,
+      "actual_total_cpu_hours": 59.71277777777778,
+      "max_rss_bytes": 17395961856.0,
+      "max_rss_GiB": 16.201251983642578,
+      "max_rss_source": "2182134.batch",
+      "raw_allocation": {
+        "JobID": "2182134",
+        "JobIDRaw": "2182134",
+        "State": "COMPLETED",
+        "ExitCode": "0:0",
+        "ElapsedRaw": "13618",
+        "AllocCPUS": "32",
+        "TotalCPU": "2-11:42:46",
+        "MaxRSS": "",
+        "ReqMem": "68G"
+      }
+    },
+    {
+      "job_id": "2182135",
+      "job_id_raw": "2182135",
+      "state": "COMPLETED",
+      "elapsed_seconds": 13946.0,
+      "allocated_cpus": 32,
+      "allocated_cpu_hours": 123.96444444444444,
+      "actual_total_cpu_seconds": 219646.0,
+      "actual_total_cpu_hours": 61.01277777777778,
+      "max_rss_bytes": 17750233088.0,
+      "max_rss_GiB": 16.531192779541016,
+      "max_rss_source": "2182135.batch",
+      "raw_allocation": {
+        "JobID": "2182135",
+        "JobIDRaw": "2182135",
+        "State": "COMPLETED",
+        "ExitCode": "0:0",
+        "ElapsedRaw": "13946",
+        "AllocCPUS": "32",
+        "TotalCPU": "2-13:00:46",
+        "MaxRSS": "",
+        "ReqMem": "68G"
+      }
+    },
+    {
+      "job_id": "2182213",
+      "job_id_raw": "2182213",
+      "state": "COMPLETED",
+      "elapsed_seconds": 65.0,
+      "allocated_cpus": 2,
+      "allocated_cpu_hours": 0.03611111111111111,
+      "actual_total_cpu_seconds": 33.658,
+      "actual_total_cpu_hours": 0.009349444444444445,
+      "max_rss_bytes": 2426564608.0,
+      "max_rss_GiB": 2.2599143981933594,
+      "max_rss_source": "2182213.batch",
+      "raw_allocation": {
+        "JobID": "2182213",
+        "JobIDRaw": "2182213",
+        "State": "COMPLETED",
+        "ExitCode": "0:0",
+        "ElapsedRaw": "65",
+        "AllocCPUS": "2",
+        "TotalCPU": "00:33.658",
+        "MaxRSS": "",
+        "ReqMem": "4G"
+      }
+    }
+  ],
+  "excluded_rows": [
+    {
+      "job_id": "2181693.batch",
+      "reason": "step_row_not_separate_allocation"
+    },
+    {
+      "job_id": "2181693.extern",
+      "reason": "step_row_not_separate_allocation"
+    },
+    {
+      "job_id": "2181695_0.batch",
+      "reason": "step_row_not_separate_allocation"
+    },
+    {
+      "job_id": "2181695_0.extern",
+      "reason": "step_row_not_separate_allocation"
+    },
+    {
+      "job_id": "2181705.batch",
+      "reason": "step_row_not_separate_allocation"
+    },
+    {
+      "job_id": "2181705.extern",
+      "reason": "step_row_not_separate_allocation"
+    },
+    {
+      "job_id": "2181738_1.batch",
+      "reason": "step_row_not_separate_allocation"
+    },
+    {
+      "job_id": "2181738_1.extern",
+      "reason": "step_row_not_separate_allocation"
+    },
+    {
+      "job_id": "2181738_2.batch",
+      "reason": "step_row_not_separate_allocation"
+    },
+    {
+      "job_id": "2181738_2.extern",
+      "reason": "step_row_not_separate_allocation"
+    },
+    {
+      "job_id": "2181738_3.batch",
+      "reason": "step_row_not_separate_allocation"
+    },
+    {
+      "job_id": "2181738_3.extern",
+      "reason": "step_row_not_separate_allocation"
+    },
+    {
+      "job_id": "2181738_4.batch",
+      "reason": "step_row_not_separate_allocation"
+    },
+    {
+      "job_id": "2181738_4.extern",
+      "reason": "step_row_not_separate_allocation"
+    },
+    {
+      "job_id": "2181738_5.batch",
+      "reason": "step_row_not_separate_allocation"
+    },
+    {
+      "job_id": "2181738_5.extern",
+      "reason": "step_row_not_separate_allocation"
+    },
+    {
+      "job_id": "2181754.batch",
+      "reason": "step_row_not_separate_allocation"
+    },
+    {
+      "job_id": "2181754.extern",
+      "reason": "step_row_not_separate_allocation"
+    },
+    {
+      "job_id": "2182132.batch",
+      "reason": "step_row_not_separate_allocation"
+    },
+    {
+      "job_id": "2182132.extern",
+      "reason": "step_row_not_separate_allocation"
+    },
+    {
+      "job_id": "2182133.batch",
+      "reason": "step_row_not_separate_allocation"
+    },
+    {
+      "job_id": "2182133.extern",
+      "reason": "step_row_not_separate_allocation"
+    },
+    {
+      "job_id": "2182134.batch",
+      "reason": "step_row_not_separate_allocation"
+    },
+    {
+      "job_id": "2182134.extern",
+      "reason": "step_row_not_separate_allocation"
+    },
+    {
+      "job_id": "2182135.batch",
+      "reason": "step_row_not_separate_allocation"
+    },
+    {
+      "job_id": "2182135.extern",
+      "reason": "step_row_not_separate_allocation"
+    },
+    {
+      "job_id": "2182213.batch",
+      "reason": "step_row_not_separate_allocation"
+    },
+    {
+      "job_id": "2182213.extern",
+      "reason": "step_row_not_separate_allocation"
+    }
+  ],
+  "invalid_rows": [],
+  "summary": {
+    "allocation_count": 14,
+    "known_allocated_cpu_hours": 493.80555555555554,
+    "known_actual_total_cpu_hours": 243.27399944444446,
+    "known_actual_total_cpu_seconds": 875786.398,
+    "maximum_batch_rss_bytes": 17750233088.0,
+    "maximum_batch_rss_GiB": 16.531192779541016,
+    "missing_allocated_cost_job_ids": [],
+    "missing_actual_cpu_job_ids": [],
+    "missing_batch_rss_job_ids": [],
+    "nonfinal_job_ids": []
+  },
+  "definitions": {
+    "allocated_cpu_hours": "Sum ElapsedRaw seconds * AllocCPUS / 3600 for job allocation rows only; whole-core allocation may exceed requested cpus-per-task.",
+    "actual_total_cpu_hours": "Sum allocation-row TotalCPU durations / 3600; separate observed process consumption, never added to allocated cost. Running jobs may have incomplete accounting.",
+    "max_rss": "Maximum .batch MaxRSS, not sum of step peaks or memory-hours; missing batch measurement remains unknown.",
+    "rss_unit_convention": "K/M/G/T interpreted as powers of1024; bare sacct values interpreted as K (set --rss-bare-unit explicitly if export used other units).",
+    "array_parents": "Aggregate parent with explicit child rows and pending array ranges excluded. Use JobID as well as JobIDRaw to retain array identities."
+  },
+  "source": {
+    "path": "/LOCAL_HOME/.codex/visualizations/2026/09/25/01a0dacb-3fae-7653-825a-a16074167874/proteinbase_rosetta_relaxation_20261009/archive_receipts/job_2182213/final_all_jobs_accounting.tsv",
+    "sha256": "cb615c9f91ffbe05185ebb2e1ae03b28809bb5d88b8d2cf04c924637c35c6c77"
+  }
+}

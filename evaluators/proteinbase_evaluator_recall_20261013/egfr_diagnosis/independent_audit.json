@@ -1,0 +1,104 @@
+{
+  "status": "passed",
+  "utc": "2026-10-13T18:56:15.986662+00:00",
+  "assertions": 1601,
+  "review": "Independent read-only scientific/presentation calculation review; no model refits or source edits. Only this audit receipt written.",
+  "diagnostics_sha256": "bb9dcff333357a399010a50e3de622111e1253f12319c07498aecf122d72d22d",
+  "script_sha256": "622608375043f99720fed151aa8b80bf5c5053f4509a3bb3c3cee165fe5526ec",
+  "source_sha256": {
+    "inputs.json": "1e2aefcfdde4be09b35bf8969a88e7c1869eefac315f4772fa4d33cb41d29c0d",
+    "results.json": "f05d0491099f853e8d07668bb8ac75d47519cc4e78f05ce552fd4b1b3f8dc9b6",
+    "protocol.json": "3bd05ab864e00e641158ccf28093d3f35c63149da33b63d1ec26fbf7b0f93cba",
+    "outer_splits.json": "138f346a60b0bcfc8d65567372f0e8eb55bf93585972fc7cbfced92ab22e649c",
+    "findings.json": "9d1c51e9f88af57b9df860c0d8cf1cad74cce0623e8ac6f47e7fedddf397993e"
+  },
+  "checks": [
+    "All 18 model comparisons: matched test folds, AUROC/AP weighted by actual held-out fold sizes",
+    "Fixed 10%/20% score-only budgets per fold with ceil and whole boundary ties; no label-based cutoff selection",
+    "All budget TP/FP/selected counts independently recomputed",
+    "Family bootstrap matches sklearn sample-weight AUROC for 2 complete 1000-resample cases and explicit ties",
+    "Original scientific source hashes unchanged",
+    "Code inspection: no fitting, threshold optimization or molecular computations; confidence/energy directionality explicit"
+  ],
+  "bootstrap_reference_checks": [
+    {
+      "antigen": "egfr",
+      "feature": "ipsae",
+      "valid_resamples": 1000,
+      "percentile_95": [
+        0.5850468526135786,
+        0.8951592605973024
+      ]
+    },
+    {
+      "antigen": "trem2",
+      "feature": "iptm",
+      "valid_resamples": 1000,
+      "percentile_95": [
+        0.6777164339419979,
+        0.8889355742296919
+      ]
+    }
+  ],
+  "model_E_top20pct": {
+    "original": {
+      "within": {
+        "n": 378,
+        "binders": 53,
+        "selected": 77,
+        "tp": 16,
+        "fp": 61,
+        "tn": 264,
+        "fn": 37,
+        "recall": 0.3018867924528302,
+        "precision": 0.2077922077922078,
+        "specificity": 0.8123076923076923
+      },
+      "transfer": {
+        "n": 378,
+        "binders": 53,
+        "selected": 77,
+        "tp": 14,
+        "fp": 63,
+        "tn": 262,
+        "fn": 39,
+        "recall": 0.2641509433962264,
+        "precision": 0.18181818181818182,
+        "specificity": 0.8061538461538461
+      }
+    },
+    "relaxed": {
+      "within": {
+        "n": 378,
+        "binders": 53,
+        "selected": 77,
+        "tp": 6,
+        "fp": 71,
+        "tn": 254,
+        "fn": 47,
+        "recall": 0.11320754716981132,
+        "precision": 0.07792207792207792,
+        "specificity": 0.7815384615384615
+      },
+      "transfer": {
+        "n": 378,
+        "binders": 53,
+        "selected": 77,
+        "tp": 18,
+        "fp": 59,
+        "tn": 266,
+        "fn": 35,
+        "recall": 0.33962264150943394,
+        "precision": 0.23376623376623376,
+        "specificity": 0.8184615384615385
+      }
+    }
+  },
+  "limitations": [
+    "Budgets are post-hoc diagnostic choices relative to prior inspected test outcomes, not original prespecified evaluation endpoints.",
+    "Whole ties may exceed requested fraction; actual selected counts are reported. Model E has equal 77 selected at20%.",
+    "Fixed-prediction family bootstrap does not include training variability; sparse positive-family support limits precision.",
+    "Matched mean AUROC equivalence is not causal proof of a prevalence effect.",
+    "Raw whole-cohort descriptor AUROC is descriptive and not learned-model held-out performance."
+  ]
+}

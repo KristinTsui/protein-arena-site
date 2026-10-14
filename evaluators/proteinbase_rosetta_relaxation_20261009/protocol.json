@@ -1,0 +1,156 @@
+{
+  "schema": "proteinbase.rosetta_relaxation_comparison_protocol.v1",
+  "protocol_id": "proteinbase_ref2015_constrained_relax_v1",
+  "frozen_at_utc": "2026-10-10T04:22:21.348149+00:00",
+  "purpose": "Test whether standardized constrained relaxation improves retrospective held-out B/NB prediction. Lower structural energy alone is not success.",
+  "scope": {
+    "eligible_designs": 467,
+    "antigens": {
+      "egfr": 378,
+      "trem2": 89
+    },
+    "input_model": "Existing ESMFold2-Fast complexes only",
+    "new_predictions": false,
+    "gpu_jobs": false,
+    "labels": "Binder and weak binding are B; explicit nonbinder is NB. Failed expression and missing measurements are excluded, never NB.",
+    "outcome_or_confidence_filter": false
+  },
+  "original_files": {
+    "/LOCAL_HOME/.codex/visualizations/2026/09/25/01a0dacb-3fae-7653-825a-a16074167874/proteinbase_evaluator_20261009/cohort.json": "58190604612607099f7c2b8ee453bafeff7ea2dc3b975161cb93990b8f99be79",
+    "/LOCAL_HOME/.codex/visualizations/2026/09/25/01a0dacb-3fae-7653-825a-a16074167874/proteinbase_evaluator_20261009/results.json": "02e4a9adf8afce93647aff2b2e0fc74598319dac73983c6057ea4659c62a47e5",
+    "/LOCAL_HOME/.codex/visualizations/2026/09/25/01a0dacb-3fae-7653-825a-a16074167874/proteinbase_evaluator_20261009/protocol.json": "cacb1139e28a72bbb672de503be0e0ee3e71566126c472607c22faad53e17dd0",
+    "/LOCAL_HOME/.codex/visualizations/2026/09/25/01a0dacb-3fae-7653-825a-a16074167874/proteinbase_evaluator_20261009/models.json": "37b3b00babfd3f1351fdee44f34fca69f5269275f864ca06d9b094d2c44b160c",
+    "/LOCAL_HOME/.codex/visualizations/2026/09/25/01a0dacb-3fae-7653-825a-a16074167874/proteinbase_evaluator_20261009/family_groups.json": "dc70e4f183119d4030c3678a84e2344fc82ee87e0ac469ed0614ecb49aab0ae5",
+    "/LOCAL_HOME/.codex/visualizations/2026/09/25/01a0dacb-3fae-7653-825a-a16074167874/proteinbase_evaluator_panel_20261009/recovered_features.json": "e3d4654dc103b7d58ca213959df50f7d6e566ab66047a028fc581eb0d68933e5",
+    "/LOCAL_HOME/Cheung_lab/binder_design_lab/campaign_arena/scoring_qualification/results/rosetta_rank_20260925/source_data/proteinbase_computed_scores.json": "075c3afc18f53e0cde385950bc031c7e0e4140241d3d5e3976a27072f06e2b9e"
+  },
+  "input_manifest_sha256": "dc041f1ba895a857a1b4803483f265989dd31333d72ab0b95e538cfb74f33f3a",
+  "worker_inputs_sha256": "dde31242f9a90e36aa79838f1d0b3d519c31a7fedcc7674e001a4f334019cedb",
+  "preparation_protocol": "relax_protocol.json",
+  "replicates": {
+    "seeds": [
+      101,
+      102,
+      103
+    ],
+    "primary": "Median of all three complete, valid dG_separated scores in REU",
+    "variability": [
+      "minimum",
+      "maximum",
+      "sample standard deviation"
+    ],
+    "incomplete": "No imputation; retained as incomplete"
+  },
+  "pilot": {
+    "selection": "Within each antigen, sort by (binder length, condition ID); select indices0,floor((n-1)/2),n-1. No labels, scores, or outcomes enter selection.",
+    "cases": [
+      {
+        "id": "proteinbase_egfr__vast-mole-flint",
+        "antigen": "egfr",
+        "selection_role": "minimum_length",
+        "binder_length": 13,
+        "sorted_position_zero_based": 0,
+        "cohort_n": 378
+      },
+      {
+        "id": "proteinbase_egfr__crimson-toad-sand",
+        "antigen": "egfr",
+        "selection_role": "median_length_lower_middle",
+        "binder_length": 78,
+        "sorted_position_zero_based": 188,
+        "cohort_n": 378
+      },
+      {
+        "id": "proteinbase_egfr__vast-bear-iron",
+        "antigen": "egfr",
+        "selection_role": "maximum_length",
+        "binder_length": 250,
+        "sorted_position_zero_based": 377,
+        "cohort_n": 378
+      },
+      {
+        "id": "proteinbase_trem2__calm-bison-willow",
+        "antigen": "trem2",
+        "selection_role": "minimum_length",
+        "binder_length": 40,
+        "sorted_position_zero_based": 0,
+        "cohort_n": 89
+      },
+      {
+        "id": "proteinbase_trem2__ivory-crane-bronze",
+        "antigen": "trem2",
+        "selection_role": "median_length_lower_middle",
+        "binder_length": 85,
+        "sorted_position_zero_based": 44,
+        "cohort_n": 89
+      },
+      {
+        "id": "proteinbase_trem2__golden-gecko-stone",
+        "antigen": "trem2",
+        "selection_role": "maximum_length",
+        "binder_length": 245,
+        "sorted_position_zero_based": 88,
+        "cohort_n": 89
+      }
+    ],
+    "count": 6,
+    "replicates": 18,
+    "purpose": "Technical correctness, runtime and memory only; no setting selection from binding labels or evaluation scores",
+    "reuse": true,
+    "technical_gates": [
+      "Exact sequences, chains, residue mapping and heavy atom identities",
+      "All chain jumps fixed, persistent constraints active throughout relax, constraints removed before scoring",
+      "Raw baseline dG reproduction within 0.0001 REU; discrepancies require technical investigation, never outcome-based exclusion",
+      "Recorded runtime version matches original version; all 18 expected replicates valid",
+      "Movement and close-contact warnings reviewed without exclusion based on score or label"
+    ]
+  },
+  "evaluation": {
+    "splits": "EXACT train/test IDs and family exclusions in original results.json; no reassignment",
+    "comparisons": [
+      "Original vs relaxed favorable-direction ranking (-REU)",
+      "Original vs relaxed single-feature logistic regression",
+      "Original four-feature logistic vs only Rosetta replaced by relaxed median"
+    ],
+    "standardization": "StandardScaler fitted on training rows only",
+    "logistic": {
+      "C": 1.0,
+      "solver": "lbfgs",
+      "max_iter": 10000,
+      "tol": 1e-08,
+      "class_weight": null,
+      "random_state": 42
+    },
+    "threshold": {
+      "probability": 0.5,
+      "comparison": ">=",
+      "role": "Prespecified diagnostic only; no test-set tuning",
+      "raw_scores": "No probability or B/NB threshold assigned"
+    },
+    "metrics": [
+      "AUROC",
+      "average_precision",
+      "Brier",
+      "log_loss",
+      "confusion matrix for probabilities"
+    ],
+    "aggregation": "Within-antigen headline is test-size-weighted mean of all saved folds; exact individual-fold ROC/PR curves shown separately. Pooled curves and metrics descriptive only.",
+    "failures": "Compare both methods on identical rows with all three valid replicates. Filter original train/test membership identically; no imputation or regrouping. Unavailable aggregate if a required fold cannot be evaluated.",
+    "confidence": "Original ipSAE/ipTM/pLDDT/PAE stay associated with original ESMFold2-Fast predictions; relaxation generates no new confidence scores",
+    "conclusion": "Report paired changes by antigen, held-out fold and family, including null/negative results. Cross-antigen tests also change assay and design distributions; no claim of prospective or universal generalization."
+  },
+  "execution": {
+    "ssh_alias": "HPC_LOGIN_ALIAS",
+    "user": "HPC_USER",
+    "historical_account": "HPC_ACCOUNT",
+    "historical_partition": "cpu",
+    "fresh_partition_qos_limits_verification_required": true,
+    "python": "/SCRATCH_WORKSPACE/proto-arena/ff5ba88c8c1c/envs/pyrosetta/bin/python",
+    "slurm_only": true,
+    "active_storage": "/SCRATCH_WORKSPACE",
+    "threads_per_task": 1,
+    "concurrency": "Pilot conservative max 2 after fresh resource verification; cohort chosen from measured runtime/memory and current limits",
+    "full_cost": "Estimate only after measured pilot; no guessed cost claimed"
+  },
+  "secondary_experiments": []
+}

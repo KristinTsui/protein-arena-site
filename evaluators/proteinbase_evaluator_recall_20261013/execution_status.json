@@ -1,0 +1,20 @@
+{
+  "status": "complete_local_cpu",
+  "runtime": {
+    "python": "3.14.6",
+    "sklearn": "1.9.1",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "job_id": null,
+    "host": "KristinTsuis-MacBook-Pro.local",
+    "elapsed_seconds": 1.264062499976717,
+    "max_rss_kib": 234544.0,
+    "models_fitted": 384,
+    "gpu_jobs": 0,
+    "molecular_jobs": 0,
+    "historical_outer_predictions_reused": true,
+    "runtime_note": "Small CPU regression study runs locally in the exact original evaluator runtime after fresh CoreHPC SSH closed before staging. No cluster job submitted; no runtime installed or replaced. Historical prediction reproduction guard retained."
+  },
+  "publication_note": "Public summary of an operational receipt. Host identities, environment-restoration commands, and operational output are omitted; full local receipt remains preserved.",
+  "source_sha256": "cfd50cb9d5fde537534e2b54ab78cad7a8457f4059c1f3028a07cb8281e44c4f"
+}

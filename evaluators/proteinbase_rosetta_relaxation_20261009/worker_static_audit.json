@@ -1,0 +1,103 @@
+{
+  "status": "static_checks_passed_runtime_unverified",
+  "checks": [
+    {
+      "name": "worker_syntax",
+      "passed": true
+    },
+    {
+      "name": "Kabsch_translation_rotation_invariant",
+      "passed": true
+    },
+    {
+      "name": "Kabsch_rejects_reflection",
+      "passed": true
+    },
+    {
+      "name": "version_banner_normalization",
+      "passed": true
+    },
+    {
+      "name": "frozen_seeds",
+      "passed": true
+    },
+    {
+      "name": "five_cycle_explicit_script",
+      "passed": true
+    },
+    {
+      "name": "four_persistent_constraint_commands",
+      "passed": true
+    },
+    {
+      "name": "no_constraint_ramp_or_zero",
+      "passed": true
+    },
+    {
+      "name": "ref2015_primary_no_packing",
+      "passed": true
+    },
+    {
+      "name": "preparation_constraints_removed",
+      "passed": true
+    },
+    {
+      "name": "no_design_or_movable_jump",
+      "passed": true
+    },
+    {
+      "name": "no_relabel_training_or_prediction",
+      "passed": true
+    },
+    {
+      "name": "baseline_adapter_copy_unchanged",
+      "passed": true
+    },
+    {
+      "name": "protocol_script_hash_matches",
+      "passed": true
+    }
+  ],
+  "worker_sha256": "45f95393c8bd0227896c4bc31a7d8b7b21746e42e40d44f74aff2cf67b386d78",
+  "relax_protocol_sha256": "10db6139f5e5fc3aca558cf5523ab223c7d6703091ac0f319b5f5e9058c191c1",
+  "limitations": [
+    "Licensed PyRosetta is unavailable locally; worker API calls and numerical execution require the planned CoreHPC pilot.",
+    "Public Rosetta main source and official documentation verified protocol semantics; exact binary source revision not retrieved.",
+    "No jobs launched by this worker author."
+  ],
+  "local_unit_tests": {
+    "command": "/LOCAL_HOME/miniconda3/bin/python3 -m unittest -v test_worker.py",
+    "passed": 7,
+    "failed": 0,
+    "scope": [
+      "diagnostic warning thresholds/boundaries",
+      "non-exclusion policy",
+      "invalid diagnostics fail",
+      "Kabsch transform/reflection",
+      "Slurm guards",
+      "immutable per-launch receipts with fake no-op worker"
+    ],
+    "runtime_scientific_execution": false
+  },
+  "launcher_review": {
+    "run_case_sha256": "9700e520d8ec716f66f7c3065ff974a1c63e766e80dd57e0fa397f156f01e805",
+    "run_array_sha256": "ee871184c202b2a300b6d01f59880e42bf5c865e4a0f57c307b6e35491e53f5a",
+    "bash_syntax_passed": true,
+    "slurm_job_required": true,
+    "array_bounds_checked": true,
+    "replicates_serial": true,
+    "cuda_hidden_by_shell_launcher": true,
+    "native_thread_limits": 1,
+    "argv_subprocess_without_shell": true,
+    "logs_append": true,
+    "driver_receipts_immutable": true,
+    "completed_worker_outputs_reused_only_after_provenance_validation": true,
+    "failed_worker_outputs_preserved": true,
+    "limitation": "Current Slurm account/partition entitlement must be verified before submission; launchers do not invent resource entitlements."
+  },
+  "source_provenance": {
+    "review_record": "source_audit/source_review.json",
+    "sha256": "195134f3b4bfde01501415523207e2d18c12635828963b38683ab968d4381b07",
+    "local_source_downloaded": false
+  }
+}

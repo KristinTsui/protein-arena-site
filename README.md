@@ -17,3 +17,7 @@ Experimental data retain their source citations, including ProteinBase and the o
 The arena includes plain-language amino-acid changes beneath each protein name. BCMA uses native residue numbers; binder variants list all changes from original B5, including inherited substitutions.
 
 The arena score bar now shows three-seed medians and predicted energy contrasts against original WT BCMA–B5, B5 on the same antigen, and WT BCMA with the same binder. Expanded details retain sample SD, means, ranges and individual scores. Variant preference is model-based, not measured specificity. Historical structures are labeled BCMA8–43 fragment plus full59-residue B5; full-domain predictions are a separate planned dataset.
+
+## ProteinBase evaluator reports
+
+[Open the shareable evaluator](https://kristintsui.github.io/protein-arena-site/evaluators/). This additive report covers 467 EGFR/TREM2 designs, original versus relaxed Rosetta descriptors, held-out logistic models, confusion matrices, fixed filters, and fold-specific learned weights. Related historical analyses and scientific downloads are included under `evaluators/`. The arena release above is unchanged. Machine-specific paths are generalized in the public copies; source and published hashes are recorded in `evaluators/publication.json`.

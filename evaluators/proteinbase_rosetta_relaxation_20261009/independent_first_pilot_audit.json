@@ -1,0 +1,307 @@
+{
+  "schema": "proteinbase.independent_first_relaxation_receipt_audit.v1",
+  "status": "passed_independent_pilot_audit",
+  "scope": "Independent local receipt, frozen-code, input/output identity and geometry, and archived numerical replay audit. No rerun, remote changes, label-based selection, or held-out tuning.",
+  "case_id": "proteinbase_egfr__vast-mole-flint",
+  "seed": 101,
+  "result_receipt": {
+    "path": "/LOCAL_HOME/.codex/visualizations/2026/09/25/01a0dacb-3fae-7653-825a-a16074167874/proteinbase_rosetta_relaxation_20261009/runs/proteinbase_egfr__vast-mole-flint/seed_101/result.json",
+    "sha256": "5c9db1f4985e9fa4cf093e3c37b1dd8589af9a461144412572c6fe242f3e541e"
+  },
+  "checks": [
+    {
+      "name": "protocol_sha256",
+      "passed": true,
+      "detail": "10a5e64411976a50fbc6ed1df4c35b1e58b3c9e12d05565b937b785515aaf9dd"
+    },
+    {
+      "name": "relax_protocol_sha256",
+      "passed": true,
+      "detail": "10db6139f5e5fc3aca558cf5523ab223c7d6703091ac0f319b5f5e9058c191c1"
+    },
+    {
+      "name": "worker_sha256",
+      "passed": true,
+      "detail": "45f95393c8bd0227896c4bc31a7d8b7b21746e42e40d44f74aff2cf67b386d78"
+    },
+    {
+      "name": "baseline_adapter_sha256",
+      "passed": true,
+      "detail": "310787dc05e72b1bdceb39f448d828058c71d4746fdc40faaae660a026da086a"
+    },
+    {
+      "name": "worker_manifest_hash",
+      "passed": true,
+      "detail": "dde31242f9a90e36aa79838f1d0b3d519c31a7fedcc7674e001a4f334019cedb"
+    },
+    {
+      "name": "source_confidence_npz_hash",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_complex_cif_hash",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_validation_review_hash",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_rosetta_result_hash",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_rosetta_request_hash",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_input_pdb_hash",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact_input_pdb_hash",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact_partner_sequences",
+      "passed": true,
+      "detail": {
+        "chain_lengths": {
+          "A": 621,
+          "B": 13
+        }
+      }
+    },
+    {
+      "name": "A_antigen_B_binder_grouping",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "raw_baseline_interface_dG_exact",
+      "passed": true,
+      "detail": {
+        "original": 81.01996122769515,
+        "replayed": 81.01996122769515
+      }
+    },
+    {
+      "name": "raw_baseline_interface_dSASA_exact",
+      "passed": true,
+      "detail": {
+        "original": 1406.1080282040737,
+        "replayed": 1406.1080282040737
+      }
+    },
+    {
+      "name": "raw_baseline_interface_sc_exact",
+      "passed": true,
+      "detail": {
+        "original": 0.5240231454372406,
+        "replayed": 0.5240231454372406
+      }
+    },
+    {
+      "name": "raw_baseline_interface_packstat_exact",
+      "passed": true,
+      "detail": {
+        "original": 0.6398520769919924,
+        "replayed": 0.6398520769919924
+      }
+    },
+    {
+      "name": "raw_baseline_interface_hbonds_exact",
+      "passed": true,
+      "detail": {
+        "original": 3,
+        "replayed": 3
+      }
+    },
+    {
+      "name": "raw_baseline_interface_dG_per_100_A2_exact",
+      "passed": true,
+      "detail": {
+        "original": 5.762001183591594,
+        "replayed": 5.762001183591594
+      }
+    },
+    {
+      "name": "historical_adapter_delta_is_qualified_virtual_CAV_validation_only",
+      "passed": true,
+      "detail": {
+        "historical_sha256": "e63ea5565a790922e0b2bfa6013d15422adb6a418e36a8d2594560142ef2bef0",
+        "frozen_current_sha256": "310787dc05e72b1bdceb39f448d828058c71d4746fdc40faaae660a026da086a",
+        "changed_functions": [
+          "pose_audit"
+        ],
+        "score_function_AST_identical": true,
+        "diff_summary": "Only permits previously-qualified virtual CAV on N-terminal PRO. No scoring code changed; added validation branch not used by this case."
+      }
+    },
+    {
+      "name": "exact_PyRosetta_version",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_nine_worker_validations",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "loader_retained_coordinates_unchanged",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "identical_reference_scoring_configuration",
+      "passed": true,
+      "detail": {
+        "score_function": "ref2015",
+        "seed": 101,
+        "pack_input": false,
+        "pack_separated": false
+      }
+    },
+    {
+      "name": "restraint_score_terms_all_zero",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_backbone_constraints_retained",
+      "passed": true,
+      "detail": {
+        "expected_backbone_atoms": 2536
+      }
+    },
+    {
+      "name": "fixed_preparation_parameters",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "frozen_relax_script",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "record_finite_and_alias_consistent",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "downloaded_result_matches_reviewed_receipt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "relaxed_PDB_hash_independently_verified",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "relaxed_partner_sequences_and_residues_independently_verified",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "physical_heavy_atom_identity_independently_verified",
+      "passed": true,
+      "detail": {
+        "added_terminal_OXT": 2,
+        "missing_input_heavy_atoms": 0
+      }
+    },
+    {
+      "name": "complex_backbone_geometry_independently_reproduced",
+      "passed": true,
+      "detail": {
+        "independent_from_rounded_PDB_A": 0.08607070102429054,
+        "worker_full_precision_A": 0.08607216226142866,
+        "absolute_difference_A": 1.4612371381228506e-06,
+        "backbone_atoms": 2536
+      }
+    },
+    {
+      "name": "antigen_backbone_geometry_independently_reproduced",
+      "passed": true,
+      "detail": {
+        "independent_from_rounded_PDB_A": 0.08507679136646601,
+        "worker_full_precision_A": 0.08507882978283027,
+        "absolute_difference_A": 2.0384163642583886e-06,
+        "backbone_atoms": 2484
+      }
+    },
+    {
+      "name": "binder_backbone_geometry_independently_reproduced",
+      "passed": true,
+      "detail": {
+        "independent_from_rounded_PDB_A": 0.11054144080658387,
+        "worker_full_precision_A": 0.1105247349899078,
+        "absolute_difference_A": 1.6705816676079732e-05,
+        "backbone_atoms": 52
+      }
+    },
+    {
+      "name": "after_close_contacts_independently_reproduced",
+      "passed": true,
+      "detail": {
+        "after_pairs_below_2A": 0,
+        "minimum_distance_A": 2.4129678820904368
+      }
+    }
+  ],
+  "passed_checks": 38,
+  "total_checks": 38,
+  "observations": {
+    "original_REU": 81.01996122769515,
+    "relaxed_REU": -20.349465986821315,
+    "preparation_energy_change_REU": -101.36942721451646,
+    "aligned_complex_backbone_RMSD_A": 0.08607216226142866,
+    "aligned_binder_backbone_RMSD_A": 0.1105247349899078,
+    "worker_elapsed_seconds": 560.1605792699993,
+    "worker_peak_RSS_GiB": 1.2139968872070312
+  },
+  "limits": [
+    "Only seed101 is audited; all3validseeds remain required for a case median, and all6pilotcases for the technical cost envelope.",
+    "No scoring-configuration confound found in this receipt. Large energy improvement under small backbone movement can arise from side-chain optimization; no energy-term decomposition was supplied to establish the mechanism.",
+    "This technical success and lower energy do not establish binding discrimination improvement. Frozen held-out comparison remains required.",
+    "Independent geometry uses rounded exported PDB coordinates; agreements within0.001\u00c5 are expected, rather than exact equality to full-precision in-memory coordinates."
+  ],
+  "relaxed_pdb_reported": {
+    "path": "/SCRATCH_WORKSPACE/proteinbase-relaxation-20261009-v1/runs/proteinbase_egfr__vast-mole-flint/seed_101/relaxed.pdb",
+    "sha256": "25448f26264d444ffc718a610831b4b116e8565606c944b49433a8502bee86ca"
+  },
+  "relaxed_pdb_verified": {
+    "local_path": "/LOCAL_HOME/.codex/visualizations/2026/09/25/01a0dacb-3fae-7653-825a-a16074167874/proteinbase_rosetta_relaxation_20261009/runs/proteinbase_egfr__vast-mole-flint/seed_101/relaxed.pdb",
+    "sha256": "25448f26264d444ffc718a610831b4b116e8565606c944b49433a8502bee86ca",
+    "geometry": {
+      "complex": {
+        "independent_from_rounded_PDB_A": 0.08607070102429054,
+        "worker_full_precision_A": 0.08607216226142866,
+        "absolute_difference_A": 1.4612371381228506e-06,
+        "backbone_atoms": 2536
+      },
+      "antigen": {
+        "independent_from_rounded_PDB_A": 0.08507679136646601,
+        "worker_full_precision_A": 0.08507882978283027,
+        "absolute_difference_A": 2.0384163642583886e-06,
+        "backbone_atoms": 2484
+      },
+      "binder": {
+        "independent_from_rounded_PDB_A": 0.11054144080658387,
+        "worker_full_precision_A": 0.1105247349899078,
+        "absolute_difference_A": 1.6705816676079732e-05,
+        "backbone_atoms": 52
+      }
+    }
+  }
+}

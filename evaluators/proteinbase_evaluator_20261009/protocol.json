@@ -1,0 +1,186 @@
+{
+  "date": "2026-10-09",
+  "purpose": "Retrospective exploratory B/NB evaluator comparison; not a prospective confirmatory test or deployed arena reward",
+  "config": {
+    "regularization_C": 1.0,
+    "solver": "lbfgs",
+    "max_iter": 10000,
+    "tol": 1e-08,
+    "class_weight": null,
+    "random_seed": 42,
+    "primary_folds": 3,
+    "fallback_folds": 2,
+    "threshold": null
+  },
+  "feature_order": [
+    "esmfold2_ipsae_antigen_fab_grouped",
+    "esmfold2_iptm_global",
+    "foldx_interface_energy",
+    "rosetta_esmfold2_interface_energy"
+  ],
+  "model_specs": [
+    {
+      "id": "raw_0",
+      "label": "ipSAE \u00b7 raw ranking",
+      "kind": "raw",
+      "features": [
+        "esmfold2_ipsae_antigen_fab_grouped"
+      ],
+      "sign": 1
+    },
+    {
+      "id": "raw_1",
+      "label": "ipTM \u00b7 raw ranking",
+      "kind": "raw",
+      "features": [
+        "esmfold2_iptm_global"
+      ],
+      "sign": 1
+    },
+    {
+      "id": "raw_2",
+      "label": "FoldX energy \u00b7 raw ranking",
+      "kind": "raw",
+      "features": [
+        "foldx_interface_energy"
+      ],
+      "sign": -1
+    },
+    {
+      "id": "raw_3",
+      "label": "Rosetta energy \u00b7 raw ranking",
+      "kind": "raw",
+      "features": [
+        "rosetta_esmfold2_interface_energy"
+      ],
+      "sign": -1
+    },
+    {
+      "id": "lr_0",
+      "label": "ipSAE \u00b7 logistic",
+      "kind": "logistic",
+      "features": [
+        "esmfold2_ipsae_antigen_fab_grouped"
+      ]
+    },
+    {
+      "id": "lr_1",
+      "label": "ipTM \u00b7 logistic",
+      "kind": "logistic",
+      "features": [
+        "esmfold2_iptm_global"
+      ]
+    },
+    {
+      "id": "lr_2",
+      "label": "FoldX energy \u00b7 logistic",
+      "kind": "logistic",
+      "features": [
+        "foldx_interface_energy"
+      ]
+    },
+    {
+      "id": "lr_3",
+      "label": "Rosetta energy \u00b7 logistic",
+      "kind": "logistic",
+      "features": [
+        "rosetta_esmfold2_interface_energy"
+      ]
+    },
+    {
+      "id": "lr_all",
+      "label": "Four scores \u00b7 logistic",
+      "kind": "logistic",
+      "features": [
+        "esmfold2_ipsae_antigen_fab_grouped",
+        "esmfold2_iptm_global",
+        "foldx_interface_energy",
+        "rosetta_esmfold2_interface_energy"
+      ]
+    },
+    {
+      "id": "lr_length",
+      "label": "Length only \u00b7 control",
+      "kind": "logistic",
+      "features": [
+        "binder_length"
+      ]
+    },
+    {
+      "id": "prior",
+      "label": "Training prevalence \u00b7 control",
+      "kind": "prior",
+      "features": []
+    }
+  ],
+  "family_protocol": {
+    "alignment": "Biopython PairwiseAligner global; BLOSUM62; gap open -10; extension -0.5; first maximum-scoring alignment",
+    "primary": "connected components of >=50% identity among aligned residue-residue positions AND >=80% residue-residue alignment coverage of both sequences",
+    "embedded_domain_guard": "for length ratio <80%, shorter length >=40aa, require >=70% identity over aligned positions and >=90% coverage of shorter sequence",
+    "source_name_unions": "explicit recognizable lineage/published-scaffold name rules only; author or tool alone not used",
+    "manual_rules": [
+      [
+        "egf_ligand",
+        "(?:^Human EGF$|cotimed_egf|stepwise_egf_based)"
+      ],
+      [
+        "stocco_1_3_3_18",
+        "^stocco\\.filippo\\.1\\.3\\.3\\.18_"
+      ],
+      [
+        "gertrude",
+        "^cameron\\.kroll\\.Gertrude"
+      ],
+      [
+        "vogt_scfv",
+        "^jvogt4\\.vogt_scFV_"
+      ],
+      [
+        "alan_parent12",
+        "^alan\\.blakely\\.12_"
+      ],
+      [
+        "alan_parent16",
+        "^alan\\.blakely\\.16_"
+      ],
+      [
+        "8HGO",
+        "(?i)8HGO_design"
+      ],
+      [
+        "7OM4",
+        "(?i)7om4_B_A"
+      ],
+      [
+        "aurelia_bce",
+        "^aureliabustos\\.bce_var"
+      ],
+      [
+        "aurelia_noised_I",
+        "^aureliabustos\\.w+?t_noised_I_scaffold_shorted_var"
+      ]
+    ],
+    "caveat": "Operational conservative sequence/scaffold family proxies, not certified evolutionary families. Some unrelated antibody clones share framework and intentionally remain together. Distant shared topology can remain undetected."
+  },
+  "source_hashes": {
+    "source_data/proteinbase_datasets.json": "0ce10d1a008a0306b1c8d402e2dffb9b8adad2a955064339755216f78bbd9071",
+    "source_data/proteinbase_computed_scores.json": "075c3afc18f53e0cde385950bc031c7e0e4140241d3d5e3976a27072f06e2b9e",
+    "results/verification_benchmark.json": "867fde859f67c498ac59c00165600c84fbe9b7a1e7775a076944184ac189851b"
+  },
+  "family_file_sha256": "aa75c0e52e73360fb4d837182857a67a4ceed3fdaabc2345e3031b21dced260c",
+  "versions": {
+    "python": "3.14.6",
+    "numpy": "2.5.3",
+    "sklearn": "1.9.1"
+  },
+  "metric_notes": [
+    "Headline within-antigen AUROC/AP are test-size weighted means of heldout-fold metrics. Pooled out-of-fold ranking metrics are descriptive only.",
+    "All transformations fitted on training folds; fixed C=1; no class weighting, oversampling, hyperparameter search or post-hoc calibration.",
+    "Weak binding=B. Failed expression is not NB. No numerical KD is imputed or used as an input.",
+    "Training prevalence is the probability-quality control; its out-of-fold AP/ROC can deviate when pooled. Primary within-fold baseline AUROC=.5 and AP=test prevalence.",
+    "No operating threshold chosen. ROC/PR plots are for performance description, not test-set threshold selection.",
+    "Retrospective labels already examined; results are exploratory. Cross-target transfer also changes assay and design-selection process.",
+    "Existing energies are direct scores on unrelaxed predicted structures. No energy preparation or structure runs are performed.",
+    "Family clustering is a sequence/lineage proxy, not validated structural-family annotation."
+  ]
+}

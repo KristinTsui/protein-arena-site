@@ -1,0 +1,164 @@
+{
+  "schema": "proteinbase.recall.protocol.v1",
+  "status": "frozen_before_fitting",
+  "purpose": "Recall-first selection using complementary saved Rosetta descriptors; preserve completed relaxation ablation",
+  "selection_constraint": {
+    "kind": "minimum_precision",
+    "minimum_precision": 0.5,
+    "source": "User delegated numeric decision; 50% empirical inner-validation floor for exploratory pilot, not a held-out guarantee."
+  },
+  "numeric_threshold": "Selected independently per model and outer training set; no fixed value beyond p>=.5 diagnostic",
+  "recall_target": null,
+  "feature_sets": {
+    "A": [
+      "energy"
+    ],
+    "B": [
+      "energy",
+      "shape_complementarity"
+    ],
+    "C": [
+      "energy",
+      "interface_hbond_count"
+    ],
+    "D": [
+      "energy",
+      "shape_complementarity",
+      "interface_hbond_count"
+    ],
+    "E": [
+      "energy",
+      "shape_complementarity",
+      "interface_hbond_count",
+      "original_ipSAE",
+      "original_global_ipTM"
+    ]
+  },
+  "historical_reference": [
+    "original_ipSAE",
+    "original_global_ipTM",
+    "original_FoldX",
+    "energy"
+  ],
+  "coordinate_versions": [
+    "original prediction coordinates",
+    "median descriptors across relaxed seeds 101/102/103"
+  ],
+  "descriptor_summary": "Compute each feature median independently, retaining all three values, min/max/sample SD. This is not necessarily the feature vector of one conformer.",
+  "model": {
+    "type": "L2 logistic regression",
+    "standardization": "training-only StandardScaler",
+    "C": 1.0,
+    "solver": "lbfgs",
+    "max_iter": 10000,
+    "tol": 1e-08,
+    "random_state": 42,
+    "class_weight": null,
+    "SMOTE": false
+  },
+  "frozen_outer_splits": "outer_splits.json; exact saved outer IDs and transfer exclusions",
+  "inner_validation": {
+    "status": "frozen",
+    "folds": 2,
+    "method": "StratifiedGroupKFold",
+    "shuffle": true,
+    "seed": 42,
+    "seed_search": false,
+    "artifact": "inner_split_feasibility.json",
+    "sha256": "16f0ea09c830a2e658c8a2251de6442acb5635cc7e0cb6498373a26a9d2b2d88",
+    "fitting_permitted_before_constraint": false,
+    "positive_family_limitation": "Within-EGFR outer training fold 2 has only two families containing binders; each inner training partition contains only one binder-containing family."
+  },
+  "threshold_policy": {
+    "objective": "maximize inner-validation recall subject to empirical precision >= 0.50",
+    "selection_data": "out-of-family inner validation predictions from outer training rows only; for transfer, source antigen only",
+    "cutoffs": "unique score blocks, prediction >= cutoff; no label-dependent tie splitting",
+    "nonempty_requirement": "Selecting nobody does not meet a precision constraint; precision is undefined. Report infeasible rather than weakening constraint.",
+    "precision_caveat": "An empirical training-validation precision floor does not guarantee held-out precision; report violations and family instability.",
+    "raw_energy": "Possible only with train-selected cutoff; zero REU is not assumed a binding cutoff.",
+    "diagnostic_reference": "P(B)>=0.5 on identical saved or newly fitted held-out predictions; changing only threshold does not change AUROC/AP/Brier/log loss.",
+    "tie_break": [
+      "fewer selected at equal recall",
+      "higher cutoff if still tied",
+      "for model selection: fewer features then declared A,B,C,D,E order"
+    ]
+  },
+  "comparison_rules": [
+    "Evaluate all five prespecified sets separately at both coordinate stages.",
+    "Any preferred combination chosen only inside outer training; no global test-selected winner.",
+    "Retain historical FoldX-containing reference; do not attribute performance to a FoldX-free model.",
+    "Size controls: binder length and buried interface area. Size-normalized energy is separate.",
+    "Saved prior SC/Hbond and broad panel results remain retrospective historical references.",
+    "Within-target fold-weighted summaries, individual-fold curves and descriptive pooled metrics remain separate."
+  ],
+  "baselines": [
+    "always NB",
+    "always B",
+    "training-prevalence constant probability"
+  ],
+  "primary_outputs": [
+    "recall",
+    "false_negatives",
+    "selected_count",
+    "precision",
+    "false_positives"
+  ],
+  "secondary_outputs": [
+    "MCC",
+    "balanced_accuracy",
+    "AUROC",
+    "average_precision",
+    "Brier",
+    "log_loss",
+    "probability_reliability"
+  ],
+  "uncertainty": "Per-fold and per-family support/variability reported. No confidence-interval or precision guarantee from empirical constraint, especially with sparse positive families.",
+  "missing_descriptors": {
+    "status": "separate proposal only, no scoring launched",
+    "interface_hydrophobicity": "buried nonpolar SASA / total buried interface SASA; atom typing, SASA implementation, probe and partner accounting must be pinned and qualified. Distinct from hydrophobic-residue fraction and whole-binder exposed hydrophobicity.",
+    "unsatisfied_polar_groups": "Bound-versus-separated delta under validated pinned implementation; existing DAlphaBall-dependent adapter result was unqualified/missing, not zero or biologically useless.",
+    "pilot_coordinate_states": 24,
+    "pilot_selection": "Reuse six deterministic original length-spanning pilot IDs, one original and three existing relaxed coordinate files per case. No re-relaxation.",
+    "full_coordinate_states": 1868,
+    "resources": "CPU-only Slurm on scratch, conservative serial qualification, no shared environment replacement. Estimate measured incremental cost before expanding.",
+    "current_cost_estimate": null,
+    "reason": "Implementation/runtime qualification not yet performed. Prior worker overhead is not a valid DAlphaBall cost estimate."
+  },
+  "limitations": [
+    "Exact modeled sequences verified; assay construct equivalence remains unresolved.",
+    "Retrospective EGFR/TREM2 results do not calibrate a universal BCMA\u2013B5 judge.",
+    "Rosetta REU is not experimental binding free energy or Kd.",
+    "Energy, H-bonds, solvation and packing descriptors are correlated, not independent physical measurements."
+  ],
+  "execution_to_date": {
+    "models_fitted": 0,
+    "thresholds_selected": 0,
+    "molecular_jobs": 0,
+    "GPU_jobs": 0
+  },
+  "client_date": "2026-10-13",
+  "precision_floor": 0.5,
+  "historical_reproduction_max_absolute_error": 1e-06,
+  "runtime": {
+    "sklearn": "1.9.1",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "python": "3.14.6",
+    "executable": "/LOCAL_HOME/miniconda3/bin/python3",
+    "execution_note": "Small CPU regression study runs locally in the exact original evaluator runtime after fresh CoreHPC SSH closed before staging. No cluster job submitted; no runtime installed or replaced. Historical prediction reproduction guard retained."
+  },
+  "model_selection": "Within each preparation stage and outer fold choose among A-E using only inner-validation recall, selected count, feature count and declared order. Report held-out selected-model outcomes including infeasible folds; no global test-selected winner.",
+  "source_sha256": {
+    "inputs.json": "1e2aefcfdde4be09b35bf8969a88e7c1869eefac315f4772fa4d33cb41d29c0d",
+    "outer_splits.json": "138f346a60b0bcfc8d65567372f0e8eb55bf93585972fc7cbfced92ab22e649c",
+    "inner_split_feasibility.json": "16f0ea09c830a2e658c8a2251de6442acb5635cc7e0cb6498373a26a9d2b2d88",
+    "historical_outer.json": "52ac97c87367485fd7a7a710365bba1425916260fae54c1f2955085a7b9c225e",
+    "evaluate_recall.py": "466f2ed99f3c7bd131d9946e8901addfd6cb9c2311dcfbc5a36e25567fc52e42"
+  },
+  "coverage_policy": "All 467 complete saved descriptors required. Stop on technical fitting/input/reproduction failures rather than silently imputing. For infeasible validation cutoffs keep ranking metrics and report classification coverage explicitly.",
+  "wheel_sha256_unused_for_local_run": {
+    "joblib-1.5.2-py3-none-any.whl": "4e1f0bdbb987e6d843c70cf43714cb276623def372df3c22fe5266b2670bc241",
+    "scikit_learn-1.7.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl": "89877e19a80c7b11a2891a27c21c4894fb18e2c2e077815bcade10d34287b20d",
+    "threadpoolctl-3.6.0-py3-none-any.whl": "43a0b8fd5a2928500110039e43a5eed8480b918967083ea48dc3ab9f13c4a7fb"
+  }
+}
