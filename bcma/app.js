@@ -31,6 +31,7 @@ async function loadData() {
     const data = await response.json();
     if (!data || typeof data !== "object" || !Array.isArray(data.binders)) throw new Error("invalid_dataset");
     state.data = data;
+    try { const pairedResponse = await fetch("paired.json", {cache: "no-store"}); state.paired = pairedResponse.ok ? await pairedResponse.json() : null; } catch { state.paired = null; }
     state.binders = data.binders.filter((item) => item && typeof item === "object");
     state.antigens = Array.isArray(data.antigens) ? data.antigens.filter((item) => item && typeof item === "object") : [];
     state.page = 1; state.matrixPage = 1;
@@ -51,7 +52,7 @@ function renderAll() {
 }
 
 function renderOverview() {
-  const campaign = state.data?.campaign || {};
+  const campaign = state.paired ? { ...state.data.campaign, updated: state.paired.updated_utc, stage: "Model evaluations in progress", description: "23 approved binders meet five BCMA states. Explore separate Fast and Boltz confidence evaluations, provisional escape signals, and the structures behind each score. Physics evaluation is still in progress." } : state.data?.campaign || {};
   const coverage = state.data?.coverage || {};
   document.title = `${text(campaign.title, "BCMA")} — ProteinArena`;
   if (campaign.description) $("#campaign-description").textContent = campaign.description;
@@ -59,13 +60,13 @@ function renderOverview() {
   $("#updated-label").textContent = updated && !Number.isNaN(updated.getTime())
     ? `Updated ${updated.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "America/Los_Angeles" })}`
     : campaign.updated ? `Updated ${campaign.updated}` : "Reviewed dataset pending";
-  const values = { generated: coverage.generated, fast: coverage.fast_scored, physics: coverage.physics_scored, variants: coverage.variants_evaluated };
+  const values = state.paired ? {generated: coverage.generated, fast: state.paired.cells.filter(c=>c.engine==='fast').length, physics: state.paired.cells.filter(c=>c.engine==='boltz').length, variants: state.paired.antigens.length} : {generated: coverage.generated, fast:null, physics:null, variants:null};
   for (const [key, value] of Object.entries(values)) {
     $(`#stat-${key}`).textContent = count(value);
     $(`#track-${key}`).textContent = count(value);
   }
   for (const key of ["fast", "physics"]) {
-    const percent = finite(values.generated) && values.generated > 0 && finite(values[key]) ? Math.min(100, Math.max(0, 100 * values[key] / values.generated)) : 0;
+    const percent = finite(values.generated) && values.generated > 0 && finite(values[key]) ? Math.min(100, Math.max(0, 100 * values[key] / 125)) : 0;
     $(`#${key}-progress`).style.width = `${percent}%`;
   }
   $("#evidence-stage").textContent = state.data ? text(campaign.stage, "Evidence in progress") : "Awaiting reviewed data";
@@ -76,9 +77,9 @@ function renderOverview() {
     const members = state.binders.filter((binder) => binder.team === team);
     const scored = members.filter(hasFast).length;
     const item = node("div", "arm-item"); const row = node("div", "arm-row");
-    row.append(node("i", "arm-indicator"), node("strong", "", teamName(team)), node("span", "", `${scored} / ${members.length} Fast scored`));
+    row.append(node("i", "arm-indicator"), node("strong", "", teamName(team)), node("span", "", `${state.paired ? state.paired.members.filter(m=>m.team===team&&!m.control).length : "—"} approved / ${members.length} generated`));
     const bar = node("div", "arm-bar"); const fill = node("i");
-    fill.style.width = `${members.length ? scored / members.length * 100 : 0}%`;
+    fill.style.width = `${members.length && state.paired ? state.paired.members.filter(m=>m.team===team&&!m.control).length / members.length * 100 : 0}%`;
     bar.append(fill); item.append(row, bar); arms.append(item);
   }
 }
@@ -448,6 +449,6 @@ if ("IntersectionObserver" in window) {
     if (!entry) return;
     $$(".main-nav a").forEach((link) => { if (link.hash === `#${entry.target.id}`) link.setAttribute("aria-current", "page"); else link.removeAttribute("aria-current"); });
   }, { rootMargin: "-15% 0px -60% 0px", threshold: 0 });
-  ["overview", "blue", "red", "methods"].forEach((id) => observer.observe(document.getElementById(id)));
+  ["overview", "arena", "blue", "red", "methods"].forEach((id) => observer.observe(document.getElementById(id)));
 }
 loadData();
