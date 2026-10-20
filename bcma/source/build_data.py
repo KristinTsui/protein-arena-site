@@ -27,7 +27,7 @@ def build(source, output):
             assert screen["protocol_id"] == "esmfold2-fast-wt54-seed17" and screen["target_id"] == "WT"
             metrics = screen["metrics"]
             assert metrics["ipsae_min"] == min(metrics["ipsae_binder_to_target"], metrics["ipsae_target_to_binder"])
-            model = confidence(metrics["iptm"], metrics["ipsae_min"])
+            model = confidence(metrics["iptm"], max(metrics["ipsae_binder_to_target"], metrics["ipsae_target_to_binder"]))
             fast = dict(metrics, geometry=screen["geometry"], source_ids=screen["source_ids"],
                         protocol_id=screen["protocol_id"])
         if original["af2"]:
@@ -66,26 +66,26 @@ def build(source, output):
         ))
     methods = {
         "version": POLICY_VERSION,
-        "confidence_formula": "C = 100 × [0.5 × native ipTM + 0.5 × min(ipSAE binder→target, ipSAE target→binder)]",
+        "confidence_formula": "C = 100 × [0.5 × native ipTM + 0.5 × max(ipSAE binder→target, ipSAE target→binder)]",
         "physics_formula": "P(E) = 100 × [number of frozen WT energies > E + 0.5 × number equal to E] / N",
         "combined_formula": "Blue score = 0.5 × C + 0.5 × P",
         "red_formula": "Red score = 100 × modeled escapes / N eligible WT-supported binders, with complete coverage of the same frozen panel",
-        "current_rank": "The 108 scored binders use the provisional Fast confidence score C only. This is not the final combined rank. The other 194 inventory members remain unranked.",
+        "current_rank": "This WT-only inventory ranks 108 scored binders by the updated maximum-direction Fast confidence score C. It does not measure performance across variants. This is not the final combined rank. The other 194 inventory members remain unranked.",
         "final_rank": "Final ranks are per antigen, using the common held-out Boltz prediction and one reviewed beta_nov16 physics replicate. Fast screening and confounded AF2 diagnostics are not substituted for that final protocol.",
         "physics_reference": "Lower interface_dG_REU is better. Freeze the complete WT nominee reference cohort, excluding published controls, before inspecting energies. Use that same reference for every variant. At least two distinct energies are required; do not drop failed members to create a favorable subset.",
         "escape_rule": "Modeled escapes use an explicitly uncalibrated joint-decline rule. Each of native ipTM and both directional ipSAE values must fall by at least max(0.10, 25% of its WT value). Variant interface energy must be less favorable than WT, and its fixed-reference physics percentile must fall by at least 25 points.",
         "escape_eligibility": "Require reviewed model-supported WT binding, reviewed WT and mutant target integrity, accepted structures and chemistry, matched binder identity and evaluator settings, and complete confidence/physics evidence. A failed or missing computation is unknown. The rule not being met does not prove retained biological binding.",
         "escape_controls": "WT is a baseline and P33S is a variant control, displayed outside the competitive Red ranks. A future P33S modeled-escape count is not forced to zero. R27P, S30del and P34del are clinical reagent-specific challenges; the clinical evidence does not establish escape from these new binders.",
-        "uncalibrated_policy": "The equal weights and Red thresholds are declared policy choices, not experimentally calibrated discrimination thresholds. No escape calls are currently available. Single predictions/replicates cannot establish stochastic robustness.",
+        "uncalibrated_policy": "The equal weights and Red thresholds are declared policy choices, not experimentally calibrated discrimination thresholds. No confidence-plus-physics escape calls are currently available. Single predictions/replicates cannot establish stochastic robustness.",
         "missing_and_ties": "A missing, failed, confounded or unreviewed required component leaves the score unavailable. No zero filling or weight redistribution. Rank scores rounded to six decimals with shared competition ranks (1, 2, 2, 4); stable IDs order ties without breaking them. Display scores to two decimals.",
         "limitations": "Scores are computational utilities, not binding probabilities or measured affinities. Confidence components are correlated. Rosetta energies are protocol- and interface-size-dependent; percentiles depend on the frozen cohort. Family-related binders are not independent replicates. Ranking is not final nomination or proof of design-method superiority.",
         "af2_diagnostics": "All 14 candidate AF2 predictions are excluded from active ranking because of a shared target-conformation issue reproduced by B5/L10 controls. This does not demonstrate biological nonbinding. Native scalar pLDDT is unavailable and is not inferred.",
-        "minimum_ipsae": "The campaign uses the conservative minimum of two directional ipSAE fields. Canonical ipSAE reports the maximum; canonical published cutoffs are not applied to this custom minimum.",
+        "maximum_ipsae": "The confidence score uses the maximum of the two directional ipSAE values. Both directions remain available for inspection. This display-policy update does not change the approved contestant roster.",
         "reproducibility": "Download the public snapshot and scalar evidence. Source hashes, cohort identities and ranking source are retained; no new predictions or molecular rescoring were performed for this site.",
     }
     methods["sections"] = [
         dict(title="01 / Provisional confidence", formula=methods["confidence_formula"],
-             description=methods["current_rank"], notes=[methods["minimum_ipsae"]]),
+             description=methods["current_rank"], notes=[methods["maximum_ipsae"]]),
         dict(title="02 / Combined Blue ranking", formula=methods["combined_formula"],
              description=methods["final_rank"], notes=[methods["physics_formula"], methods["physics_reference"]]),
         dict(title="03 / Modeled escapes", formula=methods["red_formula"],
@@ -118,7 +118,7 @@ def build(source, output):
         "methods": methods, "sources": sources,
         "ranking_policy": {
             "version": POLICY_VERSION, "sha256": methods_sha,
-            "confidence_weights": {"native_iptm": .5, "minimum_directional_ipsae": .5},
+            "confidence_weights": {"native_iptm": .5, "maximum_directional_ipsae": .5},
             "combined_weights": {"confidence": .5, "physics": .5},
             "red_rule": "red_joint_decline_heuristic_v1",
             "red_calibrated": False,

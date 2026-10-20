@@ -6,20 +6,20 @@ of binding or measured affinities. Raw scores must share one declared protocol.
 from math import isfinite
 from decimal import Decimal
 
-POLICY_VERSION = "bcma-arena-2026-10-20-v1"
+POLICY_VERSION = "bcma-arena-2026-10-20-v2-max"
 
 
 def finite(value):
     return type(value) in (int, float) and isfinite(value)
 
 
-def confidence(iptm, ipsae_min):
+def confidence(iptm, ipsae_max):
     """Equal weights; a missing component is never replaced or reweighted."""
-    if iptm is None or ipsae_min is None:
+    if iptm is None or ipsae_max is None:
         return None
-    if not all(finite(x) and 0 <= x <= 1 for x in (iptm, ipsae_min)):
+    if not all(finite(x) and 0 <= x <= 1 for x in (iptm, ipsae_max)):
         raise ValueError("Confidence components must be finite values in [0, 1]")
-    return 100 * (iptm + ipsae_min) / 2
+    return 100 * (iptm + ipsae_max) / 2
 
 
 def physics_percentile(energy, frozen_wt_energies):

@@ -148,7 +148,7 @@ function renderBinders() {
   const field = state.ranking === "confidence" ? "provisional_rank" : "combined_rank";
   const combinedAvailable = state.binders.some((binder) => finite(binder.combined_score));
   $("#ranking-note p").textContent = state.ranking === "confidence"
-    ? "Provisional confidence = 100 × (native ipTM + minimum-direction ipSAE) / 2. This custom summary does not establish binding or final nomination."
+    ? "Provisional confidence = 100 × (native ipTM + maximum-direction ipSAE) / 2. This custom summary does not establish binding or final nomination."
     : combinedAvailable
       ? "Combined ranks use the recorded confidence and physics method. Designs without the required evidence remain unranked."
       : "Combined rankings are not available yet. Physics evidence is missing; confidence remains visible and no missing value is treated as zero.";
@@ -220,7 +220,7 @@ function showBinder(binder) {
     }
     content.append(physics);
   }
-  content.append(node("p", "detail-note", "Native acceptance, screening completion, and final nomination are distinct decisions. Provisional confidence combines native ipTM and minimum-direction ipSAE; it is not a binding probability. A dash means evidence is unavailable, not that the value is zero."));
+  content.append(node("p", "detail-note", "Native acceptance, screening completion, and final nomination are distinct decisions. Provisional confidence combines native ipTM and maximum-direction ipSAE; it is not a binding probability. A dash means evidence is unavailable, not that the value is zero."));
   const dialog = $("#binder-dialog");
   if (!dialog.open) dialog.showModal();
   $("#close-detail").focus();
@@ -307,7 +307,7 @@ function renderMatrix() {
 }
 
 const defaultMethods = [
-  { title: "Confidence is provisional", formula: "C = 100 × (native ipTM + minimum-direction ipSAE) / 2", description: "This custom campaign summary uses the lower of the two directional ipSAE values. Native Fast ipTM and pTM remain separately visible. Confidence does not establish binding or final nomination." },
+  { title: "Confidence is provisional", formula: "C = 100 × (native ipTM + maximum-direction ipSAE) / 2", description: "This custom campaign summary uses the higher of the two directional ipSAE values. Native Fast ipTM and pTM remain separately visible. Confidence does not establish binding or final nomination." },
   { title: "Physics stays separate", formula: "P = 100 × (WT reference energies worse + 0.5 × equal) / N", description: "The final evaluation protocol uses one pinned Boltz prediction and one Rosetta beta_nov16 evaluation per pair. Physics uses the same frozen WT reference for every variant. A physics score appears only after the required reviewed output exists." },
   { title: "Combined evidence needs both parts", formula: "B = (C + P) / 2", description: "Combined ranks are shown only when both required components are available. Provisional confidence remains a separate view. Missing values are never replaced by zero; the campaign supplies the reviewed scores and tied ranks." },
   { title: "Modeled escape needs matched evidence", description: "The custom, uncalibrated escape rule requires complete WT-supported, intact-variant comparisons for the same frozen binder panel. A modeled escape is not experimental evidence. WT and P33S have distinct reference roles; panel membership or missing comparisons do not establish escape." }
@@ -318,7 +318,7 @@ function methodEntries(methods) {
   if (!methods || typeof methods !== "object" || !Object.keys(methods).length) return defaultMethods;
   if (Array.isArray(methods.sections)) return methods.sections;
   if (methods.confidence_formula) return [
-    { title: "Provisional confidence", formula: methods.confidence_formula, description: methods.current_rank, notes: [methods.minimum_ipsae, methods.af2_diagnostics].filter(Boolean) },
+    { title: "Provisional confidence", formula: methods.confidence_formula, description: methods.current_rank, notes: [methods.maximum_ipsae, methods.af2_diagnostics].filter(Boolean) },
     { title: "A frozen physics reference", formula: methods.physics_formula, description: methods.physics_reference, notes: [methods.final_rank].filter(Boolean) },
     { title: "The combined Blue score", formula: methods.combined_formula, description: methods.missing_and_ties, notes: [methods.uncalibrated_policy].filter(Boolean) },
     { title: "Modeled escapes", formula: methods.red_formula, description: methods.escape_rule, notes: [methods.escape_eligibility, methods.escape_controls].filter(Boolean) },

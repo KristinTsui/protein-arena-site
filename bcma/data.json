@@ -113,104 +113,6 @@
         "exclusion_reason": "target_conformation_confounded",
         "explanation": "Target-core distortion is present in native outputs and reproduced by published controls; binding interpretation remains unresolved.",
         "geometry": {
-          "binder_contact_residues": 21,
-          "binder_self_fit_ca_rmsd_angstrom": 0.6385249938136787,
-          "c_terminal_contact_pairs_5a": 0,
-          "contact_residue_pairs_5a": 48,
-          "interchain_ca_pairs_below_2_5a": 0,
-          "interchain_heavy_atom_pairs_below_2a": 15,
-          "membrane_accessibility": "unassessed_no_experimental_membrane_normal",
-          "minimum_interchain_heavy_distance_angstrom": 0.5220593835953913,
-          "n_terminal_contact_pairs_5a": 0,
-          "status": "described",
-          "target_aligned_binder_pose_ca_rmsd_angstrom": 15.759847235642027,
-          "target_contact_residues": 15,
-          "target_core_ca_rmsd_angstrom": 6.968451672319063
-        },
-        "metrics": {
-          "ipsae_binder_to_target": 0.016261287300230118,
-          "ipsae_max": 0.016261287300230118,
-          "ipsae_min": 0.010983492177285238,
-          "ipsae_target_to_binder": 0.010983492177285238,
-          "iptm": 0.2081587314605713,
-          "native_plddt": null,
-          "native_plddt_status": "unavailable_unverified_native_scalar",
-          "ptm": 0.6282601952552795
-        },
-        "protocol_id": "af2-model1-multimer-v3-wt54-seed17",
-        "ranking_eligible": false,
-        "source_ids": [
-          "source-6d8a03651c18a290"
-        ],
-        "status": "diagnostic_only",
-        "target_id": "WT"
-      },
-      "combined_rank": null,
-      "combined_score": null,
-      "fast": {
-        "geometry": {
-          "binder_contact_residues": 18,
-          "binder_self_fit_ca_rmsd_angstrom": 0.7192637039120073,
-          "c_terminal_contact_pairs_5a": 0,
-          "contact_residue_pairs_5a": 45,
-          "interchain_ca_pairs_below_2_5a": 0,
-          "interchain_heavy_atom_pairs_below_2a": 1,
-          "membrane_accessibility": "unassessed_no_experimental_membrane_normal",
-          "minimum_interchain_heavy_distance_angstrom": 1.8787889716516863,
-          "n_terminal_contact_pairs_5a": 1,
-          "status": "described",
-          "target_aligned_binder_pose_ca_rmsd_angstrom": 1.934286394501075,
-          "target_contact_residues": 18,
-          "target_core_ca_rmsd_angstrom": 0.5970179512284334
-        },
-        "ipsae_binder_to_target": 0.5276975009668853,
-        "ipsae_max": 0.7638895389084168,
-        "ipsae_min": 0.5276975009668853,
-        "ipsae_target_to_binder": 0.7638895389084168,
-        "iptm": 0.8460438847541809,
-        "native_plddt": null,
-        "native_plddt_status": "unavailable_unverified_native_scalar",
-        "protocol_id": "esmfold2-fast-wt54-seed17",
-        "ptm": 0.8326399922370911,
-        "source_ids": [
-          "source-040112814f5567b5",
-          "source-dcfd226b07339f67"
-        ]
-      },
-      "final_nominee": false,
-      "final_status": "Awaiting held-out prediction and physics",
-      "id": "BC-202d0f7e9723",
-      "interface_dg_reu": null,
-      "label": "BC-202d0f7e9723",
-      "length": 89,
-      "model_score": 68.6870692860533,
-      "native_accepted": true,
-      "native_labels": [
-        "Accepted"
-      ],
-      "native_status": "accepted_by_generator",
-      "parent": "BC-F14",
-      "parent_ids": [
-        "BC-F14"
-      ],
-      "physics_score": null,
-      "provenance": [
-        "source-eb94693eafc1c1cd",
-        "source-ff7c79aaa1744b5a",
-        "source-c00aaa769aa17ca7"
-      ],
-      "provisional_rank": 1,
-      "score_regime": "ESMFold2-Fast / WT54 / seed 17",
-      "sequence_sha256": "202d0f7e97232fa860b037442a4a17a46a4126af49a42c9913889ddde191ff5a",
-      "status": "Fast scored",
-      "team": "bindcraft"
-    },
-    {
-      "af2": {
-        "excluded_from_confirmation": true,
-        "exclusion_reason": "target_conformation_confounded",
-        "explanation": "Target-core distortion is present in native outputs and reproduced by published controls; binding interpretation remains unresolved.",
-        "geometry": {
           "binder_contact_residues": 23,
           "binder_self_fit_ca_rmsd_angstrom": 0.5400812133928636,
           "c_terminal_contact_pairs_5a": 0,
@@ -281,7 +183,7 @@
       "interface_dg_reu": null,
       "label": "BC-b9ead356b813",
       "length": 93,
-      "model_score": 67.5330089655543,
+      "model_score": 81.49008716562601,
       "native_accepted": true,
       "native_labels": [
         "Accepted"
@@ -297,9 +199,107 @@
         "source-ff7c79aaa1744b5a",
         "source-c00aaa769aa17ca7"
       ],
-      "provisional_rank": 2,
+      "provisional_rank": 1,
       "score_regime": "ESMFold2-Fast / WT54 / seed 17",
       "sequence_sha256": "b9ead356b813b0657d3d049cba7bb8f38c5b52d8c1e546d98f6532468a24c3a6",
+      "status": "Fast scored",
+      "team": "bindcraft"
+    },
+    {
+      "af2": {
+        "excluded_from_confirmation": true,
+        "exclusion_reason": "target_conformation_confounded",
+        "explanation": "Target-core distortion is present in native outputs and reproduced by published controls; binding interpretation remains unresolved.",
+        "geometry": {
+          "binder_contact_residues": 21,
+          "binder_self_fit_ca_rmsd_angstrom": 0.6385249938136787,
+          "c_terminal_contact_pairs_5a": 0,
+          "contact_residue_pairs_5a": 48,
+          "interchain_ca_pairs_below_2_5a": 0,
+          "interchain_heavy_atom_pairs_below_2a": 15,
+          "membrane_accessibility": "unassessed_no_experimental_membrane_normal",
+          "minimum_interchain_heavy_distance_angstrom": 0.5220593835953913,
+          "n_terminal_contact_pairs_5a": 0,
+          "status": "described",
+          "target_aligned_binder_pose_ca_rmsd_angstrom": 15.759847235642027,
+          "target_contact_residues": 15,
+          "target_core_ca_rmsd_angstrom": 6.968451672319063
+        },
+        "metrics": {
+          "ipsae_binder_to_target": 0.016261287300230118,
+          "ipsae_max": 0.016261287300230118,
+          "ipsae_min": 0.010983492177285238,
+          "ipsae_target_to_binder": 0.010983492177285238,
+          "iptm": 0.2081587314605713,
+          "native_plddt": null,
+          "native_plddt_status": "unavailable_unverified_native_scalar",
+          "ptm": 0.6282601952552795
+        },
+        "protocol_id": "af2-model1-multimer-v3-wt54-seed17",
+        "ranking_eligible": false,
+        "source_ids": [
+          "source-6d8a03651c18a290"
+        ],
+        "status": "diagnostic_only",
+        "target_id": "WT"
+      },
+      "combined_rank": null,
+      "combined_score": null,
+      "fast": {
+        "geometry": {
+          "binder_contact_residues": 18,
+          "binder_self_fit_ca_rmsd_angstrom": 0.7192637039120073,
+          "c_terminal_contact_pairs_5a": 0,
+          "contact_residue_pairs_5a": 45,
+          "interchain_ca_pairs_below_2_5a": 0,
+          "interchain_heavy_atom_pairs_below_2a": 1,
+          "membrane_accessibility": "unassessed_no_experimental_membrane_normal",
+          "minimum_interchain_heavy_distance_angstrom": 1.8787889716516863,
+          "n_terminal_contact_pairs_5a": 1,
+          "status": "described",
+          "target_aligned_binder_pose_ca_rmsd_angstrom": 1.934286394501075,
+          "target_contact_residues": 18,
+          "target_core_ca_rmsd_angstrom": 0.5970179512284334
+        },
+        "ipsae_binder_to_target": 0.5276975009668853,
+        "ipsae_max": 0.7638895389084168,
+        "ipsae_min": 0.5276975009668853,
+        "ipsae_target_to_binder": 0.7638895389084168,
+        "iptm": 0.8460438847541809,
+        "native_plddt": null,
+        "native_plddt_status": "unavailable_unverified_native_scalar",
+        "protocol_id": "esmfold2-fast-wt54-seed17",
+        "ptm": 0.8326399922370911,
+        "source_ids": [
+          "source-040112814f5567b5",
+          "source-dcfd226b07339f67"
+        ]
+      },
+      "final_nominee": false,
+      "final_status": "Awaiting held-out prediction and physics",
+      "id": "BC-202d0f7e9723",
+      "interface_dg_reu": null,
+      "label": "BC-202d0f7e9723",
+      "length": 89,
+      "model_score": 80.49667118312989,
+      "native_accepted": true,
+      "native_labels": [
+        "Accepted"
+      ],
+      "native_status": "accepted_by_generator",
+      "parent": "BC-F14",
+      "parent_ids": [
+        "BC-F14"
+      ],
+      "physics_score": null,
+      "provenance": [
+        "source-eb94693eafc1c1cd",
+        "source-ff7c79aaa1744b5a",
+        "source-c00aaa769aa17ca7"
+      ],
+      "provisional_rank": 2,
+      "score_regime": "ESMFold2-Fast / WT54 / seed 17",
+      "sequence_sha256": "202d0f7e97232fa860b037442a4a17a46a4126af49a42c9913889ddde191ff5a",
       "status": "Fast scored",
       "team": "bindcraft"
     },
@@ -343,7 +343,7 @@
       "interface_dg_reu": null,
       "label": "BC-6c30f596ff4a",
       "length": 89,
-      "model_score": 66.46439461461561,
+      "model_score": 77.7086293194789,
       "native_accepted": true,
       "native_labels": [
         "Accepted"
@@ -404,7 +404,7 @@
       "interface_dg_reu": null,
       "label": "BC-0fef1d499d46",
       "length": 93,
-      "model_score": 65.34378577536447,
+      "model_score": 77.36803698410162,
       "native_accepted": true,
       "native_labels": [
         "Accepted"
@@ -465,7 +465,7 @@
       "interface_dg_reu": null,
       "label": "RF-cfa84026e803",
       "length": 98,
-      "model_score": 61.07329905539217,
+      "model_score": 69.7114851241515,
       "native_accepted": null,
       "native_labels": [
         "unreviewed_candidate"
@@ -483,189 +483,6 @@
       "provisional_rank": 5,
       "score_regime": "ESMFold2-Fast / WT54 / seed 17",
       "sequence_sha256": "cfa84026e803f201f4749cc0b9ac7adb27363417902c759d9e3bd3eef69247de",
-      "status": "Fast scored",
-      "team": "rfdiffusion"
-    },
-    {
-      "af2": null,
-      "combined_rank": null,
-      "combined_score": null,
-      "fast": {
-        "geometry": {
-          "binder_contact_residues": 21,
-          "binder_self_fit_ca_rmsd_angstrom": 2.0399810273733663,
-          "c_terminal_contact_pairs_5a": 0,
-          "contact_residue_pairs_5a": 50,
-          "interchain_ca_pairs_below_2_5a": 0,
-          "interchain_heavy_atom_pairs_below_2a": 1,
-          "membrane_accessibility": "unassessed_no_experimental_membrane_normal",
-          "minimum_interchain_heavy_distance_angstrom": 1.9166327243371386,
-          "n_terminal_contact_pairs_5a": 10,
-          "status": "described",
-          "target_aligned_binder_pose_ca_rmsd_angstrom": 41.00997104115453,
-          "target_contact_residues": 17,
-          "target_core_ca_rmsd_angstrom": 0.5627009809213953
-        },
-        "ipsae_binder_to_target": 0.46530424720520197,
-        "ipsae_max": 0.5091605720852604,
-        "ipsae_min": 0.46530424720520197,
-        "ipsae_target_to_binder": 0.5091605720852604,
-        "iptm": 0.6891610622406006,
-        "native_plddt": null,
-        "native_plddt_status": "unavailable_unverified_native_scalar",
-        "protocol_id": "esmfold2-fast-wt54-seed17",
-        "ptm": 0.7575869560241699,
-        "source_ids": [
-          "source-60e07d3793513e18",
-          "source-277b84789690a55b"
-        ]
-      },
-      "final_nominee": false,
-      "final_status": "Awaiting held-out prediction and physics",
-      "id": "RF-fdf4451bdcf8",
-      "interface_dg_reu": null,
-      "label": "RF-fdf4451bdcf8",
-      "length": 96,
-      "model_score": 57.72326547229013,
-      "native_accepted": null,
-      "native_labels": [
-        "unreviewed_candidate"
-      ],
-      "native_status": "quality_not_assessed",
-      "parent": "RF-F20",
-      "parent_ids": [
-        "RF-F20"
-      ],
-      "physics_score": null,
-      "provenance": [
-        "source-eb94693eafc1c1cd",
-        "source-ff7c79aaa1744b5a"
-      ],
-      "provisional_rank": 6,
-      "score_regime": "ESMFold2-Fast / WT54 / seed 17",
-      "sequence_sha256": "fdf4451bdcf8a2839a1b56eedacf2bb6da094c8ba64c5dde416ca692bac4362d",
-      "status": "Fast scored",
-      "team": "rfdiffusion"
-    },
-    {
-      "af2": null,
-      "combined_rank": null,
-      "combined_score": null,
-      "fast": {
-        "geometry": {
-          "binder_contact_residues": 9,
-          "binder_self_fit_ca_rmsd_angstrom": 0.9243792024984412,
-          "c_terminal_contact_pairs_5a": 0,
-          "contact_residue_pairs_5a": 22,
-          "interchain_ca_pairs_below_2_5a": 0,
-          "interchain_heavy_atom_pairs_below_2a": 0,
-          "membrane_accessibility": "unassessed_no_experimental_membrane_normal",
-          "minimum_interchain_heavy_distance_angstrom": 2.2297708402434546,
-          "n_terminal_contact_pairs_5a": 0,
-          "status": "described",
-          "target_aligned_binder_pose_ca_rmsd_angstrom": 28.529941034190227,
-          "target_contact_residues": 11,
-          "target_core_ca_rmsd_angstrom": 0.5103898469165545
-        },
-        "ipsae_binder_to_target": 0.414989469851057,
-        "ipsae_max": 0.414989469851057,
-        "ipsae_min": 0.41372621387136277,
-        "ipsae_target_to_binder": 0.41372621387136277,
-        "iptm": 0.6562625765800476,
-        "native_plddt": null,
-        "native_plddt_status": "unavailable_unverified_native_scalar",
-        "protocol_id": "esmfold2-fast-wt54-seed17",
-        "ptm": 0.72198486328125,
-        "source_ids": [
-          "source-da6c6c1ff1ccecd8",
-          "source-d2f1ea7f6e3308ca"
-        ]
-      },
-      "final_nominee": false,
-      "final_status": "Awaiting held-out prediction and physics",
-      "id": "RF-24cd22b3e351",
-      "interface_dg_reu": null,
-      "label": "RF-24cd22b3e351",
-      "length": 96,
-      "model_score": 53.499439522570526,
-      "native_accepted": null,
-      "native_labels": [
-        "unreviewed_candidate"
-      ],
-      "native_status": "quality_not_assessed",
-      "parent": "RF-F20",
-      "parent_ids": [
-        "RF-F20"
-      ],
-      "physics_score": null,
-      "provenance": [
-        "source-eb94693eafc1c1cd",
-        "source-ff7c79aaa1744b5a"
-      ],
-      "provisional_rank": 7,
-      "score_regime": "ESMFold2-Fast / WT54 / seed 17",
-      "sequence_sha256": "24cd22b3e3513a465173ffaff5a6adf0a5b75a667842ef01be0204a4696cb1c2",
-      "status": "Fast scored",
-      "team": "rfdiffusion"
-    },
-    {
-      "af2": null,
-      "combined_rank": null,
-      "combined_score": null,
-      "fast": {
-        "geometry": {
-          "binder_contact_residues": 10,
-          "binder_self_fit_ca_rmsd_angstrom": 0.9984921832662849,
-          "c_terminal_contact_pairs_5a": 0,
-          "contact_residue_pairs_5a": 22,
-          "interchain_ca_pairs_below_2_5a": 0,
-          "interchain_heavy_atom_pairs_below_2a": 0,
-          "membrane_accessibility": "unassessed_no_experimental_membrane_normal",
-          "minimum_interchain_heavy_distance_angstrom": 2.660590535952498,
-          "n_terminal_contact_pairs_5a": 0,
-          "status": "described",
-          "target_aligned_binder_pose_ca_rmsd_angstrom": 26.200698649940946,
-          "target_contact_residues": 9,
-          "target_core_ca_rmsd_angstrom": 0.5903305682781822
-        },
-        "ipsae_binder_to_target": 0.41795882116389094,
-        "ipsae_max": 0.41795882116389094,
-        "ipsae_min": 0.41669560008951917,
-        "ipsae_target_to_binder": 0.41669560008951917,
-        "iptm": 0.6508978605270386,
-        "native_plddt": null,
-        "native_plddt_status": "unavailable_unverified_native_scalar",
-        "protocol_id": "esmfold2-fast-wt54-seed17",
-        "ptm": 0.7214116454124451,
-        "source_ids": [
-          "source-e8281439ec1493b3",
-          "source-39fb260e54d9e0e7"
-        ]
-      },
-      "final_nominee": false,
-      "final_status": "Awaiting held-out prediction and physics",
-      "id": "RF-09bed41c4153",
-      "interface_dg_reu": null,
-      "label": "RF-09bed41c4153",
-      "length": 96,
-      "model_score": 53.37967303082789,
-      "native_accepted": null,
-      "native_labels": [
-        "unreviewed_candidate"
-      ],
-      "native_status": "quality_not_assessed",
-      "parent": "RF-F20",
-      "parent_ids": [
-        "RF-F20"
-      ],
-      "physics_score": null,
-      "provenance": [
-        "source-eb94693eafc1c1cd",
-        "source-ff7c79aaa1744b5a"
-      ],
-      "provisional_rank": 8,
-      "score_regime": "ESMFold2-Fast / WT54 / seed 17",
-      "sequence_sha256": "09bed41c415364b7ad72552a151f3a1256ee1e56228c0eaf61d6d451936a0ba3",
       "status": "Fast scored",
       "team": "rfdiffusion"
     },
@@ -709,7 +526,7 @@
       "interface_dg_reu": null,
       "label": "BC-cdb2a6b1d84b",
       "length": 95,
-      "model_score": 52.28163156584821,
+      "model_score": 64.97646667839179,
       "native_accepted": true,
       "native_labels": [
         "Accepted"
@@ -724,7 +541,7 @@
         "source-eb94693eafc1c1cd",
         "source-ff7c79aaa1744b5a"
       ],
-      "provisional_rank": 9,
+      "provisional_rank": 6,
       "score_regime": "ESMFold2-Fast / WT54 / seed 17",
       "sequence_sha256": "cdb2a6b1d84b879113fcfc168f22b1bf69ddbb53ce8568eeff7cc9d940f0e7e4",
       "status": "Fast scored",
@@ -806,7 +623,7 @@
       "interface_dg_reu": null,
       "label": "BC-cb9445d62530",
       "length": 95,
-      "model_score": 51.047568187205414,
+      "model_score": 64.00361363781255,
       "native_accepted": true,
       "native_labels": [
         "Accepted"
@@ -822,11 +639,72 @@
         "source-ff7c79aaa1744b5a",
         "source-c00aaa769aa17ca7"
       ],
-      "provisional_rank": 10,
+      "provisional_rank": 7,
       "score_regime": "ESMFold2-Fast / WT54 / seed 17",
       "sequence_sha256": "cb9445d62530db4e433a40085c0f592fc7abfb28eaa1e0369b8653cad8427f8b",
       "status": "Fast scored",
       "team": "bindcraft"
+    },
+    {
+      "af2": null,
+      "combined_rank": null,
+      "combined_score": null,
+      "fast": {
+        "geometry": {
+          "binder_contact_residues": 21,
+          "binder_self_fit_ca_rmsd_angstrom": 2.0399810273733663,
+          "c_terminal_contact_pairs_5a": 0,
+          "contact_residue_pairs_5a": 50,
+          "interchain_ca_pairs_below_2_5a": 0,
+          "interchain_heavy_atom_pairs_below_2a": 1,
+          "membrane_accessibility": "unassessed_no_experimental_membrane_normal",
+          "minimum_interchain_heavy_distance_angstrom": 1.9166327243371386,
+          "n_terminal_contact_pairs_5a": 10,
+          "status": "described",
+          "target_aligned_binder_pose_ca_rmsd_angstrom": 41.00997104115453,
+          "target_contact_residues": 17,
+          "target_core_ca_rmsd_angstrom": 0.5627009809213953
+        },
+        "ipsae_binder_to_target": 0.46530424720520197,
+        "ipsae_max": 0.5091605720852604,
+        "ipsae_min": 0.46530424720520197,
+        "ipsae_target_to_binder": 0.5091605720852604,
+        "iptm": 0.6891610622406006,
+        "native_plddt": null,
+        "native_plddt_status": "unavailable_unverified_native_scalar",
+        "protocol_id": "esmfold2-fast-wt54-seed17",
+        "ptm": 0.7575869560241699,
+        "source_ids": [
+          "source-60e07d3793513e18",
+          "source-277b84789690a55b"
+        ]
+      },
+      "final_nominee": false,
+      "final_status": "Awaiting held-out prediction and physics",
+      "id": "RF-fdf4451bdcf8",
+      "interface_dg_reu": null,
+      "label": "RF-fdf4451bdcf8",
+      "length": 96,
+      "model_score": 59.91608171629306,
+      "native_accepted": null,
+      "native_labels": [
+        "unreviewed_candidate"
+      ],
+      "native_status": "quality_not_assessed",
+      "parent": "RF-F20",
+      "parent_ids": [
+        "RF-F20"
+      ],
+      "physics_score": null,
+      "provenance": [
+        "source-eb94693eafc1c1cd",
+        "source-ff7c79aaa1744b5a"
+      ],
+      "provisional_rank": 8,
+      "score_regime": "ESMFold2-Fast / WT54 / seed 17",
+      "sequence_sha256": "fdf4451bdcf8a2839a1b56eedacf2bb6da094c8ba64c5dde416ca692bac4362d",
+      "status": "Fast scored",
+      "team": "rfdiffusion"
     },
     {
       "af2": {
@@ -904,7 +782,7 @@
       "interface_dg_reu": null,
       "label": "BC-91b6af58ec09",
       "length": 85,
-      "model_score": 48.46519656270946,
+      "model_score": 55.50283551720096,
       "native_accepted": true,
       "native_labels": [
         "Accepted"
@@ -920,11 +798,72 @@
         "source-ff7c79aaa1744b5a",
         "source-c00aaa769aa17ca7"
       ],
-      "provisional_rank": 11,
+      "provisional_rank": 9,
       "score_regime": "ESMFold2-Fast / WT54 / seed 17",
       "sequence_sha256": "91b6af58ec09acee8c884c1aad9de73a0395b58814d10127d2e4483c3ec661d8",
       "status": "Fast scored",
       "team": "bindcraft"
+    },
+    {
+      "af2": null,
+      "combined_rank": null,
+      "combined_score": null,
+      "fast": {
+        "geometry": {
+          "binder_contact_residues": 9,
+          "binder_self_fit_ca_rmsd_angstrom": 0.9243792024984412,
+          "c_terminal_contact_pairs_5a": 0,
+          "contact_residue_pairs_5a": 22,
+          "interchain_ca_pairs_below_2_5a": 0,
+          "interchain_heavy_atom_pairs_below_2a": 0,
+          "membrane_accessibility": "unassessed_no_experimental_membrane_normal",
+          "minimum_interchain_heavy_distance_angstrom": 2.2297708402434546,
+          "n_terminal_contact_pairs_5a": 0,
+          "status": "described",
+          "target_aligned_binder_pose_ca_rmsd_angstrom": 28.529941034190227,
+          "target_contact_residues": 11,
+          "target_core_ca_rmsd_angstrom": 0.5103898469165545
+        },
+        "ipsae_binder_to_target": 0.414989469851057,
+        "ipsae_max": 0.414989469851057,
+        "ipsae_min": 0.41372621387136277,
+        "ipsae_target_to_binder": 0.41372621387136277,
+        "iptm": 0.6562625765800476,
+        "native_plddt": null,
+        "native_plddt_status": "unavailable_unverified_native_scalar",
+        "protocol_id": "esmfold2-fast-wt54-seed17",
+        "ptm": 0.72198486328125,
+        "source_ids": [
+          "source-da6c6c1ff1ccecd8",
+          "source-d2f1ea7f6e3308ca"
+        ]
+      },
+      "final_nominee": false,
+      "final_status": "Awaiting held-out prediction and physics",
+      "id": "RF-24cd22b3e351",
+      "interface_dg_reu": null,
+      "label": "RF-24cd22b3e351",
+      "length": 96,
+      "model_score": 53.56260232155523,
+      "native_accepted": null,
+      "native_labels": [
+        "unreviewed_candidate"
+      ],
+      "native_status": "quality_not_assessed",
+      "parent": "RF-F20",
+      "parent_ids": [
+        "RF-F20"
+      ],
+      "physics_score": null,
+      "provenance": [
+        "source-eb94693eafc1c1cd",
+        "source-ff7c79aaa1744b5a"
+      ],
+      "provisional_rank": 10,
+      "score_regime": "ESMFold2-Fast / WT54 / seed 17",
+      "sequence_sha256": "24cd22b3e3513a465173ffaff5a6adf0a5b75a667842ef01be0204a4696cb1c2",
+      "status": "Fast scored",
+      "team": "rfdiffusion"
     },
     {
       "af2": null,
@@ -966,7 +905,7 @@
       "interface_dg_reu": null,
       "label": "BC-db749fb51a86",
       "length": 85,
-      "model_score": 46.323696856838495,
+      "model_score": 53.548425507904376,
       "native_accepted": true,
       "native_labels": [
         "Accepted"
@@ -981,11 +920,72 @@
         "source-eb94693eafc1c1cd",
         "source-ff7c79aaa1744b5a"
       ],
-      "provisional_rank": 12,
+      "provisional_rank": 11,
       "score_regime": "ESMFold2-Fast / WT54 / seed 17",
       "sequence_sha256": "db749fb51a863be27ffe696ac7d4a7f646da2697046db42a1f0f084a705a6f46",
       "status": "Fast scored",
       "team": "bindcraft"
+    },
+    {
+      "af2": null,
+      "combined_rank": null,
+      "combined_score": null,
+      "fast": {
+        "geometry": {
+          "binder_contact_residues": 10,
+          "binder_self_fit_ca_rmsd_angstrom": 0.9984921832662849,
+          "c_terminal_contact_pairs_5a": 0,
+          "contact_residue_pairs_5a": 22,
+          "interchain_ca_pairs_below_2_5a": 0,
+          "interchain_heavy_atom_pairs_below_2a": 0,
+          "membrane_accessibility": "unassessed_no_experimental_membrane_normal",
+          "minimum_interchain_heavy_distance_angstrom": 2.660590535952498,
+          "n_terminal_contact_pairs_5a": 0,
+          "status": "described",
+          "target_aligned_binder_pose_ca_rmsd_angstrom": 26.200698649940946,
+          "target_contact_residues": 9,
+          "target_core_ca_rmsd_angstrom": 0.5903305682781822
+        },
+        "ipsae_binder_to_target": 0.41795882116389094,
+        "ipsae_max": 0.41795882116389094,
+        "ipsae_min": 0.41669560008951917,
+        "ipsae_target_to_binder": 0.41669560008951917,
+        "iptm": 0.6508978605270386,
+        "native_plddt": null,
+        "native_plddt_status": "unavailable_unverified_native_scalar",
+        "protocol_id": "esmfold2-fast-wt54-seed17",
+        "ptm": 0.7214116454124451,
+        "source_ids": [
+          "source-e8281439ec1493b3",
+          "source-39fb260e54d9e0e7"
+        ]
+      },
+      "final_nominee": false,
+      "final_status": "Awaiting held-out prediction and physics",
+      "id": "RF-09bed41c4153",
+      "interface_dg_reu": null,
+      "label": "RF-09bed41c4153",
+      "length": 96,
+      "model_score": 53.442834084546476,
+      "native_accepted": null,
+      "native_labels": [
+        "unreviewed_candidate"
+      ],
+      "native_status": "quality_not_assessed",
+      "parent": "RF-F20",
+      "parent_ids": [
+        "RF-F20"
+      ],
+      "physics_score": null,
+      "provenance": [
+        "source-eb94693eafc1c1cd",
+        "source-ff7c79aaa1744b5a"
+      ],
+      "provisional_rank": 12,
+      "score_regime": "ESMFold2-Fast / WT54 / seed 17",
+      "sequence_sha256": "09bed41c415364b7ad72552a151f3a1256ee1e56228c0eaf61d6d451936a0ba3",
+      "status": "Fast scored",
+      "team": "rfdiffusion"
     },
     {
       "af2": null,
@@ -1027,7 +1027,7 @@
       "interface_dg_reu": null,
       "label": "RF-e3bdaa23c7f6",
       "length": 98,
-      "model_score": 45.763508066342354,
+      "model_score": 52.37396889353114,
       "native_accepted": null,
       "native_labels": [
         "unreviewed_candidate"
@@ -1088,7 +1088,7 @@
       "interface_dg_reu": null,
       "label": "RF-e68495fd7a62",
       "length": 98,
-      "model_score": 43.98976281854975,
+      "model_score": 49.12770105635149,
       "native_accepted": null,
       "native_labels": [
         "unreviewed_candidate"
@@ -1185,7 +1185,7 @@
       "interface_dg_reu": null,
       "label": "RF-0c57b4c148c1",
       "length": 94,
-      "model_score": 43.13754386276432,
+      "model_score": 47.910993155128956,
       "native_accepted": null,
       "native_labels": [
         "unreviewed_candidate"
@@ -1247,7 +1247,7 @@
       "interface_dg_reu": null,
       "label": "RF-30fd5002cdda",
       "length": 94,
-      "model_score": 39.58201602713436,
+      "model_score": 44.918575495064175,
       "native_accepted": null,
       "native_labels": [
         "unreviewed_candidate"
@@ -1344,7 +1344,7 @@
       "interface_dg_reu": null,
       "label": "RF-59956e556a7f",
       "length": 100,
-      "model_score": 36.836712431712236,
+      "model_score": 42.27486500088272,
       "native_accepted": null,
       "native_labels": [
         "unreviewed_candidate"
@@ -1365,6 +1365,104 @@
       "sequence_sha256": "59956e556a7fa0bb2d0ace16ecbc5d5e7a1b467254374d7d0f09906ef9273b5a",
       "status": "Fast scored",
       "team": "rfdiffusion"
+    },
+    {
+      "af2": {
+        "excluded_from_confirmation": true,
+        "exclusion_reason": "target_conformation_confounded",
+        "explanation": "Target-core distortion is present in native outputs and reproduced by published controls; binding interpretation remains unresolved.",
+        "geometry": {
+          "binder_contact_residues": 15,
+          "binder_self_fit_ca_rmsd_angstrom": 0.3378032229136049,
+          "c_terminal_contact_pairs_5a": 1,
+          "contact_residue_pairs_5a": 39,
+          "interchain_ca_pairs_below_2_5a": 0,
+          "interchain_heavy_atom_pairs_below_2a": 21,
+          "membrane_accessibility": "unassessed_no_experimental_membrane_normal",
+          "minimum_interchain_heavy_distance_angstrom": 0.5428867285171004,
+          "n_terminal_contact_pairs_5a": 0,
+          "status": "described",
+          "target_aligned_binder_pose_ca_rmsd_angstrom": 39.20934318402111,
+          "target_contact_residues": 14,
+          "target_core_ca_rmsd_angstrom": 6.399720096754893
+        },
+        "metrics": {
+          "ipsae_binder_to_target": 0.0,
+          "ipsae_max": 0.0,
+          "ipsae_min": 0.0,
+          "ipsae_target_to_binder": 0.0,
+          "iptm": 0.1175708919763565,
+          "native_plddt": null,
+          "native_plddt_status": "unavailable_unverified_native_scalar",
+          "ptm": 0.5862287282943726
+        },
+        "protocol_id": "af2-model1-multimer-v3-wt54-seed17",
+        "ranking_eligible": false,
+        "source_ids": [
+          "source-84728d095c6e9396"
+        ],
+        "status": "diagnostic_only",
+        "target_id": "WT"
+      },
+      "combined_rank": null,
+      "combined_score": null,
+      "fast": {
+        "geometry": {
+          "binder_contact_residues": 14,
+          "binder_self_fit_ca_rmsd_angstrom": 0.3796154623045785,
+          "c_terminal_contact_pairs_5a": 0,
+          "contact_residue_pairs_5a": 37,
+          "interchain_ca_pairs_below_2_5a": 0,
+          "interchain_heavy_atom_pairs_below_2a": 1,
+          "membrane_accessibility": "unassessed_no_experimental_membrane_normal",
+          "minimum_interchain_heavy_distance_angstrom": 1.5433654784269344,
+          "n_terminal_contact_pairs_5a": 3,
+          "status": "described",
+          "target_aligned_binder_pose_ca_rmsd_angstrom": 42.87448293676672,
+          "target_contact_residues": 16,
+          "target_core_ca_rmsd_angstrom": 0.8808076776793445
+        },
+        "ipsae_binder_to_target": 0.1684963143196375,
+        "ipsae_max": 0.27811772423844666,
+        "ipsae_min": 0.1684963143196375,
+        "ipsae_target_to_binder": 0.27811772423844666,
+        "iptm": 0.5438908338546753,
+        "native_plddt": null,
+        "native_plddt_status": "unavailable_unverified_native_scalar",
+        "protocol_id": "esmfold2-fast-wt54-seed17",
+        "ptm": 0.7212701439857483,
+        "source_ids": [
+          "source-fa8c3710e47bfa1a",
+          "source-b3b351e07e67b468"
+        ]
+      },
+      "final_nominee": false,
+      "final_status": "Awaiting held-out prediction and physics",
+      "id": "PP-682a53ab43ea",
+      "interface_dg_reu": null,
+      "label": "PP-682a53ab43ea",
+      "length": 86,
+      "model_score": 41.1004279046561,
+      "native_accepted": null,
+      "native_labels": [
+        "returned_with_integrity_not_quality_accepted"
+      ],
+      "native_status": "quality_not_assessed",
+      "parent": "PP-F05",
+      "parent_ids": [
+        "PP-F05"
+      ],
+      "physics_score": null,
+      "provenance": [
+        "source-eb94693eafc1c1cd",
+        "source-ff7c79aaa1744b5a",
+        "source-c00aaa769aa17ca7"
+      ],
+      "provisional_rank": 18,
+      "score_regime": "ESMFold2-Fast / WT54 / seed 17",
+      "sequence_sha256": "682a53ab43ea0458cda8e0dfe69e582a24b300699fb87bda58876795b7c9ebd4",
+      "status": "Fast scored",
+      "team": "prompteina"
     },
     {
       "af2": null,
@@ -1406,7 +1504,7 @@
       "interface_dg_reu": null,
       "label": "RF-5e7192da7b99",
       "length": 92,
-      "model_score": 36.01014576351208,
+      "model_score": 40.77992540289367,
       "native_accepted": null,
       "native_labels": [
         "unreviewed_candidate"
@@ -1421,7 +1519,7 @@
         "source-eb94693eafc1c1cd",
         "source-ff7c79aaa1744b5a"
       ],
-      "provisional_rank": 18,
+      "provisional_rank": 19,
       "score_regime": "ESMFold2-Fast / WT54 / seed 17",
       "sequence_sha256": "5e7192da7b99640c5be8abd1bc079f2ba3fd5c19d4d85167a451ffc28e626dd3",
       "status": "Fast scored",
@@ -1503,7 +1601,7 @@
       "interface_dg_reu": null,
       "label": "RF-329451817e74",
       "length": 98,
-      "model_score": 35.85401914355858,
+      "model_score": 40.201070053935965,
       "native_accepted": null,
       "native_labels": [
         "unreviewed_candidate"
@@ -1519,109 +1617,11 @@
         "source-ff7c79aaa1744b5a",
         "source-c00aaa769aa17ca7"
       ],
-      "provisional_rank": 19,
+      "provisional_rank": 20,
       "score_regime": "ESMFold2-Fast / WT54 / seed 17",
       "sequence_sha256": "329451817e74cd33f2834664f246c0dff11328fa13275e4a882f4340537a9765",
       "status": "Fast scored",
       "team": "rfdiffusion"
-    },
-    {
-      "af2": {
-        "excluded_from_confirmation": true,
-        "exclusion_reason": "target_conformation_confounded",
-        "explanation": "Target-core distortion is present in native outputs and reproduced by published controls; binding interpretation remains unresolved.",
-        "geometry": {
-          "binder_contact_residues": 15,
-          "binder_self_fit_ca_rmsd_angstrom": 0.3378032229136049,
-          "c_terminal_contact_pairs_5a": 1,
-          "contact_residue_pairs_5a": 39,
-          "interchain_ca_pairs_below_2_5a": 0,
-          "interchain_heavy_atom_pairs_below_2a": 21,
-          "membrane_accessibility": "unassessed_no_experimental_membrane_normal",
-          "minimum_interchain_heavy_distance_angstrom": 0.5428867285171004,
-          "n_terminal_contact_pairs_5a": 0,
-          "status": "described",
-          "target_aligned_binder_pose_ca_rmsd_angstrom": 39.20934318402111,
-          "target_contact_residues": 14,
-          "target_core_ca_rmsd_angstrom": 6.399720096754893
-        },
-        "metrics": {
-          "ipsae_binder_to_target": 0.0,
-          "ipsae_max": 0.0,
-          "ipsae_min": 0.0,
-          "ipsae_target_to_binder": 0.0,
-          "iptm": 0.1175708919763565,
-          "native_plddt": null,
-          "native_plddt_status": "unavailable_unverified_native_scalar",
-          "ptm": 0.5862287282943726
-        },
-        "protocol_id": "af2-model1-multimer-v3-wt54-seed17",
-        "ranking_eligible": false,
-        "source_ids": [
-          "source-84728d095c6e9396"
-        ],
-        "status": "diagnostic_only",
-        "target_id": "WT"
-      },
-      "combined_rank": null,
-      "combined_score": null,
-      "fast": {
-        "geometry": {
-          "binder_contact_residues": 14,
-          "binder_self_fit_ca_rmsd_angstrom": 0.3796154623045785,
-          "c_terminal_contact_pairs_5a": 0,
-          "contact_residue_pairs_5a": 37,
-          "interchain_ca_pairs_below_2_5a": 0,
-          "interchain_heavy_atom_pairs_below_2a": 1,
-          "membrane_accessibility": "unassessed_no_experimental_membrane_normal",
-          "minimum_interchain_heavy_distance_angstrom": 1.5433654784269344,
-          "n_terminal_contact_pairs_5a": 3,
-          "status": "described",
-          "target_aligned_binder_pose_ca_rmsd_angstrom": 42.87448293676672,
-          "target_contact_residues": 16,
-          "target_core_ca_rmsd_angstrom": 0.8808076776793445
-        },
-        "ipsae_binder_to_target": 0.1684963143196375,
-        "ipsae_max": 0.27811772423844666,
-        "ipsae_min": 0.1684963143196375,
-        "ipsae_target_to_binder": 0.27811772423844666,
-        "iptm": 0.5438908338546753,
-        "native_plddt": null,
-        "native_plddt_status": "unavailable_unverified_native_scalar",
-        "protocol_id": "esmfold2-fast-wt54-seed17",
-        "ptm": 0.7212701439857483,
-        "source_ids": [
-          "source-fa8c3710e47bfa1a",
-          "source-b3b351e07e67b468"
-        ]
-      },
-      "final_nominee": false,
-      "final_status": "Awaiting held-out prediction and physics",
-      "id": "PP-682a53ab43ea",
-      "interface_dg_reu": null,
-      "label": "PP-682a53ab43ea",
-      "length": 86,
-      "model_score": 35.61935740871564,
-      "native_accepted": null,
-      "native_labels": [
-        "returned_with_integrity_not_quality_accepted"
-      ],
-      "native_status": "quality_not_assessed",
-      "parent": "PP-F05",
-      "parent_ids": [
-        "PP-F05"
-      ],
-      "physics_score": null,
-      "provenance": [
-        "source-eb94693eafc1c1cd",
-        "source-ff7c79aaa1744b5a",
-        "source-c00aaa769aa17ca7"
-      ],
-      "provisional_rank": 20,
-      "score_regime": "ESMFold2-Fast / WT54 / seed 17",
-      "sequence_sha256": "682a53ab43ea0458cda8e0dfe69e582a24b300699fb87bda58876795b7c9ebd4",
-      "status": "Fast scored",
-      "team": "prompteina"
     },
     {
       "af2": null,
@@ -1663,7 +1663,7 @@
       "interface_dg_reu": null,
       "label": "RF-8b70d435261c",
       "length": 98,
-      "model_score": 32.31086281938199,
+      "model_score": 36.48724688702397,
       "native_accepted": null,
       "native_labels": [
         "unreviewed_candidate"
@@ -1724,7 +1724,7 @@
       "interface_dg_reu": null,
       "label": "RF-02dd0447347b",
       "length": 93,
-      "model_score": 31.44726160816303,
+      "model_score": 35.079415693627645,
       "native_accepted": null,
       "native_labels": [
         "unreviewed_candidate"
@@ -1785,7 +1785,7 @@
       "interface_dg_reu": null,
       "label": "RF-046921f36d92",
       "length": 92,
-      "model_score": 26.000489021154433,
+      "model_score": 29.085669421347298,
       "native_accepted": null,
       "native_labels": [
         "unreviewed_candidate"
@@ -1882,7 +1882,7 @@
       "interface_dg_reu": null,
       "label": "RF-00a2997ac46b",
       "length": 92,
-      "model_score": 24.05282563395438,
+      "model_score": 27.023741777055534,
       "native_accepted": null,
       "native_labels": [
         "unreviewed_candidate"
@@ -1901,67 +1901,6 @@
       "provisional_rank": 24,
       "score_regime": "ESMFold2-Fast / WT54 / seed 17",
       "sequence_sha256": "00a2997ac46b85144ecf158aa84e0fdfa9e523e7596a8612ee540584a1543142",
-      "status": "Fast scored",
-      "team": "rfdiffusion"
-    },
-    {
-      "af2": null,
-      "combined_rank": null,
-      "combined_score": null,
-      "fast": {
-        "geometry": {
-          "binder_contact_residues": 15,
-          "binder_self_fit_ca_rmsd_angstrom": 2.1272833826610773,
-          "c_terminal_contact_pairs_5a": 0,
-          "contact_residue_pairs_5a": 32,
-          "interchain_ca_pairs_below_2_5a": 0,
-          "interchain_heavy_atom_pairs_below_2a": 0,
-          "membrane_accessibility": "unassessed_no_experimental_membrane_normal",
-          "minimum_interchain_heavy_distance_angstrom": 2.703350143803055,
-          "n_terminal_contact_pairs_5a": 0,
-          "status": "described",
-          "target_aligned_binder_pose_ca_rmsd_angstrom": 26.60092689016654,
-          "target_contact_residues": 17,
-          "target_core_ca_rmsd_angstrom": 0.6676499015779046
-        },
-        "ipsae_binder_to_target": 0.060468691772498355,
-        "ipsae_max": 0.060468691772498355,
-        "ipsae_min": 0.059037171638706906,
-        "ipsae_target_to_binder": 0.059037171638706906,
-        "iptm": 0.39414820075035095,
-        "native_plddt": null,
-        "native_plddt_status": "unavailable_unverified_native_scalar",
-        "protocol_id": "esmfold2-fast-wt54-seed17",
-        "ptm": 0.6707286834716797,
-        "source_ids": [
-          "source-8a207b205f2fb87f",
-          "source-9a1adc4b004cdc03"
-        ]
-      },
-      "final_nominee": false,
-      "final_status": "Awaiting held-out prediction and physics",
-      "id": "RF-b9381aeb6139",
-      "interface_dg_reu": null,
-      "label": "RF-b9381aeb6139",
-      "length": 100,
-      "model_score": 22.659268619452895,
-      "native_accepted": null,
-      "native_labels": [
-        "unreviewed_candidate"
-      ],
-      "native_status": "quality_not_assessed",
-      "parent": "RF-F07",
-      "parent_ids": [
-        "RF-F07"
-      ],
-      "physics_score": null,
-      "provenance": [
-        "source-eb94693eafc1c1cd",
-        "source-ff7c79aaa1744b5a"
-      ],
-      "provisional_rank": 25,
-      "score_regime": "ESMFold2-Fast / WT54 / seed 17",
-      "sequence_sha256": "b9381aeb61392ad4d58e3b1c07d91cd295bab68a2666fcaf8e2c9527d0fb2e6b",
       "status": "Fast scored",
       "team": "rfdiffusion"
     },
@@ -2005,7 +1944,7 @@
       "interface_dg_reu": null,
       "label": "RF-b0ae46cff37c",
       "length": 95,
-      "model_score": 22.495364087389135,
+      "model_score": 24.80922035706711,
       "native_accepted": null,
       "native_labels": [
         "unreviewed_candidate"
@@ -2020,7 +1959,7 @@
         "source-eb94693eafc1c1cd",
         "source-ff7c79aaa1744b5a"
       ],
-      "provisional_rank": 26,
+      "provisional_rank": 25,
       "score_regime": "ESMFold2-Fast / WT54 / seed 17",
       "sequence_sha256": "b0ae46cff37c0003c0ad8a8012b4474a8135b47cb5eadbd918327851a55ba089",
       "status": "Fast scored",
@@ -2032,58 +1971,58 @@
       "combined_score": null,
       "fast": {
         "geometry": {
-          "binder_contact_residues": 12,
-          "binder_self_fit_ca_rmsd_angstrom": 2.1680512447798517,
+          "binder_contact_residues": 15,
+          "binder_self_fit_ca_rmsd_angstrom": 2.1272833826610773,
           "c_terminal_contact_pairs_5a": 0,
-          "contact_residue_pairs_5a": 28,
+          "contact_residue_pairs_5a": 32,
           "interchain_ca_pairs_below_2_5a": 0,
           "interchain_heavy_atom_pairs_below_2a": 0,
           "membrane_accessibility": "unassessed_no_experimental_membrane_normal",
-          "minimum_interchain_heavy_distance_angstrom": 2.982144362702785,
-          "n_terminal_contact_pairs_5a": 1,
+          "minimum_interchain_heavy_distance_angstrom": 2.703350143803055,
+          "n_terminal_contact_pairs_5a": 0,
           "status": "described",
-          "target_aligned_binder_pose_ca_rmsd_angstrom": 21.203989621687256,
-          "target_contact_residues": 12,
-          "target_core_ca_rmsd_angstrom": 0.7557975247172256
+          "target_aligned_binder_pose_ca_rmsd_angstrom": 26.60092689016654,
+          "target_contact_residues": 17,
+          "target_core_ca_rmsd_angstrom": 0.6676499015779046
         },
-        "ipsae_binder_to_target": 0.07225440955356453,
-        "ipsae_max": 0.07957178996488778,
-        "ipsae_min": 0.07225440955356453,
-        "ipsae_target_to_binder": 0.07957178996488778,
-        "iptm": 0.3523002564907074,
+        "ipsae_binder_to_target": 0.060468691772498355,
+        "ipsae_max": 0.060468691772498355,
+        "ipsae_min": 0.059037171638706906,
+        "ipsae_target_to_binder": 0.059037171638706906,
+        "iptm": 0.39414820075035095,
         "native_plddt": null,
         "native_plddt_status": "unavailable_unverified_native_scalar",
         "protocol_id": "esmfold2-fast-wt54-seed17",
-        "ptm": 0.531491756439209,
+        "ptm": 0.6707286834716797,
         "source_ids": [
-          "source-84199b20e5114112",
-          "source-5edd23c7d4bb6cb5"
+          "source-8a207b205f2fb87f",
+          "source-9a1adc4b004cdc03"
         ]
       },
       "final_nominee": false,
       "final_status": "Awaiting held-out prediction and physics",
-      "id": "RF-b80ce3ab4e18",
+      "id": "RF-b9381aeb6139",
       "interface_dg_reu": null,
-      "label": "RF-b80ce3ab4e18",
-      "length": 84,
-      "model_score": 21.227733302213597,
+      "label": "RF-b9381aeb6139",
+      "length": 100,
+      "model_score": 22.730844626142467,
       "native_accepted": null,
       "native_labels": [
         "unreviewed_candidate"
       ],
       "native_status": "quality_not_assessed",
-      "parent": "RF-F03",
+      "parent": "RF-F07",
       "parent_ids": [
-        "RF-F03"
+        "RF-F07"
       ],
       "physics_score": null,
       "provenance": [
         "source-eb94693eafc1c1cd",
         "source-ff7c79aaa1744b5a"
       ],
-      "provisional_rank": 27,
+      "provisional_rank": 26,
       "score_regime": "ESMFold2-Fast / WT54 / seed 17",
-      "sequence_sha256": "b80ce3ab4e1858b7585bec38fb1e14e04f2c83037688af9a0dc9c075e3745b32",
+      "sequence_sha256": "b9381aeb61392ad4d58e3b1c07d91cd295bab68a2666fcaf8e2c9527d0fb2e6b",
       "status": "Fast scored",
       "team": "rfdiffusion"
     },
@@ -2163,7 +2102,7 @@
       "interface_dg_reu": null,
       "label": "PP-46de8cb0555c",
       "length": 86,
-      "model_score": 20.953866771042097,
+      "model_score": 21.730127211043644,
       "native_accepted": null,
       "native_labels": [
         "returned_with_integrity_not_quality_accepted"
@@ -2179,7 +2118,7 @@
         "source-ff7c79aaa1744b5a",
         "source-c00aaa769aa17ca7"
       ],
-      "provisional_rank": 28,
+      "provisional_rank": 27,
       "score_regime": "ESMFold2-Fast / WT54 / seed 17",
       "sequence_sha256": "46de8cb0555c9a26ab8d7ec304e1b5cba3dac0f44ba912e0a831f4e804f785e7",
       "status": "Fast scored",
@@ -2225,7 +2164,7 @@
       "interface_dg_reu": null,
       "label": "RF-c1c08a7afd1a",
       "length": 94,
-      "model_score": 19.884176109932337,
+      "model_score": 21.6082842866119,
       "native_accepted": null,
       "native_labels": [
         "unreviewed_candidate"
@@ -2240,7 +2179,7 @@
         "source-eb94693eafc1c1cd",
         "source-ff7c79aaa1744b5a"
       ],
-      "provisional_rank": 29,
+      "provisional_rank": 28,
       "score_regime": "ESMFold2-Fast / WT54 / seed 17",
       "sequence_sha256": "c1c08a7afd1a00f51f10b9dd859eafaecd24e7227cae1a216b974df3055e20f1",
       "status": "Fast scored",
@@ -2252,58 +2191,58 @@
       "combined_score": null,
       "fast": {
         "geometry": {
-          "binder_contact_residues": 16,
-          "binder_self_fit_ca_rmsd_angstrom": 2.1272833535258955,
+          "binder_contact_residues": 12,
+          "binder_self_fit_ca_rmsd_angstrom": 2.1680512447798517,
           "c_terminal_contact_pairs_5a": 0,
-          "contact_residue_pairs_5a": 34,
+          "contact_residue_pairs_5a": 28,
           "interchain_ca_pairs_below_2_5a": 0,
           "interchain_heavy_atom_pairs_below_2a": 0,
           "membrane_accessibility": "unassessed_no_experimental_membrane_normal",
-          "minimum_interchain_heavy_distance_angstrom": 2.906552253099882,
-          "n_terminal_contact_pairs_5a": 0,
+          "minimum_interchain_heavy_distance_angstrom": 2.982144362702785,
+          "n_terminal_contact_pairs_5a": 1,
           "status": "described",
-          "target_aligned_binder_pose_ca_rmsd_angstrom": 36.215826748344675,
-          "target_contact_residues": 13,
-          "target_core_ca_rmsd_angstrom": 0.6949020372932664
+          "target_aligned_binder_pose_ca_rmsd_angstrom": 21.203989621687256,
+          "target_contact_residues": 12,
+          "target_core_ca_rmsd_angstrom": 0.7557975247172256
         },
-        "ipsae_binder_to_target": 0.021434395370033592,
-        "ipsae_max": 0.021434395370033592,
-        "ipsae_min": 0.01956393171080031,
-        "ipsae_target_to_binder": 0.01956393171080031,
-        "iptm": 0.3653602600097656,
+        "ipsae_binder_to_target": 0.07225440955356453,
+        "ipsae_max": 0.07957178996488778,
+        "ipsae_min": 0.07225440955356453,
+        "ipsae_target_to_binder": 0.07957178996488778,
+        "iptm": 0.3523002564907074,
         "native_plddt": null,
         "native_plddt_status": "unavailable_unverified_native_scalar",
         "protocol_id": "esmfold2-fast-wt54-seed17",
-        "ptm": 0.6316577792167664,
+        "ptm": 0.531491756439209,
         "source_ids": [
-          "source-dea227d881bce513",
-          "source-3ebfba786ad154e6"
+          "source-84199b20e5114112",
+          "source-5edd23c7d4bb6cb5"
         ]
       },
       "final_nominee": false,
       "final_status": "Awaiting held-out prediction and physics",
-      "id": "RF-7952a912bb59",
+      "id": "RF-b80ce3ab4e18",
       "interface_dg_reu": null,
-      "label": "RF-7952a912bb59",
-      "length": 100,
-      "model_score": 19.246209586028296,
+      "label": "RF-b80ce3ab4e18",
+      "length": 84,
+      "model_score": 21.59360232277976,
       "native_accepted": null,
       "native_labels": [
         "unreviewed_candidate"
       ],
       "native_status": "quality_not_assessed",
-      "parent": "RF-F12",
+      "parent": "RF-F03",
       "parent_ids": [
-        "RF-F12"
+        "RF-F03"
       ],
       "physics_score": null,
       "provenance": [
         "source-eb94693eafc1c1cd",
         "source-ff7c79aaa1744b5a"
       ],
-      "provisional_rank": 30,
+      "provisional_rank": 29,
       "score_regime": "ESMFold2-Fast / WT54 / seed 17",
-      "sequence_sha256": "7952a912bb594226a6e09726b276ea74b706d01b64dea81442ebdff3e8e1f47f",
+      "sequence_sha256": "b80ce3ab4e1858b7585bec38fb1e14e04f2c83037688af9a0dc9c075e3745b32",
       "status": "Fast scored",
       "team": "rfdiffusion"
     },
@@ -2347,7 +2286,7 @@
       "interface_dg_reu": null,
       "label": "RF-8ded7e7f82fd",
       "length": 94,
-      "model_score": 19.21933966196525,
+      "model_score": 20.94923973237482,
       "native_accepted": null,
       "native_labels": [
         "unreviewed_candidate"
@@ -2362,7 +2301,7 @@
         "source-eb94693eafc1c1cd",
         "source-ff7c79aaa1744b5a"
       ],
-      "provisional_rank": 31,
+      "provisional_rank": 30,
       "score_regime": "ESMFold2-Fast / WT54 / seed 17",
       "sequence_sha256": "8ded7e7f82fdc6cad637f339b393cc46569f066b85924a862cc000a3e3ad96a3",
       "status": "Fast scored",
@@ -2408,7 +2347,7 @@
       "interface_dg_reu": null,
       "label": "RF-e127eb52b857",
       "length": 100,
-      "model_score": 19.092764947770245,
+      "model_score": 20.163126582186415,
       "native_accepted": null,
       "native_labels": [
         "unreviewed_candidate"
@@ -2423,9 +2362,131 @@
         "source-eb94693eafc1c1cd",
         "source-ff7c79aaa1744b5a"
       ],
-      "provisional_rank": 32,
+      "provisional_rank": 31,
       "score_regime": "ESMFold2-Fast / WT54 / seed 17",
       "sequence_sha256": "e127eb52b85765acf2051674c24ed609c09c503ae6242fe79e9cec607be7fb85",
+      "status": "Fast scored",
+      "team": "rfdiffusion"
+    },
+    {
+      "af2": null,
+      "combined_rank": null,
+      "combined_score": null,
+      "fast": {
+        "geometry": {
+          "binder_contact_residues": 11,
+          "binder_self_fit_ca_rmsd_angstrom": 2.200581968489676,
+          "c_terminal_contact_pairs_5a": 0,
+          "contact_residue_pairs_5a": 26,
+          "interchain_ca_pairs_below_2_5a": 0,
+          "interchain_heavy_atom_pairs_below_2a": 1,
+          "membrane_accessibility": "unassessed_no_experimental_membrane_normal",
+          "minimum_interchain_heavy_distance_angstrom": 1.8820066418586308,
+          "n_terminal_contact_pairs_5a": 0,
+          "status": "described",
+          "target_aligned_binder_pose_ca_rmsd_angstrom": 40.48252202069348,
+          "target_contact_residues": 13,
+          "target_core_ca_rmsd_angstrom": 0.7871233086703587
+        },
+        "ipsae_binder_to_target": 0.03266668297264336,
+        "ipsae_max": 0.0632393236264573,
+        "ipsae_min": 0.03266668297264336,
+        "ipsae_target_to_binder": 0.0632393236264573,
+        "iptm": 0.33613693714141846,
+        "native_plddt": null,
+        "native_plddt_status": "unavailable_unverified_native_scalar",
+        "protocol_id": "esmfold2-fast-wt54-seed17",
+        "ptm": 0.4967670440673828,
+        "source_ids": [
+          "source-4bdd91472324771e",
+          "source-c69dd92cc0dc821e"
+        ]
+      },
+      "final_nominee": false,
+      "final_status": "Awaiting held-out prediction and physics",
+      "id": "RF-f9caa78cf4b4",
+      "interface_dg_reu": null,
+      "label": "RF-f9caa78cf4b4",
+      "length": 93,
+      "model_score": 19.968813038393787,
+      "native_accepted": null,
+      "native_labels": [
+        "unreviewed_candidate"
+      ],
+      "native_status": "quality_not_assessed",
+      "parent": "RF-F11",
+      "parent_ids": [
+        "RF-F11"
+      ],
+      "physics_score": null,
+      "provenance": [
+        "source-eb94693eafc1c1cd",
+        "source-ff7c79aaa1744b5a"
+      ],
+      "provisional_rank": 32,
+      "score_regime": "ESMFold2-Fast / WT54 / seed 17",
+      "sequence_sha256": "f9caa78cf4b4f04d8a2374b859faa8528821cc9c186718f21b0c6a9348de1034",
+      "status": "Fast scored",
+      "team": "rfdiffusion"
+    },
+    {
+      "af2": null,
+      "combined_rank": null,
+      "combined_score": null,
+      "fast": {
+        "geometry": {
+          "binder_contact_residues": 16,
+          "binder_self_fit_ca_rmsd_angstrom": 2.1272833535258955,
+          "c_terminal_contact_pairs_5a": 0,
+          "contact_residue_pairs_5a": 34,
+          "interchain_ca_pairs_below_2_5a": 0,
+          "interchain_heavy_atom_pairs_below_2a": 0,
+          "membrane_accessibility": "unassessed_no_experimental_membrane_normal",
+          "minimum_interchain_heavy_distance_angstrom": 2.906552253099882,
+          "n_terminal_contact_pairs_5a": 0,
+          "status": "described",
+          "target_aligned_binder_pose_ca_rmsd_angstrom": 36.215826748344675,
+          "target_contact_residues": 13,
+          "target_core_ca_rmsd_angstrom": 0.6949020372932664
+        },
+        "ipsae_binder_to_target": 0.021434395370033592,
+        "ipsae_max": 0.021434395370033592,
+        "ipsae_min": 0.01956393171080031,
+        "ipsae_target_to_binder": 0.01956393171080031,
+        "iptm": 0.3653602600097656,
+        "native_plddt": null,
+        "native_plddt_status": "unavailable_unverified_native_scalar",
+        "protocol_id": "esmfold2-fast-wt54-seed17",
+        "ptm": 0.6316577792167664,
+        "source_ids": [
+          "source-dea227d881bce513",
+          "source-3ebfba786ad154e6"
+        ]
+      },
+      "final_nominee": false,
+      "final_status": "Awaiting held-out prediction and physics",
+      "id": "RF-7952a912bb59",
+      "interface_dg_reu": null,
+      "label": "RF-7952a912bb59",
+      "length": 100,
+      "model_score": 19.33973276898996,
+      "native_accepted": null,
+      "native_labels": [
+        "unreviewed_candidate"
+      ],
+      "native_status": "quality_not_assessed",
+      "parent": "RF-F12",
+      "parent_ids": [
+        "RF-F12"
+      ],
+      "physics_score": null,
+      "provenance": [
+        "source-eb94693eafc1c1cd",
+        "source-ff7c79aaa1744b5a"
+      ],
+      "provisional_rank": 33,
+      "score_regime": "ESMFold2-Fast / WT54 / seed 17",
+      "sequence_sha256": "7952a912bb594226a6e09726b276ea74b706d01b64dea81442ebdff3e8e1f47f",
       "status": "Fast scored",
       "team": "rfdiffusion"
     },
@@ -2469,7 +2530,7 @@
       "interface_dg_reu": null,
       "label": "RF-469757ffc57a",
       "length": 90,
-      "model_score": 18.515826783370077,
+      "model_score": 19.03033549236192,
       "native_accepted": null,
       "native_labels": [
         "unreviewed_candidate"
@@ -2484,7 +2545,7 @@
         "source-eb94693eafc1c1cd",
         "source-ff7c79aaa1744b5a"
       ],
-      "provisional_rank": 33,
+      "provisional_rank": 34,
       "score_regime": "ESMFold2-Fast / WT54 / seed 17",
       "sequence_sha256": "469757ffc57aa45ecfb0c19c8ddaac0c3ae3ee1070168b644f30bb57a150e2e1",
       "status": "Fast scored",
@@ -2530,7 +2591,7 @@
       "interface_dg_reu": null,
       "label": "RF-13fefa648c66",
       "length": 84,
-      "model_score": 18.44694070210086,
+      "model_score": 18.64634869403296,
       "native_accepted": null,
       "native_labels": [
         "unreviewed_candidate"
@@ -2545,70 +2606,9 @@
         "source-eb94693eafc1c1cd",
         "source-ff7c79aaa1744b5a"
       ],
-      "provisional_rank": 34,
-      "score_regime": "ESMFold2-Fast / WT54 / seed 17",
-      "sequence_sha256": "13fefa648c665daefa94fc876c24752fcb05201b05124ba3201f7fc8f1f4acc2",
-      "status": "Fast scored",
-      "team": "rfdiffusion"
-    },
-    {
-      "af2": null,
-      "combined_rank": null,
-      "combined_score": null,
-      "fast": {
-        "geometry": {
-          "binder_contact_residues": 11,
-          "binder_self_fit_ca_rmsd_angstrom": 2.200581968489676,
-          "c_terminal_contact_pairs_5a": 0,
-          "contact_residue_pairs_5a": 26,
-          "interchain_ca_pairs_below_2_5a": 0,
-          "interchain_heavy_atom_pairs_below_2a": 1,
-          "membrane_accessibility": "unassessed_no_experimental_membrane_normal",
-          "minimum_interchain_heavy_distance_angstrom": 1.8820066418586308,
-          "n_terminal_contact_pairs_5a": 0,
-          "status": "described",
-          "target_aligned_binder_pose_ca_rmsd_angstrom": 40.48252202069348,
-          "target_contact_residues": 13,
-          "target_core_ca_rmsd_angstrom": 0.7871233086703587
-        },
-        "ipsae_binder_to_target": 0.03266668297264336,
-        "ipsae_max": 0.0632393236264573,
-        "ipsae_min": 0.03266668297264336,
-        "ipsae_target_to_binder": 0.0632393236264573,
-        "iptm": 0.33613693714141846,
-        "native_plddt": null,
-        "native_plddt_status": "unavailable_unverified_native_scalar",
-        "protocol_id": "esmfold2-fast-wt54-seed17",
-        "ptm": 0.4967670440673828,
-        "source_ids": [
-          "source-4bdd91472324771e",
-          "source-c69dd92cc0dc821e"
-        ]
-      },
-      "final_nominee": false,
-      "final_status": "Awaiting held-out prediction and physics",
-      "id": "RF-f9caa78cf4b4",
-      "interface_dg_reu": null,
-      "label": "RF-f9caa78cf4b4",
-      "length": 93,
-      "model_score": 18.440181005703092,
-      "native_accepted": null,
-      "native_labels": [
-        "unreviewed_candidate"
-      ],
-      "native_status": "quality_not_assessed",
-      "parent": "RF-F11",
-      "parent_ids": [
-        "RF-F11"
-      ],
-      "physics_score": null,
-      "provenance": [
-        "source-eb94693eafc1c1cd",
-        "source-ff7c79aaa1744b5a"
-      ],
       "provisional_rank": 35,
       "score_regime": "ESMFold2-Fast / WT54 / seed 17",
-      "sequence_sha256": "f9caa78cf4b4f04d8a2374b859faa8528821cc9c186718f21b0c6a9348de1034",
+      "sequence_sha256": "13fefa648c665daefa94fc876c24752fcb05201b05124ba3201f7fc8f1f4acc2",
       "status": "Fast scored",
       "team": "rfdiffusion"
     },
@@ -2652,7 +2652,7 @@
       "interface_dg_reu": null,
       "label": "RF-50c4fe5b01a1",
       "length": 91,
-      "model_score": 17.237073419408212,
+      "model_score": 17.287015450363704,
       "native_accepted": null,
       "native_labels": [
         "unreviewed_candidate"
@@ -2713,7 +2713,7 @@
       "interface_dg_reu": null,
       "label": "RF-b2a91651e200",
       "length": 95,
-      "model_score": 16.30145616125252,
+      "model_score": 16.3742180466868,
       "native_accepted": null,
       "native_labels": [
         "unreviewed_candidate"
@@ -2774,7 +2774,7 @@
       "interface_dg_reu": null,
       "label": "RF-5c6270fa47be",
       "length": 95,
-      "model_score": 14.427666278104509,
+      "model_score": 14.446794532664198,
       "native_accepted": null,
       "native_labels": [
         "unreviewed_candidate"
@@ -2792,67 +2792,6 @@
       "provisional_rank": 38,
       "score_regime": "ESMFold2-Fast / WT54 / seed 17",
       "sequence_sha256": "5c6270fa47be40647d9d54e069ececae24acb8b9f8bdd7bae9796ca11c4534d1",
-      "status": "Fast scored",
-      "team": "rfdiffusion"
-    },
-    {
-      "af2": null,
-      "combined_rank": null,
-      "combined_score": null,
-      "fast": {
-        "geometry": {
-          "binder_contact_residues": 10,
-          "binder_self_fit_ca_rmsd_angstrom": 2.514171187655269,
-          "c_terminal_contact_pairs_5a": 0,
-          "contact_residue_pairs_5a": 25,
-          "interchain_ca_pairs_below_2_5a": 0,
-          "interchain_heavy_atom_pairs_below_2a": 0,
-          "membrane_accessibility": "unassessed_no_experimental_membrane_normal",
-          "minimum_interchain_heavy_distance_angstrom": 2.837561276871391,
-          "n_terminal_contact_pairs_5a": 0,
-          "status": "described",
-          "target_aligned_binder_pose_ca_rmsd_angstrom": 13.406670091675446,
-          "target_contact_residues": 12,
-          "target_core_ca_rmsd_angstrom": 0.48580573874837074
-        },
-        "ipsae_binder_to_target": 0.013233738440492726,
-        "ipsae_max": 0.014811272701857933,
-        "ipsae_min": 0.013233738440492726,
-        "ipsae_target_to_binder": 0.014811272701857933,
-        "iptm": 0.2629815340042114,
-        "native_plddt": null,
-        "native_plddt_status": "unavailable_unverified_native_scalar",
-        "protocol_id": "esmfold2-fast-wt54-seed17",
-        "ptm": 0.4762062430381775,
-        "source_ids": [
-          "source-70cf8dc4a96af82f",
-          "source-8963300587c396df"
-        ]
-      },
-      "final_nominee": false,
-      "final_status": "Awaiting held-out prediction and physics",
-      "id": "RF-b432e7f86a17",
-      "interface_dg_reu": null,
-      "label": "RF-b432e7f86a17",
-      "length": 97,
-      "model_score": 13.810763622235209,
-      "native_accepted": null,
-      "native_labels": [
-        "unreviewed_candidate"
-      ],
-      "native_status": "quality_not_assessed",
-      "parent": "RF-F16",
-      "parent_ids": [
-        "RF-F16"
-      ],
-      "physics_score": null,
-      "provenance": [
-        "source-eb94693eafc1c1cd",
-        "source-ff7c79aaa1744b5a"
-      ],
-      "provisional_rank": 39,
-      "score_regime": "ESMFold2-Fast / WT54 / seed 17",
-      "sequence_sha256": "b432e7f86a172a0f583310ceac559b6f7bd0668830e07dfff595b65ab8b83826",
       "status": "Fast scored",
       "team": "rfdiffusion"
     },
@@ -2932,7 +2871,7 @@
       "interface_dg_reu": null,
       "label": "PP-8ff3866bdbcb",
       "length": 86,
-      "model_score": 13.718397861158335,
+      "model_score": 13.941815788842332,
       "native_accepted": null,
       "native_labels": [
         "returned_with_integrity_not_quality_accepted"
@@ -2948,11 +2887,72 @@
         "source-ff7c79aaa1744b5a",
         "source-c00aaa769aa17ca7"
       ],
-      "provisional_rank": 40,
+      "provisional_rank": 39,
       "score_regime": "ESMFold2-Fast / WT54 / seed 17",
       "sequence_sha256": "8ff3866bdbcbf7e805f28f0ab6deee0fd601a84f316927a68f062846fa4de811",
       "status": "Fast scored",
       "team": "prompteina"
+    },
+    {
+      "af2": null,
+      "combined_rank": null,
+      "combined_score": null,
+      "fast": {
+        "geometry": {
+          "binder_contact_residues": 10,
+          "binder_self_fit_ca_rmsd_angstrom": 2.514171187655269,
+          "c_terminal_contact_pairs_5a": 0,
+          "contact_residue_pairs_5a": 25,
+          "interchain_ca_pairs_below_2_5a": 0,
+          "interchain_heavy_atom_pairs_below_2a": 0,
+          "membrane_accessibility": "unassessed_no_experimental_membrane_normal",
+          "minimum_interchain_heavy_distance_angstrom": 2.837561276871391,
+          "n_terminal_contact_pairs_5a": 0,
+          "status": "described",
+          "target_aligned_binder_pose_ca_rmsd_angstrom": 13.406670091675446,
+          "target_contact_residues": 12,
+          "target_core_ca_rmsd_angstrom": 0.48580573874837074
+        },
+        "ipsae_binder_to_target": 0.013233738440492726,
+        "ipsae_max": 0.014811272701857933,
+        "ipsae_min": 0.013233738440492726,
+        "ipsae_target_to_binder": 0.014811272701857933,
+        "iptm": 0.2629815340042114,
+        "native_plddt": null,
+        "native_plddt_status": "unavailable_unverified_native_scalar",
+        "protocol_id": "esmfold2-fast-wt54-seed17",
+        "ptm": 0.4762062430381775,
+        "source_ids": [
+          "source-70cf8dc4a96af82f",
+          "source-8963300587c396df"
+        ]
+      },
+      "final_nominee": false,
+      "final_status": "Awaiting held-out prediction and physics",
+      "id": "RF-b432e7f86a17",
+      "interface_dg_reu": null,
+      "label": "RF-b432e7f86a17",
+      "length": 97,
+      "model_score": 13.889640335303469,
+      "native_accepted": null,
+      "native_labels": [
+        "unreviewed_candidate"
+      ],
+      "native_status": "quality_not_assessed",
+      "parent": "RF-F16",
+      "parent_ids": [
+        "RF-F16"
+      ],
+      "physics_score": null,
+      "provenance": [
+        "source-eb94693eafc1c1cd",
+        "source-ff7c79aaa1744b5a"
+      ],
+      "provisional_rank": 40,
+      "score_regime": "ESMFold2-Fast / WT54 / seed 17",
+      "sequence_sha256": "b432e7f86a172a0f583310ceac559b6f7bd0668830e07dfff595b65ab8b83826",
+      "status": "Fast scored",
+      "team": "rfdiffusion"
     },
     {
       "af2": null,
@@ -2994,7 +2994,7 @@
       "interface_dg_reu": null,
       "label": "RF-c70f6d1541b6",
       "length": 100,
-      "model_score": 13.630359244396384,
+      "model_score": 13.657684792280614,
       "native_accepted": null,
       "native_labels": [
         "unreviewed_candidate"
@@ -3055,7 +3055,7 @@
       "interface_dg_reu": null,
       "label": "RF-4ace2bde4d78",
       "length": 100,
-      "model_score": 13.218847706227091,
+      "model_score": 13.275808673240286,
       "native_accepted": null,
       "native_labels": [
         "unreviewed_candidate"
@@ -3116,7 +3116,7 @@
       "interface_dg_reu": null,
       "label": "RF-0f19c661c098",
       "length": 80,
-      "model_score": 13.190348101459398,
+      "model_score": 13.201542600013155,
       "native_accepted": null,
       "native_labels": [
         "unreviewed_candidate"
@@ -3177,7 +3177,7 @@
       "interface_dg_reu": null,
       "label": "RF-344cdadf469a",
       "length": 93,
-      "model_score": 12.752883783915102,
+      "model_score": 12.866464833978581,
       "native_accepted": null,
       "native_labels": [
         "unreviewed_candidate"
@@ -3238,7 +3238,7 @@
       "interface_dg_reu": null,
       "label": "RF-62a1d2a004f5",
       "length": 92,
-      "model_score": 11.81140706817128,
+      "model_score": 12.013606334900926,
       "native_accepted": null,
       "native_labels": [
         "unreviewed_candidate"
@@ -3360,7 +3360,7 @@
       "interface_dg_reu": null,
       "label": "RF-38a106000349",
       "length": 90,
-      "model_score": 11.024063165816866,
+      "model_score": 11.040570534970366,
       "native_accepted": null,
       "native_labels": [
         "unreviewed_candidate"
@@ -3421,7 +3421,7 @@
       "interface_dg_reu": null,
       "label": "PP-57304bf2f65d",
       "length": 86,
-      "model_score": 10.810100114345799,
+      "model_score": 10.835185373649788,
       "native_accepted": null,
       "native_labels": [
         "returned_with_integrity_not_quality_accepted"
@@ -3441,6 +3441,128 @@
       "sequence_sha256": "57304bf2f65d7ee2c4c372c6cc5f2d4d1299e158801594b9b0d0544ffb8c0764",
       "status": "Fast scored",
       "team": "prompteina"
+    },
+    {
+      "af2": null,
+      "combined_rank": null,
+      "combined_score": null,
+      "fast": {
+        "geometry": {
+          "binder_contact_residues": 16,
+          "binder_self_fit_ca_rmsd_angstrom": 1.6207331298240062,
+          "c_terminal_contact_pairs_5a": 0,
+          "contact_residue_pairs_5a": 34,
+          "interchain_ca_pairs_below_2_5a": 0,
+          "interchain_heavy_atom_pairs_below_2a": 1,
+          "membrane_accessibility": "unassessed_no_experimental_membrane_normal",
+          "minimum_interchain_heavy_distance_angstrom": 1.5916350084111621,
+          "n_terminal_contact_pairs_5a": 0,
+          "status": "described",
+          "target_aligned_binder_pose_ca_rmsd_angstrom": 25.139877592306785,
+          "target_contact_residues": 16,
+          "target_core_ca_rmsd_angstrom": 0.5723798312171918
+        },
+        "ipsae_binder_to_target": 0.02055633965145774,
+        "ipsae_max": 0.02055633965145774,
+        "ipsae_min": 0.014941243656949533,
+        "ipsae_target_to_binder": 0.014941243656949533,
+        "iptm": 0.19311046600341797,
+        "native_plddt": null,
+        "native_plddt_status": "unavailable_unverified_native_scalar",
+        "protocol_id": "esmfold2-fast-wt54-seed17",
+        "ptm": 0.6389017701148987,
+        "source_ids": [
+          "source-bc372973318111e1",
+          "source-f0ea3c5276981170"
+        ]
+      },
+      "final_nominee": false,
+      "final_status": "Awaiting held-out prediction and physics",
+      "id": "RF-51b78f9f2890",
+      "interface_dg_reu": null,
+      "label": "RF-51b78f9f2890",
+      "length": 100,
+      "model_score": 10.683340282743785,
+      "native_accepted": null,
+      "native_labels": [
+        "unreviewed_candidate"
+      ],
+      "native_status": "quality_not_assessed",
+      "parent": "RF-F07",
+      "parent_ids": [
+        "RF-F07"
+      ],
+      "physics_score": null,
+      "provenance": [
+        "source-eb94693eafc1c1cd",
+        "source-ff7c79aaa1744b5a"
+      ],
+      "provisional_rank": 49,
+      "score_regime": "ESMFold2-Fast / WT54 / seed 17",
+      "sequence_sha256": "51b78f9f2890450b3ef7da5095c81ad38b89bcdd48650da9c8f3e2276f380542",
+      "status": "Fast scored",
+      "team": "rfdiffusion"
+    },
+    {
+      "af2": null,
+      "combined_rank": null,
+      "combined_score": null,
+      "fast": {
+        "geometry": {
+          "binder_contact_residues": 11,
+          "binder_self_fit_ca_rmsd_angstrom": 1.6554667840666366,
+          "c_terminal_contact_pairs_5a": 0,
+          "contact_residue_pairs_5a": 23,
+          "interchain_ca_pairs_below_2_5a": 0,
+          "interchain_heavy_atom_pairs_below_2a": 0,
+          "membrane_accessibility": "unassessed_no_experimental_membrane_normal",
+          "minimum_interchain_heavy_distance_angstrom": 2.67758902746482,
+          "n_terminal_contact_pairs_5a": 0,
+          "status": "described",
+          "target_aligned_binder_pose_ca_rmsd_angstrom": 12.930364268216374,
+          "target_contact_residues": 12,
+          "target_core_ca_rmsd_angstrom": 0.7403272557749064
+        },
+        "ipsae_binder_to_target": 0.015305022059863163,
+        "ipsae_max": 0.015305022059863163,
+        "ipsae_min": 0.013623343651462547,
+        "ipsae_target_to_binder": 0.013623343651462547,
+        "iptm": 0.19637487828731537,
+        "native_plddt": null,
+        "native_plddt_status": "unavailable_unverified_native_scalar",
+        "protocol_id": "esmfold2-fast-wt54-seed17",
+        "ptm": 0.47108548879623413,
+        "source_ids": [
+          "source-805ed585815043be",
+          "source-3150bf2e4d715c66"
+        ]
+      },
+      "final_nominee": false,
+      "final_status": "Awaiting held-out prediction and physics",
+      "id": "RF-7b175874253a",
+      "interface_dg_reu": null,
+      "label": "RF-7b175874253a",
+      "length": 93,
+      "model_score": 10.583995017358927,
+      "native_accepted": null,
+      "native_labels": [
+        "unreviewed_candidate"
+      ],
+      "native_status": "quality_not_assessed",
+      "parent": "RF-F19",
+      "parent_ids": [
+        "RF-F19"
+      ],
+      "physics_score": null,
+      "provenance": [
+        "source-eb94693eafc1c1cd",
+        "source-ff7c79aaa1744b5a"
+      ],
+      "provisional_rank": 50,
+      "score_regime": "ESMFold2-Fast / WT54 / seed 17",
+      "sequence_sha256": "7b175874253a46098e327e9c762b84bd797eb59b5a5b04eebc9592095d830f13",
+      "status": "Fast scored",
+      "team": "rfdiffusion"
     },
     {
       "af2": null,
@@ -3497,70 +3619,9 @@
         "source-eb94693eafc1c1cd",
         "source-ff7c79aaa1744b5a"
       ],
-      "provisional_rank": 49,
+      "provisional_rank": 51,
       "score_regime": "ESMFold2-Fast / WT54 / seed 17",
       "sequence_sha256": "32de47b9115f3923b68341f6a21dab747018d690f53f2159f59337372a7bc040",
-      "status": "Fast scored",
-      "team": "rfdiffusion"
-    },
-    {
-      "af2": null,
-      "combined_rank": null,
-      "combined_score": null,
-      "fast": {
-        "geometry": {
-          "binder_contact_residues": 11,
-          "binder_self_fit_ca_rmsd_angstrom": 1.6554667840666366,
-          "c_terminal_contact_pairs_5a": 0,
-          "contact_residue_pairs_5a": 23,
-          "interchain_ca_pairs_below_2_5a": 0,
-          "interchain_heavy_atom_pairs_below_2a": 0,
-          "membrane_accessibility": "unassessed_no_experimental_membrane_normal",
-          "minimum_interchain_heavy_distance_angstrom": 2.67758902746482,
-          "n_terminal_contact_pairs_5a": 0,
-          "status": "described",
-          "target_aligned_binder_pose_ca_rmsd_angstrom": 12.930364268216374,
-          "target_contact_residues": 12,
-          "target_core_ca_rmsd_angstrom": 0.7403272557749064
-        },
-        "ipsae_binder_to_target": 0.015305022059863163,
-        "ipsae_max": 0.015305022059863163,
-        "ipsae_min": 0.013623343651462547,
-        "ipsae_target_to_binder": 0.013623343651462547,
-        "iptm": 0.19637487828731537,
-        "native_plddt": null,
-        "native_plddt_status": "unavailable_unverified_native_scalar",
-        "protocol_id": "esmfold2-fast-wt54-seed17",
-        "ptm": 0.47108548879623413,
-        "source_ids": [
-          "source-805ed585815043be",
-          "source-3150bf2e4d715c66"
-        ]
-      },
-      "final_nominee": false,
-      "final_status": "Awaiting held-out prediction and physics",
-      "id": "RF-7b175874253a",
-      "interface_dg_reu": null,
-      "label": "RF-7b175874253a",
-      "length": 93,
-      "model_score": 10.499911096938897,
-      "native_accepted": null,
-      "native_labels": [
-        "unreviewed_candidate"
-      ],
-      "native_status": "quality_not_assessed",
-      "parent": "RF-F19",
-      "parent_ids": [
-        "RF-F19"
-      ],
-      "physics_score": null,
-      "provenance": [
-        "source-eb94693eafc1c1cd",
-        "source-ff7c79aaa1744b5a"
-      ],
-      "provisional_rank": 50,
-      "score_regime": "ESMFold2-Fast / WT54 / seed 17",
-      "sequence_sha256": "7b175874253a46098e327e9c762b84bd797eb59b5a5b04eebc9592095d830f13",
       "status": "Fast scored",
       "team": "rfdiffusion"
     },
@@ -3604,7 +3665,7 @@
       "interface_dg_reu": null,
       "label": "RF-9be6e25ff2c0",
       "length": 100,
-      "model_score": 10.479160709115732,
+      "model_score": 10.537958672216682,
       "native_accepted": null,
       "native_labels": [
         "unreviewed_candidate"
@@ -3619,70 +3680,9 @@
         "source-eb94693eafc1c1cd",
         "source-ff7c79aaa1744b5a"
       ],
-      "provisional_rank": 51,
-      "score_regime": "ESMFold2-Fast / WT54 / seed 17",
-      "sequence_sha256": "9be6e25ff2c01be39e688e049fae59216dcd1d7122fd93bb190695cd98fb0178",
-      "status": "Fast scored",
-      "team": "rfdiffusion"
-    },
-    {
-      "af2": null,
-      "combined_rank": null,
-      "combined_score": null,
-      "fast": {
-        "geometry": {
-          "binder_contact_residues": 16,
-          "binder_self_fit_ca_rmsd_angstrom": 1.6207331298240062,
-          "c_terminal_contact_pairs_5a": 0,
-          "contact_residue_pairs_5a": 34,
-          "interchain_ca_pairs_below_2_5a": 0,
-          "interchain_heavy_atom_pairs_below_2a": 1,
-          "membrane_accessibility": "unassessed_no_experimental_membrane_normal",
-          "minimum_interchain_heavy_distance_angstrom": 1.5916350084111621,
-          "n_terminal_contact_pairs_5a": 0,
-          "status": "described",
-          "target_aligned_binder_pose_ca_rmsd_angstrom": 25.139877592306785,
-          "target_contact_residues": 16,
-          "target_core_ca_rmsd_angstrom": 0.5723798312171918
-        },
-        "ipsae_binder_to_target": 0.02055633965145774,
-        "ipsae_max": 0.02055633965145774,
-        "ipsae_min": 0.014941243656949533,
-        "ipsae_target_to_binder": 0.014941243656949533,
-        "iptm": 0.19311046600341797,
-        "native_plddt": null,
-        "native_plddt_status": "unavailable_unverified_native_scalar",
-        "protocol_id": "esmfold2-fast-wt54-seed17",
-        "ptm": 0.6389017701148987,
-        "source_ids": [
-          "source-bc372973318111e1",
-          "source-f0ea3c5276981170"
-        ]
-      },
-      "final_nominee": false,
-      "final_status": "Awaiting held-out prediction and physics",
-      "id": "RF-51b78f9f2890",
-      "interface_dg_reu": null,
-      "label": "RF-51b78f9f2890",
-      "length": 100,
-      "model_score": 10.402585483018376,
-      "native_accepted": null,
-      "native_labels": [
-        "unreviewed_candidate"
-      ],
-      "native_status": "quality_not_assessed",
-      "parent": "RF-F07",
-      "parent_ids": [
-        "RF-F07"
-      ],
-      "physics_score": null,
-      "provenance": [
-        "source-eb94693eafc1c1cd",
-        "source-ff7c79aaa1744b5a"
-      ],
       "provisional_rank": 52,
       "score_regime": "ESMFold2-Fast / WT54 / seed 17",
-      "sequence_sha256": "51b78f9f2890450b3ef7da5095c81ad38b89bcdd48650da9c8f3e2276f380542",
+      "sequence_sha256": "9be6e25ff2c01be39e688e049fae59216dcd1d7122fd93bb190695cd98fb0178",
       "status": "Fast scored",
       "team": "rfdiffusion"
     },
@@ -3726,7 +3726,7 @@
       "interface_dg_reu": null,
       "label": "RF-62a2eb3b0d8c",
       "length": 97,
-      "model_score": 10.333065554534395,
+      "model_score": 10.349296556784635,
       "native_accepted": null,
       "native_labels": [
         "unreviewed_candidate"
@@ -3848,7 +3848,7 @@
       "interface_dg_reu": null,
       "label": "RF-4a54bd17a2bf",
       "length": 80,
-      "model_score": 9.964909544370142,
+      "model_score": 9.984284687842218,
       "native_accepted": null,
       "native_labels": [
         "unreviewed_candidate"
@@ -4007,7 +4007,7 @@
       "interface_dg_reu": null,
       "label": "PP-c6c36dec33f9",
       "length": 86,
-      "model_score": 8.818805479295504,
+      "model_score": 8.832428547787329,
       "native_accepted": null,
       "native_labels": [
         "returned_with_integrity_not_quality_accepted"
@@ -4068,7 +4068,7 @@
       "interface_dg_reu": null,
       "label": "RF-2ee1f3959254",
       "length": 94,
-      "model_score": 8.687301231621532,
+      "model_score": 8.77282072735065,
       "native_accepted": null,
       "native_labels": [
         "unreviewed_candidate"
@@ -4190,7 +4190,7 @@
       "interface_dg_reu": null,
       "label": "RF-d8f05db904b4",
       "length": 98,
-      "model_score": 8.389411614840684,
+      "model_score": 8.389792127523801,
       "native_accepted": null,
       "native_labels": [
         "unreviewed_candidate"
@@ -4278,6 +4278,67 @@
       "combined_score": null,
       "fast": {
         "geometry": {
+          "binder_contact_residues": 12,
+          "binder_self_fit_ca_rmsd_angstrom": 8.204640829892943,
+          "c_terminal_contact_pairs_5a": 0,
+          "contact_residue_pairs_5a": 30,
+          "interchain_ca_pairs_below_2_5a": 0,
+          "interchain_heavy_atom_pairs_below_2a": 0,
+          "membrane_accessibility": "unassessed_no_experimental_membrane_normal",
+          "minimum_interchain_heavy_distance_angstrom": 2.293831946765063,
+          "n_terminal_contact_pairs_5a": 0,
+          "status": "described",
+          "target_aligned_binder_pose_ca_rmsd_angstrom": 46.483748320309765,
+          "target_contact_residues": 12,
+          "target_core_ca_rmsd_angstrom": 0.7994311420044536
+        },
+        "ipsae_binder_to_target": 0.0,
+        "ipsae_max": 0.012417260950290452,
+        "ipsae_min": 0.0,
+        "ipsae_target_to_binder": 0.012417260950290452,
+        "iptm": 0.1342197209596634,
+        "native_plddt": null,
+        "native_plddt_status": "unavailable_unverified_native_scalar",
+        "protocol_id": "esmfold2-fast-wt54-seed17",
+        "ptm": 0.3541831076145172,
+        "source_ids": [
+          "source-e0c056a49027e3fb",
+          "source-c9fa48800fa43ad4"
+        ]
+      },
+      "final_nominee": false,
+      "final_status": "Awaiting held-out prediction and physics",
+      "id": "RF-623c9cf6744a",
+      "interface_dg_reu": null,
+      "label": "RF-623c9cf6744a",
+      "length": 91,
+      "model_score": 7.331849095497692,
+      "native_accepted": null,
+      "native_labels": [
+        "unreviewed_candidate"
+      ],
+      "native_status": "quality_not_assessed",
+      "parent": "RF-F02",
+      "parent_ids": [
+        "RF-F02"
+      ],
+      "physics_score": null,
+      "provenance": [
+        "source-eb94693eafc1c1cd",
+        "source-ff7c79aaa1744b5a"
+      ],
+      "provisional_rank": 62,
+      "score_regime": "ESMFold2-Fast / WT54 / seed 17",
+      "sequence_sha256": "623c9cf6744a0973121cc3b60d74eb376269d860330015a90aa3471c085fcb2c",
+      "status": "Fast scored",
+      "team": "rfdiffusion"
+    },
+    {
+      "af2": null,
+      "combined_rank": null,
+      "combined_score": null,
+      "fast": {
+        "geometry": {
           "binder_contact_residues": 20,
           "binder_self_fit_ca_rmsd_angstrom": 3.015506166495415,
           "c_terminal_contact_pairs_5a": 1,
@@ -4327,7 +4388,7 @@
         "source-eb94693eafc1c1cd",
         "source-ff7c79aaa1744b5a"
       ],
-      "provisional_rank": 62,
+      "provisional_rank": 63,
       "score_regime": "ESMFold2-Fast / WT54 / seed 17",
       "sequence_sha256": "f11964e2201c452f42954e0df1dbe31e88efe8cdbda0a3906dd48fcec40ccd05",
       "status": "Fast scored",
@@ -4388,7 +4449,7 @@
         "source-eb94693eafc1c1cd",
         "source-ff7c79aaa1744b5a"
       ],
-      "provisional_rank": 63,
+      "provisional_rank": 64,
       "score_regime": "ESMFold2-Fast / WT54 / seed 17",
       "sequence_sha256": "640a1d0c1d1b2d5637f9d92920e1e4fae62716830696aab87a720443feefc3f8",
       "status": "Fast scored",
@@ -4400,58 +4461,58 @@
       "combined_score": null,
       "fast": {
         "geometry": {
-          "binder_contact_residues": 12,
-          "binder_self_fit_ca_rmsd_angstrom": 8.204640829892943,
+          "binder_contact_residues": 13,
+          "binder_self_fit_ca_rmsd_angstrom": 3.2488755097974136,
           "c_terminal_contact_pairs_5a": 0,
-          "contact_residue_pairs_5a": 30,
+          "contact_residue_pairs_5a": 33,
           "interchain_ca_pairs_below_2_5a": 0,
           "interchain_heavy_atom_pairs_below_2a": 0,
           "membrane_accessibility": "unassessed_no_experimental_membrane_normal",
-          "minimum_interchain_heavy_distance_angstrom": 2.293831946765063,
-          "n_terminal_contact_pairs_5a": 0,
+          "minimum_interchain_heavy_distance_angstrom": 2.1062101034797074,
+          "n_terminal_contact_pairs_5a": 1,
           "status": "described",
-          "target_aligned_binder_pose_ca_rmsd_angstrom": 46.483748320309765,
-          "target_contact_residues": 12,
-          "target_core_ca_rmsd_angstrom": 0.7994311420044536
+          "target_aligned_binder_pose_ca_rmsd_angstrom": 16.005539648520553,
+          "target_contact_residues": 15,
+          "target_core_ca_rmsd_angstrom": 0.7737403368089576
         },
         "ipsae_binder_to_target": 0.0,
-        "ipsae_max": 0.012417260950290452,
+        "ipsae_max": 0.010689161229099655,
         "ipsae_min": 0.0,
-        "ipsae_target_to_binder": 0.012417260950290452,
-        "iptm": 0.1342197209596634,
+        "ipsae_target_to_binder": 0.010689161229099655,
+        "iptm": 0.12151554971933365,
         "native_plddt": null,
         "native_plddt_status": "unavailable_unverified_native_scalar",
         "protocol_id": "esmfold2-fast-wt54-seed17",
-        "ptm": 0.3541831076145172,
+        "ptm": 0.46387800574302673,
         "source_ids": [
-          "source-e0c056a49027e3fb",
-          "source-c9fa48800fa43ad4"
+          "source-b7e8018052ae7ad0",
+          "source-68afc3a51618de5c"
         ]
       },
       "final_nominee": false,
       "final_status": "Awaiting held-out prediction and physics",
-      "id": "RF-623c9cf6744a",
+      "id": "RF-76bed73a1d5e",
       "interface_dg_reu": null,
-      "label": "RF-623c9cf6744a",
-      "length": 91,
-      "model_score": 6.7109860479831696,
+      "label": "RF-76bed73a1d5e",
+      "length": 90,
+      "model_score": 6.610235547421666,
       "native_accepted": null,
       "native_labels": [
         "unreviewed_candidate"
       ],
       "native_status": "quality_not_assessed",
-      "parent": "RF-F02",
+      "parent": "RF-F09",
       "parent_ids": [
-        "RF-F02"
+        "RF-F09"
       ],
       "physics_score": null,
       "provenance": [
         "source-eb94693eafc1c1cd",
         "source-ff7c79aaa1744b5a"
       ],
-      "provisional_rank": 64,
+      "provisional_rank": 65,
       "score_regime": "ESMFold2-Fast / WT54 / seed 17",
-      "sequence_sha256": "623c9cf6744a0973121cc3b60d74eb376269d860330015a90aa3471c085fcb2c",
+      "sequence_sha256": "76bed73a1d5ea468d8474c6e2bd810dbea06ed6841f90410b5a3dff37c3138e4",
       "status": "Fast scored",
       "team": "rfdiffusion"
     },
@@ -4510,7 +4571,7 @@
         "source-eb94693eafc1c1cd",
         "source-ff7c79aaa1744b5a"
       ],
-      "provisional_rank": 65,
+      "provisional_rank": 66,
       "score_regime": "ESMFold2-Fast / WT54 / seed 17",
       "sequence_sha256": "6a32d5e01b9fb8fcacbc321ea6a5be7dd5fe1d298f2e8177ae9da02bbd42fb6d",
       "status": "Fast scored",
@@ -4571,7 +4632,7 @@
         "source-eb94693eafc1c1cd",
         "source-ff7c79aaa1744b5a"
       ],
-      "provisional_rank": 66,
+      "provisional_rank": 67,
       "score_regime": "ESMFold2-Fast / WT54 / seed 17",
       "sequence_sha256": "797d1effa81f5a666ca725e1c6b3f0c839d512673b9b18153ae0c2cda476d134",
       "status": "Fast scored",
@@ -4632,7 +4693,7 @@
         "source-eb94693eafc1c1cd",
         "source-ff7c79aaa1744b5a"
       ],
-      "provisional_rank": 67,
+      "provisional_rank": 68,
       "score_regime": "ESMFold2-Fast / WT54 / seed 17",
       "sequence_sha256": "05ff5b28fc7c4333a0a3b884c2479ddcafb04a8fc61221313dd40c55893bb3b0",
       "status": "Fast scored",
@@ -4693,7 +4754,7 @@
         "source-eb94693eafc1c1cd",
         "source-ff7c79aaa1744b5a"
       ],
-      "provisional_rank": 68,
+      "provisional_rank": 69,
       "score_regime": "ESMFold2-Fast / WT54 / seed 17",
       "sequence_sha256": "ca3c1d89d7b3080569647f0af812d8767e42347f0e7ce98475c25ac43cd614f3",
       "status": "Fast scored",
@@ -4754,72 +4815,11 @@
         "source-eb94693eafc1c1cd",
         "source-ff7c79aaa1744b5a"
       ],
-      "provisional_rank": 69,
+      "provisional_rank": 70,
       "score_regime": "ESMFold2-Fast / WT54 / seed 17",
       "sequence_sha256": "e6970a02c9939905ba61d97628505d578382810d21e0b0e949b3742c6856d179",
       "status": "Fast scored",
       "team": "prompteina"
-    },
-    {
-      "af2": null,
-      "combined_rank": null,
-      "combined_score": null,
-      "fast": {
-        "geometry": {
-          "binder_contact_residues": 13,
-          "binder_self_fit_ca_rmsd_angstrom": 3.2488755097974136,
-          "c_terminal_contact_pairs_5a": 0,
-          "contact_residue_pairs_5a": 33,
-          "interchain_ca_pairs_below_2_5a": 0,
-          "interchain_heavy_atom_pairs_below_2a": 0,
-          "membrane_accessibility": "unassessed_no_experimental_membrane_normal",
-          "minimum_interchain_heavy_distance_angstrom": 2.1062101034797074,
-          "n_terminal_contact_pairs_5a": 1,
-          "status": "described",
-          "target_aligned_binder_pose_ca_rmsd_angstrom": 16.005539648520553,
-          "target_contact_residues": 15,
-          "target_core_ca_rmsd_angstrom": 0.7737403368089576
-        },
-        "ipsae_binder_to_target": 0.0,
-        "ipsae_max": 0.010689161229099655,
-        "ipsae_min": 0.0,
-        "ipsae_target_to_binder": 0.010689161229099655,
-        "iptm": 0.12151554971933365,
-        "native_plddt": null,
-        "native_plddt_status": "unavailable_unverified_native_scalar",
-        "protocol_id": "esmfold2-fast-wt54-seed17",
-        "ptm": 0.46387800574302673,
-        "source_ids": [
-          "source-b7e8018052ae7ad0",
-          "source-68afc3a51618de5c"
-        ]
-      },
-      "final_nominee": false,
-      "final_status": "Awaiting held-out prediction and physics",
-      "id": "RF-76bed73a1d5e",
-      "interface_dg_reu": null,
-      "label": "RF-76bed73a1d5e",
-      "length": 90,
-      "model_score": 6.075777485966682,
-      "native_accepted": null,
-      "native_labels": [
-        "unreviewed_candidate"
-      ],
-      "native_status": "quality_not_assessed",
-      "parent": "RF-F09",
-      "parent_ids": [
-        "RF-F09"
-      ],
-      "physics_score": null,
-      "provenance": [
-        "source-eb94693eafc1c1cd",
-        "source-ff7c79aaa1744b5a"
-      ],
-      "provisional_rank": 70,
-      "score_regime": "ESMFold2-Fast / WT54 / seed 17",
-      "sequence_sha256": "76bed73a1d5ea468d8474c6e2bd810dbea06ed6841f90410b5a3dff37c3138e4",
-      "status": "Fast scored",
-      "team": "rfdiffusion"
     },
     {
       "af2": null,
@@ -4861,7 +4861,7 @@
       "interface_dg_reu": null,
       "label": "RF-412d6461a0c1",
       "length": 84,
-      "model_score": 5.895024712675714,
+      "model_score": 6.106139680124706,
       "native_accepted": null,
       "native_labels": [
         "unreviewed_candidate"
@@ -4879,6 +4879,67 @@
       "provisional_rank": 71,
       "score_regime": "ESMFold2-Fast / WT54 / seed 17",
       "sequence_sha256": "412d6461a0c1c9476239cc83cd3645a2f3545483af703407cb1af1cc9aab46ca",
+      "status": "Fast scored",
+      "team": "rfdiffusion"
+    },
+    {
+      "af2": null,
+      "combined_rank": null,
+      "combined_score": null,
+      "fast": {
+        "geometry": {
+          "binder_contact_residues": 13,
+          "binder_self_fit_ca_rmsd_angstrom": 1.2546266194102205,
+          "c_terminal_contact_pairs_5a": 0,
+          "contact_residue_pairs_5a": 27,
+          "interchain_ca_pairs_below_2_5a": 0,
+          "interchain_heavy_atom_pairs_below_2a": 0,
+          "membrane_accessibility": "unassessed_no_experimental_membrane_normal",
+          "minimum_interchain_heavy_distance_angstrom": 2.015302210587781,
+          "n_terminal_contact_pairs_5a": 0,
+          "status": "described",
+          "target_aligned_binder_pose_ca_rmsd_angstrom": 45.15557484490927,
+          "target_contact_residues": 14,
+          "target_core_ca_rmsd_angstrom": 0.8108171253853279
+        },
+        "ipsae_binder_to_target": 0.0,
+        "ipsae_max": 0.011810394237357408,
+        "ipsae_min": 0.0,
+        "ipsae_target_to_binder": 0.011810394237357408,
+        "iptm": 0.10985469073057175,
+        "native_plddt": null,
+        "native_plddt_status": "unavailable_unverified_native_scalar",
+        "protocol_id": "esmfold2-fast-wt54-seed17",
+        "ptm": 0.5111660957336426,
+        "source_ids": [
+          "source-60510ff6ba78dba6",
+          "source-08724f47f93a759f"
+        ]
+      },
+      "final_nominee": false,
+      "final_status": "Awaiting held-out prediction and physics",
+      "id": "RF-5058b96780be",
+      "interface_dg_reu": null,
+      "label": "RF-5058b96780be",
+      "length": 93,
+      "model_score": 6.083254248396458,
+      "native_accepted": null,
+      "native_labels": [
+        "unreviewed_candidate"
+      ],
+      "native_status": "quality_not_assessed",
+      "parent": "RF-F19",
+      "parent_ids": [
+        "RF-F19"
+      ],
+      "physics_score": null,
+      "provenance": [
+        "source-eb94693eafc1c1cd",
+        "source-ff7c79aaa1744b5a"
+      ],
+      "provisional_rank": 72,
+      "score_regime": "ESMFold2-Fast / WT54 / seed 17",
+      "sequence_sha256": "5058b96780bea69052189dae188554373c32d30ec02e4c58db0f1102e189a1e7",
       "status": "Fast scored",
       "team": "rfdiffusion"
     },
@@ -4937,7 +4998,7 @@
         "source-eb94693eafc1c1cd",
         "source-ff7c79aaa1744b5a"
       ],
-      "provisional_rank": 72,
+      "provisional_rank": 73,
       "score_regime": "ESMFold2-Fast / WT54 / seed 17",
       "sequence_sha256": "3816894e1a4c119bd11507e7e124038f294f7a2239be0dbdc487ddeb44887e7d",
       "status": "Fast scored",
@@ -4998,7 +5059,7 @@
         "source-eb94693eafc1c1cd",
         "source-ff7c79aaa1744b5a"
       ],
-      "provisional_rank": 73,
+      "provisional_rank": 74,
       "score_regime": "ESMFold2-Fast / WT54 / seed 17",
       "sequence_sha256": "300ad4f9838c63dca885410bb0d0134b396abb650661fb153786c308b5c763dd",
       "status": "Fast scored",
@@ -5059,70 +5120,9 @@
         "source-eb94693eafc1c1cd",
         "source-ff7c79aaa1744b5a"
       ],
-      "provisional_rank": 74,
-      "score_regime": "ESMFold2-Fast / WT54 / seed 17",
-      "sequence_sha256": "9d745aa604a54905d5b107018539bccaa6a5e685e95bfc06f938d4c0acb3760a",
-      "status": "Fast scored",
-      "team": "rfdiffusion"
-    },
-    {
-      "af2": null,
-      "combined_rank": null,
-      "combined_score": null,
-      "fast": {
-        "geometry": {
-          "binder_contact_residues": 13,
-          "binder_self_fit_ca_rmsd_angstrom": 1.2546266194102205,
-          "c_terminal_contact_pairs_5a": 0,
-          "contact_residue_pairs_5a": 27,
-          "interchain_ca_pairs_below_2_5a": 0,
-          "interchain_heavy_atom_pairs_below_2a": 0,
-          "membrane_accessibility": "unassessed_no_experimental_membrane_normal",
-          "minimum_interchain_heavy_distance_angstrom": 2.015302210587781,
-          "n_terminal_contact_pairs_5a": 0,
-          "status": "described",
-          "target_aligned_binder_pose_ca_rmsd_angstrom": 45.15557484490927,
-          "target_contact_residues": 14,
-          "target_core_ca_rmsd_angstrom": 0.8108171253853279
-        },
-        "ipsae_binder_to_target": 0.0,
-        "ipsae_max": 0.011810394237357408,
-        "ipsae_min": 0.0,
-        "ipsae_target_to_binder": 0.011810394237357408,
-        "iptm": 0.10985469073057175,
-        "native_plddt": null,
-        "native_plddt_status": "unavailable_unverified_native_scalar",
-        "protocol_id": "esmfold2-fast-wt54-seed17",
-        "ptm": 0.5111660957336426,
-        "source_ids": [
-          "source-60510ff6ba78dba6",
-          "source-08724f47f93a759f"
-        ]
-      },
-      "final_nominee": false,
-      "final_status": "Awaiting held-out prediction and physics",
-      "id": "RF-5058b96780be",
-      "interface_dg_reu": null,
-      "label": "RF-5058b96780be",
-      "length": 93,
-      "model_score": 5.492734536528587,
-      "native_accepted": null,
-      "native_labels": [
-        "unreviewed_candidate"
-      ],
-      "native_status": "quality_not_assessed",
-      "parent": "RF-F19",
-      "parent_ids": [
-        "RF-F19"
-      ],
-      "physics_score": null,
-      "provenance": [
-        "source-eb94693eafc1c1cd",
-        "source-ff7c79aaa1744b5a"
-      ],
       "provisional_rank": 75,
       "score_regime": "ESMFold2-Fast / WT54 / seed 17",
-      "sequence_sha256": "5058b96780bea69052189dae188554373c32d30ec02e4c58db0f1102e189a1e7",
+      "sequence_sha256": "9d745aa604a54905d5b107018539bccaa6a5e685e95bfc06f938d4c0acb3760a",
       "status": "Fast scored",
       "team": "rfdiffusion"
     },
@@ -13208,7 +13208,7 @@
     "input_sha256": "6800afb8d3dd7fe46775a767de1d0e75cc00e84acce73d578e1dc1e3e0c8738f",
     "input_sources_verified": 236,
     "new_molecular_calculations": 0,
-    "ranking_source_sha256": "99bb7e363019568176e4383486793d720d7f68d9599f600ca4fb5c02834d93a9"
+    "ranking_source_sha256": "119907ba0b032fc24e2b4374723141a6e0fd73acd85d67883ab8e26f46c79162"
   },
   "campaign": {
     "bindcraft_working_set_exception": 8,
@@ -13398,14 +13398,14 @@
   "methods": {
     "af2_diagnostics": "All 14 candidate AF2 predictions are excluded from active ranking because of a shared target-conformation issue reproduced by B5/L10 controls. This does not demonstrate biological nonbinding. Native scalar pLDDT is unavailable and is not inferred.",
     "combined_formula": "Blue score = 0.5 \u00d7 C + 0.5 \u00d7 P",
-    "confidence_formula": "C = 100 \u00d7 [0.5 \u00d7 native ipTM + 0.5 \u00d7 min(ipSAE binder\u2192target, ipSAE target\u2192binder)]",
-    "current_rank": "The 108 scored binders use the provisional Fast confidence score C only. This is not the final combined rank. The other 194 inventory members remain unranked.",
+    "confidence_formula": "C = 100 \u00d7 [0.5 \u00d7 native ipTM + 0.5 \u00d7 max(ipSAE binder\u2192target, ipSAE target\u2192binder)]",
+    "current_rank": "This WT-only inventory ranks 108 scored binders by the updated maximum-direction Fast confidence score C. It does not measure performance across variants. This is not the final combined rank. The other 194 inventory members remain unranked.",
     "escape_controls": "WT is a baseline and P33S is a variant control, displayed outside the competitive Red ranks. A future P33S modeled-escape count is not forced to zero. R27P, S30del and P34del are clinical reagent-specific challenges; the clinical evidence does not establish escape from these new binders.",
     "escape_eligibility": "Require reviewed model-supported WT binding, reviewed WT and mutant target integrity, accepted structures and chemistry, matched binder identity and evaluator settings, and complete confidence/physics evidence. A failed or missing computation is unknown. The rule not being met does not prove retained biological binding.",
     "escape_rule": "Modeled escapes use an explicitly uncalibrated joint-decline rule. Each of native ipTM and both directional ipSAE values must fall by at least max(0.10, 25% of its WT value). Variant interface energy must be less favorable than WT, and its fixed-reference physics percentile must fall by at least 25 points.",
     "final_rank": "Final ranks are per antigen, using the common held-out Boltz prediction and one reviewed beta_nov16 physics replicate. Fast screening and confounded AF2 diagnostics are not substituted for that final protocol.",
     "limitations": "Scores are computational utilities, not binding probabilities or measured affinities. Confidence components are correlated. Rosetta energies are protocol- and interface-size-dependent; percentiles depend on the frozen cohort. Family-related binders are not independent replicates. Ranking is not final nomination or proof of design-method superiority.",
-    "minimum_ipsae": "The campaign uses the conservative minimum of two directional ipSAE fields. Canonical ipSAE reports the maximum; canonical published cutoffs are not applied to this custom minimum.",
+    "maximum_ipsae": "The confidence score uses the maximum of the two directional ipSAE values. Both directions remain available for inspection. This display-policy update does not change the approved contestant roster.",
     "missing_and_ties": "A missing, failed, confounded or unreviewed required component leaves the score unavailable. No zero filling or weight redistribution. Rank scores rounded to six decimals with shared competition ranks (1, 2, 2, 4); stable IDs order ties without breaking them. Display scores to two decimals.",
     "physics_formula": "P(E) = 100 \u00d7 [number of frozen WT energies > E + 0.5 \u00d7 number equal to E] / N",
     "physics_reference": "Lower interface_dG_REU is better. Freeze the complete WT nominee reference cohort, excluding published controls, before inspecting energies. Use that same reference for every variant. At least two distinct energies are required; do not drop failed members to create a favorable subset.",
@@ -13413,10 +13413,10 @@
     "reproducibility": "Download the public snapshot and scalar evidence. Source hashes, cohort identities and ranking source are retained; no new predictions or molecular rescoring were performed for this site.",
     "sections": [
       {
-        "description": "The 108 scored binders use the provisional Fast confidence score C only. This is not the final combined rank. The other 194 inventory members remain unranked.",
-        "formula": "C = 100 \u00d7 [0.5 \u00d7 native ipTM + 0.5 \u00d7 min(ipSAE binder\u2192target, ipSAE target\u2192binder)]",
+        "description": "This WT-only inventory ranks 108 scored binders by the updated maximum-direction Fast confidence score C. It does not measure performance across variants. This is not the final combined rank. The other 194 inventory members remain unranked.",
+        "formula": "C = 100 \u00d7 [0.5 \u00d7 native ipTM + 0.5 \u00d7 max(ipSAE binder\u2192target, ipSAE target\u2192binder)]",
         "notes": [
-          "The campaign uses the conservative minimum of two directional ipSAE fields. Canonical ipSAE reports the maximum; canonical published cutoffs are not applied to this custom minimum."
+          "The confidence score uses the maximum of the two directional ipSAE values. Both directions remain available for inspection. This display-policy update does not change the approved contestant roster."
         ],
         "title": "01 / Provisional confidence"
       },
@@ -13434,7 +13434,7 @@
         "formula": "Red score = 100 \u00d7 modeled escapes / N eligible WT-supported binders, with complete coverage of the same frozen panel",
         "notes": [
           "Require reviewed model-supported WT binding, reviewed WT and mutant target integrity, accepted structures and chemistry, matched binder identity and evaluator settings, and complete confidence/physics evidence. A failed or missing computation is unknown. The rule not being met does not prove retained biological binding.",
-          "The equal weights and Red thresholds are declared policy choices, not experimentally calibrated discrimination thresholds. No escape calls are currently available. Single predictions/replicates cannot establish stochastic robustness."
+          "The equal weights and Red thresholds are declared policy choices, not experimentally calibrated discrimination thresholds. No confidence-plus-physics escape calls are currently available. Single predictions/replicates cannot establish stochastic robustness."
         ],
         "title": "03 / Modeled escapes"
       },
@@ -13462,8 +13462,8 @@
         "title": "06 / Reproducible snapshot"
       }
     ],
-    "uncalibrated_policy": "The equal weights and Red thresholds are declared policy choices, not experimentally calibrated discrimination thresholds. No escape calls are currently available. Single predictions/replicates cannot establish stochastic robustness.",
-    "version": "bcma-arena-2026-10-20-v1"
+    "uncalibrated_policy": "The equal weights and Red thresholds are declared policy choices, not experimentally calibrated discrimination thresholds. No confidence-plus-physics escape calls are currently available. Single predictions/replicates cannot establish stochastic robustness.",
+    "version": "bcma-arena-2026-10-20-v2-max"
   },
   "protocols": [
     {
@@ -14678,7 +14678,7 @@
       "physics": 0.5
     },
     "confidence_weights": {
-      "minimum_directional_ipsae": 0.5,
+      "maximum_directional_ipsae": 0.5,
       "native_iptm": 0.5
     },
     "frozen_wt_competent_panel": null,
@@ -14691,8 +14691,8 @@
       "physics_percentile_point_decline": 25,
       "relative_confidence_decline": 0.25
     },
-    "sha256": "6d63ad9b2f29f077b6270fbb6f0c564029a9e29dfab15106e51c6fa563020e95",
-    "version": "bcma-arena-2026-10-20-v1"
+    "sha256": "503bc0b35b26e47b867e161e79e17f7d361775361e113dde41165acf8edc59a2",
+    "version": "bcma-arena-2026-10-20-v2-max"
   },
   "schema": "protein-arena.bcma.website.v1",
   "sources": [

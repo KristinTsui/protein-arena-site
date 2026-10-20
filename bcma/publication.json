@@ -15,27 +15,29 @@
     "physics_values_reviewed_for_this_release": 0
   },
   "ranking_policy": {
-    "version": "bcma-paired-confidence-v1",
+    "version": "bcma-paired-confidence-max-retention-v2",
     "blue_overall": "0.5 \u00d7 mean(C across five states) + 0.5 \u00d7 min(C across five states); all five required",
     "red": "Within each engine, freeze the panel of contestants with WT C \u2265 50 after all 23 WT scores exist. Count a provisional escape signal when ipTM and both directional ipSAE each drop by at least max(0.10, 25% of WT value). Rank 100 \u00d7 signals / fixed panel size only with complete panel coverage. WT and P33S remain unranked references.",
     "interpretation": "Uncalibrated confidence-loss heuristic, not established binding or biological escape. No target-integrity or physics confirmation is implied. C \u2265 50 is a provisional eligibility threshold, not a validated binding cutoff.",
     "engine_aggregation": "No cross-engine averaging",
     "ties": "Competition ranks on scores rounded to six decimals",
-    "physics": "Existing confidence-plus-physics policy is unchanged; pending physics is never imputed."
+    "physics": "Confidence now uses maximum directional ipSAE. Combined weights and joint confidence-plus-physics escape criterion are unchanged; pending physics is never imputed.",
+    "blue_retention": "Number of states meeting BOTH engine-specific native ipTM and maximum directional ipSAE cutoffs, out of five (including WT and P33S). All five evaluations required for a rank; missing is unknown. Equal counts share ranks; confidence does not break ties.",
+    "confidence_revision": "Maximum replaces minimum directional ipSAE for all derived confidence scores. The approved roster is unchanged. The Red WT C \u2265 50 eligibility panel is recomputed with this definition; its three-metric decline rule is unchanged."
   },
   "files": {
-    "README.md": "dc01c704197edf5e7f3b496d4e3622df76aee179e02f6b69400df29e30dd3ba7",
-    "app.js": "8f56fdc1de1dff9754d755402a5bc813ec137b3b08b9b1f7f458c821919787fd",
-    "arena.css": "7a09b630e50570f095d1ced84774b321c8c60f2661286416c6b00c37a86f7b64",
-    "arena.js": "055fd7de9e07e0219c1600c34b7e14e64869005ab31edd6375373570744b7d24",
-    "data.json": "d3446397ec8ebe5ae6e62a78761c7e4839f4203f7adca46238edb05a463f9dc6",
+    "README.md": "d00742508a2cd12c796ea35569a534f8c5afec40705ba5247f8be304624caa63",
+    "app.js": "3ee55b903391237c6c8f28d2796c749c4dfefc527d022539a26cdb425a0b328d",
+    "arena.css": "91fb04a4b4d463409e619b0fd4f7cb027e5fa40ff842faaf3d6a51868cd27382",
+    "arena.js": "99f18f3e0b65fad2878f01a5eb788ed10ba7f637593440c278e2591d495ddd7a",
+    "data.json": "4a67952eee88276fe185baaf54cdcb5fadc0846a1ddc224ae986ce5f11d8e12b",
     "evidence.json": "6800afb8d3dd7fe46775a767de1d0e75cc00e84acce73d578e1dc1e3e0c8738f",
-    "index.html": "ce1393c6c9a7a2356367caf1780024cfeccc9a9ccabfbaa8bf523148eddb5ba3",
-    "paired.json": "9abe056983c17c404bd8663b75cb2c694a18df4f937eebf2168f73a6ba5a5c08",
-    "source/build_data.py": "ba68ce3b649f62ade910d64b133075f16c9e3edf0d43a081c33a2bd284dd51f8",
-    "source/paired_ranking.py": "a428942ed58fdcd71c7a9a6146ad9fd98e2608e2910aef60a3222ec95d826a4e",
-    "source/ranking.py": "99bb7e363019568176e4383486793d720d7f68d9599f600ca4fb5c02834d93a9",
-    "source/test_paired_ranking.py": "26facf6189353d4b9bc22d7eb192911492b7d1c5f08f8accdced49dfa1b775f4",
+    "index.html": "249c556840ab4927de3a439a32663b866b30b4f862c7471bfa94d72cb5c82081",
+    "paired.json": "3a790d170a75d7c1ff5e35c4a06e46386bc6ed3538400f1a994fcce8b6f401dd",
+    "source/build_data.py": "5e9698172ecbd020deacc0441505023d607b135685eb203fb83be6432dcaefd4",
+    "source/paired_ranking.py": "22146f9861342c4bf4504466e24c6474bfc64a49fa37cfb8e34eb0bd17ea6ea4",
+    "source/ranking.py": "119907ba0b032fc24e2b4374723141a6e0fd73acd85d67883ab8e26f46c79162",
+    "source/test_paired_ranking.py": "b902c8842eff64d0d8168177345eed984d82d9cfe586485e2f725769c6fdf32c",
     "source/test_ranking.py": "cf4ab9bec5f5fff875c34e82ccc803c0304afe1a4544863db06c3c101a7bf313",
     "structures/boltz_B5_P33S.cif": "b36c713a3b9324fa49fe180ee16aa3e2e9b9630824603730d7a311ce05573f54",
     "structures/boltz_B5_P34del.cif": "045a7e51df1ef7979d79154c62bf4db37fffa675ee687d28592bfdfbd8a861dc",
@@ -253,7 +255,29 @@
       "pending clears surfaces and markers",
       "zero browser exceptions",
       "rendered surface vertex colors match binder cyan, BCMA coral, mutation gold after opacity change"
-    ]
+    ],
+    "retention_and_confidence": {
+      "unit_tests": 16,
+      "status": "passed",
+      "row_checks": 552,
+      "engines": 2,
+      "modes": 2,
+      "scopes": 6,
+      "checks": [
+        "all displayed scores and counts match source",
+        "unknowns preserved",
+        "shared count ranks",
+        "max ipSAE and retention heatmaps",
+        "expandable methodology",
+        "mobile no overflow",
+        "original complex and mutation surfaces retained"
+      ],
+      "errors": [],
+      "original_cifs_unchanged": 177,
+      "raw_paired_metrics_and_provenance_unchanged": 177,
+      "scalar_evidence_unchanged": true,
+      "approved_roster_unchanged": true
+    }
   },
   "limitations": [
     "Boltz pair scoring incomplete; unfinished cells explicitly pending.",
@@ -269,5 +293,70 @@
     "native-numbered substitution/deletion-flank highlights",
     "mutation focus and full-complex view",
     "no larger or full-length reference added"
-  ]
+  ],
+  "scoring_updated_utc": "2026-10-20T21:18:35.739798+00:00",
+  "retention_policy": {
+    "version": "bcma-control-relative-retention-v1",
+    "frozen_snapshot_utc": "2026-10-20T20:06:12.355340+00:00",
+    "rule": "Both metrics must meet or exceed their cutoff. Count each of WT, R27P, S30del, P34del and P33S once.",
+    "method": "For each metric and engine: floor(100 \u00d7 0.90 \u00d7 min(B5 WT, L10 WT)) / 100. Freeze these cutoffs; do not refit to incoming pairs.",
+    "interpretation": "Provisional control-relative confidence screen, not a calibrated binding classifier. No labeled nonbinder set is available here to estimate specificity. The 90% allowance and rounding are policy choices, not an experimentally learned boundary. A failed cutoff is below-screen confidence, not proof of nonbinding. Retention is not the complement of the Red escape rule.",
+    "reference_controls": [
+      "B5",
+      "L10"
+    ],
+    "fraction": 0.9,
+    "rounding": "down to two decimals",
+    "engines": {
+      "fast": {
+        "anchors": {
+          "iptm": 0.6727321743965149,
+          "ipsae_max": 0.4448034046101706
+        },
+        "thresholds": {
+          "iptm": 0.6,
+          "ipsae_max": 0.4
+        },
+        "sensitivity_thresholds": {
+          ".85": {
+            "iptm": 0.57,
+            "ipsae_max": 0.37
+          },
+          ".90": {
+            "iptm": 0.6,
+            "ipsae_max": 0.4
+          },
+          ".95": {
+            "iptm": 0.63,
+            "ipsae_max": 0.42
+          }
+        }
+      },
+      "boltz": {
+        "anchors": {
+          "iptm": 0.8966211676597595,
+          "ipsae_max": 0.7742170400793336
+        },
+        "thresholds": {
+          "iptm": 0.8,
+          "ipsae_max": 0.69
+        },
+        "sensitivity_thresholds": {
+          ".85": {
+            "iptm": 0.76,
+            "ipsae_max": 0.65
+          },
+          ".90": {
+            "iptm": 0.8,
+            "ipsae_max": 0.69
+          },
+          ".95": {
+            "iptm": 0.85,
+            "ipsae_max": 0.73
+          }
+        }
+      }
+    },
+    "sensitivity_note": "85%, 90%, and 95% of the same WT-control anchors. Counts use available pairs; unknown pairs stay unknown. This is threshold sensitivity, not a statistical confidence interval."
+  }
 }
