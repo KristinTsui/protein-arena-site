@@ -26,3 +26,9 @@ python3 -B source/build_data.py --input evidence.json --output data.json
 This command rebuilds only the original 302-design archive, not the paired evaluation. GitHub Pages is static; it does not poll CoreHPC. Historical root pages are preserved.
 
 Viewer: 3Dmol.js 2.5.5, distributed with its licenses in vendor/.
+
+## Whole-chain surfaces and mutation sites
+
+The viewer displays the entire saved binder plus the full modeled BCMA extracellular domain, native residues 1–54 (53 residues for deletions). No full-length receptor reference has been added. Independent whole-chain van der Waals surfaces have adjustable opacity; ribbons and side chains remain optional. Gold patches/sticks and labels identify substitutions, or the surviving native flanks of a deletion. The deleted residue is never represented by invented atoms. All native-to-coordinate mappings are checked against the selected structure. Show whole complex restores the full view after focusing a mutation.
+
+These are display features only; original CIF bytes and all ranking inputs remain unchanged.
