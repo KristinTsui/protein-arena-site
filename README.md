@@ -1,3 +1,5 @@
+Current BCMA campaign: [binder and antigen leaderboards](https://kristintsui.github.io/protein-arena-site/bcma/). The dashboard retains all generated designs, labels provisional evidence, and includes the ranking policy and downloadable data.
+
 # ProteinArena
 
 A single-file website combining the recorded BCMA design arena and the experimental verification benchmark.

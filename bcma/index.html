@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a1627">
+  <meta name="description" content="ProteinArena BCMA campaign: reviewed binder confidence, physics evidence, and antigen escape comparisons.">
+  <title>BCMA — ProteinArena</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#overview" class="brand" aria-label="ProteinArena overview">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i></span>
+        <span>Protein<span class="brand-light">Arena</span><small>RESEARCH CAMPAIGNS</small></span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#overview" aria-current="page">Overview</a>
+        <a href="#blue">Blue binders</a>
+        <a href="#red">Red antigens</a>
+        <a href="#methods">Methods</a>
+      </nav>
+      <a class="header-chip" href="#provenance"><span class="status-dot"></span> Evidence ledger <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="overview" class="section overview-section" aria-labelledby="campaign-title">
+      <div class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="line-mark"></span> Protein design · BCMA</p>
+          <h1 id="campaign-title">The BCMA<br><span>binder arena.</span></h1>
+          <p class="hero-description" id="campaign-description">Follow the BCMA campaign from generated binders to structural confidence, physics, and matched antigen comparisons.</p>
+          <div class="hero-meta"><span class="tag">BCMA / WT + variants</span><span id="updated-label">Reviewed dataset pending</span></div>
+          <div class="hero-actions"><a class="button primary" href="#blue">Explore binders <span aria-hidden="true">↗</span></a><a class="text-link" href="#methods">Read the scoring methods <span aria-hidden="true">→</span></a></div>
+        </div>
+        <div class="hero-visual" aria-label="Binder and antigen evidence">
+          <div class="visual-grid" aria-hidden="true"></div>
+          <div class="molecular-orbit" aria-hidden="true">
+            <svg viewBox="0 0 430 300" fill="none"><path class="orbit" d="M62 175C83 55 256 15 363 100s-30 211-163 170S43 233 62 175Z"/><path class="orbit secondary-orbit" d="M98 69c145-35 274 98 207 174S53 221 78 119 189 23 268 57"/>
+              <g class="binder-ribbon"><path d="M80 184c-24-33 25-56 52-24s-19 55-44 24 28-55 55-23-16 58-39 28 29-55 54-24-17 52-38 24 27-51 54-20-15 51-36 26 25-56 52-26"/><path d="M107 95c-19-23 16-45 38-21s-14 45-34 23 18-45 38-23-9 44-31 26 20-41 39-21"/></g>
+              <g class="antigen-ribbon"><path d="M248 106c40-37 61 22 31 44s-54-17-26-40 53 22 26 43-54-17-28-39 53 24 30 46-55-18-29-38 53 23 27 46-49-21-23-38"/><path d="M287 201c20 36 55 1 37-24s-51 0-35 23 50-3 35-24-47-1-36 24"/></g>
+              <path class="interface-line" d="m192 144 48-10m-41 34 41-13m-53 29 51-10"/>
+              <circle cx="217" cy="153" r="39" class="interface-ring"/>
+            </svg>
+          </div>
+          <div class="visual-label binder-label"><span></span> BLUE <strong>Binder design</strong></div>
+          <div class="visual-label antigen-label"><span></span> RED <strong>Antigen challenge</strong></div>
+          <div class="visual-caption">SCHEMATIC · NOT A PREDICTED STRUCTURE</div>
+        </div>
+      </div>
+
+      <div class="data-status" id="data-status" role="status" hidden></div>
+      <div class="coverage-grid" aria-label="Campaign coverage">
+        <article class="stat-card"><div class="stat-top"><span>Generated inventory</span><span class="stat-symbol" aria-hidden="true">◎</span></div><strong id="stat-generated">—</strong><p>Sequences retained across Blue arms</p><div class="stat-rule"></div></article>
+        <article class="stat-card"><div class="stat-top"><span>Fast confidence</span><span class="stat-symbol cyan" aria-hidden="true">◈</span></div><strong id="stat-fast">—</strong><p>Designs with common Fast scores</p><div class="stat-rule cyan-rule"><i id="fast-progress"></i></div></article>
+        <article class="stat-card"><div class="stat-top"><span>Physics evidence</span><span class="stat-symbol" aria-hidden="true">◇</span></div><strong id="stat-physics">—</strong><p>Designs with recorded physics scores</p><div class="stat-rule"><i id="physics-progress"></i></div></article>
+        <article class="stat-card"><div class="stat-top"><span>Antigen comparisons</span><span class="stat-symbol coral" aria-hidden="true">⌁</span></div><strong id="stat-variants">—</strong><p>Variant coverage reported by the campaign</p><div class="stat-rule coral-rule"></div></article>
+      </div>
+
+      <div class="overview-bottom">
+        <article class="panel evidence-panel">
+          <div class="panel-heading"><div><p class="eyebrow">Evidence, step by step</p><h2>Coverage before conclusions</h2></div><span class="subtle-tag" id="evidence-stage">Awaiting reviewed data</span></div>
+          <div class="evidence-track" id="evidence-track">
+            <div><span class="track-index">01</span><strong>Generate</strong><p>Retain the full inventory</p><b id="track-generated">—</b></div>
+            <div><span class="track-index">02</span><strong>Screen</strong><p>Compare common confidence</p><b id="track-fast">—</b></div>
+            <div><span class="track-index">03</span><strong>Evaluate</strong><p>Add confirmation and physics</p><b id="track-physics">—</b></div>
+            <div><span class="track-index">04</span><strong>Challenge</strong><p>Evaluate matched variants</p><b id="track-variants">—</b></div>
+          </div>
+        </article>
+        <article class="panel arms-panel"><div class="panel-heading"><div><p class="eyebrow">Blue design arms</p><h2>Different approaches.<br>Shared evidence.</h2></div></div><div id="arm-coverage" class="arm-coverage"><p class="muted">Team coverage will appear with the reviewed inventory.</p></div></article>
+      </div>
+    </section>
+
+    <section id="blue" class="section" aria-labelledby="blue-title">
+      <div class="section-heading"><div><p class="eyebrow"><span class="team-marker blue-marker"></span> Blue / Binder designs</p><h2 id="blue-title">Explore the full inventory.</h2><p>Every retained design stays visible. Rankings reflect the evidence currently available.</p></div><div class="download-actions"><button class="button secondary" id="download-csv" type="button">Download CSV <span aria-hidden="true">↓</span></button><button class="icon-button" id="download-json" type="button" aria-label="Download sanitized campaign JSON" title="Download sanitized campaign JSON">{ }</button></div></div>
+      <div class="panel table-panel">
+        <div class="table-topline">
+          <div class="tabs" role="tablist" aria-label="Binder ranking mode">
+            <button type="button" role="tab" id="confidence-tab" aria-selected="true" aria-controls="binder-panel" tabindex="0" data-ranking="confidence">Confidence <span>Provisional</span></button>
+            <button type="button" role="tab" id="combined-tab" aria-selected="false" aria-controls="binder-panel" tabindex="-1" data-ranking="combined">Confidence + physics</button>
+          </div>
+          <span class="table-count" id="binder-total">Inventory pending</span>
+        </div>
+      <div class="ranking-note" id="ranking-note"><span aria-hidden="true">i</span><p>Confidence rankings are provisional. They do not establish binding or final nomination.</p></div>
+        <div class="toolbar">
+          <label class="search-field"><span class="sr-only">Search binders by ID, name, team, or parent</span><svg aria-hidden="true" viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="5.5"/><path d="m13 13 4 4"/></svg><input id="binder-search" type="search" placeholder="Search designs, IDs, or parent families…" autocomplete="off"></label>
+          <label class="select-field"><span class="sr-only">Filter by design arm</span><select id="team-filter"><option value="all">All design arms</option></select></label>
+          <label class="select-field"><span class="sr-only">Filter by evidence coverage</span><select id="evidence-filter"><option value="all">All evidence states</option><option value="fast">Fast scored</option><option value="unscored">Fast not scored</option><option value="physics">Physics scored</option><option value="combined">Combined score available</option></select></label>
+          <label class="select-field sort-field"><span class="sr-only">Sort binders</span><select id="sort-select"><option value="rank">Sort: current rank</option><option value="model">Confidence: high to low</option><option value="combined">Combined: high to low</option><option value="physics">Physics: high to low</option><option value="length">Length: low to high</option><option value="label">Design name: A to Z</option></select></label>
+        </div>
+        <div id="binder-panel" role="tabpanel" aria-labelledby="confidence-tab" tabindex="0">
+          <div class="table-scroll"><table class="binder-table"><caption class="sr-only">All generated Blue binders and their currently available scores</caption><thead><tr><th scope="col" class="rank-column">Rank</th><th scope="col">Binder design</th><th scope="col">Design arm / family</th><th scope="col" class="numeric">Length</th><th scope="col" class="numeric"><button data-sort="model" aria-label="Sort by confidence score">Confidence <span aria-hidden="true">↕</span></button></th><th scope="col" class="numeric"><button data-sort="physics" aria-label="Sort by physics score">Physics <span aria-hidden="true">↕</span></button></th><th scope="col" class="numeric"><button data-sort="combined" aria-label="Sort by combined score">Combined <span aria-hidden="true">↕</span></button></th><th scope="col">Evidence status</th><th scope="col"><span class="sr-only">Details</span></th></tr></thead><tbody id="binder-rows"></tbody></table></div>
+          <div class="empty-state" id="binder-empty"><span class="empty-icon" aria-hidden="true">◇</span><h3>Evidence will appear here.</h3><p>The reviewed inventory has not been loaded. No scores or nominees are implied.</p></div>
+        </div>
+        <div class="pagination"><p id="page-info" aria-live="polite">No rows to display</p><div><label>Rows <select id="page-size" aria-label="Rows per page"><option>25</option><option>50</option><option>100</option></select></label><button class="icon-button" id="page-prev" type="button" aria-label="Previous binder page">←</button><span id="page-label">0 / 0</span><button class="icon-button" id="page-next" type="button" aria-label="Next binder page">→</button></div></div>
+      </div>
+    </section>
+
+    <section id="red" class="section red-section" aria-labelledby="red-title">
+      <div class="section-heading"><div><p class="eyebrow"><span class="team-marker red-marker"></span> Red / Antigen challenges</p><h2 id="red-title">How does the target change?</h2><p>WT and variant evidence remain paired. Missing comparisons stay visible.</p></div><span class="tag red-tag" id="red-coverage-label">Comparison evidence pending</span></div>
+      <div class="antigen-grid" id="antigen-cards"></div>
+      <div class="panel antigen-table-panel"><div class="panel-heading"><div><h3>Modeled escape leaderboard</h3><p>Modeled escape is reported only where matched evidence meets the recorded rule.</p></div><span class="subtle-tag" id="antigen-count">No evaluated panel</span></div><div class="table-scroll"><table><caption class="sr-only">WT and variant modeled escape evidence</caption><thead><tr><th scope="col">Rank</th><th scope="col">Antigen</th><th scope="col">Mutation / role</th><th scope="col" class="numeric">Escape score</th><th scope="col" class="numeric">Modeled escapes</th><th scope="col" class="numeric">Evaluable pairs</th><th scope="col">Status</th></tr></thead><tbody id="antigen-rows"></tbody></table></div><div class="empty-state compact" id="antigen-empty"><h3>No variant outcome is available yet.</h3><p>Panel membership alone is not evidence of escape.</p></div></div>
+      <div class="panel matrix-panel">
+        <div class="panel-heading"><div><p class="eyebrow">Matched comparisons</p><h3>Held-out binder × antigen matrix</h3><p id="matrix-description">Final Boltz + physics comparisons. WT Fast screening is shown in the Blue leaderboard.</p></div><div class="matrix-legend"><span><i class="legend-missing"></i> Missing</span><span><i class="legend-recorded"></i> Recorded</span><span><i class="legend-escape"></i> Modeled escape</span></div></div>
+        <div class="table-scroll"><table class="matrix-table"><caption class="sr-only">Matched binder by antigen evaluation matrix; unavailable cells are explicitly labeled</caption><thead id="matrix-head"></thead><tbody id="matrix-body"></tbody></table></div>
+        <div class="empty-state compact" id="matrix-empty"><h3>Matched evidence is pending.</h3><p>The matrix will show binder and antigen coverage when the inventory is available.</p></div>
+        <div class="pagination"><p id="matrix-page-info" aria-live="polite"></p><div><button class="icon-button" id="matrix-prev" type="button" aria-label="Previous matrix page">←</button><span id="matrix-page-label">0 / 0</span><button class="icon-button" id="matrix-next" type="button" aria-label="Next matrix page">→</button></div></div>
+      </div>
+    </section>
+
+    <section id="methods" class="section" aria-labelledby="methods-title">
+      <div class="section-heading"><div><p class="eyebrow">Transparent by design</p><h2 id="methods-title">Know what a score means.</h2><p>Methods, missingness, and provenance are part of the result.</p></div><a href="#blue" class="text-link">Back to the inventory <span aria-hidden="true">↑</span></a></div>
+      <div class="method-grid" id="method-cards"></div>
+      <article class="panel provenance-panel" id="provenance"><div class="panel-heading"><div><p class="eyebrow">Traceable evidence</p><h3>Data & provenance</h3></div><span class="subtle-tag" id="dataset-id">Dataset pending</span></div><div id="provenance-list" class="provenance-list"><p class="muted">Reviewed source metadata will appear here.</p></div><div class="provenance-list source-citations"><strong>Reproduce this snapshot</strong><a href="data.json" download>Complete snapshot ↓</a><a href="evidence.json" download>Scalar evidence ↓</a><a href="source/ranking.py" download>Ranking source ↓</a><a href="source/build_data.py" download>Snapshot builder ↓</a></div></article>
+    </section>
+  </main>
+
+  <footer class="site-footer"><a class="footer-brand" href="#overview">ProteinArena<span> / BCMA</span></a><p>Generated designs ≠ validated binders. Missing evidence is never a zero.</p><a href="#methods">Methods & provenance <span aria-hidden="true">↗</span></a></footer>
+  <dialog id="binder-dialog" aria-labelledby="detail-title"><div class="drawer-heading"><p class="eyebrow">Binder evidence</p><button class="icon-button" id="close-detail" type="button" aria-label="Close binder details">×</button></div><div id="detail-content"></div></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

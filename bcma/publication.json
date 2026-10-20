@@ -1,0 +1,46 @@
+{
+  "campaign": "bcma_restart_20261017",
+  "coverage": {
+    "af2_diagnostics": 14,
+    "combined_scored": 0,
+    "controls": 2,
+    "fast_scored": 108,
+    "final_nominees": 0,
+    "generated": 302,
+    "physics_scored": 0,
+    "target_states": 5,
+    "unscored": 194,
+    "variants_evaluated": 0
+  },
+  "date": "2026-10-20",
+  "files": {
+    "app.js": "77bb692cd177746273e21bd9d88d14e4b8277ced078170a90b0caeb72eb9d08a",
+    "data.json": "d3446397ec8ebe5ae6e62a78761c7e4839f4203f7adca46238edb05a463f9dc6",
+    "evidence.json": "6800afb8d3dd7fe46775a767de1d0e75cc00e84acce73d578e1dc1e3e0c8738f",
+    "index.html": "4ef101c04be5efcea601c37fa2a51c9f4182f0bbd48d5cb31f92e1cd280c4d6e",
+    "source/build_data.py": "ba68ce3b649f62ade910d64b133075f16c9e3edf0d43a081c33a2bd284dd51f8",
+    "source/ranking.py": "99bb7e363019568176e4383486793d720d7f68d9599f600ca4fb5c02834d93a9",
+    "source/test_ranking.py": "cf4ab9bec5f5fff875c34e82ccc803c0304afe1a4544863db06c3c101a7bf313",
+    "styles.css": "bdc6343bffb4fa1b747acfe441503d5cb9e238b5f17853695346b904840d7f5c"
+  },
+  "limitations": [
+    "Provisional confidence is not final confidence-plus-physics rank.",
+    "Final physics and matched variant evaluations are not yet available.",
+    "Modeled escape thresholds are an uncalibrated heuristic, not empirical escape evidence.",
+    "No new molecular calculation or scientific nomination was performed for this website."
+  ],
+  "ranking_policy_sha256": "6d63ad9b2f29f077b6270fbb6f0c564029a9e29dfab15106e51c6fa563020e95",
+  "schema": "protein-arena.bcma.publication.v1",
+  "scope": "Current BCMA campaign only",
+  "url": "https://kristintsui.github.io/protein-arena-site/bcma/",
+  "validation": {
+    "browser_checks_passed": 9,
+    "desktop_width_pixels": 1440,
+    "independent_ranking_review": "passed",
+    "mobile_width_pixels": 390,
+    "private_paths_or_credentials_in_publication": false,
+    "ranking_tests_passed": 7,
+    "scientific_export_review_checks_passed": 23,
+    "synthetic_test_values_in_dataset": false
+  }
+}
