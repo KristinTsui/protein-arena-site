@@ -10,6 +10,7 @@ class Tests(unittest.TestCase):
  def test_snapshot(self):
   p=pathlib.Path(__file__).parents[1]/'paired.json';d=json.loads(p.read_text());fresh=build(copy.deepcopy(d));self.assertEqual(d['rankings'],fresh['rankings'])
   self.assertEqual(len([x for x in d['cells'] if x['engine']=='fast']),125)
+  self.assertEqual(len([x for x in d['cells'] if x['engine']=='boltz']),125)
   self.assertEqual(len(d['rankings']['fast']['blue']),23)
   self.assertTrue(all(x['rank'] is not None for x in d['rankings']['fast']['blue']))
   self.assertTrue(all(x['id'] not in ('B5','L10') for x in d['rankings']['fast']['blue']))

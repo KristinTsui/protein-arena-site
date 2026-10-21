@@ -34,6 +34,7 @@ async function loadData() {
     try { const pairedResponse = await fetch("paired.json", {cache: "no-store"}); state.paired = pairedResponse.ok ? await pairedResponse.json() : null; } catch { state.paired = null; }
     state.binders = data.binders.filter((item) => item && typeof item === "object");
     state.antigens = Array.isArray(data.antigens) ? data.antigens.filter((item) => item && typeof item === "object") : [];
+    for (const binder of state.binders) binder.approved_contestant = state.paired?.members.some(m=>m.id===binder.id&&m.approved_contestant) || false;
     state.page = 1; state.matrixPage = 1;
     notice.hidden = true;
     renderAll();
@@ -52,7 +53,7 @@ function renderAll() {
 }
 
 function renderOverview() {
-  const campaign = state.paired ? { ...state.data.campaign, updated: state.paired.updated_utc, stage: "Model evaluations in progress", description: "23 approved binders meet five BCMA states. Explore separate Fast and Boltz confidence evaluations, provisional escape signals, and the structures behind each score. Physics evaluation is still in progress." } : state.data?.campaign || {};
+  const campaign = state.paired ? { ...state.data.campaign, updated: state.paired.updated_utc, stage: "Final evaluations reviewed", description: "23 approved binders meet five BCMA states. Explore separate Fast and Boltz confidence evaluations, provisional escape signals, and the structures behind each score. All 250 model pairs are scored; physics has 123 accepted and two failed results." } : state.data?.campaign || {};
   const coverage = state.data?.coverage || {};
   document.title = `${text(campaign.title, "BCMA")} — ProteinArena`;
   if (campaign.description) $("#campaign-description").textContent = campaign.description;
@@ -151,7 +152,7 @@ function renderBinders() {
     ? "Provisional confidence = 100 × (native ipTM + maximum-direction ipSAE) / 2. This custom summary does not establish binding or final nomination."
     : combinedAvailable
       ? "Combined ranks use the recorded confidence and physics method. Designs without the required evidence remain unranked."
-      : "Combined rankings are not available yet. Physics evidence is missing; confidence remains visible and no missing value is treated as zero.";
+      : "This table preserves the WT selection-stage archive. Final pair physics is shown above; combined ranks remain unavailable because the frozen WT physics reference is incomplete.";
   $("#binder-total").textContent = state.data ? `${count(state.binders.length)} retained designs` : "Inventory pending";
   for (const binder of visible) {
     const row = node("tr"); row.dataset.binderId = text(binder.id, "");
@@ -160,6 +161,7 @@ function renderBinders() {
     const design = node("td");
     const button = node("button", "design-button", label(binder)); button.type = "button"; button.title = label(binder); button.addEventListener("click", () => showBinder(binder));
     design.append(button, node("span", "design-id", shortId(binder.id)));
+    if (binder.approved_contestant) design.append(node("span", "arena-arm", "Approved Arena contestant"));
     const team = node("td");
     team.append(node("span", "team-name", teamName(binder.team)), node("div", "family", text(binder.parent, "Parent not recorded")));
     const length = node("td", "numeric", finite(binder.length) ? `${count(binder.length)} aa` : "—");
@@ -221,6 +223,7 @@ function showBinder(binder) {
     content.append(physics);
   }
   content.append(node("p", "detail-note", "Native acceptance, screening completion, and final nomination are distinct decisions. Provisional confidence combines native ipTM and maximum-direction ipSAE; it is not a binding probability. A dash means evidence is unavailable, not that the value is zero."));
+  content.append(node("p", "approved-flag", binder.approved_contestant ? "Approved Arena contestant" : "Background inventory · not an approved Arena contestant"));
   const dialog = $("#binder-dialog");
   if (!dialog.open) dialog.showModal();
   $("#close-detail").focus();
@@ -246,13 +249,13 @@ function renderAntigens() {
     const top = node("div", "card-label"); top.append(node("span", "", text(antigen.label, text(antigen.id))), node("span", "card-role", reference ? referenceRole(antigen) : "Challenge"));
     card.append(top, node("h3", "", numeric(antigen.escape_score)), node("p", "", reference ? `${referenceRole(antigen)} · not a competitive escape rank` : "Recorded escape score"));
     const bottom = node("div", "card-footer");
-    bottom.append(node("span", "", finite(antigen.evaluable_count) ? `${count(antigen.evaluable_count)} evaluable pairs` : "Matched pairs unavailable"), node("span", "", prettyStatus(antigen.status)));
+    bottom.append(node("span", "", finite(antigen.evaluable_count) ? `${count(antigen.evaluable_count)} evaluable pairs` : "Matched pairs unavailable"), node("span", "", state.paired?.physics_summary ? "Combined rank unavailable" : prettyStatus(antigen.status)));
     card.append(bottom); cards.append(card);
     const row = node("tr"); const name = node("td"); name.append(node("strong", "", text(antigen.label, text(antigen.id))));
     const mutation = node("td"); mutation.append(node("span", "", text(antigen.mutation, referenceRole(antigen))), node("div", "family", human(antigen.role)));
     const supported = node("td", "numeric", count(antigen.escape_count));
     const pairs = node("td", "numeric", finite(antigen.evaluable_count) ? `${count(antigen.evaluable_count)}${finite(antigen.panel_size) ? ` / ${count(antigen.panel_size)}` : ""}` : "—");
-    const status = node("td"); status.append(node("span", "status-badge", prettyStatus(antigen.status)));
+    const status = node("td"); status.append(node("span", "status-badge", state.paired?.physics_summary ? "Combined rank unavailable" : prettyStatus(antigen.status)));
     const rank = node("td", "rank", !reference && finite(antigen.escape_rank) ? count(antigen.escape_rank) : "—");
     rank.title = reference ? "Reference states are not competitively ranked" : "Rank requires complete matched evidence";
     row.append(rank, name, mutation, scoreCell(antigen.escape_score), supported, pairs, status); rows.append(row);
@@ -334,7 +337,12 @@ function methodEntries(methods) {
 
 function renderMethods() {
   const cards = $("#method-cards"); cards.replaceChildren();
-  const entries = methodEntries(state.data?.methods);
+  const entries = structuredClone(methodEntries(state.data?.methods));
+  if (state.paired?.physics_summary) {
+    entries[0].description = "Pair confidence uses maximum directional ipSAE. Arena overall confidence is half mean plus half worst across all five states; all five required. The separate 302-design inventory is a WT-only historical screen.";
+    entries[1].description = "Combined weights remain 50% confidence and 50% physics. The required WT physics reference is incomplete (22/23 contestant energies), so no percentiles or combined ranks are available.";
+    entries[2].notes.push("Final physics dispositions are reviewed: 123 accepted, two failed-null. Provisional model-only Red signals remain separate from this stricter combined rule.");
+  }
   entries.forEach((method, index) => {
     const card = node("article", "method-card");
     card.append(node("span", "method-number", String(index + 1).padStart(2, "0")), node("h3", "", text(method.title, `Method ${index + 1}`)));

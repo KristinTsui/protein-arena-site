@@ -2,7 +2,7 @@
 
 Published at https://kristintsui.github.io/protein-arena-site/bcma/.
 
-The current paired snapshot has 23 approved contestants, B5/L10 controls, and five BCMA antigen states. It contains 125 Fast and 52 Boltz pair scores and their exact original CIF structures. The 302-design selection-stage archive is retained separately in data.json and evidence.json. Physics results are pending scientific scalar review.
+The current paired snapshot has 23 approved contestants, B5/L10 controls, and five BCMA antigen states. It contains 125 Fast and 125 Boltz pair scores and their exact original CIF structures. The 302-design selection-stage archive is retained separately in data.json and evidence.json. Physics dispositions are reviewed: 123 accepted and two failed-null results.
 
 ## Reproduce provisional pair ranks
 
@@ -41,4 +41,18 @@ The Blue switch independently ranks predicted retention: the number of five stat
 
 Cutoffs are frozen at floor(100 × 0.90 × lower B5/L10 WT value) / 100 for each metric within each engine. Frozen anchors and thresholds are in source/paired_ranking.py and paired.json. This is a provisional reference-relative confidence screen. The 90% allowance and rounding are policy choices, not a learned or validated biological cutoff; no labeled nonbinder set is available here to estimate specificity. Counts across engines are not directly calibrated. Passing does not establish binding; failing does not establish nonbinding or a Red escape.
 
-Sensitivity columns show counts at 85% and 95% of the same frozen WT anchors. Fast thresholds are 0.57/0.37 and 0.63/0.42; Boltz thresholds are 0.76/0.65 and 0.85/0.73. Counts are not confidence intervals. Among complete contestants, all-five counts at 85% / 90% / 95% are Fast 9 / 8 / 7 (23 complete), Boltz 3 / 3 / 2 (8 complete). Cutoffs are not refitted as more pairs arrive; changing them requires an explicit policy revision.
+Sensitivity columns show counts at 85% and 95% of the same frozen WT anchors. Fast thresholds are 0.57/0.37 and 0.63/0.42; Boltz thresholds are 0.76/0.65 and 0.85/0.73. Counts are not confidence intervals. Among complete contestants, all-five counts at 85% / 90% / 95% are Fast 9 / 8 / 7 (23 complete), Boltz counts are recalculated on all 23 complete contestants in the final snapshot. Cutoffs are not refitted as more pairs arrive; changing them requires an explicit policy revision.
+
+## Final reviewed bundle (2026-10-21)
+
+The current dataset has all 250 engine-pair rows, 250 original CIF assets, and 123 accepted Boltz-derived relaxed PDB assets. The exact approved roster remains 23 contestants plus B5/L10 reference controls. The two physics failures are BC-202d0f7e9723 WT and R27P; all their physics values and relaxed structures remain null.
+
+Public final/RESULTS.json and final/STRUCTURES.json are publication derivatives of the independently reviewed bundle. The reviewed relaxed PDBs included private absolute paths on the BEGIN/END_POSE_ENERGIES_TABLE comment markers. Publication removes only those paths. Every other byte, including atom, disulfide and energy records, is preserved. The manifest records reviewed-source and sanitized-public hashes for all 123 affected files. Original CIFs and all raw scalar values are unchanged. No private review documents are published.
+
+Confidence always belongs to the selected engine's original prediction, including while its relaxed display is selected. The relaxed PDB is a reviewed serialization of a scored in-memory pose, not a lossless internal pose. Surface and mutation features apply to both original and relaxed coordinates. Native BCMA maps are validated for both deletion variants. Physics has one beta_nov16 replicate, with per-pair implementation provenance retained. Native disulfide records are unmodified.
+
+No complete WT physics reference exists: 22/23 required contestant WT energies were accepted. Do not use a reduced cohort, calculate physics percentiles, fill either failure, or redistribute the existing 50/50 confidence/physics weights. Combined and physics-supported Red escape ranks remain unavailable. Raw physics is descriptive; technically accepted output is not validated binding or experimental affinity.
+
+Boltz provenance: seed 17, 3 recycles, 200 steps, one sample, single-sequence MSA. Common ipSAE scorer SHA-256 547e05340f1627925f7aa652b93b97393061b811497f8dfeb60f24ed3cff8fde. The 23 contestant WT Fast outputs are reused original evaluations; other pairs have their own exact outputs. Website import performs no molecular computation.
+
+`source/import_final.py` reproduces the validated import from the original reviewed public bundle and existing frozen member metadata. `source/paired_ranking.py paired.json` recomputes display confidence/retention/Red ranks without changing the frozen thresholds. The background 302-design data.json and evidence.json remain historical snapshots; the UI marks approved contestants by joining the current frozen roster.

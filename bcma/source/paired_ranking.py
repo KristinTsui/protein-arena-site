@@ -82,6 +82,8 @@ def build(data):
             'sensitivity_thresholds':{f:thresholds(e,f) for f in ('.85','.90','.95')}} for e in ('fast','boltz')},
         'sensitivity_note':'85%, 90%, and 95% of the same WT-control anchors. Counts use available pairs; unknown pairs stay unknown. This is threshold sensitivity, not a statistical confidence interval.',
     }
+    if data.get('physics_summary'):
+        data['ranking_policy']['physics']=data['physics_summary']['reason']+' Original 50/50 confidence/physics weights remain unchanged.'
     return data
 
 if __name__=='__main__':

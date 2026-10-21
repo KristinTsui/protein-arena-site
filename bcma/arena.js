@@ -3,7 +3,7 @@
   const $ = s => document.querySelector(s), esc = s => String(s ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const fmt=(v,n=2)=>Number.isFinite(v)?v.toFixed(n):'—';
   const names={fast:'ESMFold2-Fast',boltz:'Boltz-2'}, arms={bindcraft:'BindCraft',rfdiffusion:'RFdiffusion',prompteina:'Prompteina',controls:'Reference control'};
-  let data,engine='fast',scope='overall',blueMode='confidence',metric='confidence',binder,antigen='WT',viewer,model,generation=0,loaded=null;
+  let data,engine='fast',scope='overall',blueMode='confidence',metric='confidence',binder,antigen='WT',origin='original',viewer,model,generation=0,loaded=null;
   const cache=new Map(), cells=new Map();
   const get=(b,s,e=engine)=>cells.get(`${e}|${b}|${s}`);
   function retentionRows(){
@@ -30,7 +30,7 @@
   function render(){
     const scored=data.cells.filter(c=>c.engine===engine).length;
     $('#arena-coverage').textContent=`${scored} / 125 pair scores · ${data.rankings[engine].blue.filter(r=>r.rank!==null).length} / 23 complete contestants`;
-    $('#arena-snapshot').textContent=`Snapshot: ${new Date(data.updated_utc).toLocaleString()} · Physics results pending scientific review · Engines are evaluated separately.`;
+    $('#arena-snapshot').textContent=`Snapshot: ${new Date(data.updated_utc).toLocaleString()} · Physics reviewed: 123 accepted · 2 failed-null · combined ranks unavailable · Engines are evaluated separately.`;
     document.querySelectorAll('[data-engine]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.engine===engine)));
     const rows=blueRows(),retention=blueMode==='retention',denominator=scope==='overall'?5:1;
     document.querySelectorAll('[data-blue-mode]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.blueMode===blueMode)));
@@ -40,7 +40,7 @@
     $('#blue-mode-badge').textContent=retention?'Provisional screen':'Confidence only';
     $('#arena-score-heading').textContent=retention?'Retained':'Score /100';
     $('#arena-extra-heading').textContent=retention?'85% / 95% margin':scope==='overall'?'Worst state':'Native ipTM';
-    $('#arena-blue-rows').innerHTML=rows.map(r=>{const m=data.members.find(m=>m.id===r.id);return `<tr data-binder-row="${esc(r.id)}"><td>${r.rank??'—'}</td><td><button class="binder-link" data-open="${esc(r.id)}">${esc(r.id)}<span class="arena-arm">${esc(arms[m.team])}</span></button>${retention?stateChips(r):''}</td><td class="numeric">${retention?(r.coverage?`${r.count}/${denominator}`:'—')+(r.unknown?`<span class="arena-arm">${r.unknown} unknown</span>`:''):fmt(r.score)}</td><td class="numeric">${retention?(r.coverage?`${r.sensitivity['.85']} / ${r.sensitivity['.95']}`:'—'):fmt(scope==='overall'?r.worst:r.iptm,scope==='overall'?2:3)}</td><td class="numeric">${r.coverage}/${denominator}</td></tr>`;}).join('');
+    $('#arena-blue-rows').innerHTML=rows.map(r=>{const m=data.members.find(m=>m.id===r.id);return `<tr data-binder-row="${esc(r.id)}"><td>${r.rank??'—'}</td><td><button class="binder-link" data-open="${esc(r.id)}">${esc(r.id)}<span class="arena-arm">${esc(arms[m.team])} · Approved contestant</span></button>${retention?stateChips(r):''}</td><td class="numeric">${retention?(r.coverage?`${r.count}/${denominator}`:'—')+(r.unknown?`<span class="arena-arm">${r.unknown} unknown</span>`:''):fmt(r.score)}</td><td class="numeric">${retention?(r.coverage?`${r.sensitivity['.85']} / ${r.sensitivity['.95']}`:'—'):fmt(scope==='overall'?r.worst:r.iptm,scope==='overall'?2:3)}</td><td class="numeric">${r.coverage}/${denominator}</td></tr>`;}).join('');
     $('#arena-podium').innerHTML=rows.filter(r=>r.rank!==null).slice(0,3).map(r=>`<button class="podium-card" data-open="${esc(r.id)}"><span class="podium-rank">BLUE · RANK ${r.rank}</span><span class="podium-score">${retention?`${r.count}/${denominator}`:fmt(r.score,1)}</span><strong>${esc(r.id)}</strong><small>${esc(arms[data.members.find(m=>m.id===r.id).team])} / ${esc(names[engine])}</small><p>${retention?'States meeting the provisional screen':scope==='overall'?`Worst state ${fmt(r.worst,1)} · Mean ${fmt(r.mean,1)}`:`${esc(scope)} · Confidence /100`} <span aria-hidden="true">↗</span></p></button>`).join('');
     $('#retention-cutoff').textContent=`Current ${names[engine]} cutoffs: native ipTM ≥ ${fmt(t.iptm)} AND max directional ipSAE ≥ ${fmt(t.ipsae_max)}. Both must pass; a strong value cannot compensate for a weak one.`;
     const anchors=data.retention_policy.engines[engine].anchors;
@@ -50,7 +50,7 @@
     const red=data.rankings[engine].red.slice().sort((a,b)=>Number(a.reference)-Number(b.reference)||(a.rank??Infinity)-(b.rank??Infinity)||data.antigens.findIndex(s=>s.id===a.id)-data.antigens.findIndex(s=>s.id===b.id));
     $('#arena-red-rows').innerHTML=red.map(r=>`<tr><td>${r.rank??'—'}</td><td>${esc(r.id)}${r.reference?'<span class="arena-arm">'+(r.id==='WT'?'WT baseline':'Control antigen')+'</span>':''}</td><td class="numeric">${r.count===null?'—':`${r.count} / ${r.panel_size}`}</td><td class="numeric">${r.score===null?'—':fmt(r.score,1)+'%'}</td></tr>`).join('');
     const panel=data.rankings[engine];$('#arena-red-note').textContent=panel.wt_complete?`Fixed ${names[engine]} WT panel: ${panel.wt_panel.length} of 23 contestants have C ≥ 50. ${panel.wt_panel.length?'Only complete matched panels can be ranked.':'No contestants qualify; no escape ranks are assigned.'} P33S observations are shown without a competitive rank.`:'Waiting for all 23 contestant WT scores before defining the fixed panel. Partial Boltz coverage cannot produce a Red rank.';
-    renderMatrix();
+    renderMatrix();renderPhysicsTable();
     document.querySelectorAll('#arena [data-open]').forEach(b=>b.onclick=()=>{binder=b.dataset.open;antigen=scope==='overall'?'WT':scope;void selectComplex(true);});
   }
   function renderMatrix(){
@@ -134,35 +134,66 @@
     if($('#structure-sticks').checked){model.setStyle({chain:'A'},{stick:{color:'#58e2df',radius:.12}},true);model.setStyle({chain:'B'},{stick:{color:'#ff8490',radius:.12}},true);}
     annotateMutation();viewer.render();if(rebuildSurfaces)void renderSurfaces();
   }
+  const physicsFields=[['Interface ΔG · REU','interface_dG_REU',2],['Interface ΔSASA · Å²','interface_dSASA_angstrom2',1],['Interface H-bonds · count','interface_hbonds',0],['Shape complementarity · unitless','interface_sc',3],['Packstat · unitless','interface_packstat',3],['Interface residues · count','interface_residue_count',0],['Complex total · REU (diagnostic)','diagnostic_complex_total_REU',2]];
+  function renderPhysicsTable(){
+    const selected=$('#physics-antigen').value;
+    $('#physics-reference-note').textContent=data.physics_summary.reason;
+    const members=data.members.filter(m=>!m.control).concat(data.members.filter(m=>m.control));let sep=false;
+    $('#physics-result-rows').innerHTML=members.map(m=>{
+      const c=get(m.id,selected,'boltz'),p=c.physics,ok=p.status==='accepted';let prefix='';
+      if(m.control&&!sep){sep=true;prefix='<tr class="control-separator"><th colspan="7">REFERENCE CONTROLS · excluded from ranks</th></tr>';}
+      return prefix+`<tr data-physics-binder="${esc(m.id)}"><td><button class="binder-link" data-physics-open="${esc(m.id)}">${esc(m.id)}</button><span class="arena-arm">${m.control?'Reference control':'Approved contestant'} · ${esc(arms[m.team])}</span></td><td class="${ok?'':'failed-result'}">${ok?'Accepted':'Failed · missing'}${ok?'':`<span class="arena-arm">${esc(p.missing_reason)}</span>`}</td>${['interface_dG_REU','interface_dSASA_angstrom2','interface_hbonds','interface_sc','interface_packstat'].map(k=>`<td class="numeric">${fmt(p.metrics[k].value,k==='interface_hbonds'?0:k==='interface_dSASA_angstrom2'?1:3)}</td>`).join('')}</tr>`;
+    }).join('');
+    document.querySelectorAll('[data-physics-open]').forEach(b=>b.onclick=()=>{engine='boltz';binder=b.dataset.physicsOpen;antigen=selected;origin='original';render();void selectComplex(true);});
+  }
+  function renderPairEvidence(c){
+    const member=data.members.find(m=>m.id===binder),p=c?.physics,wt=get(binder,'WT');
+    $('#complex-membership').textContent=member.control?'Reference control · excluded from contestant ranks':'Approved Arena contestant';
+    $('#confidence-origin-note').textContent=`${names[engine]} confidence is calculated on the original prediction. ${origin==='relaxed'?'It has not been recalculated on the relaxed display. ':''}Maximum directional ipSAE contributes to C; the minimum and both directions are also shown.`;
+    $('#complex-metrics').innerHTML=c?[['Confidence /100',c.confidence,2],['Native ipTM',c.iptm,3],['Maximum ipSAE',c.ipsae_max,3],['Minimum ipSAE',c.ipsae_min,3],['Native pTM',c.ptm,3],['ipSAE · binder → target',c.ipsae_binder_to_target,3],['ipSAE · target → binder',c.ipsae_target_to_binder,3]].map(([s,v,n])=>`<div><span>${s}</span><strong>${fmt(v,n)}</strong></div>`).join(''):'';
+    $('#pair-physics-status').textContent=engine==='fast'?'No Fast-derived physics was run. Select Boltz-2 to inspect that engine’s physics for this pair.':p?.status==='accepted'?'Accepted technical result · one Boltz-derived evaluation · no replicate uncertainty estimate.':`Failed physics · values unavailable. Recorded reason: ${p?.missing_reason||'unavailable'}. No relaxed structure exists for this pair.`;
+    $('#pair-physics-metrics').innerHTML=p?physicsFields.map(([label,key,n])=>`<div><span>${label}</span><strong>${fmt(p.metrics[key].value,n)}</strong></div>`).join(''):'';
+    $('#pair-physics-provenance').textContent=p?`Implementation: ${p.implementation.name}. Source SHA-256: ${p.implementation.source_sha256}. Protocol SHA-256: ${p.protocol_sha256}. Separated-pose disulfide detection: ${p.implementation.detect_disulfide_in_separated_pose}. Configuration evidence: ${p.implementation.configuration_evidence||'see reviewed result'}. ${p.energy_interpretation}.`:'Physics is attached only to Boltz-2 predictions; it is not substituted into the Fast confidence ranking.';
+    const fields=[['Confidence /100','confidence',2],['Native ipTM','iptm',3],['Native pTM','ptm',3],['Max ipSAE','ipsae_max',3],['Min ipSAE','ipsae_min',3],['ipSAE B → T','ipsae_binder_to_target',3],['ipSAE T → B','ipsae_target_to_binder',3]];
+    const comparison=fields.map(([name,key,n])=>[name,wt?.[key],c?.[key],n]);
+    if(engine==='boltz')comparison.push(['Interface ΔG · REU',wt?.physics?.metrics.interface_dG_REU.value,p?.metrics.interface_dG_REU.value,2]);
+    $('#wt-comparison-note').textContent=`${binder}: ${names[engine]} WT versus ${antigen}. Change = selected − WT. Confidence belongs to original predictions; ΔG belongs to Boltz-derived physics. Missing values stay unavailable.`;
+    $('#wt-comparison-rows').innerHTML=comparison.map(([name,a,b,n])=>{const delta=Number.isFinite(a)&&Number.isFinite(b)?b-a:null;return `<tr><td>${name}</td><td>${fmt(a,n)}</td><td>${fmt(b,n)}</td><td>${delta!==null&&delta>0?'+':''}${fmt(delta,n)}</td></tr>`;}).join('');
+  }
   async function selectComplex(scroll=false){
-    const token=++generation,c=get(binder,antigen);loaded=null;clearSurfaces();mutationMarkers=[];mutationIndices=[];$("#mutation-focus").disabled=true;$("#mutation-note").textContent="Select a scored structure to inspect the mutation.";$("#surface-status").textContent="";$('#complex-binder').value=binder;$('#complex-antigen').value=antigen;renderMatrix();
-    $('#complex-title').textContent=`${binder} × BCMA ${antigen}`;$('#complex-subtitle').textContent=`${names[engine]} · Original prediction · Confidence belongs to these coordinates`;
-    $('#complex-provenance').textContent=c?`SHA-256: ${c.structure.sha256}\nProducer job: ${c.source_job}\nRequest: ${c.request_id}\n${c.structure.atom_count} atoms · Binder ${c.structure.binder_residues} aa · BCMA ${c.structure.target_residues} aa`:'No scored structure is available for this exact pair and engine.';
-    const mapping=data.antigens.find(s=>s.id===antigen).native_positions;const deleted=Array.from({length:54},(_,i)=>i+1).filter(n=>!mapping.includes(n));
-    $('#complex-mapping').textContent=`Full modeled extracellular domain: native BCMA 1–54 (${mapping.length} residues in this construct). ${deleted.length?`Native residue ${deleted.join(', ')} is deleted; subsequent coordinate positions shift. `:''}Native BCMA numbering is preserved in the downloadable residue map.`;
-    $('#complex-metrics').innerHTML=c?[['Confidence /100',c.confidence,2],['Native ipTM',c.iptm,3],['Maximum ipSAE',c.ipsae_max,3],['Native pTM',c.ptm,3],['ipSAE · binder → target',c.ipsae_binder_to_target,3],['ipSAE · target → binder',c.ipsae_target_to_binder,3]].map(([s,v,n])=>`<div><span>${s}</span><strong>${fmt(v,n)}</strong></div>`).join(''):'<p>Prediction or scoring pending. No replacement coordinates are shown.</p>';
-    const link=$('#complex-download');link.hidden=!c;if(c)link.href=c.structure.url;else link.removeAttribute('href');
+    const token=++generation,c=get(binder,antigen);loaded=null;clearSurfaces();mutationMarkers=[];mutationIndices=[];$('#mutation-focus').disabled=true;$('#mutation-note').textContent='Select a scored structure to inspect the mutation.';$('#surface-status').textContent='';$('#complex-binder').value=binder;$('#complex-antigen').value=antigen;renderMatrix();
+    if(engine==='fast')origin='original';
+    const relaxedOption=$('#complex-origin option[value="relaxed"]');relaxedOption.disabled=engine!=='boltz'||!c?.relaxed_structure;relaxedOption.textContent=engine!=='boltz'?'Physics-relaxed · select Boltz-2':c?.relaxed_structure?'Physics-relaxed · Boltz only':'Physics-relaxed · unavailable (failed)';$('#complex-origin').value=origin;
+    const asset=origin==='relaxed'?c?.relaxed_structure:c?.structure;
+    $('#complex-title').textContent=`${binder} × BCMA ${antigen}`;
+    $('#complex-subtitle').textContent=origin==='relaxed'?'Boltz-2 → beta_nov16 physics-relaxed display · Confidence remains from original Boltz prediction':`${names[engine]} · Original prediction · Confidence belongs to these coordinates`;
+    $('#complex-provenance').textContent=asset?`Displayed SHA-256: ${asset.sha256}\nOriginal prediction SHA-256: ${c.structure.sha256}\nCommon score SHA-256: ${c.score_sha256}\nRequest: ${c.request_id}\n${asset.atom_count} atoms · Binder ${asset.binder_residues} aa · BCMA ${asset.target_residues} aa\n${origin==='relaxed'?'Reviewed display serialization; private path comments sanitized. Coordinate and disulfide records unchanged.':'Exact original prediction bytes.'}`:'No accepted relaxed structure exists for this pair; original confidence remains available.';
+    const mapping=data.antigens.find(s=>s.id===antigen).native_positions,deleted=Array.from({length:54},(_,i)=>i+1).filter(n=>!mapping.includes(n));
+    $('#complex-mapping').textContent=`Full modeled extracellular domain: native BCMA 1–54 (${mapping.length} residues in this construct). ${deleted.length?`Native residue ${deleted.join(', ')} is deleted; subsequent coordinate positions shift. `:''}Native labels use the reviewed residue map for this exact pair.`;
+    renderPairEvidence(c);
+    const link=$('#complex-download');link.hidden=!asset;link.textContent=origin==='relaxed'?'Download relaxed display PDB ↓':'Download original CIF ↓';if(asset)link.href=asset.url;else link.removeAttribute('href');
     if(viewer){viewer.clear();viewer.render();model=null;}
     if(scroll)$('#complex-view').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'});
-    if(!c){$('#structure-status').textContent='Pending: no scored complex for this exact pair and engine.';return;}
-    $('#structure-status').textContent='Loading and verifying original coordinates…';
-    try {
-      let text=cache.get(c.structure.sha256);
-      if(!text){const response=await fetch(c.structure.url);if(!response.ok)throw Error('Coordinates unavailable');const bytes=await response.arrayBuffer();const hash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))).map(n=>n.toString(16).padStart(2,'0')).join('');if(hash!==c.structure.sha256)throw Error('Coordinate checksum mismatch');text=new TextDecoder().decode(bytes);cache.set(hash,text);}
+    if(!asset){$('#structure-status').textContent='Unavailable: failed physics has no accepted relaxed structure. Select Original prediction to view its CIF.';return;}
+    $('#structure-status').textContent='Loading and verifying coordinates…';
+    try{
+      let text=cache.get(asset.sha256);
+      if(!text){const response=await fetch(asset.url);if(!response.ok)throw Error('Coordinates unavailable');const bytes=await response.arrayBuffer();const hash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))).map(n=>n.toString(16).padStart(2,'0')).join('');if(hash!==asset.sha256)throw Error('Coordinate checksum mismatch');text=new TextDecoder().decode(bytes);cache.set(hash,text);}
       if(token!==generation)return;
       if(!window.$3Dmol)throw Error('Viewer library unavailable');
       if(!viewer){viewer=$3Dmol.createViewer($('#structure-canvas'),{backgroundColor:'#0d1c2c',antialias:true});new ResizeObserver(()=>{viewer.resize();viewer.zoomTo();viewer.render();}).observe($('#structure-canvas'));}
-      model=viewer.addModel(text,'cif');const atoms=model.selectedAtoms({});if(atoms.length!==c.structure.atom_count)throw Error('Parsed atom count does not match source');
+      model=viewer.addModel(text,asset.format,{keepH:true});const atoms=model.selectedAtoms({});if(atoms.length!==asset.atom_count)throw Error(`Parsed atom count ${atoms.length} does not match source ${asset.atom_count}`);
       if(!model.selectedAtoms({chain:'A'}).length||!model.selectedAtoms({chain:'B'}).length)throw Error('Chain mapping mismatch');
-      applyStyle(true);viewer.zoomTo();viewer.render();loaded={engine,binder,antigen,sha256:c.structure.sha256,atoms:atoms.length};
-      $('#structure-status').textContent=`Original CIF verified · ${atoms.length.toLocaleString()} atoms · ${names[engine]}`;
-    } catch(error){if(token!==generation)return;viewer?.clear();viewer?.render();model=null;$('#structure-status').textContent=`Structure display unavailable: ${error.message}. Download the original CIF above.`;}
+      applyStyle(true);viewer.zoomTo();viewer.render();loaded={engine,binder,antigen,origin,sha256:asset.sha256,confidence_source_sha256:c.structure.sha256,atoms:atoms.length};
+      $('#structure-status').textContent=`${origin==='relaxed'?'Relaxed display PDB':'Original CIF'} verified · ${atoms.length.toLocaleString()} atoms · ${names[engine]}`;
+    }catch(error){if(token!==generation)return;viewer?.clear();viewer?.render();model=null;$('#structure-status').textContent=`Structure display unavailable: ${error.message}. Download the saved structure above.`;}
   }
   async function init(){try{const response=await fetch('paired.json',{cache:'no-store'});if(!response.ok)throw Error('Paired results unavailable');data=await response.json();data.cells.forEach(c=>cells.set(`${c.engine}|${c.binder}|${c.antigen}`,c));
     $('#complex-binder').innerHTML=data.members.map(m=>`<option value="${esc(m.id)}">${esc(m.id)}${m.control?' · control':''}</option>`).join('');$('#complex-antigen').innerHTML=data.antigens.map(s=>`<option>${esc(s.id)}</option>`).join('');
     document.querySelectorAll('[data-engine]').forEach(b=>b.onclick=()=>{engine=b.dataset.engine;chooseTop();render();void selectComplex();});
     document.querySelectorAll('[data-blue-mode]').forEach(b=>b.onclick=()=>{blueMode=b.dataset.blueMode;chooseTop();render();void selectComplex();});
     $('#arena-scope').onchange=e=>{scope=e.target.value;chooseTop();render();void selectComplex();};$('#heatmap-metric').onchange=e=>{metric=e.target.value;renderMatrix();};
+    $('#physics-antigen').onchange=renderPhysicsTable;$('#complex-origin').onchange=e=>{origin=e.target.value;void selectComplex();};
     $('#complex-binder').onchange=e=>{binder=e.target.value;void selectComplex();};$('#complex-antigen').onchange=e=>{antigen=e.target.value;void selectComplex();};
     $('#structure-reset').onclick=()=>{viewer?.zoomTo();viewer?.render();};$('#structure-sticks').onchange=()=>applyStyle();$('#structure-ribbons').onchange=()=>applyStyle();
     $('#mutation-highlight').onchange=()=>applyStyle(true);
@@ -170,6 +201,6 @@
     $('#mutation-focus').onclick=()=>{if(viewer&&model&&mutationIndices.length){viewer.zoomTo({model:model.getID(),index:mutationIndices});viewer.zoom(.65);viewer.render();}};
     chooseTop();render();await selectComplex();
   }catch(error){$('#arena-error').hidden=false;$('#arena-error').textContent=error.message;}}
-  Object.defineProperty(window,'BCMAPairedDiagnostics',{value:(includeSurfaceColors=false)=>({engine,scope,blueMode,loaded,cellCount:cells.size,selected:{binder,antigen},surfaceState,surfaces:surfaceRows.map(s=>({chain:s.chain,id:s.id})),nativeSurfaces:Object.keys(viewer?.surfaces||{}).length,mutationMarkers:structuredClone(mutationMarkers),mutationAtomCount:mutationIndices.length,renderedAtomCount:model?.selectedAtoms({}).length??0,surfaceColors:includeSurfaceColors?surfaceRows.map(s=>({chain:s.chain,colors:[...new Set(Array.from(viewer.getSurface(s.id)||[]).flatMap(part=>Array.from(part.geo.geometryGroups).flatMap(g=>Array.from({length:g.vertices},(_,i)=>[0,1,2].map(k=>Math.round(g.colorArray[3*i+k]*255).toString(16).padStart(2,'0')).join('')))))]})):[]})});
+  Object.defineProperty(window,'BCMAPairedDiagnostics',{value:(includeSurfaceColors=false)=>({engine,scope,blueMode,origin,loaded,cellCount:cells.size,selected:{binder,antigen},surfaceState,surfaces:surfaceRows.map(s=>({chain:s.chain,id:s.id})),nativeSurfaces:Object.keys(viewer?.surfaces||{}).length,mutationMarkers:structuredClone(mutationMarkers),mutationAtomCount:mutationIndices.length,renderedAtomCount:model?.selectedAtoms({}).length??0,surfaceColors:includeSurfaceColors?surfaceRows.map(s=>({chain:s.chain,colors:[...new Set(Array.from(viewer.getSurface(s.id)||[]).flatMap(part=>Array.from(part.geo.geometryGroups).flatMap(g=>Array.from({length:g.vertices},(_,i)=>[0,1,2].map(k=>Math.round(g.colorArray[3*i+k]*255).toString(16).padStart(2,'0')).join('')))))]})):[]})});
   void init();
 })();
