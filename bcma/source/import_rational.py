@@ -238,8 +238,134 @@ def increment_f14a(bundle,policy_path,nomination_path,site):
  for rel,h in old_hashes.items():check(sha(site/rel)==h,'Existing Q25A file changed')
  check(sha(site/'paired.json')==policy['source']['sha256'],'Literature changed')
  print(json.dumps({'rows':400,'new_assets':54,'total_rational_assets':79,'redacted_metadata_lines':redactions,'statuses':dict(Counter(c['status'] for c in data['cells'])),'red':{e:data['rankings'][e]['red'][:2] for e in ('fast','boltz')}}))
+
+N31D_F14A_PINS={
+ 'BUNDLE_MANIFEST.json':'5c71e5c46e24cd681f555959ac4cd988ca36922de8be164ef805024f3ca3cfde',
+ 'RESULTS_SCALARS.json':'061c3445b27003b0831fe37b374920a234cd18818ed0442c41ed3cd6d2099bbb',
+ 'STRUCTURES.json':'75bef158fecf6ea5d63a7286f0fb38f599b80013614c8b9d2238528b01a8dfab',
+}
+PREVIOUS_F14A_RATIONAL_SHA='b42a43d48c7ccf5d4ed6e955cf29dca42d7c8d40d4dae17ba9cf6ff392778c8d'
+def increment_n31d_f14a(bundle,policy_path,nomination_path,site):
+ """Append exact N31D/F14A outputs to the pinned F14A release; no molecular parsing."""
+ for n,h in N31D_F14A_PINS.items():check(sha(bundle/n)==h,'Unapproved F14A input '+n)
+ check(sha(policy_path)==PINS['POLICY_BASELINE.json'],'Frozen policy changed')
+ check(sha(nomination_path)==PINS['NOMINATION_METADATA.json'],'Nomination changed')
+ policy=json.loads(policy_path.read_text());lit=json.loads((site/'paired.json').read_text())
+ check(sha(site/'paired.json')==policy['source']['sha256'],'Literature baseline changed')
+ check(sha(site/'rational.json')==PREVIOUS_F14A_RATIONAL_SHA,'Expected the pinned previous F14A release; refuse to overwrite another snapshot')
+ prior=json.loads((site/'rational.json').read_text());data=copy.deepcopy(prior)
+ check(data['members']==lit['members'] and data['roster_sha256']==ROSTER,'Roster changed')
+ check(data['retention_policy']==policy['retention_policy']==lit['retention_policy'],'Retention policy changed')
+ check(data['physics_summary']['wt_contestants_required']==23 and data['physics_summary']['wt_contestants_accepted']==22,'Physics reference changed')
+ for e in ('fast','boltz'):check(data['rankings'][e]['wt_panel']==policy['frozen_wt_supported_panels'][e]==lit['rankings'][e]['wt_panel'],'WT panel changed')
+ old_hashes={}
+ for folder,pins in [('release_q25a',PINS),('release_f14a_r4',F14A_PINS)]:
+  olddir=site/'rational'/folder;oldmanifest=json.loads((olddir/'BUNDLE_MANIFEST.json').read_text())
+  for n in ('BUNDLE_MANIFEST.json','RESULTS_SCALARS.json','STRUCTURES.json'):check(sha(olddir/n)==pins[n],'Previous manifest changed')
+  old_hashes.update({str(x.relative_to(site)):sha(x) for x in olddir.rglob('*') if x.is_file()})
+  for rel,meta in oldmanifest['files'].items():check(sha(olddir/rel)==meta['sha256'] and (olddir/rel).stat().st_size==meta['bytes'],'Previous asset changed')
+ raw=json.loads((bundle/'RESULTS_SCALARS.json').read_text());manifest=json.loads((bundle/'BUNDLE_MANIFEST.json').read_text());structures=json.loads((bundle/'STRUCTURES.json').read_text())
+ allowed=set(manifest['files'])|{'BUNDLE_MANIFEST.json'}
+ check(not any(f.is_symlink() for f in bundle.rglob('*')),'Symlink in bundle')
+ check({str(f.relative_to(bundle)) for f in bundle.rglob('*') if f.is_file()}==allowed,'Bundle file allowlist mismatch')
+ for rel,meta in manifest['files'].items():
+  f=bundle/safe_path(rel);check(sha(f)==meta['sha256'] and f.stat().st_size==meta['bytes'],'Bundle hash/size mismatch');privacy(f.read_bytes())
+ check(raw['n31d_f14a_delta_provenance']['base_sha256']==F14A_PINS['RESULTS_SCALARS.json'],'Wrong previous release')
+ check(len(raw['rows'])==400 and Counter(r['status'] for r in raw['rows'])=={'scored':125,FAILED:36,'pending':239},'Wrong status grid')
+ check(Counter(r['physics']['status'] for r in raw['rows'])=={'accepted':25,'not_applicable_fast_engine':200,FAILED:36,'pending':139},'Wrong physics coverage')
+ assets={a['asset']['path']:a for a in structures['assets']}
+ check(len(assets)==71 and set(assets)=={p for p in allowed if p.startswith('assets/')},'Wrong incremental asset allowlist')
+ check(sum(a['asset']['bytes'] for a in assets.values())==9178875,'Wrong incremental byte count')
+ previous_raw={(r['engine'],r['member_id'],r['state_id']):r for r in json.loads((olddir/'RESULTS_SCALARS.json').read_text())['rows']}
+ current={(c['engine'],c['binder'],c['antigen']):c for c in data['cells']};seen=set();used=set();redactions=0
+ base='rational/release_n31d_f14a_r1/'
+ def normalize_asset(a,r,stage):
+  nonlocal redactions
+  rel=a['path'];check(rel in assets and rel not in used,'Missing or reused incremental asset');used.add(rel);m=assets[rel];meta=m['asset']
+  check((m['engine'],m['member_id'],m['state_id'],m['request_id'],m['stage'])==(r['engine'],r['member_id'],r['state_id'],r['request_id'],stage),'Asset identity join mismatch')
+  for k in ('team_id','role','red_role','controls_excluded_from_ranking','contrasts_excluded_from_adversarial_ranking','chain_roles','target_position_to_native_position'):check(m[k]==r[k],'Asset role/map mismatch '+k)
+  check(a['availability']=='verified_local_asset','Unverified asset')
+  for k in ('sha256','public_sha256','source_sha256','bytes','transformation'):check(a[k]==meta[k],'Asset metadata mismatch '+k)
+  check(a['sha256']==a['public_sha256'],'Public hash mismatch')
+  if stage=='original':
+   check(a['sha256']==a['source_sha256']==a['scored_coordinate_sha256']==m['scored_coordinate_sha256'],'Original coordinate hash mismatch')
+   check(a['bytes']==a['source_bytes'] and a['transformation']=='none','Original bytes transformed')
+   check(a['score_sha256']==m['score_sha256'] and m['review_sha256']==r['score_review_sha256'],'Common score/review join mismatch')
+  else:
+   check(a['source_bytes']==meta['source_bytes'] and a['transformation_proof']==meta['transformation_proof'],'Redaction proof mismatch')
+   check(m['original_coordinate_sha256']==r['original']['sha256'],'Relaxed original join mismatch')
+   check(m['review_sha256']==r['physics']['scalar_review_sha256'],'Physics review join mismatch')
+   check(all(r['physics']['implementation'][k]==v for k,v in m['implementation'].items()),'Physics implementation join mismatch')
+   check(a['transformation']=='exact_rosetta_energy_delimiter_path_metadata_redaction','Unapproved PDB change')
+   proof=a['transformation_proof'];check(not proof['coordinate_transformation'] and not proof['energy_table_values_changed'],'Scientific byte transformation')
+   lines=(bundle/rel).read_bytes().splitlines(keepends=True);changed={x['line_number']:x for x in proof['changed_lines']}
+   check(len(changed)==2,'Wrong metadata line count');redactions+=2
+   check({x['record_type'] for x in changed.values()}=={'rosetta_energy_table_begin','rosetta_energy_table_end'},'Wrong metadata record types')
+   for n,x in changed.items():check(0<n<=len(lines) and hashlib.sha256(lines[n-1]).hexdigest()==x['public_line_sha256'],'Changed-line proof mismatch')
+   remainder=b''.join(line for n,line in enumerate(lines,1) if n not in changed)
+   check(len(remainder)==proof['unchanged_other_bytes'] and hashlib.sha256(remainder).hexdigest()==proof['unchanged_other_sha256'],'Unchanged-byte proof mismatch')
+  wt=next(c for c in lit['cells'] if c['engine']==r['engine'] and c['binder']==r['member_id'] and c['antigen']=='WT')
+  result=copy.deepcopy(a);result.update(url=base+rel,format='cif' if stage=='original' else 'pdb',binder_chain='A',target_chain='B',binder_residues=wt['structure']['binder_residues'],target_residues=54)
+  if stage=='physics_relaxed':result['result_sha256']=m['result_sha256']
+  return result
+ changes=Counter()
+ def validate_physics(physics):
+  check(physics['status']=='accepted' and set(physics['metrics'])==set(PHYSICS_UNITS),'Physics coverage/schema mismatch')
+  for k,m in physics['metrics'].items():check(type(m['value']) in (int,float) and math.isfinite(m['value']) and m['missing_reason'] is None and m['unit']==PHYSICS_UNITS[k],'Invalid physics value/unit')
+  check(physics['implementation']['name']=='explicit_preserved_disulfides' and physics['implementation']['detect_disulfide_in_separated_pose'] is False,'Qualified implementation mismatch')
+  check(physics['chain_roles']['ORIGINAL_BOLTZ.cif']==physics['chain_roles']['RELAXED_DISPLAY.pdb']=={'A':'binder','B':'target'},'Physics display mapping changed')
+ for r in raw['rows']:
+  key=(r['engine'],r['member_id'],r['state_id']);check(key in current and key not in seen,'Unexpected/duplicate cell');seen.add(key)
+  old=previous_raw[key];c=current[key]
+  if r==old:continue
+  if r['state_id']=='N31D':allowed_fields={'metrics','original','score_review_sha256','status'};kind='scores'
+  elif r['engine']=='boltz' and r['state_id']=='F14A':allowed_fields={'physics'};kind='physics'
+  elif r['engine']=='boltz' and r['state_id']=='Q38A':allowed_fields={'metrics','status','physics','disposition_review_sha256'};kind='nulls'
+  else:raise ValueError('Out-of-scope scientific row change')
+  check({k:v for k,v in r.items() if k not in allowed_fields}=={k:v for k,v in old.items() if k not in allowed_fields},'Frozen row fields changed')
+  changes[kind]+=1
+  if kind=='scores':
+   check(old['status']=='pending' and r['status']=='scored','Unexpected N31D transition')
+   check(set(r['metrics'])==set(old['metrics']),'Score schema changed')
+   metrics={('iptm' if k=='native_iptm' else 'ptm' if k=='native_ptm' else k):v['value'] for k,v in r['metrics'].items()}
+   check(all(type(v) in (int,float) and math.isfinite(v) and 0<=v<=1 for v in metrics.values()),'Invalid score')
+   check(all(m['missing_reason'] is None and m['unit']=='dimensionless' for m in r['metrics'].values()),'Score units/missingness invalid')
+   check(metrics['ipsae_min']==min(metrics['ipsae_binder_to_target'],metrics['ipsae_target_to_binder']),'Minimum ipSAE mismatch')
+   expected_physics='not_applicable_fast_engine' if r['engine']=='fast' else 'pending'
+   check(r['physics']=={'status':expected_physics,'metrics':None,'relaxed_structure':None},'No N31D physics admitted')
+   imax=max(metrics['ipsae_binder_to_target'],metrics['ipsae_target_to_binder']);C=round(50*(metrics['iptm']+imax),6)
+   limits=policy['retention_policy']['engines'][r['engine']]['thresholds'];retained=all(Decimal(str(v))>=Decimal(str(limits[k])) for k,v in [('iptm',metrics['iptm']),('ipsae_max',imax)])
+   original=normalize_asset(r['original'],r,'original')
+   c.update(status='scored',**metrics,ipsae_max=imax,confidence=C,predicted_retained=retained,structure=original,score_sha256=r['original']['score_sha256'],score_review_sha256=r['score_review_sha256'])
+  elif kind=='physics':
+   check(old['physics']['status']=='pending' and r['status']=='scored','Unexpected F14A physics transition')
+   validate_physics(r['physics']);relaxed=normalize_asset(r['physics']['relaxed_structure'],r,'physics_relaxed')
+   c.update(physics=copy.deepcopy(r['physics']),relaxed_structure=relaxed)
+  else:
+   check(old['status']=='pending' and r['status']==FAILED and r['original'] is None,'Unexpected Q38A null transition')
+   check(set(r['metrics'])==set(old['metrics']) and all(m=={'value':None,'unit':'dimensionless','missing_reason':'upstream_technical_failure_missing_Boltz_original'} for m in r['metrics'].values()),'Null value/reason changed')
+   check(r['physics']=={'status':FAILED,'metrics':None,'relaxed_structure':None,'physical_attempts':0},'Missing original cannot create physics attempt')
+   check(r['disposition_review_sha256']=='36b152cf3be37d7dbf875685962256d00eb152aca79bae0ccc2dd6bff8284380','Unreviewed null')
+   c.update(status=FAILED,physics=copy.deepcopy(r['physics']),disposition_review_sha256=r['disposition_review_sha256'])
+ check(changes=={'scores':50,'physics':21,'nulls':11},'Wrong transition counts')
+ check(len(seen)==400 and len(used)==71 and redactions==42,'Incomplete grid/assets/redactions')
+ check(sum(c['structure'] is not None for c in data['cells'])==125 and sum(c['relaxed_structure'] is not None for c in data['cells'])==25,'Cumulative asset count mismatch')
+ data.update(release='n31d-f14a-r1-partial-v3',updated_utc='2026-10-22T11:10:45.898713+00:00',counts=copy.deepcopy(raw['counts']))
+ data['provenance']['n31d_f14a_update']=dict(raw['n31d_f14a_delta_provenance'],bundle_manifest_sha256=N31D_F14A_PINS['BUNDLE_MANIFEST.json'],scalar_sha256=N31D_F14A_PINS['RESULTS_SCALARS.json'],structures_sha256=N31D_F14A_PINS['STRUCTURES.json'],handoff_review_sha256='88be78a13c60ba436cc85a365134d0a21a5420ffa445689268ee6c59428bb2ba',requirements_sha256='ed86b2424d201d4536391c43c6d5003c38a5cde9ee336d6ba9bcc244f3f8474b',requirements_review_sha256='6d9fc1334ea4538bbfc7b16e5059df06ea78c0c66b6a8aad3e1905f20255f6f8',previous_rational_snapshot_sha256=PREVIOUS_F14A_RATIONAL_SHA)
+ data['evaluation_provenance']['physics']='25 qualified single-replicate Boltz F14A beta_nov16 results; native disulfides preserved with separated-pose detection disabled. No N31D or Fast-derived physics in this snapshot. Pending and missing-original statuses remain distinct. Frozen WT physics reference incomplete; no combined ranks.'
+ summary(data,lit,policy)
+ payload=(json.dumps(data,indent=2,allow_nan=False)+'\n').encode();privacy(payload)
+ destination=site/base;check(not destination.exists(),'Incremental destination already exists')
+ for rel in allowed:
+  target=destination/safe_path(rel);target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(bundle/rel,target)
+ (site/'rational.json').write_bytes(payload)
+ for rel,h in old_hashes.items():check(sha(site/rel)==h,'Existing Q25A file changed')
+ check(sha(site/'paired.json')==policy['source']['sha256'],'Literature changed')
+ print(json.dumps({'rows':400,'new_assets':71,'total_rational_assets':150,'redacted_metadata_lines':redactions,'statuses':dict(Counter(c['status'] for c in data['cells'])),'red':{e:data['rankings'][e]['red'][:3] for e in ('fast','boltz')}}))
 if __name__=='__main__':
  p=argparse.ArgumentParser()
  for k in ('bundle','policy','nomination','site'):p.add_argument('--'+k,type=Path,required=True)
- p.add_argument('--incremental-f14a',action='store_true')
- a=p.parse_args();(increment_f14a if a.incremental_f14a else main)(a.bundle,a.policy,a.nomination,a.site)
+ mode=p.add_mutually_exclusive_group()
+ mode.add_argument('--incremental-f14a',action='store_true')
+ mode.add_argument('--incremental-n31d-f14a',action='store_true')
+ a=p.parse_args();(increment_n31d_f14a if a.incremental_n31d_f14a else increment_f14a if a.incremental_f14a else main)(a.bundle,a.policy,a.nomination,a.site)

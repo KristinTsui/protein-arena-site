@@ -71,7 +71,7 @@ Each engine reuses its exact frozen 12-member WT-supported Red panel. All three 
 Use ?cohort=rational#blue for the rational view; the default remains literature. Nomination rationale, raw scalar/structure manifests, and a public frozen-policy subset are downloadable. The source importer pins this exact reviewed release. No private review documents, private paths, PAE, model caches, or unreviewed structures are published. No scientific computation was run for this website update.
 
 
-## F14A incremental rational release · 22 October 2026
+## Initial F14A incremental release · historical snapshot
 
 The current partial snapshot adds 25 Fast and 25 Boltz F14A scores, plus four qualified single-replicate Boltz F14A physics results. Across all 400 rational engine cells, 75 are scored (50 Fast and 25 Boltz), 25 Boltz Q25A rows remain reviewed missing-original nulls, and 300 remain pending. Later private results are outside this handoff. This is not campaign completion.
 
@@ -82,3 +82,14 @@ Accepted physics rows are B5 (reference control), BC-0fef1d499d46, BC-202d0f7e97
 All ranking policies remain frozen. Fast Red F14A is 3/12 provisional signals (rank 1), Fast Q25A remains 1/12 (now rank 2 among the two evaluable challenges), and Boltz F14A is 1/12 (its only evaluable challenge). These are confidence-loss signals, not biological escape. Eight-state Blue overall ranks remain unavailable; per-antigen confidence and retention views are populated. The unchanged literature WT physics reference is 22 accepted / 23 required: no percentiles or combined ranks are calculated.
 
 The F14A view is the rational cohort's initial antigen view. Default page entry remains the literature benchmark. The importer --incremental-f14a extends the exact pinned initial Q25A snapshot and refuses a different existing rational snapshot. Its output was independently reviewed before publication. No new molecular computation or scientific policy change was performed.
+
+
+## N31D scores and completed F14A physics · 22 October 2026
+
+The current frozen partial release adds 50 N31D scores (25 Fast and 25 Boltz), the remaining 21 F14A Boltz physics records, and 11 reviewed Q38A missing-original nulls. It contains 400 rational engine cells: 125 scored (75 Fast, 50 Boltz), 36 genuine missing-original Boltz nulls (25 Q25A, 11 Q38A), and 239 pending. Exactly 25 F14A Boltz physics records are accepted; no N31D physics is included, even if later results exist elsewhere. All 200 Fast physics rows remain not applicable. Boltz has 25 accepted, 36 not-evaluable with zero attempts, and 139 pending physics records.
+
+The 71 added structures are 50 byte-identical N31D original CIFs and 21 F14A relaxed display PDBs, totaling 9,178,875 bytes. All 79 earlier rational structures remain unchanged, for 150 rational assets alongside the unchanged 373 literature assets. The 21 PDBs have only the independently reviewed 42 energy-table delimiter metadata line redactions. Source/public hashes and sizes, line hashes, and unchanged-other-byte proofs are retained in rational/release_n31d_f14a_r1/STRUCTURES.json and normalized structure records. No coordinate, connectivity, disulfide, energy or scalar transformation was made during site integration.
+
+All frozen policies and nomination information boundaries remain unchanged. Fast N31D is 1/12 provisional Red signals, tied rank 2 with Q25A; Boltz N31D is 0/12, rank 2. Zero is a scored observation, unlike technical nulls or pending results. F14A signals remain Fast 3/12 and Boltz 1/12. These are confidence-loss heuristics, not biological escape. Contrasts stay unranked; B5/L10 stay excluded from contestants. Eight-state Blue overall ranks remain unavailable. Original literature denominators remain five; the WT physics reference remains 22 accepted / 23 required with no percentiles, combined ranks or reallocated weights.
+
+N31D is the rational cohort's initial antigen view. The expanded raw physics table shows all 23 contestants and two labelled binding controls for F14A, with original/relaxed viewing and exact implementation provenance. The default site entry remains the literature cohort. The --incremental-n31d-f14a importer option requires the exact prior F14A snapshot and the approved new bundle. Its bounded 50-score/21-physics/11-null change was independently reviewed. No new molecular computation or later private campaign result was introduced; this is not campaign completion.
