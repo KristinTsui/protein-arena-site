@@ -1,0 +1,118 @@
+{
+  "confidence_formula": "C = 50 \u00d7 (native ipTM + max(ipSAE binder\u2192target, ipSAE target\u2192binder))",
+  "ranking_policy": {
+    "version": "bcma-paired-confidence-max-retention-v2",
+    "blue_overall": "0.5 \u00d7 mean(C across five states) + 0.5 \u00d7 min(C across five states); all five required",
+    "red": "Within each engine, freeze the panel of contestants with WT C \u2265 50 after all 23 WT scores exist. Count a provisional escape signal when ipTM and both directional ipSAE each drop by at least max(0.10, 25% of WT value). Rank 100 \u00d7 signals / fixed panel size only with complete panel coverage. WT and P33S remain unranked references.",
+    "interpretation": "Uncalibrated confidence-loss heuristic, not established binding or biological escape. No target-integrity or physics confirmation is implied. C \u2265 50 is a provisional eligibility threshold, not a validated binding cutoff.",
+    "engine_aggregation": "No cross-engine averaging",
+    "ties": "Competition ranks on scores rounded to six decimals",
+    "physics": "One required contestant WT physics evaluation failed. The frozen 23-contestant reference cannot be reduced; no partial-cohort percentiles or combined ranks. Original 50/50 confidence/physics weights remain unchanged.",
+    "blue_retention": "Number of states meeting BOTH engine-specific native ipTM and maximum directional ipSAE cutoffs, out of five (including WT and P33S). All five evaluations required for a rank; missing is unknown. Equal counts share ranks; confidence does not break ties.",
+    "confidence_revision": "Maximum replaces minimum directional ipSAE for all derived confidence scores. The approved roster is unchanged. The Red WT C \u2265 50 eligibility panel is recomputed with this definition; its three-metric decline rule is unchanged."
+  },
+  "retention_policy": {
+    "version": "bcma-control-relative-retention-v1",
+    "frozen_snapshot_utc": "2026-10-20T20:06:12.355340+00:00",
+    "rule": "Both metrics must meet or exceed their cutoff. Count each of WT, R27P, S30del, P34del and P33S once.",
+    "method": "For each metric and engine: floor(100 \u00d7 0.90 \u00d7 min(B5 WT, L10 WT)) / 100. Freeze these cutoffs; do not refit to incoming pairs.",
+    "interpretation": "Provisional control-relative confidence screen, not a calibrated binding classifier. No labeled nonbinder set is available here to estimate specificity. The 90% allowance and rounding are policy choices, not an experimentally learned boundary. A failed cutoff is below-screen confidence, not proof of nonbinding. Retention is not the complement of the Red escape rule.",
+    "reference_controls": [
+      "B5",
+      "L10"
+    ],
+    "fraction": 0.9,
+    "rounding": "down to two decimals",
+    "engines": {
+      "fast": {
+        "anchors": {
+          "iptm": 0.6727321743965149,
+          "ipsae_max": 0.4448034046101706
+        },
+        "thresholds": {
+          "iptm": 0.6,
+          "ipsae_max": 0.4
+        },
+        "sensitivity_thresholds": {
+          ".85": {
+            "iptm": 0.57,
+            "ipsae_max": 0.37
+          },
+          ".90": {
+            "iptm": 0.6,
+            "ipsae_max": 0.4
+          },
+          ".95": {
+            "iptm": 0.63,
+            "ipsae_max": 0.42
+          }
+        }
+      },
+      "boltz": {
+        "anchors": {
+          "iptm": 0.8966211676597595,
+          "ipsae_max": 0.7742170400793336
+        },
+        "thresholds": {
+          "iptm": 0.8,
+          "ipsae_max": 0.69
+        },
+        "sensitivity_thresholds": {
+          ".85": {
+            "iptm": 0.76,
+            "ipsae_max": 0.65
+          },
+          ".90": {
+            "iptm": 0.8,
+            "ipsae_max": 0.69
+          },
+          ".95": {
+            "iptm": 0.85,
+            "ipsae_max": 0.73
+          }
+        }
+      }
+    },
+    "sensitivity_note": "85%, 90%, and 95% of the same WT-control anchors. Counts use available pairs; unknown pairs stay unknown. This is threshold sensitivity, not a statistical confidence interval."
+  },
+  "physics_status": "Final reviewed dispositions: 123 accepted, 2 failed-null. WT reference incomplete; physics percentiles and combined ranks unavailable.",
+  "frozen_wt_supported_panels": {
+    "fast": [
+      "BC-0fef1d499d46",
+      "BC-202d0f7e9723",
+      "BC-6c30f596ff4a",
+      "BC-91b6af58ec09",
+      "BC-b9ead356b813",
+      "BC-cb9445d62530",
+      "BC-cdb2a6b1d84b",
+      "BC-db749fb51a86",
+      "RF-09bed41c4153",
+      "RF-24cd22b3e351",
+      "RF-cfa84026e803",
+      "RF-e3bdaa23c7f6"
+    ],
+    "boltz": [
+      "BC-0fef1d499d46",
+      "BC-202d0f7e9723",
+      "BC-6c30f596ff4a",
+      "BC-91b6af58ec09",
+      "BC-b9ead356b813",
+      "BC-cb9445d62530",
+      "BC-cdb2a6b1d84b",
+      "BC-db749fb51a86",
+      "PP-682a53ab43ea",
+      "RF-30fd5002cdda",
+      "RF-cfa84026e803",
+      "RF-e3bdaa23c7f6"
+    ]
+  },
+  "extension_reporting": {
+    "original_literature_panel": "preserve same five-state cohort unchanged",
+    "rational_panel": "separate eight-state denominator (or reviewed documented shortfall), WT reused solely as baseline; include all23Blue in matrix",
+    "contrast_antigen_controls": "exclude from adversarial Red rankings, label separately, preserve measurements",
+    "experimental_surface_integrity": "UNRESOLVED_EVIDENCE for prospective synthetic substitutions",
+    "scientific_weights": "unchanged; no engine averaging; combined physicsreference23 incomplete remains unavailable"
+  },
+  "source_sha256": "b12827e6ffae3f52f1ecf487083dc8e80d9bf6e89d1f39e4f0b4bd90a47c4a95",
+  "private_baseline_sha256": "0670c970c1568419a4cc29e5453c50ae53c94654d6ace5a95b096b9b2b48e1dc"
+}

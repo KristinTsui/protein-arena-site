@@ -56,3 +56,16 @@ No complete WT physics reference exists: 22/23 required contestant WT energies w
 Boltz provenance: seed 17, 3 recycles, 200 steps, one sample, single-sequence MSA. Common ipSAE scorer SHA-256 547e05340f1627925f7aa652b93b97393061b811497f8dfeb60f24ed3cff8fde. The 23 contestant WT Fast outputs are reused original evaluations; other pairs have their own exact outputs. Website import performs no molecular computation.
 
 `source/import_final.py` reproduces the validated import from the original reviewed public bundle and existing frozen member metadata. `source/paired_ranking.py paired.json` recomputes display confidence/retention/Red ranks without changing the frozen thresholds. The background 302-design data.json and evidence.json remain historical snapshots; the UI marks approved contestants by joining the current frozen roster.
+
+
+## Partial rational cohort · 22 October 2026
+
+The optional Rational Red cohort is separate from the unchanged literature benchmark. It contains the same 23 contestants and two reference controls against eight new antigen states: Q25A, F14A, N31D, E12Q, Y40F, S29T, Q38A and N42D. Q38A/N42D are contrast antigens and have no adversarial Red rank. WT is reused solely as the comparison baseline.
+
+This frozen release contains 400 engine cells: 25 scored Fast Q25A pairs with their exact original CIFs, 25 Boltz Q25A pre-model failures, and 350 pending cells. The Boltz failures have no original structure, common score, physics attempt, or relaxed structure. Fast-derived physics is not applicable. Missing metrics remain null; numerical zeros remain zero. Later private campaign results are outside this release.
+
+Confidence remains C = 50 × (native ipTM + maximum directional ipSAE). Rational overall Blue confidence uses half mean plus half worst across eight states, including the contrasts; all eight scores are required. Retention is a count out of eight with the original frozen engine-specific cutoffs and sensitivity margins. No rational overall Blue rank is currently available. Per-antigen ranks are available for Fast Q25A.
+
+Each engine reuses its exact frozen 12-member WT-supported Red panel. All three raw metrics must decline under the existing rule; failed or pending cells cannot shrink the denominator. Fast Q25A has 1/12 provisional confidence-loss signals. Its rank is among currently evaluable challenges, not a full-panel winner. Biological surface expression and target integrity are unresolved for these prospective substitutions. No experimental binding or escape claim follows.
+
+Use ?cohort=rational#blue for the rational view; the default remains literature. Nomination rationale, raw scalar/structure manifests, and a public frozen-policy subset are downloadable. The source importer pins this exact reviewed release. No private review documents, private paths, PAE, model caches, or unreviewed structures are published. No scientific computation was run for this website update.
