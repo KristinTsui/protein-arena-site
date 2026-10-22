@@ -127,7 +127,119 @@ def main(bundle,policy_path,nomination_path,site):
  (site/'rational/FROZEN_POLICY.json').write_text(json.dumps(public_policy,indent=2)+'\n')
  check(sha(lit_path)==lit_sha,'Literature snapshot modified')
  print(json.dumps({'rows':400,'assets':25,'bytes':2284963,'statuses':dict(Counter(c['status'] for c in cells)),'red_fast_Q25A':data['rankings']['fast']['red'][0],'literature_unchanged':lit_sha}))
+
+F14A_PINS={
+ 'BUNDLE_MANIFEST.json':'f390c789e77babd1cec57531d2b8548eb4276cef34b3cfcda68289ac5ca0c4cd',
+ 'RESULTS_SCALARS.json':'a6ce16d0eed592734d7b6dd0dc73b2cf55fab92a7fd055173e19690f7c6392f1',
+ 'STRUCTURES.json':'4e36f66f8c0f6670fd8be2e25a77889b9ad586251080b39966b41751932cf327',
+}
+PREVIOUS_RATIONAL_SHA='eaa313b795d33c86ec90627a7a6d11dcdba961a787434489037ef4cf3e218a33'
+PHYSICS_MEMBERS={'B5','BC-0fef1d499d46','BC-202d0f7e9723','BC-6c30f596ff4a'}
+PHYSICS_UNITS={'diagnostic_complex_total_REU':'Rosetta energy units','interface_dG_REU':'Rosetta energy units','interface_dSASA_angstrom2':'angstrom^2','interface_hbonds':'count','interface_packstat':'dimensionless','interface_residue_count':'count','interface_sc':'dimensionless'}
+
+def increment_f14a(bundle,policy_path,nomination_path,site):
+ """Append exact R4 outputs to the pinned Q25A release; no molecular parsing."""
+ for n,h in F14A_PINS.items():check(sha(bundle/n)==h,'Unapproved F14A input '+n)
+ check(sha(policy_path)==PINS['POLICY_BASELINE.json'],'Frozen policy changed')
+ check(sha(nomination_path)==PINS['NOMINATION_METADATA.json'],'Nomination changed')
+ policy=json.loads(policy_path.read_text());lit=json.loads((site/'paired.json').read_text())
+ check(sha(site/'paired.json')==policy['source']['sha256'],'Literature baseline changed')
+ check(sha(site/'rational.json')==PREVIOUS_RATIONAL_SHA,'Expected the pinned previous Q25A release; refuse to overwrite another snapshot')
+ prior=json.loads((site/'rational.json').read_text());data=copy.deepcopy(prior)
+ check(data['members']==lit['members'] and data['roster_sha256']==ROSTER,'Roster changed')
+ check(data['retention_policy']==policy['retention_policy']==lit['retention_policy'],'Retention policy changed')
+ check(data['physics_summary']['wt_contestants_required']==23 and data['physics_summary']['wt_contestants_accepted']==22,'Physics reference changed')
+ for e in ('fast','boltz'):check(data['rankings'][e]['wt_panel']==policy['frozen_wt_supported_panels'][e]==lit['rankings'][e]['wt_panel'],'WT panel changed')
+ olddir=site/'rational/release_q25a';oldmanifest=json.loads((olddir/'BUNDLE_MANIFEST.json').read_text())
+ for n in ('BUNDLE_MANIFEST.json','RESULTS_SCALARS.json','STRUCTURES.json'):check(sha(olddir/n)==PINS[n],'Previous Q25A manifest changed')
+ old_hashes={str(f.relative_to(site)):sha(f) for f in olddir.rglob('*') if f.is_file()}
+ for rel,meta in oldmanifest['files'].items():check(sha(olddir/rel)==meta['sha256'] and (olddir/rel).stat().st_size==meta['bytes'],'Previous Q25A file changed')
+ raw=json.loads((bundle/'RESULTS_SCALARS.json').read_text());manifest=json.loads((bundle/'BUNDLE_MANIFEST.json').read_text());structures=json.loads((bundle/'STRUCTURES.json').read_text())
+ allowed=set(manifest['files'])|{'BUNDLE_MANIFEST.json'}
+ check(not any(f.is_symlink() for f in bundle.rglob('*')),'Symlink in bundle')
+ check({str(f.relative_to(bundle)) for f in bundle.rglob('*') if f.is_file()}==allowed,'Bundle file allowlist mismatch')
+ for rel,meta in manifest['files'].items():
+  f=bundle/safe_path(rel);check(sha(f)==meta['sha256'] and f.stat().st_size==meta['bytes'],'Bundle hash/size mismatch');privacy(f.read_bytes())
+ check(manifest['base_q25a_bundle_manifest_sha256']==PINS['BUNDLE_MANIFEST.json'],'Wrong previous release')
+ check(len(raw['rows'])==400 and Counter(r['status'] for r in raw['rows'])=={'scored':75,FAILED:25,'pending':300},'Wrong status grid')
+ check(Counter(r['physics']['status'] for r in raw['rows'])=={'accepted':4,'not_applicable_fast_engine':200,FAILED:25,'pending':171},'Wrong physics coverage')
+ assets={a['asset']['path']:a for a in structures['assets']}
+ check(len(assets)==54 and set(assets)=={p for p in allowed if p.startswith('assets/')},'Wrong incremental asset allowlist')
+ check(sum(a['asset']['bytes'] for a in assets.values())==5545713,'Wrong incremental byte count')
+ previous_raw={(r['engine'],r['member_id'],r['state_id']):r for r in json.loads((olddir/'RESULTS_SCALARS.json').read_text())['rows']}
+ current={(c['engine'],c['binder'],c['antigen']):c for c in data['cells']};seen=set();used=set();redactions=0
+ base='rational/release_f14a_r4/'
+ def normalize_asset(a,r,stage):
+  nonlocal redactions
+  rel=a['path'];check(rel in assets and rel not in used,'Missing or reused incremental asset');used.add(rel);m=assets[rel];meta=m['asset']
+  check((m['engine'],m['member_id'],m['state_id'],m['request_id'],m['stage'])==(r['engine'],r['member_id'],r['state_id'],r['request_id'],stage),'Asset identity join mismatch')
+  for k in ('team_id','role','red_role','controls_excluded_from_ranking','contrasts_excluded_from_adversarial_ranking','chain_roles','target_position_to_native_position'):check(m[k]==r[k],'Asset role/map mismatch '+k)
+  check(a['availability']=='verified_local_asset','Unverified asset')
+  for k in ('sha256','public_sha256','source_sha256','bytes','transformation'):check(a[k]==meta[k],'Asset metadata mismatch '+k)
+  check(a['sha256']==a['public_sha256'],'Public hash mismatch')
+  if stage=='original':
+   check(a['sha256']==a['source_sha256']==a['scored_coordinate_sha256']==m['scored_coordinate_sha256'],'Original coordinate hash mismatch')
+   check(a['bytes']==a['source_bytes'] and a['transformation']=='none','Original bytes transformed')
+   check(a['score_sha256']==m['score_sha256'] and m['review_sha256']==r['score_review_sha256'],'Common score/review join mismatch')
+  else:
+   check(a['source_bytes']==meta['source_bytes'] and a['transformation_proof']==meta['transformation_proof'],'Redaction proof mismatch')
+   check(m['original_coordinate_sha256']==r['original']['sha256'],'Relaxed original join mismatch')
+   check(m['review_sha256']==r['physics']['scalar_review_sha256'],'Physics review join mismatch')
+   check(all(r['physics']['implementation'][k]==v for k,v in m['implementation'].items()),'Physics implementation join mismatch')
+   check(a['transformation']=='exact_rosetta_energy_delimiter_path_metadata_redaction','Unapproved PDB change')
+   proof=a['transformation_proof'];check(not proof['coordinate_transformation'] and not proof['energy_table_values_changed'],'Scientific byte transformation')
+   lines=(bundle/rel).read_bytes().splitlines(keepends=True);changed={x['line_number']:x for x in proof['changed_lines']}
+   check(len(changed)==2,'Wrong metadata line count');redactions+=2
+   check({x['record_type'] for x in changed.values()}=={'rosetta_energy_table_begin','rosetta_energy_table_end'},'Wrong metadata record types')
+   for n,x in changed.items():check(0<n<=len(lines) and hashlib.sha256(lines[n-1]).hexdigest()==x['public_line_sha256'],'Changed-line proof mismatch')
+   remainder=b''.join(line for n,line in enumerate(lines,1) if n not in changed)
+   check(len(remainder)==proof['unchanged_other_bytes'] and hashlib.sha256(remainder).hexdigest()==proof['unchanged_other_sha256'],'Unchanged-byte proof mismatch')
+  wt=next(c for c in lit['cells'] if c['engine']==r['engine'] and c['binder']==r['member_id'] and c['antigen']=='WT')
+  result=copy.deepcopy(a);result.update(url=base+rel,format='cif' if stage=='original' else 'pdb',binder_chain='A',target_chain='B',binder_residues=wt['structure']['binder_residues'],target_residues=54)
+  if stage=='physics_relaxed':result['result_sha256']=m['result_sha256']
+  return result
+ for r in raw['rows']:
+  key=(r['engine'],r['member_id'],r['state_id']);check(key in current and key not in seen,'Unexpected/duplicate cell');seen.add(key)
+  old=previous_raw[key];c=current[key]
+  if r['state_id']!='F14A':check(r==old,'Non-F14A row changed');continue
+  # Preserve every original role, identity, map, request and biological status.
+  for k,v in old.items():
+   if k not in {'status','metrics','original','physics'}:check(r.get(k)==v,'Frozen cell field changed '+k)
+  check(r['status']=='scored' and c['status']=='pending','Unexpected F14A transition')
+  check(set(r['metrics'])==set(old['metrics']),'Metric schema changed')
+  metrics={('iptm' if k=='native_iptm' else 'ptm' if k=='native_ptm' else k):v['value'] for k,v in r['metrics'].items()}
+  check(all(type(v) in (float,int) and math.isfinite(v) and 0<=v<=1 for v in metrics.values()),'Invalid score')
+  check(all(m['missing_reason'] is None and m['unit']=='dimensionless' for m in r['metrics'].values()),'Score units/missingness invalid')
+  check(metrics['ipsae_min']==min(metrics['ipsae_binder_to_target'],metrics['ipsae_target_to_binder']),'Minimum ipSAE mismatch')
+  imax=max(metrics['ipsae_binder_to_target'],metrics['ipsae_target_to_binder']);C=round(50*(metrics['iptm']+imax),6)
+  limits=policy['retention_policy']['engines'][r['engine']]['thresholds'];retained=all(Decimal(str(v))>=Decimal(str(limits[k])) for k,v in [('iptm',metrics['iptm']),('ipsae_max',imax)])
+  original=normalize_asset(r['original'],r,'original');physics=copy.deepcopy(r['physics']);relaxed=None
+  if r['engine']=='fast':check(physics=={'status':'not_applicable_fast_engine','metrics':None,'relaxed_structure':None},'Fast physics must stay not applicable')
+  elif r['member_id'] in PHYSICS_MEMBERS:
+   check(physics['status']=='accepted','Missing accepted physics')
+   check(set(physics['metrics'])==set(PHYSICS_UNITS),'Physics schema mismatch')
+   for k,m in physics['metrics'].items():check(type(m['value']) in (int,float) and math.isfinite(m['value']) and m['missing_reason'] is None and m['unit']==PHYSICS_UNITS[k],'Invalid physics value/unit')
+   check(physics['implementation']['name']=='explicit_preserved_disulfides' and physics['implementation']['detect_disulfide_in_separated_pose'] is False,'Qualified implementation mismatch')
+   check(physics['chain_roles']['ORIGINAL_BOLTZ.cif']==physics['chain_roles']['RELAXED_DISPLAY.pdb']=={'A':'binder','B':'target'},'Physics display chains mismatch')
+   relaxed=normalize_asset(physics['relaxed_structure'],r,'physics_relaxed')
+  else:check(physics=={'status':'pending','metrics':None,'relaxed_structure':None},'Unexpected physics result')
+  c.update(status='scored',**metrics,ipsae_max=imax,confidence=C,predicted_retained=retained,structure=original,relaxed_structure=relaxed,physics=physics,score_sha256=r['original']['score_sha256'],score_review_sha256=r['score_review_sha256'])
+ check(len(seen)==400 and len(used)==54 and redactions==8,'Incomplete grid/assets/redactions')
+ check(sum(c['structure'] is not None for c in data['cells'])==75 and sum(c['relaxed_structure'] is not None for c in data['cells'])==4,'Cumulative asset count mismatch')
+ data.update(release='f14a-r4-partial-v2',updated_utc='2026-10-22T08:30:20.422943+00:00',counts=copy.deepcopy(raw['counts']))
+ data['provenance']['f14a_update']=dict(raw['f14a_delta_provenance'],bundle_manifest_sha256=F14A_PINS['BUNDLE_MANIFEST.json'],scalar_sha256=F14A_PINS['RESULTS_SCALARS.json'],structures_sha256=F14A_PINS['STRUCTURES.json'],handoff_review_sha256='7a37a9aff8768d78668b36ff5477a45330e82fd097ad91ed49db3c209650f64d',requirements_sha256='7db4a23e8b61d3c473c33124591ddf6d41dcb010a3423746f0cbd41c9a564ff8',previous_rational_snapshot_sha256=PREVIOUS_RATIONAL_SHA)
+ data['evaluation_provenance']['physics']='Four qualified single-replicate Boltz F14A beta_nov16 results; native disulfides preserved with separated-pose detection disabled. No Fast-derived physics. Pending and missing-original statuses remain distinct. Frozen WT physics reference incomplete; no combined ranks.'
+ summary(data,lit,policy)
+ payload=(json.dumps(data,indent=2,allow_nan=False)+'\n').encode();privacy(payload)
+ destination=site/base;check(not destination.exists(),'Incremental destination already exists')
+ for rel in allowed:
+  target=destination/safe_path(rel);target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(bundle/rel,target)
+ (site/'rational.json').write_bytes(payload)
+ for rel,h in old_hashes.items():check(sha(site/rel)==h,'Existing Q25A file changed')
+ check(sha(site/'paired.json')==policy['source']['sha256'],'Literature changed')
+ print(json.dumps({'rows':400,'new_assets':54,'total_rational_assets':79,'redacted_metadata_lines':redactions,'statuses':dict(Counter(c['status'] for c in data['cells'])),'red':{e:data['rankings'][e]['red'][:2] for e in ('fast','boltz')}}))
 if __name__=='__main__':
  p=argparse.ArgumentParser()
  for k in ('bundle','policy','nomination','site'):p.add_argument('--'+k,type=Path,required=True)
- a=p.parse_args();main(a.bundle,a.policy,a.nomination,a.site)
+ p.add_argument('--incremental-f14a',action='store_true')
+ a=p.parse_args();(increment_f14a if a.incremental_f14a else main)(a.bundle,a.policy,a.nomination,a.site)

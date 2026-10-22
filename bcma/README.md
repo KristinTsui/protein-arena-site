@@ -58,7 +58,7 @@ Boltz provenance: seed 17, 3 recycles, 200 steps, one sample, single-sequence MS
 `source/import_final.py` reproduces the validated import from the original reviewed public bundle and existing frozen member metadata. `source/paired_ranking.py paired.json` recomputes display confidence/retention/Red ranks without changing the frozen thresholds. The background 302-design data.json and evidence.json remain historical snapshots; the UI marks approved contestants by joining the current frozen roster.
 
 
-## Partial rational cohort · 22 October 2026
+## Initial Q25A rational release · historical snapshot
 
 The optional Rational Red cohort is separate from the unchanged literature benchmark. It contains the same 23 contestants and two reference controls against eight new antigen states: Q25A, F14A, N31D, E12Q, Y40F, S29T, Q38A and N42D. Q38A/N42D are contrast antigens and have no adversarial Red rank. WT is reused solely as the comparison baseline.
 
@@ -69,3 +69,16 @@ Confidence remains C = 50 × (native ipTM + maximum directional ipSAE). Rational
 Each engine reuses its exact frozen 12-member WT-supported Red panel. All three raw metrics must decline under the existing rule; failed or pending cells cannot shrink the denominator. Fast Q25A has 1/12 provisional confidence-loss signals. Its rank is among currently evaluable challenges, not a full-panel winner. Biological surface expression and target integrity are unresolved for these prospective substitutions. No experimental binding or escape claim follows.
 
 Use ?cohort=rational#blue for the rational view; the default remains literature. Nomination rationale, raw scalar/structure manifests, and a public frozen-policy subset are downloadable. The source importer pins this exact reviewed release. No private review documents, private paths, PAE, model caches, or unreviewed structures are published. No scientific computation was run for this website update.
+
+
+## F14A incremental rational release · 22 October 2026
+
+The current partial snapshot adds 25 Fast and 25 Boltz F14A scores, plus four qualified single-replicate Boltz F14A physics results. Across all 400 rational engine cells, 75 are scored (50 Fast and 25 Boltz), 25 Boltz Q25A rows remain reviewed missing-original nulls, and 300 remain pending. Later private results are outside this handoff. This is not campaign completion.
+
+The 54 new assets are 50 exact original CIFs and four relaxed display PDBs. The earlier 25 Q25A CIFs remain unchanged, giving 79 rational assets in total. In the four PDBs only eight independently reviewed Rosetta energy-table delimiter metadata lines had private path tokens redacted. Separate source/public hashes, source/public sizes, changed-line hashes, and unchanged-other-byte proofs are retained in rational/release_f14a_r4/STRUCTURES.json and the normalized structure records. Coordinates, connectivity, disulfides, energies and scalar values remain unchanged. Relaxed display serialization is not byte-identical to the scored in-memory pose.
+
+Accepted physics rows are B5 (reference control), BC-0fef1d499d46, BC-202d0f7e9723 and BC-6c30f596ff4a. The raw table and viewer expose metrics with units and per-pair implementation provenance. These are beta_nov16 Boltz-derived results with explicit native-disulfide preservation and separated-pose disulfide detection disabled; no Fast-derived physics exists. There are 171 pending Boltz physics rows, 25 missing-original not-evaluable rows with zero physics attempts, and 200 Fast not-applicable rows.
+
+All ranking policies remain frozen. Fast Red F14A is 3/12 provisional signals (rank 1), Fast Q25A remains 1/12 (now rank 2 among the two evaluable challenges), and Boltz F14A is 1/12 (its only evaluable challenge). These are confidence-loss signals, not biological escape. Eight-state Blue overall ranks remain unavailable; per-antigen confidence and retention views are populated. The unchanged literature WT physics reference is 22 accepted / 23 required: no percentiles or combined ranks are calculated.
+
+The F14A view is the rational cohort's initial antigen view. Default page entry remains the literature benchmark. The importer --incremental-f14a extends the exact pinned initial Q25A snapshot and refuses a different existing rational snapshot. Its output was independently reviewed before publication. No new molecular computation or scientific policy change was performed.
