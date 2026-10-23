@@ -1,0 +1,321 @@
+{
+  "actual_export_review_sha256": "52e60ff455aee987753458d4dcb9f05b11c98603078e8c3f6e85ff25814aadb2",
+  "actual_transfer_review_sha256": "ac520e9a1a9717e846b33765ba5b160e1159a6551771f249815af5331cdf8acf",
+  "additional_results_require_separate_reviewed_release": true,
+  "base_results_sha256": "1b72455f57dfc2d241be9eef93b32db81e661c868ca626793d922ef6e6b68613",
+  "cumulative_rational_asset_count": 225,
+  "existing_rational_asset_count_to_preserve": 150,
+  "files": {
+    "RESULTS_SCALARS.json": {
+      "bytes": 1345359,
+      "sha256": "fc3c6f497982e05cc31e3550348445b762c912c7a6ee64f04140fd6e556401b8"
+    },
+    "STRUCTURES.json": {
+      "bytes": 189890,
+      "sha256": "7f60f0d7a19a80db0ab628858e6a8293f77c7ea8845ebf5e6514df83442287d8"
+    },
+    "assets/boltz__original__B5__E12Q.cif": {
+      "bytes": 81494,
+      "sha256": "97b88d324810a1b4efc463222624c6264a042adb7ec952b210c0795ecf324a5b"
+    },
+    "assets/boltz__original__BC-0fef1d499d46__E12Q.cif": {
+      "bytes": 104354,
+      "sha256": "415aca35acac5d606053b7897bb4fe4af61febbe4aa083aedb2e8358d9dfe959"
+    },
+    "assets/boltz__original__BC-202d0f7e9723__E12Q.cif": {
+      "bytes": 99936,
+      "sha256": "da2aef4e15a2d74f93caaa85843a275df5a92f140a1b8b8199374220c25007bc"
+    },
+    "assets/boltz__original__BC-6c30f596ff4a__E12Q.cif": {
+      "bytes": 99603,
+      "sha256": "0d1489e16701ed50e5100a1772f172984c647917bfef2d63a8b92dd4b58f4876"
+    },
+    "assets/boltz__original__BC-91b6af58ec09__E12Q.cif": {
+      "bytes": 98936,
+      "sha256": "c060820610300c832fb760e7d7d1bf74c69b12c50f39f49f7ca72ee4b08239aa"
+    },
+    "assets/boltz__original__BC-b9ead356b813__E12Q.cif": {
+      "bytes": 104179,
+      "sha256": "5afd6170e7ca70e2de3db0be35cd12e3ab0e85d35cf77b345b9760c0b3385c52"
+    },
+    "assets/boltz__original__BC-cb9445d62530__E12Q.cif": {
+      "bytes": 105025,
+      "sha256": "99a4ad96c29bf97900ba2e2f32df124cdd7aff83dc3e76b354e4aed7714d1a80"
+    },
+    "assets/boltz__original__BC-cdb2a6b1d84b__E12Q.cif": {
+      "bytes": 104551,
+      "sha256": "dde6203869985e5116608b5e6a004dffe4b799a94fe72a9b307bee74329cf844"
+    },
+    "assets/boltz__original__BC-db749fb51a86__E12Q.cif": {
+      "bytes": 99256,
+      "sha256": "683b16f4da3d0d3cfb3f9f3e0a243772207a67347f3497219ed8c3f4ab559624"
+    },
+    "assets/boltz__original__L10__E12Q.cif": {
+      "bytes": 81561,
+      "sha256": "04937ca9703da2e2ddb815edf0925a9501cf090285e99d9c74cb5cd5054ce247"
+    },
+    "assets/boltz__original__PP-46de8cb0555c__E12Q.cif": {
+      "bytes": 96406,
+      "sha256": "68212e6aa48f293bc73d7fe1a0f4c9f99801fb06010b758a19b748bbcb8a5b7f"
+    },
+    "assets/boltz__original__PP-57304bf2f65d__E12Q.cif": {
+      "bytes": 92660,
+      "sha256": "6d0fd10a608f10cd37ede70807a6f21fd987ac50f161c57006f02da3454db41b"
+    },
+    "assets/boltz__original__PP-682a53ab43ea__E12Q.cif": {
+      "bytes": 94924,
+      "sha256": "6a58cf721410b874cca768260fec3427cee044fa50818b3596752a57a5ce5cec"
+    },
+    "assets/boltz__original__PP-8ff3866bdbcb__E12Q.cif": {
+      "bytes": 95614,
+      "sha256": "a47f96fbefafa3326f2aaacce89f783c447f623369aa7174e784838997af4300"
+    },
+    "assets/boltz__original__PP-c4b72a4dabdb__E12Q.cif": {
+      "bytes": 92503,
+      "sha256": "2360da2b729c17b402cdef607773eae3cf80a3f4ca2abdc88772e881b31ee32f"
+    },
+    "assets/boltz__original__RF-00a2997ac46b__E12Q.cif": {
+      "bytes": 98751,
+      "sha256": "291196a6c99a66a8e58d2ea1eeef03042c15d26f26aa67a9f32617d6d69affdf"
+    },
+    "assets/boltz__original__RF-09bed41c4153__E12Q.cif": {
+      "bytes": 105489,
+      "sha256": "1c723f268f22d12034e1764f8f9f04a7f4a4f3a937a91f7636e8d6f8e9e42b75"
+    },
+    "assets/boltz__original__RF-24cd22b3e351__E12Q.cif": {
+      "bytes": 99046,
+      "sha256": "b8f4537a0e851c18b283fc739a16b34ffea7adea036c29fbf4ebb82b51b3af49"
+    },
+    "assets/boltz__original__RF-30fd5002cdda__E12Q.cif": {
+      "bytes": 97298,
+      "sha256": "e6fbd9e73e01855bae36ccb0a0cbae781b838071df065812fc7631dfa8f03f79"
+    },
+    "assets/boltz__original__RF-5477c392ca36__E12Q.cif": {
+      "bytes": 95597,
+      "sha256": "e453032d299c0337acae058da920bf78b828ebf3445be691c486b4120edb4a34"
+    },
+    "assets/boltz__original__RF-59956e556a7f__E12Q.cif": {
+      "bytes": 106187,
+      "sha256": "d8854cd6b9895760ee9a303106deaa18642a11de6933b74e9981de08a66e075d"
+    },
+    "assets/boltz__original__RF-5e7192da7b99__E12Q.cif": {
+      "bytes": 101682,
+      "sha256": "455b36046031fb62b8e7e675544052dfd3f7b884c73e7f34ad24e625ba256f5d"
+    },
+    "assets/boltz__original__RF-8b70d435261c__E12Q.cif": {
+      "bytes": 104458,
+      "sha256": "75c05bf3d0905ed055a2b66d7d80ed77f28fab4359a76690008eebd311c43678"
+    },
+    "assets/boltz__original__RF-cfa84026e803__E12Q.cif": {
+      "bytes": 98192,
+      "sha256": "0671fd2753ac225157c90c3cd9c4944785034248b28e39dec2af8411da2d05a7"
+    },
+    "assets/boltz__original__RF-e3bdaa23c7f6__E12Q.cif": {
+      "bytes": 101774,
+      "sha256": "6e4cea2d114ca05060cbed7fe0cd3293a6b3394fcf1d16402976248a9fd1eef2"
+    },
+    "assets/boltz__physics_relaxed__B5__N31D.pdb": {
+      "bytes": 171918,
+      "sha256": "35108e62d3695589a24ade389abcf4ba651e499b5f01999efef4d597d5f6d15f"
+    },
+    "assets/boltz__physics_relaxed__BC-0fef1d499d46__N31D.pdb": {
+      "bytes": 221377,
+      "sha256": "41e636a2346b188485e04ffe012fda9962f5de22fd08a1bfa9dee5e4e638dd18"
+    },
+    "assets/boltz__physics_relaxed__BC-202d0f7e9723__N31D.pdb": {
+      "bytes": 213947,
+      "sha256": "9f1b714262042cfd22562f8051a22b79838169e7aa125d37e5c83272c68ef4e1"
+    },
+    "assets/boltz__physics_relaxed__BC-6c30f596ff4a__N31D.pdb": {
+      "bytes": 213641,
+      "sha256": "e0233325336624c4d5baa8153c74f37f47a179755e3f5c2c92cf26f0d3699a65"
+    },
+    "assets/boltz__physics_relaxed__BC-91b6af58ec09__N31D.pdb": {
+      "bytes": 209762,
+      "sha256": "41a9537ef15dd1ce8cbdc26c6c288139205704dd9a1d9ce57b8560d04a31aa9e"
+    },
+    "assets/boltz__physics_relaxed__BC-b9ead356b813__N31D.pdb": {
+      "bytes": 218265,
+      "sha256": "fd305bfc47612941489243e7f45e6e1eff00aff5f960626e7dbca26b78eecf2d"
+    },
+    "assets/boltz__physics_relaxed__BC-cb9445d62530__N31D.pdb": {
+      "bytes": 224084,
+      "sha256": "00a3e130f91c28f96516fe455680394380f1aa8292b686ff1647ea3ceb417935"
+    },
+    "assets/boltz__physics_relaxed__BC-cdb2a6b1d84b__N31D.pdb": {
+      "bytes": 223700,
+      "sha256": "4ea8210f71f6dd1f9076eb2e4987353ca94ca96376c8571944a11b0976664819"
+    },
+    "assets/boltz__physics_relaxed__BC-db749fb51a86__N31D.pdb": {
+      "bytes": 209971,
+      "sha256": "06c699a07614ee1d5dbbbef54faac85d7c6f83e3ae98a4d9db69fefd4d8ded4a"
+    },
+    "assets/boltz__physics_relaxed__L10__N31D.pdb": {
+      "bytes": 173886,
+      "sha256": "933ecddc0ad9889ece391d5c444b5f80540af94103bb3f1bbb73ddeaffc71392"
+    },
+    "assets/boltz__physics_relaxed__PP-46de8cb0555c__N31D.pdb": {
+      "bytes": 212008,
+      "sha256": "8df181de9c6e8e06cb321ed4e56c93c159c682ded8d335e5285814d29458dc96"
+    },
+    "assets/boltz__physics_relaxed__PP-57304bf2f65d__N31D.pdb": {
+      "bytes": 197688,
+      "sha256": "4bbb4b61dc6fee4f0648fe51bf6b87f638d3a7e387e7f02398c9125cf6986eb5"
+    },
+    "assets/boltz__physics_relaxed__PP-682a53ab43ea__N31D.pdb": {
+      "bytes": 206157,
+      "sha256": "4d9766a2bc5e535c0e8eacbbd25039d392adf5a85799a883c34af47844de4294"
+    },
+    "assets/boltz__physics_relaxed__PP-8ff3866bdbcb__N31D.pdb": {
+      "bytes": 205991,
+      "sha256": "677e026c5377d0aa81fe49c93589fc3532908c64286af023a80a2292b584fff6"
+    },
+    "assets/boltz__physics_relaxed__PP-c4b72a4dabdb__N31D.pdb": {
+      "bytes": 196621,
+      "sha256": "e2526b625871bec9ff4428c205bcd4c40ca471fb9f9face5f5a0512595c46282"
+    },
+    "assets/boltz__physics_relaxed__RF-00a2997ac46b__N31D.pdb": {
+      "bytes": 209423,
+      "sha256": "8698ee7445e031a5146a8d732a0eab985eff160f7d8e38aedde94cc1dcf0b5df"
+    },
+    "assets/boltz__physics_relaxed__RF-09bed41c4153__N31D.pdb": {
+      "bytes": 227716,
+      "sha256": "cf13367d65054019d1f661f8de6df4ec836d61d26d968fd41c15296ac74e39cd"
+    },
+    "assets/boltz__physics_relaxed__RF-24cd22b3e351__N31D.pdb": {
+      "bytes": 208815,
+      "sha256": "64bb7e1968675d96527789b70c9bf09066f77400b2acfd4702b05cfb81d3a936"
+    },
+    "assets/boltz__physics_relaxed__RF-30fd5002cdda__N31D.pdb": {
+      "bytes": 208881,
+      "sha256": "01b01ad77b9b78aa9d9f38a31d9e98c72fa6f00ce1436ecec0d42b854dcf8bea"
+    },
+    "assets/boltz__physics_relaxed__RF-5477c392ca36__N31D.pdb": {
+      "bytes": 204948,
+      "sha256": "0f51507158c975a916fe79e5c21c044422ba27cedf6d4d65f7ca3e120df84a2c"
+    },
+    "assets/boltz__physics_relaxed__RF-59956e556a7f__N31D.pdb": {
+      "bytes": 226857,
+      "sha256": "01f628596b3d0cc5bc9fe11fb24c2bfef82a167043f1be3e6006655050ca1a17"
+    },
+    "assets/boltz__physics_relaxed__RF-5e7192da7b99__N31D.pdb": {
+      "bytes": 220493,
+      "sha256": "b36c82c7fed6ff0efaa506c18f792620eefb663389266ce4d3fb4c56181d6618"
+    },
+    "assets/boltz__physics_relaxed__RF-8b70d435261c__N31D.pdb": {
+      "bytes": 229575,
+      "sha256": "8d50496441eb8f51b537bd20c74552ab0c562ea3dba28613843e75846f616143"
+    },
+    "assets/boltz__physics_relaxed__RF-cfa84026e803__N31D.pdb": {
+      "bytes": 208899,
+      "sha256": "aca83faab7d11671e1e4c6d005ee4d95fa81e2192cebeb58ba8405124f771d83"
+    },
+    "assets/boltz__physics_relaxed__RF-e3bdaa23c7f6__N31D.pdb": {
+      "bytes": 217878,
+      "sha256": "90e18de7f121bd7e831ec799abe7dd33643456d58b9aa8a4a4b5446382e8a019"
+    },
+    "assets/fast__original__B5__E12Q.cif": {
+      "bytes": 76006,
+      "sha256": "0c4b0e6b648406b100cd514ea19c0129a3c487f3d18ee94e3ddeb70afc3d5d91"
+    },
+    "assets/fast__original__BC-0fef1d499d46__E12Q.cif": {
+      "bytes": 97789,
+      "sha256": "10ef3d3fcf7f0621a2357a345460dcd7fbafba36afe36e45c5572deea901af29"
+    },
+    "assets/fast__original__BC-202d0f7e9723__E12Q.cif": {
+      "bytes": 93421,
+      "sha256": "624ae6380294b0ef461a461b76c2542d26e3afb2533b10f6d0f5e279d3edeeec"
+    },
+    "assets/fast__original__BC-6c30f596ff4a__E12Q.cif": {
+      "bytes": 92941,
+      "sha256": "2638ed5dbb5162fa7518e34c7df4a2d5b71bbfadbfc2eab4213ec4eac0b68a8d"
+    },
+    "assets/fast__original__BC-91b6af58ec09__E12Q.cif": {
+      "bytes": 92653,
+      "sha256": "4541b75946d08ffe01b7217bb9f285f0b610d21c98e8aac3d765cbdbef2bd2fe"
+    },
+    "assets/fast__original__BC-b9ead356b813__E12Q.cif": {
+      "bytes": 97469,
+      "sha256": "27683a8bd40e01c20968ff5f406653b3c5ae5a4a3f4d6497e306baff3e1cafc1"
+    },
+    "assets/fast__original__BC-cb9445d62530__E12Q.cif": {
+      "bytes": 98213,
+      "sha256": "25c5dab87fbca4fef3f1e1156acbe4bf6ed925f3e92a0360835dabeba5d4f4bb"
+    },
+    "assets/fast__original__BC-cdb2a6b1d84b__E12Q.cif": {
+      "bytes": 97653,
+      "sha256": "c44b9726f151b0064632a9767c5d223b6928da8399fe0a294a9861186e44eebf"
+    },
+    "assets/fast__original__BC-db749fb51a86__E12Q.cif": {
+      "bytes": 92973,
+      "sha256": "fd1bf1b7e441b7664c3a4ce0ec88a80aedad9e2fd4e0c59bbb1c98aabc76ff56"
+    },
+    "assets/fast__original__L10__E12Q.cif": {
+      "bytes": 75446,
+      "sha256": "604095fc9d9868d18088fd6833580ecf11f319d0c7f6b79804872e7cda78891c"
+    },
+    "assets/fast__original__PP-46de8cb0555c__E12Q.cif": {
+      "bytes": 89865,
+      "sha256": "0c210d5092a1fe06aff889f69eec5337633cd2a95923b62c76ef9622ed7655d1"
+    },
+    "assets/fast__original__PP-57304bf2f65d__E12Q.cif": {
+      "bytes": 86025,
+      "sha256": "25eb565686c0bee1ae21b5eccf1789a56bf753e1ad39fc552ab21aac850a3e4f"
+    },
+    "assets/fast__original__PP-682a53ab43ea__E12Q.cif": {
+      "bytes": 88265,
+      "sha256": "f62432d6448f930c2cd0677d932e2e21ff196c7b97e1421f89e26969f005dfb4"
+    },
+    "assets/fast__original__PP-8ff3866bdbcb__E12Q.cif": {
+      "bytes": 89065,
+      "sha256": "e08418a273e10ec00cbb486a51992698f98f8474418940f0f82db3ce2108e350"
+    },
+    "assets/fast__original__PP-c4b72a4dabdb__E12Q.cif": {
+      "bytes": 85705,
+      "sha256": "bd022e89a26086a719580f53cb24ef1e10942b8013659ccc71756a6f153900d8"
+    },
+    "assets/fast__original__RF-00a2997ac46b__E12Q.cif": {
+      "bytes": 91777,
+      "sha256": "1484c9858c81ab48a9f8ae5f3019e9425dec9ea578109a2b02b98bf1dba765f7"
+    },
+    "assets/fast__original__RF-09bed41c4153__E12Q.cif": {
+      "bytes": 98545,
+      "sha256": "2fd7ec307f59947512b84d402b43e153068f3fd12de26547c6c9f32835c4f3ca"
+    },
+    "assets/fast__original__RF-24cd22b3e351__E12Q.cif": {
+      "bytes": 91105,
+      "sha256": "1ecbe7ff25921f87b138d580cb2f05059eee85c00f74082f8ddc0bd62fc0fd9d"
+    },
+    "assets/fast__original__RF-30fd5002cdda__E12Q.cif": {
+      "bytes": 90121,
+      "sha256": "9157f05989decf7d66f34e4f46e02eb9267627e643b583f0f51e3aa2e7baf43a"
+    },
+    "assets/fast__original__RF-5477c392ca36__E12Q.cif": {
+      "bytes": 88461,
+      "sha256": "9cf9703eb15d8eed1a2cc525850c0df5a40754b7cba04229e643a13cd3a2c142"
+    },
+    "assets/fast__original__RF-59956e556a7f__E12Q.cif": {
+      "bytes": 101661,
+      "sha256": "a9d518628237eb70a77c728535ae0750851b70bd7532175bf41a502959e857aa"
+    },
+    "assets/fast__original__RF-5e7192da7b99__E12Q.cif": {
+      "bytes": 94737,
+      "sha256": "ebb5b4079cfcb102af87db29b4fdeba4914e93f6a32d6885b7b1f81922a31014"
+    },
+    "assets/fast__original__RF-8b70d435261c__E12Q.cif": {
+      "bytes": 97449,
+      "sha256": "5f32d9b540c53652bfc46b89e578ce5b351a28c40079428293d5b0d318ca091b"
+    },
+    "assets/fast__original__RF-cfa84026e803__E12Q.cif": {
+      "bytes": 90969,
+      "sha256": "18a9b53bf67842a9cfe3acc468a27f40314ee0c8a95f83c5f348d72f76754578"
+    },
+    "assets/fast__original__RF-e3bdaa23c7f6__E12Q.cif": {
+      "bytes": 94649,
+      "sha256": "1c1cd97e08d9a0f64e53c4cf0e11d8fee44d8419d6a2076ca9bd8b375b4f2364"
+    }
+  },
+  "incremental_asset_count": 75,
+  "published": false,
+  "schema": "arena.bcma.rational_red.incremental_handoff.v1"
+}

@@ -84,7 +84,7 @@ All ranking policies remain frozen. Fast Red F14A is 3/12 provisional signals (r
 The F14A view is the rational cohort's initial antigen view. Default page entry remains the literature benchmark. The importer --incremental-f14a extends the exact pinned initial Q25A snapshot and refuses a different existing rational snapshot. Its output was independently reviewed before publication. No new molecular computation or scientific policy change was performed.
 
 
-## N31D scores and completed F14A physics · 22 October 2026
+## N31D scores and completed F14A physics · historical snapshot
 
 The current frozen partial release adds 50 N31D scores (25 Fast and 25 Boltz), the remaining 21 F14A Boltz physics records, and 11 reviewed Q38A missing-original nulls. It contains 400 rational engine cells: 125 scored (75 Fast, 50 Boltz), 36 genuine missing-original Boltz nulls (25 Q25A, 11 Q38A), and 239 pending. Exactly 25 F14A Boltz physics records are accepted; no N31D physics is included, even if later results exist elsewhere. All 200 Fast physics rows remain not applicable. Boltz has 25 accepted, 36 not-evaluable with zero attempts, and 139 pending physics records.
 
@@ -93,3 +93,14 @@ The 71 added structures are 50 byte-identical N31D original CIFs and 21 F14A rel
 All frozen policies and nomination information boundaries remain unchanged. Fast N31D is 1/12 provisional Red signals, tied rank 2 with Q25A; Boltz N31D is 0/12, rank 2. Zero is a scored observation, unlike technical nulls or pending results. F14A signals remain Fast 3/12 and Boltz 1/12. These are confidence-loss heuristics, not biological escape. Contrasts stay unranked; B5/L10 stay excluded from contestants. Eight-state Blue overall ranks remain unavailable. Original literature denominators remain five; the WT physics reference remains 22 accepted / 23 required with no percentiles, combined ranks or reallocated weights.
 
 N31D is the rational cohort's initial antigen view. The expanded raw physics table shows all 23 contestants and two labelled binding controls for F14A, with original/relaxed viewing and exact implementation provenance. The default site entry remains the literature cohort. The --incremental-n31d-f14a importer option requires the exact prior F14A snapshot and the approved new bundle. Its bounded 50-score/21-physics/11-null change was independently reviewed. No new molecular computation or later private campaign result was introduced; this is not campaign completion.
+
+
+## E12Q scores and completed N31D physics · 23 October 2026
+
+This frozen partial release adds 50 E12Q scores (25 Fast and 25 Boltz) and 25 N31D Boltz physics records. The 400 rational engine cells contain 175 scored (100 Fast/75 Boltz), 36 reviewed missing-original Boltz nulls and 189 pending. Exactly 50 physics results are accepted: 25 F14A and 25 N31D. No E12Q physics is included. All 200 Fast physics rows remain not applicable; Boltz has 50 accepted, 36 not-evaluable with zero attempts and 114 pending.
+
+The 75 added assets comprise 50 original E12Q CIFs and 25 N31D relaxed PDB displays, totaling 10,014,940 public bytes. All 150 prior rational assets and 373 literature assets are unchanged. The cumulative rational asset count is 225. Upstream redaction touched only 50 reviewed energy-table delimiter metadata lines in the 25 new PDBs. Source/public hashes, sizes and unchanged-other-byte proofs are preserved in rational/release_e12q_n31d_r1/STRUCTURES.json. Site integration performs no molecular computation.
+
+Frozen policies, controls, nomination boundaries and WT panels are unchanged. Fast E12Q has 2/12 provisional confidence-loss signals (rank 2); Boltz E12Q has 0/12 (tied rank 2 with N31D). These are model-score heuristics, not biological escape. Eight-state Blue overall ranks remain unavailable. WT physics reference remains 22 accepted / 23 required, so no physics percentiles, combined ranks or weight reallocation are permitted.
+
+E12Q is the rational cohort's initial antigen view. A separate physics antigen selector displays F14A or N31D, 25 rows each, with controls labelled and original/relaxed provenance retained. The default site entry remains the literature benchmark. The --incremental-e12q-n31d importer requires the exact preceding snapshot and approved bundle. Independent importer review and desktop/mobile checks bind this release. No later private results are included; this is not campaign completion.

@@ -13,7 +13,7 @@
   function setCohort(value){
     cohort=value==='rational'&&rational?'rational':'literature';data=cohort==='rational'?rational:literature;
     cells.clear();data.cells.forEach(c=>cells.set(`${c.engine}|${c.binder}|${c.antigen}`,c));
-    scope=cohort==='rational'?'N31D':'overall';origin='original';
+    scope=cohort==='rational'?'E12Q':'overall';origin='original';
     $('#arena-cohort').value=cohort;
     $('#arena-scope').innerHTML=`<option value="overall">Across all ${data.antigens.length} states</option>`+data.antigens.map(s=>`<option value="${esc(s.id)}">${esc(s.id)}${s.contrast?' · contrast':s.id==='P33S'?' · control antigen':''}</option>`).join('');
     $('#arena-scope').value=scope;
@@ -23,11 +23,11 @@
     $('.pair-matrix').classList.toggle('rational-matrix',cohort==='rational');
     $('#paired-download').href=cohort==='rational'?'rational.json':'paired.json';
     $('#arena-cohort-title').textContent=`${cohort==='rational'?'Rational Red · partial release':'Literature benchmark'} / 23 binders · ${data.antigens.length} antigen states`;
-    $('#cohort-note').textContent=cohort==='rational'?'Frozen partial release: 125 scored pairs (75 Fast, 50 Boltz), 36 Boltz missing-original technical failures (25 Q25A and 11 Q38A), and 239 pending engine-pair evaluations. All 25 Boltz F14A physics results are accepted; no N31D physics is included. This is 200 physical pairs / 400 engine cells. Eight-state Blue summaries include the two contrast antigens. WT is reused only as the comparison baseline. Biological surface expression and target integrity remain unresolved.':'The original five-state benchmark: 125 physical pairs, evaluated separately by Fast and Boltz. The rational cohort is a separate panel.';
+    $('#cohort-note').textContent=cohort==='rational'?'Frozen partial release: 175 scored pairs (100 Fast, 75 Boltz), 36 Boltz missing-original technical failures (25 Q25A and 11 Q38A), and 189 pending engine-pair evaluations. All 50 Boltz physics results for F14A and N31D are accepted (25 each); no E12Q physics is included. This is 200 physical pairs / 400 engine cells. Eight-state Blue summaries include the two contrast antigens. WT is reused only as the comparison baseline. Biological surface expression and target integrity remain unresolved.':'The original five-state benchmark: 125 physical pairs, evaluated separately by Fast and Boltz. The rational cohort is a separate panel.';
     $('#blue-overall-method').textContent=`Across all ${data.antigens.length} states: score = ½ × mean(C) + ½ × worst C. The directional ipSAE uses the maximum; the worst-state term uses the minimum across antigens. All ${data.antigens.length} scores are required. A per-antigen view ranks only that pair’s C.`;
     $('#blue-retention-method').textContent=`Predicted retention: count pairs meeting both metric cutoffs across ${data.antigens.map(s=>s.id).join(', ')}. Evaluated counts available scores; retained counts scores meeting the screen. ${cohort==='rational'?'Contrast antigens count toward this eight-state Blue summary, but remain unranked in Red.':''}`;
     $('#blue-missing-method').textContent=`Missing evidence and ties: across-state ranks require all ${data.antigens.length} scores. Pending evaluations and technical failures are unknown binding outcomes; neither becomes a zero or a biological failure. Equal retention counts share ranks, without a confidence tiebreaker. Controls are excluded; engines remain separate.`;
-    $('#red-cohort-method').textContent=cohort==='rational'?'The two engine-specific WT panels are frozen from the literature benchmark (12 members each, with different membership). They are not refitted to this partial release. Q38A and N42D are contrast antigens and have no adversarial Red rank. Fast has complete Q25A, F14A and N31D confidence panels; Boltz has F14A and N31D. Ranks compare currently evaluable challenges, not a completed panel.':'WT and P33S are unranked references. The literature benchmark’s original WT panels, scores, and ranks are unchanged.';
+    $('#red-cohort-method').textContent=cohort==='rational'?'The two engine-specific WT panels are frozen from the literature benchmark (12 members each, with different membership). They are not refitted to this partial release. Q38A and N42D are contrast antigens and have no adversarial Red rank. Fast has complete Q25A, F14A, N31D and E12Q confidence panels; Boltz has F14A, N31D and E12Q. Ranks compare currently evaluable challenges, not a completed panel.':'WT and P33S are unranked references. The literature benchmark’s original WT panels, scores, and ranks are unchanged.';
     const url=new URL(location.href);if(cohort==='rational')url.searchParams.set('cohort','rational');else url.searchParams.delete('cohort');history.replaceState(null,'',url);
   }
   function retentionRows(){
@@ -54,7 +54,7 @@
   function render(){
     const scored=data.cells.filter(c=>c.engine===engine&&isScored(c)).length;
     $('#arena-coverage').textContent=`${scored} / ${data.members.length*data.antigens.length} pair scores · ${data.rankings[engine].blue.filter(r=>r.rank!==null).length} / 23 complete contestants`;
-    $('#arena-snapshot').textContent=cohort==='rational'?`Partial snapshot: ${new Date(data.updated_utc).toLocaleString()} · Fast physics not applicable · 36 Boltz pairs lack original predictions; scoring and physics not attempted · 25 Boltz F14A physics results accepted; no N31D physics included · Combined ranks unavailable.`:`Snapshot: ${new Date(data.updated_utc).toLocaleString()} · Physics reviewed: 123 accepted · 2 failed-null · combined ranks unavailable · Engines are evaluated separately.`;
+    $('#arena-snapshot').textContent=cohort==='rational'?`Partial snapshot: ${new Date(data.updated_utc).toLocaleString()} · Fast physics not applicable · 36 Boltz pairs lack original predictions; scoring and physics not attempted · 50 Boltz physics results accepted (25 F14A, 25 N31D); no E12Q physics included · Combined ranks unavailable.`:`Snapshot: ${new Date(data.updated_utc).toLocaleString()} · Physics reviewed: 123 accepted · 2 failed-null · combined ranks unavailable · Engines are evaluated separately.`;
     document.querySelectorAll('[data-engine]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.engine===engine)));
     const rows=blueRows(),retention=blueMode==='retention',denominator=scope==='overall'?data.antigens.length:1;
     document.querySelectorAll('[data-blue-mode]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.blueMode===blueMode)));
@@ -74,7 +74,7 @@
     $('#retention-sensitivity-summary').textContent=`${names[engine]} sensitivity: 85% uses ipTM ≥ ${fmt(st['.85'].iptm)}, max ipSAE ≥ ${fmt(st['.85'].ipsae_max)}; 95% uses ipTM ≥ ${fmt(st['.95'].iptm)}, max ipSAE ≥ ${fmt(st['.95'].ipsae_max)}. Among ${complete.length} complete contestants, ${complete.filter(r=>r.sensitivity['.85']===data.antigens.length).length} / ${complete.filter(r=>r.count===data.antigens.length).length} / ${complete.filter(r=>r.sensitivity['.95']===data.antigens.length).length} meet the screen in all ${data.antigens.length} states at the 85% / 90% / 95% margins.`;
     const red=data.rankings[engine].red.slice().sort((a,b)=>Number(a.reference)-Number(b.reference)||(a.rank??Infinity)-(b.rank??Infinity)||data.antigens.findIndex(s=>s.id===a.id)-data.antigens.findIndex(s=>s.id===b.id));
     $('#arena-red-rows').innerHTML=red.map(r=>`<tr><td>${r.rank??'—'}</td><td>${esc(r.id)}${r.reference?'<span class="arena-arm">'+(data.antigens.find(s=>s.id===r.id)?.contrast?'Contrast antigen':r.id==='WT'?'WT baseline':'Control antigen')+'</span>':''}</td><td class="numeric">${r.count===null?'—':`${r.count} / ${r.panel_size}`}</td><td class="numeric">${r.score===null?'—':fmt(r.score,1)+'%'}</td><td>${r.evaluable}/${r.panel_size}${r.pending?`<span class="arena-arm">${r.pending} pending</span>`:''}${r.failed?`<span class="arena-arm failed-result">${r.failed} technical failures</span>`:''}</td></tr>`).join('');
-    const panel=data.rankings[engine];$('#arena-red-note').textContent=panel.wt_complete?`Fixed ${names[engine]} WT panel: ${panel.wt_panel.length} of 23 contestants have C ≥ 50. ${panel.wt_panel.length?'Only complete matched panels can be ranked.':'No contestants qualify; no escape ranks are assigned.'} ${cohort==='rational'?'Frozen from the original benchmark; Q38A and N42D are unranked contrasts. Fast Q25A/F14A/N31D and Boltz F14A/N31D are evaluable; remaining challenge outcomes are unknown.':'P33S observations are shown without a competitive rank.'}`:'Waiting for all 23 contestant WT scores before defining the fixed panel. Partial Boltz coverage cannot produce a Red rank.';
+    const panel=data.rankings[engine];$('#arena-red-note').textContent=panel.wt_complete?`Fixed ${names[engine]} WT panel: ${panel.wt_panel.length} of 23 contestants have C ≥ 50. ${panel.wt_panel.length?'Only complete matched panels can be ranked.':'No contestants qualify; no escape ranks are assigned.'} ${cohort==='rational'?'Frozen from the original benchmark; Q38A and N42D are unranked contrasts. Fast Q25A/F14A/N31D/E12Q and Boltz F14A/N31D/E12Q are evaluable; remaining challenge outcomes are unknown.':'P33S observations are shown without a competitive rank.'}`:'Waiting for all 23 contestant WT scores before defining the fixed panel. Partial Boltz coverage cannot produce a Red rank.';
     renderMatrix();renderPhysicsTable();renderRationalPhysics();
     document.querySelectorAll('#arena [data-open]').forEach(b=>b.onclick=()=>{binder=b.dataset.open;antigen=scope==='overall'?data.antigens[0].id:scope;void selectComplex(true);});
   }
@@ -176,12 +176,13 @@
   function renderRationalPhysics(){
     const panel=$('#rational-physics-panel');panel.hidden=cohort!=='rational';
     if(cohort!=='rational')return;
-    const accepted=data.cells.filter(c=>c.physics?.status==='accepted').sort((a,b)=>Number(!a.approved_contestant)-Number(!b.approved_contestant)||a.binder.localeCompare(b.binder));
-    $('#rational-physics-count').textContent=`${accepted.length} accepted Boltz F14A physics results`;
+    const selected=$('#rational-physics-antigen').value;
+    const accepted=data.cells.filter(c=>c.physics?.status==='accepted'&&c.antigen===selected).sort((a,b)=>Number(!a.approved_contestant)-Number(!b.approved_contestant)||a.binder.localeCompare(b.binder));
+    $('#rational-physics-count').textContent=`${accepted.length} accepted Boltz ${selected} physics results · 50 total`;
     $('#rational-physics-rows').innerHTML=accepted.map(c=>{
       const m=data.members.find(m=>m.id===c.binder);return `<tr><td><button class="binder-link" data-rational-physics="${esc(c.binder)}">${esc(c.binder)}</button><span class="arena-arm">${m.control?'Reference control · excluded from ranks':'Approved contestant'}</span></td>${['interface_dG_REU','interface_dSASA_angstrom2','interface_hbonds','interface_sc','interface_packstat'].map(k=>`<td class="numeric">${fmt(c.physics.metrics[k].value,k==='interface_hbonds'?0:k==='interface_dSASA_angstrom2'?1:3)}</td>`).join('')}</tr>`;
     }).join('');
-    document.querySelectorAll('[data-rational-physics]').forEach(b=>b.onclick=()=>{engine='boltz';binder=b.dataset.rationalPhysics;antigen='F14A';origin='relaxed';render();void selectComplex(true);});
+    document.querySelectorAll('[data-rational-physics]').forEach(b=>b.onclick=()=>{engine='boltz';binder=b.dataset.rationalPhysics;antigen=selected;origin='relaxed';render();void selectComplex(true);});
   }
   function renderPairEvidence(c){
     const member=data.members.find(m=>m.id===binder),p=c?.physics,wt=getWT(binder);
@@ -239,7 +240,7 @@
     document.querySelectorAll('[data-engine]').forEach(b=>b.onclick=()=>{engine=b.dataset.engine;chooseTop();render();void selectComplex();});
     document.querySelectorAll('[data-blue-mode]').forEach(b=>b.onclick=()=>{blueMode=b.dataset.blueMode;chooseTop();render();void selectComplex();});
     $('#arena-scope').onchange=e=>{scope=e.target.value;chooseTop();render();void selectComplex();};$('#heatmap-metric').onchange=e=>{metric=e.target.value;renderMatrix();};
-    $('#physics-antigen').onchange=renderPhysicsTable;$('#complex-origin').onchange=e=>{origin=e.target.value;void selectComplex();};
+    $('#rational-physics-antigen').onchange=renderRationalPhysics;$('#physics-antigen').onchange=renderPhysicsTable;$('#complex-origin').onchange=e=>{origin=e.target.value;void selectComplex();};
     $('#complex-binder').onchange=e=>{binder=e.target.value;void selectComplex();};$('#complex-antigen').onchange=e=>{antigen=e.target.value;void selectComplex();};
     $('#structure-reset').onclick=()=>{viewer?.zoomTo();viewer?.render();};$('#structure-sticks').onchange=()=>applyStyle();$('#structure-ribbons').onchange=()=>applyStyle();
     $('#mutation-highlight').onchange=()=>applyStyle(true);
