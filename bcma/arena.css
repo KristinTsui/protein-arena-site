@@ -13,3 +13,5 @@
 
 /* Separate reviewed rational cohort; preserve the literature benchmark layout. */
 .cohort-picker{padding:22px;margin-bottom:18px}.cohort-picker label{display:flex;gap:16px;align-items:center;font-weight:600}.cohort-picker select{max-width:100%;padding:10px;border-radius:8px;background:#142638;color:#edf7fb;border:1px solid #365064}.cohort-picker p{margin:12px 0 0}.rational-matrix{min-width:1120px}.pair-cell.technical-failure{background:#35232c;border:1px solid #ff8490;color:#ffc0c8;font-size:11px}.arena-red-table .arena-arm{white-space:normal}.pair-matrix th small{display:block;color:#afbdcf}#rational-pair-evidence{overflow-wrap:anywhere}.cohort-picker [hidden]{display:none}@media(max-width:600px){.cohort-picker label{align-items:stretch;flex-direction:column}.cohort-picker{padding:16px}.arena-red-table{min-width:440px}}
+
+.pair-cell.common-unavailable{background:#302c23;border:1px solid #d6af64;color:#f2d499;font-size:10px;line-height:1.3}

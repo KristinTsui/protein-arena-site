@@ -95,7 +95,7 @@ All frozen policies and nomination information boundaries remain unchanged. Fast
 N31D is the rational cohort's initial antigen view. The expanded raw physics table shows all 23 contestants and two labelled binding controls for F14A, with original/relaxed viewing and exact implementation provenance. The default site entry remains the literature cohort. The --incremental-n31d-f14a importer option requires the exact prior F14A snapshot and the approved new bundle. Its bounded 50-score/21-physics/11-null change was independently reviewed. No new molecular computation or later private campaign result was introduced; this is not campaign completion.
 
 
-## E12Q scores and completed N31D physics · 23 October 2026
+## E12Q scores and completed N31D physics · historical snapshot
 
 This frozen partial release adds 50 E12Q scores (25 Fast and 25 Boltz) and 25 N31D Boltz physics records. The 400 rational engine cells contain 175 scored (100 Fast/75 Boltz), 36 reviewed missing-original Boltz nulls and 189 pending. Exactly 50 physics results are accepted: 25 F14A and 25 N31D. No E12Q physics is included. All 200 Fast physics rows remain not applicable; Boltz has 50 accepted, 36 not-evaluable with zero attempts and 114 pending.
 
@@ -104,3 +104,16 @@ The 75 added assets comprise 50 original E12Q CIFs and 25 N31D relaxed PDB displ
 Frozen policies, controls, nomination boundaries and WT panels are unchanged. Fast E12Q has 2/12 provisional confidence-loss signals (rank 2); Boltz E12Q has 0/12 (tied rank 2 with N31D). These are model-score heuristics, not biological escape. Eight-state Blue overall ranks remain unavailable. WT physics reference remains 22 accepted / 23 required, so no physics percentiles, combined ranks or weight reallocation are permitted.
 
 E12Q is the rational cohort's initial antigen view. A separate physics antigen selector displays F14A or N31D, 25 rows each, with controls labelled and original/relaxed provenance retained. The default site entry remains the literature benchmark. The --incremental-e12q-n31d importer requires the exact preceding snapshot and approved bundle. Independent importer review and desktop/mobile checks bind this release. No later private results are included; this is not campaign completion.
+
+
+## Y40F structures and E12Q / Y40F physics · 23 October 2026
+
+Frozen partial release: 400 engine-pair rows, 200 common-scored (100 per engine), 25 Fast Y40F retained predictions with common scoring technically unavailable, 36 missing-original Boltz rows, and 139 pending. Physics: 83 accepted (25 each F14A, N31D, E12Q; 8 Y40F), 36 missing-original with zero downstream attempts, 81 pending Boltz and 200 Fast not applicable. Later results, including later Y40F physics and S29T scoring outcomes, are excluded.
+
+Fast Y40F original predictions are available to view and download. Their common ipSAE metrics are null because runtime verification failed before scorer import or the scoring loop. Native ipTM/pTM are separately null because they have not been projected into this snapshot. These structures have exact retained coordinate hashes, A=binder/B=target maps and retention/failure review pins, but no score-file or scored-coordinate hashes. They receive no confidence, retention verdict, score rank or escape signal. Missing predictions, unavailable common scores, pending results and valid zero remain distinct.
+
+The 83 added assets total 11,715,566 bytes: 25 Boltz Y40F originals, 25 retained/unscored Fast Y40F originals, 25 E12Q relaxed displays and 8 Y40F relaxed displays. All 225 prior rational asset objects/files and 373 original literature assets remain unchanged. Rational total: 308 assets. The 33 new relaxed displays preserve source/public hashes and the independently reviewed 66 delimiter metadata line redactions; all other bytes remain unchanged. Raw manifests are downloadable under rational/release_y40f_e12q_200_83/. Private reviews are excluded.
+
+All frozen scoring, retention, WT-panel, control, contrast, nomination and denominator policies remain unchanged. Fast Y40F has zero evaluable WT-panel members and 12 unavailable common scores, so its Red result is unknown and unranked. Boltz Y40F is 0/12 provisional confidence-loss signals, tied rank 2. This is not biological escape evidence. Eight-state overall Blue and combined physics/confidence ranks remain unavailable. The WT physics reference remains 22 accepted / 23 required, without reduced-cohort percentiles or weight reallocation.
+
+Y40F is the rational cohort's initial view. Retained unscored originals are marked amber in the matrix, with explicit missing-score provenance in the viewer. The physics antigen selector includes all four states with admitted physics. Default site entry remains the literature benchmark. The exact --incremental-y40f-e12q importer exception was independently reviewed; site integration performs no molecular computation or native scalar projection. This is not campaign completion.
